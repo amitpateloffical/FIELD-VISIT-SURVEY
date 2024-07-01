@@ -8,6 +8,9 @@
         header {
             display: none;
         }
+        .textarea-margin{
+            margin-bottom: 20px;
+        }
     </style>
 
     <div class="form-field-head">
@@ -17,7 +20,7 @@
         <div class="division-bar">
             <strong>Site Division/Project</strong> :
             {{ Helpers::getDivisionName(session()->get('division')) }}
-            /  FIELD VISIT SURVEY
+            / Field Visit Survey
         </div>
     </div>
 
@@ -72,9 +75,8 @@
                                     <div class="group-input">
                                         <label for="Division Code">Site/Location Code</label>
                                         <input readonly type="text" name="division_code"
-                                            value="{{ Helpers::getDivisionName(session()->get('division')) }}">
-                                        <input type="hidden" name="division_id" value="{{ session()->get('division') }}">
-                                        {{-- <div class="static">QMS-North America</div> --}}
+                                        value="{{ Helpers::getDivisionName(session()->get('division')) }}">
+                                    <input type="hidden" name="division_code" value="{{ session()->get('division') }}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -109,9 +111,6 @@
                                         {{-- <input type="hidden" value="{{ date('Y-m-d') }}" name="intiation_date"> --}}
                                     </div>
                                 </div>
-
-
-
 
                                 <div class="col-md-6">
                                     <div class="group-input">
@@ -207,10 +206,11 @@
                                     </div>
                                 </div>
 
-
-                                <div class="group-input">
-                                    <label class="mt-4" for="EXACT STORE ADDRESS">Exact Store Address</label>
-                                    <textarea class="summernote" name="exact_address" id="summernote-16"></textarea>
+                                <div class="col-lg-12">
+                                    <div class="group-input textarea-margin">
+                                        <label class="mt-" for="EXACT STORE ADDRESS">Exact Store Address</label>
+                                        <textarea  class="summernote" name="exact_address" id="summernote-16"></textarea>
+                                    </div>
                                 </div>
                             </div>
 
@@ -239,37 +239,32 @@
 
                     <!-- -----------Tab-2------------ -->
                     <div id="CCForm2" class="inner-block cctabcontent">
-                            <div class="inner-block-content">
-                                <div class="row">
-
-
-                                    <div class="col-12">
-                                        <div class="group-input">
-                                            <label for="PAGE SECTION">
-                                                PAGE SECTION <span class="text-danger"></span>
-                                            </label>
-                                            <select id="select-state" placeholder="Select..." name="page_section">
-                                                <option value="">Select a value</option>
-                                                <option value="AMBIENCE">AMBIENCE</option>
-                                                <option value="STAFF OBSERVATION">STAFF OBSERVATION</option>
-                                                <option value="SALE / MARKETING STRATEGY">SALE / MARKETING STRATEGY</option>
-                                                <option value="PRODUCT OBSERVATION">PRODUCT OBSERVATION</option>
-                                                <option value="VM & SPACE MANAGEMENT">VM & SPACE MANAGEMENT</option>
-                                                <option value="BRANDING">BRANDING</option>
-                                                <option value="TRIAL ROOMS">TRIAL ROOMS</option>
-
-                                            </select>
-                                        </div>
+                        <div class="inner-block-content">
+                            <div class="row">
+                    
+                                {{-- <div class="col-12">
+                                    <div class="group-input">
+                                        <label for="PAGE SECTION">
+                                            Page Section <span class="text-danger"></span>
+                                        </label>
+                                        <select id="select-state" placeholder="Select..." name="page_section">
+                                            <option value="">Select a value</option>
+                                            <option value="AMBIENCE">Ambience</option>
+                                            <option value="STAFF OBSERVATION">Staff Observation</option>
+                                            <option value="SALE / MARKETING STRATEGY">Sale / Marketing Strategy</option>
+                                            <option value="PRODUCT OBSERVATION">Product Observation</option>
+                                            <option value="VM & SPACE MANAGEMENT">VM & Space Management</option>
+                                            <option value="BRANDING">Branding</option>
+                                            <option value="TRIAL ROOMS">Trial Rooms</option>
+                                        </select>
                                     </div>
-
-
+                                </div> --}}
+                    
                                 <div class="col-lg-12">
                                     <div class="group-input">
-                                        <label for="QA Attachment">PHOTOS (STORE FROM OUTSIDE, RACKS, WINDOW DISPLAY, OVERALL VM)
+                                        <label for="QA Attachment">Photos (Store From Outside, Racks, Window Display, Overall VM)
                                         </label>
-                                        <div><small class="text-primary">
-                                            </small>
-                                        </div>
+                                        <div><small class="text-primary"></small></div>
                                         <div class="file-attachment-field">
                                             <div class="file-attachment-list" id="QA_Attachments"></div>
                                             <div class="add-btn">
@@ -280,11 +275,11 @@
                                         </div>
                                     </div>
                                 </div>
-
+                    
                                 <div class="col-md-6">
                                     <div class="group-input">
-                                        <label for="OVERALL STORE LIGHTING">
-                                            OVERALL STORE LIGHTING <span class="text-danger"></span>
+                                        <label for="Overall Store Lighting">
+                                            Overall Store Lighting <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="store_lighting">
                                             <option value="">Select a value</option>
@@ -293,15 +288,14 @@
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
-
                                         </select>
                                     </div>
                                 </div>
-
+                    
                                 <div class="col-md-6">
                                     <div class="group-input">
-                                        <label for="OVERALL STORE LIGHTING">
-                                            LIGHTING ON PRODUCTS / BROWSER LIGHTING <span class="text-danger"></span>
+                                        <label for="Lighting On Products / Browser Lighting">
+                                            Lighting On Products / Browser Lighting <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="lighting_products">
                                             <option value="">Select a value</option>
@@ -310,15 +304,14 @@
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
-
                                         </select>
                                     </div>
                                 </div>
-
+                    
                                 <div class="col-md-6">
                                     <div class="group-input">
-                                        <label for="OVERALL STORE LIGHTING">
-                                            OVERALL STORE VIBE <span class="text-danger"></span>
+                                        <label for="Overall Store Vibe">
+                                            Overall Store Vibe <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="store_vibe">
                                             <option value="">Select a value</option>
@@ -327,15 +320,14 @@
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
-
                                         </select>
                                     </div>
                                 </div>
-
+                    
                                 <div class="col-md-6">
                                     <div class="group-input">
-                                        <label for="OVERALL STORE LIGHTING">
-                                            FRAGRANCE IN STORE <span class="text-danger"></span>
+                                        <label for="Fragrance In Store">
+                                            Fragrance In Store <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="fragrance_in_store">
                                             <option value="">Select a value</option>
@@ -344,15 +336,14 @@
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
-
                                         </select>
                                     </div>
                                 </div>
-
+                    
                                 <div class="col-md-6">
                                     <div class="group-input">
-                                        <label for="OVERALL STORE LIGHTING">
-                                            MUSIC INSIDE STORE? <span class="text-danger"></span>
+                                        <label for="Music Inside Store?">
+                                            Music Inside Store? <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="music_inside_store">
                                             <option value="">Select a value</option>
@@ -361,15 +352,14 @@
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
-
                                         </select>
                                     </div>
                                 </div>
-
+                    
                                 <div class="col-md-6">
                                     <div class="group-input">
-                                        <label for="OVERALL STORE LIGHTING">
-                                            SPACE UTILIZATION <span class="text-danger"></span>
+                                        <label for="Space Utilization">
+                                            Space Utilization <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="space_utilization">
                                             <option value="">Select a value</option>
@@ -378,15 +368,14 @@
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
-
                                         </select>
                                     </div>
                                 </div>
-
+                    
                                 <div class="col-md-6">
                                     <div class="group-input">
-                                        <label for="OVERALL STORE LIGHTING">
-                                            STORE LAYOUT <span class="text-danger"></span>
+                                        <label for="Store Layout">
+                                            Store Layout <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="store_layout">
                                             <option value="">Select a value</option>
@@ -395,15 +384,14 @@
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
-
                                         </select>
                                     </div>
                                 </div>
-
+                    
                                 <div class="col-md-6">
                                     <div class="group-input">
-                                        <label for="OVERALL STORE LIGHTING">
-                                            THE STORE IS OF HOW MANY FLOORS? <span class="text-danger"></span>
+                                        <label for="The Store Is Of How Many Floors?">
+                                            The Store Is Of How Many Floors? <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="floors">
                                             <option value="">Select a value</option>
@@ -412,15 +400,14 @@
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
-
                                         </select>
                                     </div>
                                 </div>
-
+                    
                                 <div class="col-md-6">
                                     <div class="group-input">
-                                        <label for="OVERALL STORE LIGHTING">
-                                            AC & VENTILATION <span class="text-danger"></span>
+                                        <label for="AC & Ventilation">
+                                            AC & Ventilation <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="ac">
                                             <option value="">Select a value</option>
@@ -429,15 +416,14 @@
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
-
                                         </select>
                                     </div>
                                 </div>
-
+                    
                                 <div class="col-md-6">
                                     <div class="group-input">
-                                        <label for="OVERALL STORE LIGHTING">
-                                            MANNEQUIN DISPLAY <span class="text-danger"></span>
+                                        <label for="Mannequin Display">
+                                            Mannequin Display <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="mannequin_display">
                                             <option value="">Select a value</option>
@@ -446,15 +432,14 @@
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
-
                                         </select>
                                     </div>
                                 </div>
-
+                    
                                 <div class="col-md-6">
                                     <div class="group-input">
-                                        <label for="OVERALL STORE LIGHTING">
-                                            SEATING AREA (INSIDE STORE) <span class="text-danger"></span>
+                                        <label for="Seating Area (Inside Store)">
+                                            Seating Area (Inside Store) <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="seating_area">
                                             <option value="">Select a value</option>
@@ -463,15 +448,14 @@
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
-
                                         </select>
                                     </div>
                                 </div>
-
-                                <div class="col-md-6">
+                    
+                                <div class="col-md-6 ">
                                     <div class="group-input">
-                                        <label for="OVERALL STORE LIGHTING">
-                                            PRODUCT VISIBILITY <span class="text-danger"></span>
+                                        <label for="Product Visibility">
+                                            Product Visibility <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="product_visiblity">
                                             <option value="">Select a value</option>
@@ -480,15 +464,14 @@
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
-
                                         </select>
                                     </div>
                                 </div>
-
+                    
                                 <div class="col-md-6">
                                     <div class="group-input">
-                                        <label for="OVERALL STORE LIGHTING">
-                                            STORE SIGNAGE AND GRAPHICS <span class="text-danger"></span>
+                                        <label for="Store Signage And Graphics">
+                                            Store Signage And Graphics <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="store_signage">
                                             <option value="">Select a value</option>
@@ -497,15 +480,14 @@
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
-
                                         </select>
                                     </div>
                                 </div>
-
+                    
                                 <div class="col-md-6">
                                     <div class="group-input">
-                                        <label for="OVERALL STORE LIGHTING">
-                                            DOES THE STORE HAVE INDEPENDENT WASHROOM ? <span class="text-danger"></span>
+                                        <label for="Does The Store Have Independent Washroom?">
+                                            Does The Store Have Independent Washroom? <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="independent_washroom">
                                             <option value="">Select a value</option>
@@ -514,30 +496,27 @@
                                             <option value="3">3</option>
                                             <option value="4">4</option>
                                             <option value="5">5</option>
-
                                         </select>
                                     </div>
                                 </div>
-
-                                <div class="group-input">
-                                    <label class="mt-4" for="ANY REMARKS">ANY REMARKS</label>
+                    
+                                <div  class="group-input textarea-margin">
+                                    <label class="mt-4" for="Any Remarks">Any Remarks</label>
                                     <p class="text-primary">Mention the flooring, curtains used, if any specific wallpaper / artistic objects are used to enhance the store vibe. Describe how the articles are kept on basis of the store (For eg., Left wall has kurtis in colour blocking, right wall has bottoms in another colour blocking, centre has accessories, end has trial rooms, cash counter has upselling items etc etc etc). </p>
                                     <textarea class="summernote" name="any_remarks" id="summernote-16"></textarea>
                                 </div>
                             </div>
-
-                                    <div class="button-block">
-                                        <button type="submit" class="saveButton">Save</button>
-                                        <button type="button" class="backButton" onclick="previousStep()">Back</button>
-                                        <button type="button" class="nextButton" onclick="nextStep()">Next</button>
-
-
-                                        <button type="button"> <a class="text-white"
-                                                href="{{ url('rcms/qms-dashboard') }}">Exit
-                                            </a> </button>
-                                    </div>
-                                </div>
+                    
+                            <div class="button-block">
+                                <button type="submit" class="saveButton">Save</button>
+                                <button type="button" class="backButton" onclick="previousStep()">Back</button>
+                                <button type="button" class="nextButton" onclick="nextStep()">Next</button>
+                                <button type="button"> <a class="text-white" href="{{ url('rcms/qms-dashboard') }}">Exit
+                                    </a> </button>
                             </div>
+                        </div>
+                    </div>
+                    
                         </div>
 
 
@@ -549,29 +528,28 @@
                 <div id="CCForm3" class="inner-block cctabcontent">
                     <div class="inner-block-content">
                         <div class="row">
-                            <div class="col-12">
+                            {{-- <div class="col-12">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        PAGE SECTION <span class="text-danger"></span>
+                                    <label for="Page Section">
+                                        Page Section <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="page_section1">
                                         <option value="">Select a value</option>
-                                        <option value="AMBIENCE">AMBIENCE</option>
-                                        <option value="STAFF OBSERVATION">STAFF OBSERVATION</option>
-                                        <option value="SALE / MARKETING STRATEGY">SALE / MARKETING STRATEGY</option>
-                                        <option value="PRODUCT OBSERVATION">PRODUCT OBSERVATION</option>
-                                        <option value="VM & SPACE MANAGEMENT">VM & SPACE MANAGEMENT</option>
-                                        <option value="BRANDING">BRANDING</option>
-                                        <option value="TRIAL ROOMS">TRIAL ROOMS</option>
-
+                                        <option value="AMBIENCE">Ambience</option>
+                                        <option value="STAFF OBSERVATION">Staff Observation</option>
+                                        <option value="SALE / MARKETING STRATEGY">Sale / Marketing Strategy</option>
+                                        <option value="PRODUCT OBSERVATION">Product Observation</option>
+                                        <option value="VM & SPACE MANAGEMENT">VM & Space Management</option>
+                                        <option value="BRANDING">Branding</option>
+                                        <option value="TRIAL ROOMS">Trial Rooms</option>
                                     </select>
                                 </div>
-                            </div>
-
+                            </div> --}}
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        STAFF BEHAVIOR ( INITIAL STAFF BEHAVIOUR) <span class="text-danger"></span>
+                                    <label for="Staff Behavior (Initial Staff Behaviour)">
+                                        Staff Behavior (Initial Staff Behaviour) <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="staff_behaviour">
                                         <option value="">Select a value</option>
@@ -580,15 +558,14 @@
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        WELL GROOMED <span class="text-danger"></span>
+                                    <label for="Well Groomed">
+                                        Well Groomed <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="well_groomed">
                                         <option value="">Select a value</option>
@@ -597,75 +574,69 @@
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        STANDARD STAFF UNIFORM <span class="text-danger"></span>
+                                    <label for="Standard Staff Uniform">
+                                        Standard Staff Uniform <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="standard_staff_uniform">
                                         <option value="">Select a value</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
-
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        TRIAL ROOM ASSISTANCE <span class="text-danger"></span>
+                                    <label for="Trial Room Assistance">
+                                        Trial Room Assistance <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="trial_room_assistance">
                                         <option value="">Select a value</option>
-                                        <option value="YES">YES</option>
-                                        <option value="NO">NO</option>
-
+                                        <option value="YES">Yes</option>
+                                        <option value="NO">No</option>
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        NO. OF CUSTOMER AT THE STORE CURRENTLY ? <span class="text-danger"></span>
+                                    <label for="No. Of Customer At The Store Currently?">
+                                        No. Of Customer At The Store Currently? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="number_customer">
                                         <option value="">Select a value</option>
                                         <option value="0-2">0-2</option>
                                         <option value="2-5">2-5</option>
                                         <option value="5-7">5-7</option>
-                                        <option value="ABOVE 7">ABOVE 7</option>
-
+                                        <option value="ABOVE 7">Above 7</option>
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        IS THE STAFF ABLE TO HANDLE THE CUSTOMER ? <span class="text-danger"></span>
+                                    <label for="Is The Staff Able To Handle The Customer?">
+                                        Is The Staff Able To Handle The Customer? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="handel_customer">
                                         <option value="">Select a value</option>
-                                        <option value="YES">YES</option>
-                                        <option value="NO">NO</option>
-                                        <option value="NO CUSTOMER SEEN">NO CUSTOMER SEEN</option>
-
-
+                                        <option value="YES">Yes</option>
+                                        <option value="NO">No</option>
+                                        <option value="NO CUSTOMER SEEN">No Customer Seen</option>
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        KNOWLEDGE OF MERCHANDISE <span class="text-danger"></span>
+                                    <label for="Knowledge Of Merchandise">
+                                        Knowledge Of Merchandise <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="knowledge_of_merchandise">
                                         <option value="">Select a value</option>
@@ -674,15 +645,14 @@
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        AWARENESS OF BRAND / OFFERS / IN GENERAL <span class="text-danger"></span>
+                                    <label for="Awareness Of Brand / Offers / In General">
+                                        Awareness Of Brand / Offers / In General <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="awareness_of_brand">
                                         <option value="">Select a value</option>
@@ -691,15 +661,14 @@
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        PROACTIVE <span class="text-danger"></span>
+                                    <label for="Proactive">
+                                        Proactive <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="proactive">
                                         <option value="">Select a value</option>
@@ -708,15 +677,14 @@
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        OVERALL CUSTOMER SATISFACTION (STAFF BEHAVIOR TOWARDS CUSTOMER/YOU) <span class="text-danger"></span>
+                                    <label for="Overall Customer Satisfaction (Staff Behavior Towards Customer/You)">
+                                        Overall Customer Satisfaction (Staff Behavior Towards Customer/You) <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="customer_satisfaction">
                                         <option value="">Select a value</option>
@@ -725,15 +693,14 @@
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        BILLING COUNTER EXPERIENCE <span class="text-danger"></span>
+                                    <label for="Billing Counter Experience">
+                                        Billing Counter Experience <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="billing_counter_experience">
                                         <option value="">Select a value</option>
@@ -742,154 +709,142 @@
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-
                                     </select>
                                 </div>
                             </div>
-
-                            <div class="group-input">
-                                <label class="mt-4" for="ANY REMARKS">ANY REMARKS ON STAFF OBSERVATION?</label>
-                                <p class="text-primary">Describe the staff uniform and anything that requires to be noted down related to the store staff. </p>
+                
+                            <div class="group-input textarea-margin">
+                                <label class="mt-4" for="Any Remarks On Staff Observation?">Any Remarks On Staff Observation?</label>
+                                <p class="text-primary">Describe the staff uniform and anything that requires to be noted down related to the store staff.</p>
                                 <textarea class="summernote" name="remarks_on_staff_observation" id="summernote-16"></textarea>
                             </div>
                         </div>
-
-
-                            <div class="button-block">
-                                <button type="submit" class="saveButton">Save</button>
-                                <button type="button" class="backButton" onclick="previousStep()">Back</button>
-                                <button type="button" class="nextButton" onclick="nextStep()">Next</button>
-
-
-                                <button type="button"> <a class="text-white"
-                                        href="{{ url('rcms/qms-dashboard') }}">Exit
-                                    </a> </button>
-                            </div>
+                
+                        <div class="button-block">
+                            <button type="submit" class="saveButton">Save</button>
+                            <button type="button" class="backButton" onclick="previousStep()">Back</button>
+                            <button type="button" class="nextButton" onclick="nextStep()">Next</button>
+                            <button type="button"> <a class="text-white" href="{{ url('rcms/qms-dashboard') }}">Exit</a> </button>
                         </div>
                     </div>
+                </div>
+                
                 {{-- </div> --}}
                 <!-- -----------Tab-4------------ -->
 
                 <div id="CCForm4" class="inner-block cctabcontent">
                     <div class="inner-block-content">
                         <div class="row">
-
-                            <div class="col-12">
+                
+                            {{-- <div class="col-12">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        PAGE SECTION <span class="text-danger"></span>
+                                    <label for="Page Section">
+                                        Page Section <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="page_sacetion_2">
                                         <option value="">Select a value</option>
-                                        <option value="AMBIENCE">AMBIENCE</option>
-                                        <option value="STAFF OBSERVATION">STAFF OBSERVATION</option>
-                                        <option value="SALE / MARKETING STRATEGY">SALE / MARKETING STRATEGY</option>
-                                        <option value="PRODUCT OBSERVATION">PRODUCT OBSERVATION</option>
-                                        <option value="VM & SPACE MANAGEMENT">VM & SPACE MANAGEMENT</option>
-                                        <option value="BRANDING">BRANDING</option>
-                                        <option value="TRIAL ROOMS">TRIAL ROOMS</option>
-
+                                        <option value="AMBIENCE">Ambience</option>
+                                        <option value="STAFF OBSERVATION">Staff Observation</option>
+                                        <option value="SALE / MARKETING STRATEGY">Sale / Marketing Strategy</option>
+                                        <option value="PRODUCT OBSERVATION">Product Observation</option>
+                                        <option value="VM & SPACE MANAGEMENT">VM & Space Management</option>
+                                        <option value="BRANDING">Branding</option>
+                                        <option value="TRIAL ROOMS">Trial Rooms</option>
                                     </select>
                                 </div>
-                            </div>
-
+                            </div> --}}
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        IS THE STORE CURRENTLY RUNNING ANY OFFERS OR DISCOUNTS? <span class="text-danger"></span>
+                                    <label for="Is The Store Currently Running Any Offers Or Discounts?">
+                                        Is The Store Currently Running Any Offers Or Discounts? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="any_offers">
                                         <option value="">Select a value</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
-
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        CURRENT OFFER IN THE OVERALL STORE? <span class="text-danger"></span>
+                                    <label for="Current Offer In The Overall Store?">
+                                        Current Offer In The Overall Store? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="current_offer">
                                         <option value="">Select a value</option>
-                                        <option value="UPTO 20% - 30% OFF">UPTO 20% - 30% OFF</option>
-                                        <option value="UPTO 50% - 70% OFF">UPTO 50% - 70% OFF</option>
-                                        <option value="FLAT 20% - 30% OFF">FLAT 20% - 30% OFF</option>
-                                        <option value="FLAT 50% - 70% OFF">FLAT 50% - 70% OFF</option>
-                                        <option value="BUY TO GET">BUY TO GET</option>
-                                        <option value="OTHER">OTHER</option>
-                                        <option value="NONE">NONE</option>
-
+                                        <option value="UPTO 20% - 30% OFF">Upto 20% - 30% Off</option>
+                                        <option value="UPTO 50% - 70% OFF">Upto 50% - 70% Off</option>
+                                        <option value="FLAT 20% - 30% OFF">Flat 20% - 30% Off</option>
+                                        <option value="FLAT 50% - 70% OFF">Flat 50% - 70% Off</option>
+                                        <option value="BUY TO GET">Buy To Get</option>
+                                        <option value="OTHER">Other</option>
+                                        <option value="NONE">None</option>
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        RETURN/ EXCHNAGE POLICY <span class="text-danger"></span>
+                                    <label for="Return/ Exchange Policy">
+                                        Return/ Exchange Policy <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="exchange_policy">
                                         <option value="">Select a value</option>
-                                        <option value="ONLY EXCHANGE">ONLY EXCHANGE</option>
-                                        <option value="EXCHANGE OR RETURN">EXCHANGE OR RETURN</option>
-                                        <option value="NO EXCHANGE NO RETURN">NO EXCHANGE NO RETURN</option>
-
+                                        <option value="ONLY EXCHANGE">Only Exchange</option>
+                                        <option value="EXCHANGE OR RETURN">Exchange Or Return</option>
+                                        <option value="NO EXCHANGE NO RETURN">No Exchange No Return</option>
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        PERSONAL OCCASION DISCOUNT OFFERED? <span class="text-danger"></span>
+                                    <label for="Personal Occasion Discount Offered?">
+                                        Personal Occasion Discount Offered? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="discount_offer">
                                         <option value="">Select a value</option>
-                                        <option value="BIRTHDAY DISCOUNT">BIRTHDAY DISCOUNT</option>
-                                        <option value="ANNIVERSARY DISCOUNT">ANNIVERSARY DISCOUNT</option>
-                                        <option value="OTHER OCASSION">OTHER OCASSION</option>
-                                        <option value="PREMIUM MEMBER DISCOUNT">PREMIUM MEMBER DISCOUNT</option>
-                                        <option value="NONE">NONE</option>
-
+                                        <option value="BIRTHDAY DISCOUNT">Birthday Discount</option>
+                                        <option value="ANNIVERSARY DISCOUNT">Anniversary Discount</option>
+                                        <option value="OTHER OCCASION">Other Occasion</option>
+                                        <option value="PREMIUM MEMBER DISCOUNT">Premium Member Discount</option>
+                                        <option value="NONE">None</option>
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        REWARD POINT GIVEN? <span class="text-danger"></span>
+                                    <label for="Reward Point Given?">
+                                        Reward Point Given? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="reward_point_given">
                                         <option value="">Select a value</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
-
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        USE OF INFLUENCER/ BRAND MARKETING <span class="text-danger"></span>
+                                    <label for="Use Of Influencer/ Brand Marketing">
+                                        Use Of Influencer/ Brand Marketing <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="use_of_influencer">
                                         <option value="">Select a value</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
-
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        AGE GROUP OF CUSTOMERS CURRENTLY SEEN AT THE STORE <span class="text-danger"></span>
+                                    <label for="Age Group Of Customers Currently Seen At The Store">
+                                        Age Group Of Customers Currently Seen At The Store <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="age_group_of_customer">
                                         <option value="">Select a value</option>
@@ -897,108 +852,95 @@
                                         <option value="25-35">25-35</option>
                                         <option value="35-45">35-45</option>
                                         <option value="Above 45">Above 45</option>
-                                        <option value="NO CUSTOMERS SEEN">NO CUSTOMERS SEEN</option>
-
+                                        <option value="NO CUSTOMERS SEEN">No Customers Seen</option>
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        ALTERATION FACILITY IN STORE <span class="text-danger"></span>
+                                    <label for="Alteration Facility In Store">
+                                        Alteration Facility In Store <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="alteration_facility_in_store">
                                         <option value="">Select a value</option>
-                                        <option value="AVAILABLE">AVAILABLE</option>
-                                        <option value="NOT AVAILABLE">NOT AVAILABLE</option>
-
+                                        <option value="AVAILABLE">Available</option>
+                                        <option value="NOT AVAILABLE">Not Available</option>
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="group-input">
-                                <label class="mt-4" for="ANY REMARKS">ANY REMARKS SALE / MARKETING STRATEGY?</label>
-                                <p class="text-primary">Mention the offers if any. Also mention reward points rule. Describe if you feel anything is out of the box about marketing and sales strategy observed in this brand. Mention exchange days/deadline. </p>
+                                <label class="mt-4" for="Any Remarks Sale / Marketing Strategy?">Any Remarks Sale / Marketing Strategy?</label>
+                                <p class="text-primary">Mention the offers if any. Also mention reward points rule. Describe if you feel anything is out of the box about marketing and sales strategy observed in this brand. Mention exchange days/deadline.</p>
                                 <textarea class="summernote" name="any_remarks_sale" id="summernote-16"></textarea>
                             </div>
                         </div>
-
-
-
-                            <div class="button-block">
-                                <button type="submit" class="saveButton">Save</button>
-                                <button type="button" class="backButton" onclick="previousStep()">Back</button>
-                                <button type="button" class="nextButton" onclick="nextStep()">Next</button>
-
-
-                                <button type="button"> <a class="text-white"
-                                        href="{{ url('rcms/qms-dashboard') }}">Exit
-                                    </a> </button>
-                            </div>
+                
+                        <div class="button-block">
+                            <button type="submit" class="saveButton">Save</button>
+                            <button type="button" class="backButton" onclick="previousStep()">Back</button>
+                            <button type="button" class="nextButton" onclick="nextStep()">Next</button>
+                            <button type="button"> <a class="text-white" href="{{ url('rcms/qms-dashboard') }}">Exit</a> </button>
                         </div>
                     </div>
+                </div>
+                
 
                 <!-- -----------Tab-5------------ -->
                 <div id="CCForm5" class="inner-block cctabcontent">
                     <div class="inner-block-content">
                         <div class="row">
-
-                            <div class="col-12">
+                
+                            {{-- <div class="col-12">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        PAGE SECTION <span class="text-danger"></span>
+                                    <label for="Page Section">
+                                        Page Section <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="page_section_3">
                                         <option value="">Select a value</option>
-                                        <option value="AMBIENCE">AMBIENCE</option>
-                                        <option value="STAFF OBSERVATION">STAFF OBSERVATION</option>
-                                        <option value="SALE / MARKETING STRATEGY">SALE / MARKETING STRATEGY</option>
-                                        <option value="PRODUCT OBSERVATION">PRODUCT OBSERVATION</option>
-                                        <option value="BRANDING">BRANDING</option>
-                                        <option value="TRIAL ROOMS">TRIAL ROOMS</option>
-                                        <option value="VM & SPACE MANAGEMENT">VM & SPACE MANAGEMENT</option>
-
+                                        <option value="AMBIENCE">Ambience</option>
+                                        <option value="STAFF OBSERVATION">Staff Observation</option>
+                                        <option value="SALE / MARKETING STRATEGY">Sale / Marketing Strategy</option>
+                                        <option value="PRODUCT OBSERVATION">Product Observation</option>
+                                        <option value="BRANDING">Branding</option>
+                                        <option value="TRIAL ROOMS">Trial Rooms</option>
+                                        <option value="VM & SPACE MANAGEMENT">VM & Space Management</option>
                                     </select>
                                 </div>
-                            </div>
-
-
+                            </div> --}}
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        SUB-BRANDS OFFERED? <span class="text-danger"></span>
+                                    <label for="Sub-Brands Offered?">
+                                        Sub-Brands Offered? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="sub_brand_offered">
                                         <option value="">Select a value</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
-
                                     </select>
                                 </div>
                             </div>
-
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        COLOUR PALETTE OF THE ENTIRE STORE AT FIRST SIGHT <span class="text-danger"></span>
+                                    <label for="Colour Palette Of The Entire Store At First Sight">
+                                        Colour Palette Of The Entire Store At First Sight <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="colour_palette">
                                         <option value="">Select a value</option>
-                                        <option value="LIGHT/PASTEL">LIGHT/PASTEL</option>
-                                        <option value="DARK/DULL">DARK/DULL</option>
-                                        <option value="MIX EQUALLY">MIX EQUALLY</option>
-
+                                        <option value="LIGHT/PASTEL">Light/Pastel</option>
+                                        <option value="DARK/DULL">Dark/Dull</option>
+                                        <option value="MIX EQUALLY">Mix Equally</option>
                                     </select>
                                 </div>
                             </div>
-
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        NUMBER OF COLOURWAYS OFFERED IN MOST STYLES <span class="text-danger"></span>
+                                    <label for="Number Of Colourways Offered In Most Styles">
+                                        Number Of Colourways Offered In Most Styles <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="number_of_colourways">
                                         <option value="">Select a value</option>
@@ -1007,15 +949,14 @@
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        SIZE AVAILABILITY <span class="text-danger"></span>
+                                    <label for="Size Availability">
+                                        Size Availability <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="size_availiblity">
                                         <option value="">Select a value</option>
@@ -1029,18 +970,15 @@
                                         <option value="3XL">3XL</option>
                                         <option value="4XL">4XL</option>
                                         <option value="5XL">5XL</option>
-
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="group-input">
                                 <label for="audit-agenda-grid">
                                     Details
                                     <button type="button" name="details" id="Details1-add">+</button>
-                                    <span class="text-primary" data-bs-toggle="modal"
-                                        data-bs-target="#observation-field-instruction-modal"
-                                        style="font-size: 0.8rem; font-weight: 400; cursor: pointer;">
+                                    <span class="text-primary" data-bs-toggle="modal" data-bs-target="#observation-field-instruction-modal" style="font-size: 0.8rem; font-weight: 400; cursor: pointer;">
                                         Launch Deviation
                                     </span>
                                 </label>
@@ -1049,102 +987,92 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 2%">Row#</th>
-                                                <th style="width: 16%">CATEGORY</th>
-                                                <th style="width: 16%">PRICE</th>
+                                                <th style="width: 16%">Category</th>
+                                                <th style="width: 16%">Price</th>
                                                 <th style="width: 5%">Action</th>
-
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <td><input disabled type="text" name="details1[0][row]"
-                                                    value="1"></td>
+                                            <td><input disabled type="text" name="details1[0][row]" value="1"></td>
                                             <td><select type="text" name="details1[0][category]">
-                                            <option value="">--Select Category--</option>
-                                            <option value="SINGLE KURTA">SINGLE KURTA</option>
-                                            <option value="KURTA SETS">KURTA SETS</option>
-                                            <option value="SHIRTS / TUNICS">SHIRTS / TUNICS</option>
-                                            <option value="SHORT DRESSES">SHORT DRESSES</option>
-                                            <option value="LONG DRESSES">LONG DRESSES</option>
-                                            <option value="BOTTOMS">BOTTOMS</option>
-                                            <option value="INDO-WESTERN CO-ORD SET">INDO-WESTERN CO-ORD SET</option>
-                                            <option value="JUMPSUIT">JUMPSUIT</option>
-                                            <option value="DUPATTAS">DUPATTAS</option>
-                                            <option value="LEHENGA">LEHENGA</option>
-                                            <option value="SAREE">SAREE</option>
-                                            <option value="JACKETS & SHRUGS">JACKETS & SHRUGS</option>
-                                            <option value="DRESS MATERIAL">DRESS MATERIAL</option>
-                                            <option value="FOOTWEAR">FOOTWEAR</option>
-                                            <option value="JEWELLRY">JEWELLRY</option>
-                                            <option value="HANDBAGS">HANDBAGS</option>
-                                            <option value="FRAGRANCES">FRAGRANCES</option>
-                                            <option value="SHAWL/ STOLE / SCARVES">SHAWL/ STOLE / SCARVES</option>
-                                            <option value="NIGHT SUITS">NIGHT SUITS</option>
-                                            <option value="BELTS & WALLETS">BELTS & WALLETS</option>
+                                                <option value="">--Select Category--</option>
+                                                <option value="SINGLE KURTA">Single Kurta</option>
+                                                <option value="KURTA SETS">Kurta Sets</option>
+                                                <option value="SHIRTS / TUNICS">Shirts / Tunics</option>
+                                                <option value="SHORT DRESSES">Short Dresses</option>
+                                                <option value="LONG DRESSES">Long Dresses</option>
+                                                <option value="BOTTOMS">Bottoms</option>
+                                                <option value="INDO-WESTERN CO-ORD SET">Indo-Western Co-Ord Set</option>
+                                                <option value="JUMPSUIT">Jumpsuit</option>
+                                                <option value="DUPATTAS">Dupattas</option>
+                                                <option value="LEHENGA">Lehenga</option>
+                                                <option value="SAREE">Saree</option>
+                                                <option value="JACKETS & SHRUGS">Jackets & Shrugs</option>
+                                                <option value="DRESS MATERIAL">Dress Material</option>
+                                                <option value="FOOTWEAR">Footwear</option>
+                                                <option value="JEWELLRY">Jewellry</option>
+                                                <option value="HANDBAGS">Handbags</option>
+                                                <option value="FRAGRANCES">Fragrances</option>
+                                                <option value="SHAWL/ STOLE / SCARVES">Shawl/ Stole / Scarves</option>
+                                                <option value="NIGHT SUITS">Night Suits</option>
+                                                <option value="BELTS & WALLETS">Belts & Wallets</option>
                                             </select></td>
                                             <td><select type="text" name="details1[0][price]">
                                                     <option value="">--Select Price--</option>
-                                                    <option value="BELOW 500">BELOW 500</option>
+                                                    <option value="BELOW 500">Below 500</option>
                                                     <option value="500-2000">500-2000</option>
                                                     <option value="2100-5000">2100-5000</option>
                                                     <option value="5100-7000">5100-7000</option>
                                                     <option value="7100-9000">7100-9000</option>
                                                     <option value="9100-15000">9100-15000</option>
-                                                    <option value="15100 & ABOVE">15100 & ABOVE</option>
+                                                    <option value="15100 & ABOVE">15100 & Above</option>
                                                     <option value="N/A">N/A</option>
                                                 </select>
                                             </td>
                                             <td><button type="text" class="removeRowBtn">Remove</button></td>
                                         </tbody>
-
                                     </table>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        DID YOU FIND ENGAGING PRICED MERCHANDISE AT THE STORE FRONT ?
+                                    <label for="Did You Find Engaging Priced Merchandise At The Store Front?">
+                                        Did You Find Engaging Priced Merchandise At The Store Front?
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="engaging_price">
                                         <option value="">Select a value</option>
-                                        <option value="LOWER PRICED ITEMS WERE DISPLAYED AT THE STORE FRONT">LOWER PRICED ITEMS WERE DISPLAYED AT THE STORE FRONT</option>
-                                        <option value="HIGHER PRICED ITEMS WERE DISPLAYED AT THE STORE FRONT">HIGHER PRICED ITEMS WERE DISPLAYED AT THE STORE FRONT</option>
-                                        <option value="MIX PRICE ITEMS WERE DISPLAYED AT THE STORE FRONT">MIX PRICE ITEMS WERE DISPLAYED AT THE STORE FRONT</option>
-                                        <option value="DISCOUNT / SALE ITEMS WERE DISPLAYED AT THE STORE FRONT">DISCOUNT / SALE ITEMS WERE DISPLAYED AT THE STORE FRONT</option>
-
+                                        <option value="LOWER PRICED ITEMS WERE DISPLAYED AT THE STORE FRONT">Lower Priced Items Were Displayed At The Store Front</option>
+                                        <option value="HIGHER PRICED ITEMS WERE DISPLAYED AT THE STORE FRONT">Higher Priced Items Were Displayed At The Store Front</option>
+                                        <option value="MIX PRICE ITEMS WERE DISPLAYED AT THE STORE FRONT">Mix Price Items Were Displayed At The Store Front</option>
+                                        <option value="DISCOUNT / SALE ITEMS WERE DISPLAYED AT THE STORE FRONT">Discount / Sale Items Were Displayed At The Store Front</option>
                                     </select>
                                 </div>
                             </div>
-
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        MERCHANDISE AVAILBLE IN THE STORE <span class="text-danger"></span>
+                                    <label for="Merchandise Available In The Store">
+                                        Merchandise Available In The Store <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="merchadise_available">
                                         <option value="">Select a value</option>
-                                        <option value="APPAREL">APPAREL</option>
-                                        <option value="HANDBAGS">HANDBAGS</option>
-                                        <option value="FOOTWEAR">FOOTWEAR</option>
-                                        <option value="COSMETICS & SKINCARE">COSMETICS & SKINCARE</option>
-                                        <option value="HOME DECOR">HOME DECOR</option>
-                                        <option value="ACCESSORIES">ACCESSORIES</option>
-                                        <option value="OTHERS">OTHERS</option>
-
+                                        <option value="APPAREL">Apparel</option>
+                                        <option value="HANDBAGS">Handbags</option>
+                                        <option value="FOOTWEAR">Footwear</option>
+                                        <option value="COSMETICS & SKINCARE">Cosmetics & Skincare</option>
+                                        <option value="HOME DECOR">Home Decor</option>
+                                        <option value="ACCESSORIES">Accessories</option>
+                                        <option value="OTHERS">Others</option>
                                     </select>
                                 </div>
                             </div>
-
-
-
+                
                             <div class="group-input">
                                 <label for="audit-agenda-grid">
                                     Details
                                     <button type="button" name="details2" id="Details2-add">+</button>
-                                    <span class="text-primary" data-bs-toggle="modal"
-                                        data-bs-target="#observation-field-instruction-modal"
-                                        style="font-size: 0.8rem; font-weight: 400; cursor: pointer;">
+                                    <span class="text-primary" data-bs-toggle="modal" data-bs-target="#observation-field-instruction-modal" style="font-size: 0.8rem; font-weight: 400; cursor: pointer;">
                                         Launch Deviation
                                     </span>
                                 </label>
@@ -1153,119 +1081,112 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 2%">Row#</th>
-                                                <th style="width: 16%">STYLES</th>
-                                                <th style="width: 16%">CATEGORY</th>
+                                                <th style="width: 16%">Styles</th>
+                                                <th style="width: 16%">Category</th>
                                                 <th style="width: 5%">Action</th>
-
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <td><input disabled type="text" name="details2[0][row]"
-                                                    value="1"></td>
+                                            <td><input disabled type="text" name="details2[0][row]" value="1"></td>
                                             <td><select type="text" name="details2[0][styles]">
-                                            <option value="">--Select Category--</option>
-                                            <option value="CASUAL WEAR">CASUAL WEAR</option>
-                                            <option value="TRADITIONAL/CONTEMPORARY WEAR">TRADITIONAL/CONTEMPORARY WEAR</option>
-                                            <option value="ETHNIC WEAR">ETHNIC WEAR</option>
-                                            <option value="WESTERN WEAR">SHORT DRESSES</option>
-                                            <option value="INDO-WESTERN WEAR">INDO-WESTERN WEAR</option>
-                                            <option value="DESIGNER/OCCASION WEAR">DESIGNER/OCCASION WEAR</option>
+                                                <option value="">--Select Category--</option>
+                                                <option value="CASUAL WEAR">Casual Wear</option>
+                                                <option value="TRADITIONAL/CONTEMPORARY WEAR">Traditional/Contemporary Wear</option>
+                                                <option value="ETHNIC WEAR">Ethnic Wear</option>
+                                                <option value="WESTERN WEAR">Western Wear</option>
+                                                <option value="INDO-WESTERN WEAR">Indo-Western Wear</option>
+                                                <option value="DESIGNER/OCCASION WEAR">Designer/Occasion Wear</option>
                                             </select></td>
                                             <td><select type="text" name="details2[0][category]">
                                                     <option value="">--Select Price--</option>
-                                                    <option value="TOP/TUNICS/SHIRTS">TOP/TUNICS/SHIRTS</option>
-                                                    <option value="SKIRT/LEHENGA">SKIRT/LEHENGA</option>
-                                                    <option value="SHIRTS / TUNICS">SHIRTS / TUNICS</option>
-                                                    <option value="DRESSES/GOWNS">DRESSES/GOWNS</option>
-                                                    <option value="PALAZZO/PANTS/SHARARA/LEGGINGS">PALAZZO/PANTS/SHARARA/LEGGINGS</option>
-                                                    <option value="KURTIS/KURTA">KURTIS/KURTA</option>
-                                                    <option value="CO-ORD SETS">CO-ORD SETS</option>
-                                                    <option value="SAREE">SAREE</option>
-                                                    <option value="JUMPSUIT">JUMPSUIT</option>
-                                                    <option value="DUPATTA/SCARF/SHAWL">DUPATTA/SCARF/SHAWL</option>
-                                                    <option value="DRESS MATERIAL">DRESS MATERIAL</option>
-                                                    <option value="OTHER">OTHER</option>
+                                                    <option value="TOP/TUNICS/SHIRTS">Top/Tunics/Shirts</option>
+                                                    <option value="SKIRT/LEHENGA">Skirt/Lehenga</option>
+                                                    <option value="SHIRTS / TUNICS">Shirts / Tunics</option>
+                                                    <option value="DRESSES/GOWNS">Dresses/Gowns</option>
+                                                    <option value="PALAZZO/PANTS/SHARARA/LEGGINGS">Palazzo/Pants/Sharara/Leggings</option>
+                                                    <option value="KURTIS/KURTA">Kurtis/Kurta</option>
+                                                    <option value="CO-ORD SETS">Co-Ord Sets</option>
+                                                    <option value="SAREE">Saree</option>
+                                                    <option value="JUMPSUIT">Jumpsuit</option>
+                                                    <option value="DUPATTA/SCARF/SHAWL">Dupatta/Scarf/Shawl</option>
+                                                    <option value="DRESS MATERIAL">Dress Material</option>
+                                                    <option value="OTHER">Other</option>
                                                     <option value="N/A">N/A</option>
                                                 </select>
                                             </td>
                                             <td><button type="text" class="removeRowBtn">Remove</button></td>
                                         </tbody>
-
                                     </table>
                                 </div>
                             </div>
-
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        TYPES OF FABRIC AVAILABLE ? <span class="text-danger"></span>
+                                    <label for="Types Of Fabric Available?">
+                                        Types Of Fabric Available? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="types_of_fabric">
                                         <option value="">Select a value</option>
-                                        <option value="100% COTTON">100% COTTON</option>
-                                        <option value="100% POLYESTER">100% POLYESTER</option>
-                                        <option value="100% VISCOSE">100% VISCOSE</option>
-                                        <option value="COTTON POLY BLEND">COTTON POLY BLEND</option>
-                                        <option value="100% LINEN">100% LINEN</option>
-                                        <option value="VISCOSE BLEND">VISCOSE BLEND</option>
-                                        <option value="SILK">SILK</option>
-                                        <option value="POLYESTER BLEND">POLYESTER BLEND</option>
-                                        <option value="CHIFFON / GEORGETTE">CHIFFON / GEORGETTE</option>
-                                        <option value="LINEN BLEND">LINEN BLEND</option>
-                                        <option value="OTHERS">OTHERS</option>
-
+                                        <option value="100% COTTON">100% Cotton</option>
+                                        <option value="100% POLYESTER">100% Polyester</option>
+                                        <option value="100% VISCOSE">100% Viscose</option>
+                                        <option value="COTTON POLY BLEND">Cotton Poly Blend</option>
+                                        <option value="100% LINEN">100% Linen</option>
+                                        <option value="VISCOSE BLEND">Viscose Blend</option>
+                                        <option value="SILK">Silk</option>
+                                        <option value="POLYESTER BLEND">Polyester Blend</option>
+                                        <option value="CHIFFON / GEORGETTE">Chiffon / Georgette</option>
+                                        <option value="LINEN BLEND">Linen Blend</option>
+                                        <option value="OTHERS">Others</option>
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        PRINTS OBSERVED? <span class="text-danger"></span>
+                                    <label for="Prints Observed?">
+                                        Prints Observed? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="prints_observed">
                                         <option value="">Select a value</option>
-                                        <option value="SMALL FLORAL PRINTS">SMALL FLORAL PRINTS</option>
-                                        <option value="BIG FLORAL PRINTS">BIG FLORAL PRINTS</option>
-                                        <option value="GEOMETRIC PRINTS">GEOMETRIC PRINTS</option>
-                                        <option value="AZTEC PRINTS">AZTEC PRINTS</option>
-                                        <option value="TRADITIONAL PRINTS (PAISLEY / ELEPHANT MOTIFS ETC)">TRADITIONAL PRINTS (PAISLEY / ELEPHANT MOTIFS ETC)</option>
-                                        <option value="PAINTING PRINTS">PAINTING PRINTS</option>
-                                        <option value="ANIMAL PRINTS">ANIMAL PRINTS</option>
-                                        <option value="ABSTRACT PRINTS">ABSTRACT PRINTS</option>
-                                        <option value="ALL OVER PRINT">ALL OVER PRINT</option>
-                                        <option value="PLACEMENT PRINT">PLACEMENT PRINT</option>
-                                        <option value="OTHERS">OTHERS</option>
-
+                                        <option value="SMALL FLORAL PRINTS">Small Floral Prints</option>
+                                        <option value="BIG FLORAL PRINTS">Big Floral Prints</option>
+                                        <option value="GEOMETRIC PRINTS">Geometric Prints</option>
+                                        <option value="AZTEC PRINTS">Aztec Prints</option>
+                                        <option value="TRADITIONAL PRINTS (PAISLEY / ELEPHANT MOTIFS ETC)">Traditional Prints (Paisley / Elephant Motifs Etc)</option>
+                                        <option value="PAINTING PRINTS">Painting Prints</option>
+                                        <option value="ANIMAL PRINTS">Animal Prints</option>
+                                        <option value="ABSTRACT PRINTS">Abstract Prints</option>
+                                        <option value="ALL OVER PRINT">All Over Print</option>
+                                        <option value="PLACEMENT PRINT">Placement Print</option>
+                                        <option value="OTHERS">Others</option>
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        EMBROIDERIES OBSERVED? <span class="text-danger"></span>
+                                    <label for="Embroideries Observed?">
+                                        Embroideries Observed? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="embroideries_observed">
                                         <option value="">Select a value</option>
-                                        <option value="THREAD WORK">THREAD WORK</option>
-                                        <option value="APPLIQUE">APPLIQUE</option>
-                                        <option value="BEAD WORK">BEAD WORK</option>
-                                        <option value="STONE WORK AND ZARDOZI EMBROIDERY">STONE WORK AND ZARDOZI EMBROIDERY</option>
-                                        <option value="HOME DECOR">HOME DECOR</option>
-                                        <option value="ALL OVER EMBROIDERY">ALL OVER EMBROIDERY</option>
-                                        <option value="PLACEMENT EMBROIDERY">PLACEMENT EMBROIDERY</option>
-                                        <option value="OTHERS">OTHERS</option>
-
+                                        <option value="THREAD WORK">Thread Work</option>
+                                        <option value="APPLIQUE">Applique</option>
+                                        <option value="BEAD WORK">Bead Work</option>
+                                        <option value="STONE WORK AND ZARDOZI EMBROIDERY">Stone Work And Zardozi Embroidery</option>
+                                        <option value="HOME DECOR">Home Decor</option>
+                                        <option value="ALL OVER EMBROIDERY">All Over Embroidery</option>
+                                        <option value="PLACEMENT EMBROIDERY">Placement Embroidery</option>
+                                        <option value="OTHERS">Others</option>
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        OVERALL QUALITY OF GARMENTS IN THE STORE <span class="text-danger"></span>
+                                    <label for="Overall Quality Of Garments In The Store">
+                                        Overall Quality Of Garments In The Store <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="quality_of_garments">
                                         <option value="">Select a value</option>
@@ -1274,65 +1195,57 @@
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-
                                     </select>
                                 </div>
                             </div>
-
-
-                            <div class="group-input">
-                                <label class="mt-4" for="ANY REMARKS">ANY REMARKS ON PRODUCT OBSERVATION?</label>
-                                <p class="text-primary">Mention any sub brands if offered, and anything worth to be noted in this section. </p>
+                
+                            <div class="group-input textarea-margin">
+                                <label class="mt-4" for="Any Remarks On Product Observation?">Any Remarks On Product Observation?</label>
+                                <p class="text-primary">Mention any sub brands if offered, and anything worth to be noted in this section.</p>
                                 <textarea class="summernote" name="remarks_on_product_observation" id="summernote-16"></textarea>
                             </div>
                         </div>
-
-
-                            <div class="button-block">
-                                <button type="submit" class="saveButton">Save</button>
-                                <button type="button" class="backButton" onclick="previousStep()">Back</button>
-                                <button type="button" class="nextButton" onclick="nextStep()">Next</button>
-
-
-                                <button type="button"> <a class="text-white"
-                                        href="{{ url('rcms/qms-dashboard') }}">Exit
-                                    </a> </button>
-                            </div>
+                
+                        <div class="button-block">
+                            <button type="submit" class="saveButton">Save</button>
+                            <button type="button" class="backButton" onclick="previousStep()">Back</button>
+                            <button type="button" class="nextButton" onclick="nextStep()">Next</button>
+                            <button type="button"> <a class="text-white" href="{{ url('rcms/qms-dashboard') }}">Exit</a> </button>
                         </div>
                     </div>
+                </div>
+                
 
 
 
                 <div id="CCForm6" class="inner-block cctabcontent">
                     <div class="inner-block-content">
                         <div class="row">
-
-
-                            <div class="col-12">
+                
+                            {{-- <div class="col-12">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        PAGE SECTION <span class="text-danger"></span>
+                                    <label for="Page Section">
+                                        Page Section <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="page_section_4">
                                         <option value="">Select a value</option>
-                                        <option value="AMBIENCE">AMBIENCE</option>
-                                        <option value="STAFF OBSERVATION">STAFF OBSERVATION</option>
-                                        <option value="SALE / MARKETING STRATEGY">SALE / MARKETING STRATEGY</option>
-                                        <option value="PRODUCT OBSERVATION">PRODUCT OBSERVATION</option>
-                                        <option value="VM & SPACE MANAGEMENT">VM & SPACE MANAGEMENT</option>
-                                        <option value="BRANDING">BRANDING</option>
-                                        <option value="TRIAL ROOMS">TRIAL ROOMS</option>
-
+                                        <option value="AMBIENCE">Ambience</option>
+                                        <option value="STAFF OBSERVATION">Staff Observation</option>
+                                        <option value="SALE / MARKETING STRATEGY">Sale / Marketing Strategy</option>
+                                        <option value="PRODUCT OBSERVATION">Product Observation</option>
+                                        <option value="VM & SPACE MANAGEMENT">VM & Space Management</option>
+                                        <option value="BRANDING">Branding</option>
+                                        <option value="TRIAL ROOMS">Trial Rooms</option>
                                     </select>
                                 </div>
-                            </div>
-
+                            </div> --}}
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        THE ENTRANCE OF THE STORE (DISPLAY OF GARMENTS) <span class="text-danger"></span>
+                                    <label for="The Entrance Of The Store (Display Of Garments)">
+                                        The Entrance Of The Store (Display Of Garments) <span class="text-danger"></span>
                                     </label>
-                                <p class="text-primary">Here, mention how you feel about the store from outside at the first glance. Keep in mind if the store visually invites you in or not through colour blocking or mannequin display or anything else.</p>
+                                    <p class="text-primary">Here, mention how you feel about the store from outside at the first glance. Keep in mind if the store visually invites you in or not through colour blocking or mannequin display or anything else.</p>
                                     <select id="select-state" placeholder="Select..." name="entrance_of_the_store">
                                         <option value="">Select a value</option>
                                         <option value="1">1</option>
@@ -1340,15 +1253,13 @@
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-
                                     </select>
                                 </div>
                             </div>
-
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        STORY TELLING <span class="text-danger"></span>
+                                    <label for="Story Telling">
+                                        Story Telling <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="story_telling">
                                         <option value="">Select a value</option>
@@ -1357,30 +1268,29 @@
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        STOCK DISPLAY IN THE ENTIRE STORE <span class="text-danger"></span>
+                                    <label for="Stock Display In The Entire Store">
+                                        Stock Display In The Entire Store <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="stock_display">
                                         <option value="">Select a value</option>
-                                        <option value="LIMITED SIZES ARE DISPLAYED ON RACKS">LIMITED SIZES ARE DISPLAYED ON RACKS</option>
-                                        <option value="ALL SIZES ARE DISPLAYED TOGETHER ON THE SAME RACK">ALL SIZES ARE DISPLAYED TOGETHER ON THE SAME RACK</option>
-                                        <option value="ALL SIZES ARE DISPLAYED BUT ON DIFFERENT RACKS">ALL SIZES ARE DISPLAYED BUT ON DIFFERENT RACKS</option>
-                                        <option value="OTHERS">OTHERS</option>
+                                        <option value="LIMITED SIZES ARE DISPLAYED ON RACKS">Limited Sizes Are Displayed On Racks</option>
+                                        <option value="ALL SIZES ARE DISPLAYED TOGETHER ON THE SAME RACK">All Sizes Are Displayed Together On The Same Rack</option>
+                                        <option value="ALL SIZES ARE DISPLAYED BUT ON DIFFERENT RACKS">All Sizes Are Displayed But On Different Racks</option>
+                                        <option value="OTHERS">Others</option>
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        SPACING OF CLOTHES ON THE RACK<span class="text-danger"></span>
+                                    <label for="Spacing Of Clothes On The Rack">
+                                        Spacing Of Clothes On The Rack <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="spacing_of_clothes">
                                         <option value="">Select a value</option>
@@ -1389,153 +1299,135 @@
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-
                                     </select>
                                 </div>
                             </div>
-
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        HOW MANY NO. OF CUSTOMERS CAN BROWSE AT ONE TIME IN ONE SECTION?<span class="text-danger"></span>
+                                    <label for="How Many No. Of Customers Can Browse At One Time In One Section?">
+                                        How Many No. Of Customers Can Browse At One Time In One Section? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="how_many_no_of_customers">
                                         <option value="">Select a value</option>
                                         <option value="0-2">0-2</option>
                                         <option value="3-4">3-4</option>
                                         <option value="3">3</option>
-                                        <option value="MORE THAN 4">MORE THAN 4</option>
-
+                                        <option value="MORE THAN 4">More Than 4</option>
                                     </select>
                                 </div>
                             </div>
-
-                            <div class="group-input">
-                                <label class="mt-4" for="ANY REMARKS">ANY REMARKS ON VM / SPACE MANAGEMENT</label>
-                                <p class="text-primary">Mention the colours/prints/styles displayed at the entrance of the store, describe the alignment of the store (what's kept on the left side of the store, what's on the right side etc). Also mention if you feel the store is well spaced or not, meaning if the space is properly utilized or over utilized or under utilized. Describe anything else that's relevant to this section. </p>
+                
+                            <div class="group-input textarea-margin">
+                                <label class="mt-4" for="Any Remarks On VM / Space Management">Any Remarks On VM / Space Management</label>
+                                <p class="text-primary">Mention the colours/prints/styles displayed at the entrance of the store, describe the alignment of the store (what's kept on the left side of the store, what's on the right side etc). Also mention if you feel the store is well spaced or not, meaning if the space is properly utilized or over utilized or under utilized. Describe anything else that's relevant to this section.</p>
                                 <textarea class="summernote" name="any_remarks_on_vm" id="summernote-16"></textarea>
                             </div>
                         </div>
-
-
-                            <div class="button-block">
-                                <button type="submit" class="saveButton">Save</button>
-                                <button type="button" class="backButton" onclick="previousStep()">Back</button>
-                                <button type="button" class="nextButton" onclick="nextStep()">Next</button>
-
-
-                                <button type="button"> <a class="text-white"
-                                        href="{{ url('rcms/qms-dashboard') }}">Exit
-                                    </a> </button>
-                            </div>
+                
+                        <div class="button-block">
+                            <button type="submit" class="saveButton">Save</button>
+                            <button type="button" class="backButton" onclick="previousStep()">Back</button>
+                            <button type="button" class="nextButton" onclick="nextStep()">Next</button>
+                            <button type="button"> <a class="text-white" href="{{ url('rcms/qms-dashboard') }}">Exit</a> </button>
                         </div>
                     </div>
-
-
-
+                </div>
+                
                 <div id="CCForm7" class="inner-block cctabcontent">
                     <div class="inner-block-content">
                         <div class="row">
-
-                            <div class="col-12">
+                
+                            {{-- <div class="col-12">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        PAGE SECTION <span class="text-danger"></span>
+                                    <label for="Page Section">
+                                        Page Section <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="page_section_5">
                                         <option value="">Select a value</option>
-                                        <option value="AMBIENCE">AMBIENCE</option>
-                                        <option value="STAFF OBSERVATION">STAFF OBSERVATION</option>
-                                        <option value="SALE / MARKETING STRATEGY">SALE / MARKETING STRATEGY</option>
-                                        <option value="PRODUCT OBSERVATION">PRODUCT OBSERVATION</option>
-                                        <option value="BRANDING">BRANDING</option>
-                                        <option value="TRIAL ROOMS">TRIAL ROOMS</option>
-                                        <option value="VM & SPACE MANAGEMENT">VM & SPACE MANAGEMENT</option>
-
+                                        <option value="AMBIENCE">Ambience</option>
+                                        <option value="STAFF OBSERVATION">Staff Observation</option>
+                                        <option value="SALE / MARKETING STRATEGY">Sale / Marketing Strategy</option>
+                                        <option value="PRODUCT OBSERVATION">Product Observation</option>
+                                        <option value="BRANDING">Branding</option>
+                                        <option value="TRIAL ROOMS">Trial Rooms</option>
+                                        <option value="VM & SPACE MANAGEMENT">VM & Space Management</option>
                                     </select>
                                 </div>
-                            </div>
-
+                            </div> --}}
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        SUITABLE BRAND TAGLINE<span class="text-danger"></span>
+                                    <label for="Suitable Brand Tagline">
+                                        Suitable Brand Tagline <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="brand_tagline">
                                         <option value="">Select a value</option>
-                                        <option value="YES">YES</option>
-                                        <option value="NO">NO</option>
+                                        <option value="YES">Yes</option>
+                                        <option value="NO">No</option>
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        TYPE OF BILL<span class="text-danger"></span>
+                                    <label for="Type Of Bill">
+                                        Type Of Bill <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="type_of_ball">
                                         <option value="">Select a value</option>
-                                        <option value="DIGITAL ONLY">DIGITAL ONLY</option>
-                                        <option value="PAPER PRINTED BILL">PAPER PRINTED BILL</option>
-                                        <option value="DIGITAL AND PAPER PRINTED BOTH">DIGITAL AND PAPER PRINTED BOTH</option>
+                                        <option value="DIGITAL ONLY">Digital Only</option>
+                                        <option value="PAPER PRINTED BILL">Paper Printed Bill</option>
+                                        <option value="DIGITAL AND PAPER PRINTED BOTH">Digital And Paper Printed Both</option>
                                     </select>
                                 </div>
                             </div>
-
-                            <div class="group-input">
-                                <label class="mt-4" for="ANY REMARKS">ANY REMARKS ON BRANDING?</label>
-                                <p class="text-primary">If you see a tagline then mention it here. Add anything else that you feel is worthy to be noted about Branding here. </p>
+                
+                            <div class="group-input textarea-margin">
+                                <label class="mt-4" for="Any Remarks On Branding?">Any Remarks On Branding?</label>
+                                <p class="text-primary">If you see a tagline then mention it here. Add anything else that you feel is worthy to be noted about branding here.</p>
                                 <textarea class="summernote" name="any_ramrks_on_the_branding" id="summernote-16"></textarea>
                             </div>
                         </div>
-
-
-
-                            <div class="button-block">
-                                <button type="submit" class="saveButton">Save</button>
-                                <button type="button" class="backButton" onclick="previousStep()">Back</button>
-                                <button type="button" class="nextButton" onclick="nextStep()">Next</button>
-
-
-                                <button type="button"> <a class="text-white"
-                                        href="{{ url('rcms/qms-dashboard') }}">Exit
-                                    </a> </button>
-                            </div>
+                
+                        <div class="button-block">
+                            <button type="submit" class="saveButton">Save</button>
+                            <button type="button" class="backButton" onclick="previousStep()">Back</button>
+                            <button type="button" class="nextButton" onclick="nextStep()">Next</button>
+                            <button type="button"> <a class="text-white" href="{{ url('rcms/qms-dashboard') }}">Exit</a> </button>
                         </div>
                     </div>
+                </div>
+                
 
 
 
                 <div id="CCForm8" class="inner-block cctabcontent">
                     <div class="inner-block-content">
                         <div class="row">
-
-                            <div class="col-12">
+                
+                            {{-- <div class="col-12">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        PAGE SECTION <span class="text-danger"></span>
+                                    <label for="Page Section">
+                                        Page Section <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="page_section_6">
                                         <option value="">Select a value</option>
-                                        <option value="AMBIENCE">AMBIENCE</option>
-                                        <option value="STAFF OBSERVATION">STAFF OBSERVATION</option>
-                                        <option value="SALE / MARKETING STRATEGY">SALE / MARKETING STRATEGY</option>
-                                        <option value="PRODUCT OBSERVATION">PRODUCT OBSERVATION</option>
-                                        <option value="BRANDING">BRANDING</option>
-                                        <option value="TRIAL ROOMS">TRIAL ROOMS</option>
-                                        <option value="VM & SPACE MANAGEMENT">VM & SPACE MANAGEMENT</option>
-
+                                        <option value="AMBIENCE">Ambience</option>
+                                        <option value="STAFF OBSERVATION">Staff Observation</option>
+                                        <option value="SALE / MARKETING STRATEGY">Sale / Marketing Strategy</option>
+                                        <option value="PRODUCT OBSERVATION">Product Observation</option>
+                                        <option value="BRANDING">Branding</option>
+                                        <option value="TRIAL ROOMS">Trial Rooms</option>
+                                        <option value="VM & SPACE MANAGEMENT">VM & Space Management</option>
                                     </select>
                                 </div>
-                            </div>
-
-
+                            </div> --}}
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        NUMBER OF TRIAL ROOMS? <span class="text-danger"></span>
+                                    <label for="Number Of Trial Rooms?">
+                                        Number Of Trial Rooms? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="number_of_trial_rooms_">
                                         <option value="">Select a value</option>
@@ -1543,17 +1435,14 @@
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                         <option value="4">4</option>
-                                        <option value="MORE THAN 4">MORE THAN 4</option>
-
+                                        <option value="MORE THAN 4">More Than 4</option>
                                     </select>
                                 </div>
-                            </div>
-
-
+                            </div>        
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        HYGIENE <span class="text-danger"></span>
+                                    <label for="Hygiene">
+                                        Hygiene <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="hygiene_">
                                         <option value="">Select a value</option>
@@ -1562,15 +1451,14 @@
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        VENTILATION <span class="text-danger"></span>
+                                    <label for="Ventilation">
+                                        Ventilation <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="ventilation_">
                                         <option value="">Select a value</option>
@@ -1579,49 +1467,45 @@
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-
                                     </select>
                                 </div>
                             </div>
-
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        QUEUE OUTSIDE THE TRIAL ROOM <span class="text-danger"></span>
+                                    <label for="Queue Outside The Trial Room">
+                                        Queue Outside The Trial Room <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="queue_outside_the_trial_room">
                                         <option value="">Select a value</option>
-                                        <option value="NO QUEUE">NO QUEUE</option>
-                                        <option value="LESS THAN 2">LESS THAN 2</option>
-                                        <option value="2-5 PEOPLE">2-5 PEOPLE</option>
-                                        <option value="5 AND ABOVE">5 AND ABOVE</option>
-
+                                        <option value="NO QUEUE">No Queue</option>
+                                        <option value="LESS THAN 2">Less Than 2</option>
+                                        <option value="2-5 PEOPLE">2-5 People</option>
+                                        <option value="5 AND ABOVE">5 And Above</option>
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        MIRROR SIZE <span class="text-danger"></span>
+                                    <label for="Mirror Size">
+                                        Mirror Size <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="mirror_size">
                                         <option value="">Select a value</option>
-                                        <option value="FULL LENGTH - 4 SIDES">FULL LENGTH - 4 SIDES</option>
-                                        <option value="FULL LENGTH - 3 SIDES">FULL LENGTH - 3 SIDES</option>
-                                        <option value="FULL LENGTH -2 SIDES">FULL LENGTH -2 SIDES</option>
-                                        <option value="FULL LENGTH - 1 SIDE">FULL LENGTH - 1 SIDE</option>
-                                        <option value="HALF MIRROR">HALF MIRROR</option>
-
+                                        <option value="FULL LENGTH - 4 SIDES">Full Length - 4 Sides</option>
+                                        <option value="FULL LENGTH - 3 SIDES">Full Length - 3 Sides</option>
+                                        <option value="FULL LENGTH -2 SIDES">Full Length -2 Sides</option>
+                                        <option value="FULL LENGTH - 1 SIDE">Full Length - 1 Side</option>
+                                        <option value="HALF MIRROR">Half Mirror</option>
                                     </select>
                                 </div>
                             </div>
-
-                             <div class="col-md-6">
+                
+                            <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        TRIAL ROOM LIGHTING  <span class="text-danger"></span>
+                                    <label for="Trial Room Lighting">
+                                        Trial Room Lighting <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="trial_room_lighting">
                                         <option value="">Select a value</option>
@@ -1630,86 +1514,76 @@
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        IS SEATING INSIDE THE TRAIL ROOM AVAILABLE? <span class="text-danger"></span>
+                                    <label for="Is Seating Inside The Trial Room Available?">
+                                        Is Seating Inside The Trial Room Available? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="trial_room_available">
                                         <option value="">Select a value</option>
-                                        <option value="YES">YES</option>
-                                        <option value="NO">NO</option>
-
+                                        <option value="YES">Yes</option>
+                                        <option value="NO">No</option>
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        SEATING AROUND TRIAL ROOM AREA (FOR COMPANIONS) <span class="text-danger"></span>
+                                    <label for="Seating Around Trial Room Area (For Companions)">
+                                        Seating Around Trial Room Area (For Companions) <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="seating_around_trial_room">
                                         <option value="">Select a value</option>
-                                        <option value="NOT AVAILABLE">NOT AVAILABLE</option>
-                                        <option value="1 SEATER">1 SEATER</option>
-                                        <option value="2 SEATER COUCH">2 SEATER COUCH</option>
-                                        <option value="3 SEATER COUCH">3 SEATER COUCH</option>
-                                        <option value="MULTIPLE SEATER COUCH">MULTIPLE SEATER COUCH</option>
-
+                                        <option value="NOT AVAILABLE">Not Available</option>
+                                        <option value="1 SEATER">1 Seater</option>
+                                        <option value="2 SEATER COUCH">2 Seater Couch</option>
+                                        <option value="3 SEATER COUCH">3 Seater Couch</option>
+                                        <option value="MULTIPLE SEATER COUCH">Multiple Seater Couch</option>
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="col-md-6">
                                 <div class="group-input">
-                                    <label for="PAGE SECTION">
-                                        CLOTH HANGER INSIDE THE TRIAL ROOM AVAILABLE? <span class="text-danger"></span>
+                                    <label for="Cloth Hanger Inside The Trial Room Available?">
+                                        Cloth Hanger Inside The Trial Room Available? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="cloth_hanger">
                                         <option value="">Select a value</option>
-                                        <option value="YES">YES</option>
-                                        <option value="NO">NO</option>
-
+                                        <option value="YES">Yes</option>
+                                        <option value="NO">No</option>
                                     </select>
                                 </div>
                             </div>
-
+                
                             <div class="group-input">
-                                <label class="mt-4" for="ANY REMARKS">ANY REMARKS  ON THE TRIAL ROOM ?</label>
+                                <label class="mt-4" for="Any Remarks On The Trial Room?">Any Remarks On The Trial Room?</label>
                                 <p class="text-primary">Mention the cleanliness and space in the trial room. Also if the trial room has any specific decor like planters or wall displays or anything else.</p>
-                                <textarea class="summernote" name="any_remarks_on_the_trail_room" id="summernote-16"></textarea>
+                                <textarea class="summernote" name="any_remarks_on_the_trial_room" id="summernote-16"></textarea>
                             </div>
                         </div>
-
-
-                        <div class="group-input">
-                            <label class="mt-4" for="ANY REMARKS">ANY REMARKS / COMMENTS ADD ON THE OVERALL STORE?</label>
-                            {{-- <p class="text-primary">If you see a tagline then mention it here. Add anything else that you feel is worthy to be noted about Branding here. </p> --}}
-                            <textarea class="summernote" name="comments_on_hte_overall_store" id="summernote-16"></textarea>
+                
+                        <div class="group-input textarea-margin">
+                            <label class="mt-4" for="Any Remarks / Comments Add On The Overall Store?">Any Remarks / Comments Add On The Overall Store?</label>
+                            <textarea class="summernote" name="comments_on_the_overall_store" id="summernote-16"></textarea>
                         </div>
-                    </div>
-
-
-                            <div class="button-block">
-                                <button type="submit" class="saveButton">Save</button>
-                                <button type="button" class="backButton" onclick="previousStep()">Back</button>
-                                <button type="button" class="nextButton" onclick="nextStep()">Next</button>
-
-
-                                <button type="button"> <a class="text-white"
-                                        href="{{ url('rcms/qms-dashboard') }}">Exit
-                                    </a> </button>
-                            </div>
+                
+                        <div class="button-block">
+                            <button type="submit" class="saveButton">Save</button>
+                            <button type="button" class="backButton" onclick="previousStep()">Back</button>
+                            <button type="button" class="nextButton" onclick="nextStep()">Next</button>
+                            <button type="button"> <a class="text-white" href="{{ url('rcms/qms-dashboard') }}">Exit</a> </button>
                         </div>
                     </div>
                 </div>
-{{--
+                
+                    {{-- </div> --}}
+                {{-- </div> --}}
+
                 <div id="CCForm9" class="inner-block cctabcontent">
                     <div class="inner-block-content">
                         <div class="row">
@@ -1731,8 +1605,7 @@
                             <div class="button-block">
                                 <button type="submit" class="saveButton">Save</button>
                                 <button type="button" class="backButton" onclick="previousStep()">Back</button>
-                                <button type="button" class="nextButton" onclick="nextStep()">Next</button>
-
+                                {{-- <button type="button" class="nextButton" onclick="nextStep()">Next</button> --}}
 
                                 <button type="button"> <a class="text-white"
                                         href="{{ url('rcms/qms-dashboard') }}">Exit
@@ -1740,7 +1613,7 @@
                             </div>
                         </div>
                     </div>
-                </div> --}}
+                </div> 
 
             </form>
 

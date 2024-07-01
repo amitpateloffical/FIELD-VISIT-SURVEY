@@ -27,7 +27,7 @@ class FieldVisitController extends Controller
         $data = new FieldVisit();
         $data->stage = "1";
         $data->status = "Opened";
-        $data->type = "Field Visit Survey";
+        // $data->type = "Field Visit Survey";
         $data->record = ((RecordNumber::first()->value('counter')) + 1);
         $data->division_code = $request->division_code;
         $data->initiator = $request->initiator;
@@ -256,9 +256,7 @@ class FieldVisitController extends Controller
         $data->any_remarks_on_the_trail_room = $request->any_remarks_on_the_trail_room;
         $data->comments_on_hte_overall_store = $request->comments_on_hte_overall_store;
         $data->update();
-
                 //=========================================grid============================================
-
                 $fieldvisit_id = $data->id;
                 $newDataGridFiledVisit = FieldVisitGrid::where(['fv_id' => $fieldvisit_id, 'identifier' => 'details1'])->firstOrCreate();
                 $newDataGridFiledVisit->fv_id = $fieldvisit_id;

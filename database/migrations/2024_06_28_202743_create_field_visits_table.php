@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('division_code')->nullable();
             $table->text('initiator')->nullable();
             $table->text('intiation_date')->nullable();
-            $table->text('type')->nullable();
+            // $table->text('type')->nullable();
             $table->text('date')->nullable();
             $table->text('time')->nullable();
             $table->text('brand_name')->nullable();
