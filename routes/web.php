@@ -519,3 +519,4 @@ Route::get('field_visit_show/{id}', [FieldVisitController::class, 'show'])->name
 Route::post('field_visit_stage/{id}', [FieldVisitController::class, 'sendstage'])->name('field_visit_stage');
 Route::post('field_visit_reject/{id}', [FieldVisitController::class, 'moreinforeject'])->name('field_visit_reject');
 Route::post('field_visit_cancel/{id}', [FieldVisitController::class, 'closecancel'])->name('field_visit_cancel');
+Route::get('field_visit_singleReport/{id}',[FieldVisitController::class, 'singleReports'])->name('field_visit_singleReport');

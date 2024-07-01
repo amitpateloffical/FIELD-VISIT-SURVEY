@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 use App\Models\FieldVisit;
 use App\Models\RecordNumber;
 use App\Models\FieldVisitGrid;
+use App\Models\User;
 use Carbon\Carbon;
 use Helpers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use PDF;
 class FieldVisitController extends Controller
 {
     //
@@ -37,8 +39,24 @@ class FieldVisitController extends Controller
         $data->region = $request->region;
         $data->exact_location = $request->exact_location;
         $data->exact_address = $request->exact_address;
+
+        if (!empty($request->photos)) {
+            $files = [];
+            if ($request->hasFile('photos')) {
+                foreach ($request->file('photos') as $file) {
+                    $name = $request->name . 'photos' . uniqid() . '.' . $file->getClientOriginalExtension();
+                    $file->move(public_path('upload/'), $name);
+                    $files[] = $name;
+                }
+            }
+            $data->photos = json_encode($files);
+        }
+
+
+        $data->any_remarks_on_vm = $request->any_remarks_on_vm;
+        $data->any_ramrks_on_the_branding = $request->any_ramrks_on_the_branding;
         $data->page_section = $request->page_section;
-        $data->photos = $request->photos;
+        // $data->photos = $request->photos;
         $data->store_lighting = $request->store_lighting;
         $data->lighting_products = $request->lighting_products;
         $data->store_vibe = $request->store_vibe;
@@ -164,6 +182,8 @@ class FieldVisitController extends Controller
         $data->exact_address = $request->exact_address;
         $data->page_section = $request->page_section;
         $data->photos = $request->photos;
+        $data->any_remarks_on_vm = $request->any_remarks_on_vm;
+        $data->any_ramrks_on_the_branding = $request->any_ramrks_on_the_branding;
         $data->store_lighting = $request->store_lighting;
         $data->lighting_products = $request->lighting_products;
         $data->store_vibe = $request->store_vibe;
@@ -256,6 +276,7 @@ class FieldVisitController extends Controller
                 //=========================================================================================
 
 
+        toastr()->success("Record is Updated Successfully");
         return back();
     }
 
@@ -518,6 +539,36 @@ class FieldVisitController extends Controller
         } else {
             toastr()->error('E-signature Not match');
             return back();
+        }
+    }
+
+    public function singleReports(Request $request, $id)
+    {
+        $data = FieldVisit::find($id);
+        $grid_Data = FieldVisitGrid::where(['fv_id' => $id, 'identifier' => 'details1'])->first();
+        if (!empty($data)) {
+            $data->data = FieldVisitGrid::where('fv_id', $id)->where('identifier', "details1")->first();
+            // $data->Instruments_Details = ErrataGrid::where('e_id', $id)->where('type', "Instruments_Details")->first();
+            // $data->Material_Details = Erratagrid::where('e_id', $id)->where('type', "Material_Details")->first();
+            // dd($data->all());
+            $data->originator = User::where('id', $data->initiator_id)->value('name');
+            $pdf = App::make('dompdf.wrapper');
+            $time = Carbon::now();
+            $pdf = PDF::loadview('frontend.field-visit.field_visit_single_report', compact('data', 'grid_Data'))
+                ->setOptions([
+                    'defaultFont' => 'sans-serif',
+                    'isHtml5ParserEnabled' => true,
+                    'isRemoteEnabled' => true,
+                    'isPhpEnabled' => true,
+                ]);
+            $pdf->setPaper('A4');
+            $pdf->render();
+            $canvas = $pdf->getDomPDF()->getCanvas();
+            $height = $canvas->get_height();
+            $width = $canvas->get_width();
+            $canvas->page_script('$pdf->set_opacity(0.1,"Multiply");');
+            $canvas->page_text($width / 4, $height / 2, $data->status, null, 25, [0, 0, 0], 2, 6, -20);
+            return $pdf->stream('errata' . $id . '.pdf');
         }
     }
 

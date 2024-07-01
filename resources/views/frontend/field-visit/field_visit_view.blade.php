@@ -61,7 +61,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="main-head">Record Workflow </div>
                     @php
-                        $userRoles = DB::table('user_roles')->where(['user_id' => Auth::user()->id, 'q_m_s_divisions_id' => $data->division_code])->get();
+                        $userRoles = DB::table('user_roles')->where(['user_id' => Auth::user()->id, 'q_m_s_divisions_id' => 1])->get();
                         $userRoleIds = $userRoles->pluck('q_m_s_roles_id')->toArray();
                     @endphp
                     <div class="d-flex" style="gap:20px;">
@@ -222,14 +222,14 @@
 
                                 <div class="col-md-6">
                                     <div class="group-input">
-                                        <label for="NAME OF FIELD VISITOR">
-                                            NAME OF FIELD VISITOR<span class="text-danger"></span>
+                                        <label for="Name of field visitor">
+                                            Name of field visitor<span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="field_visitor">
                                             <option value="">Select a value</option>
-                                            <option value="CHAITANYA "{{ $data->field_visitor == 'CHAITANYA' ? 'selected' : '' }}>CHAITANYA</option>
-                                            <option value="REKHA "{{ $data->field_visitor == 'REKHA' ? 'selected' : '' }}>REKHA</option>
-                                            <option value="SACHIN "{{ $data->field_visitor == 'SACHIN' ? 'selected' : '' }}>SACHIN</option>
+                                            <option value="Chaitanya "{{ $data->field_visitor == 'Chaitanya' ? 'selected' : '' }}>Chaitanya</option>
+                                            <option value="Rekha "{{ $data->field_visitor == 'Rekha' ? 'selected' : '' }}>Rekha</option>
+                                            <option value="Sachin "{{ $data->field_visitor == 'Sachin' ? 'selected' : '' }}>Sachin</option>
                                         </select>
                                     </div>
                                 </div>
@@ -237,18 +237,18 @@
                                 <div class="col-12">
                                     <div class="group-input">
                                         <label for="REGION">
-                                            REGION<span class="text-danger"></span>
+                                            Region<span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="region">
                                             <option value="">Select a value</option>
-                                            <option value="EXTENSION OF SOUTH MUMBAI - PRABHADEVI TO MAHIM "{{ $data->region == 'EXTENSION OF SOUTH MUMBAI - PRABHADEVI TO MAHIM' ? 'selected' : '' }}>EXTENSION OF SOUTH MUMBAI - PRABHADEVI TO MAHIM</option>
-                                            <option value="WESTERN SUBURBS (A) -BANDRA TO SANTACRUZ "{{ $data->region == 'WESTERN SUBURBS (A) -BANDRA TO SANTACRUZ' ? 'selected' : '' }}>WESTERN SUBURBS (A) -BANDRA TO SANTACRUZ</option>
-                                            <option value="WESTERN SUBURBS (B)- VILLE PARLE TO ANDHERI "{{ $data->region == 'WESTERN SUBURBS (B)- VILLE PARLE TO ANDHERI' ? 'selected' : '' }}>WESTERN SUBURBS (B)- VILLE PARLE TO ANDHERI</option>
-                                            <option value="WESTERN SUBURBS (C) - JOGESHWARI TO GOREGOAN "{{ $data->region == 'WESTERN SUBURBS (C) - JOGESHWARI TO GOREGOAN' ? 'selected' : '' }}>WESTERN SUBURBS (C) - JOGESHWARI TO GOREGOAN</option>
-                                            <option value="WESTERN SUBURBS (D) - MALAD TO BORIVALI "{{ $data->region == 'WESTERN SUBURBS (D) - MALAD TO BORIVALI' ? 'selected' : '' }}>WESTERN SUBURBS (D) - MALAD TO BORIVALI</option>
+                                            <option value="Extension Of South Mumbai - Prabhadevi To Mahim "{{ $data->region == 'Extension Of South Mumbai - Prabhadevi To Mahim' ? 'selected' : '' }}>Extension Of South Mumbai - Prabhadevi To Mahim</option>
+                                            <option value="Western Suburbs (A) -bandra To Santacruz "{{ $data->region == 'Western Suburbs (A) -bandra To Santacruz' ? 'selected' : '' }}>Western Suburbs (A) -bandra To Santacruz</option>
+                                            <option value="Western Suburbs (B)- Ville Parle To Andheri "{{ $data->region == 'Western Suburbs (B)- Ville Parle To Andheri' ? 'selected' : '' }}>Western Suburbs (B)- Ville Parle To Andheri</option>
+                                            <option value="Western Suburbs (C) - Jogeshwari To Goregoan "{{ $data->region == 'Western Suburbs (C) - Jogeshwari To Goregoan' ? 'selected' : '' }}>Western Suburbs (C) - Jogeshwari To Goregoan</option>
+                                            <option value="Western Suburbs (D) - Malad To Borivali "{{ $data->region == 'Western Suburbs (D) - Malad To Borivali' ? 'selected' : '' }}>Western Suburbs (D) - Malad To Borivali</option>
                                             <option value="NORTH MUMBAI - BEYOND BORIVALI UP TO VIRAR "{{ $data->region == 'NORTH MUMBAI - BEYOND BORIVALI UP TO VIRAR' ? 'selected' : '' }}>NORTH MUMBAI - BEYOND BORIVALI UP TO VIRAR</option>
-                                            <option value="EASTERN SUBURBS - CENTRAL MUMBAI "{{ $data->region == 'EASTERN SUBURBS - CENTRAL MUMBAI' ? 'selected' : '' }}>EASTERN SUBURBS - CENTRAL MUMBAI</option>
-                                            <option value="HARBOUR SUBURBS - NAVI MUMBAI "{{ $data->region == 'HARBOUR SUBURBS - NAVI MUMBAI' ? 'selected' : '' }}>HARBOUR SUBURBS - NAVI MUMBAI
+                                            <option value="Eastern Suburbs - Central Mumbai "{{ $data->region == 'Eastern Suburbs - Central Mumbai' ? 'selected' : '' }}>Eastern Suburbs - Central Mumbai</option>
+                                            <option value="Harbour Suburbs - Navi Mumbai "{{ $data->region == 'Harbour Suburbs - Navi Mumbai' ? 'selected' : '' }}>Harbour Suburbs - Navi Mumbai
                                             </option>
                                         </select>
                                     </div>
@@ -257,33 +257,33 @@
                                 <div class="col-12">
                                     <div class="group-input">
                                         <label for="EXACT LOCATION">
-                                            EXACT LOCATION<span class="text-danger"></span>
+                                            Exact Location<span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="exact_location">
                                             <option value="">Select a value</option>
-                                            <option value="CHURCHGATE "{{ $data->exact_location == 'CHURCHGATE' ? 'selected' : '' }}>CHURCHGATE</option>
-                                            <option value="MARINE LINES "{{ $data->exact_location == 'MARINE LINES' ? 'selected' : '' }}>MARINE LINES</option>
-                                            <option value="CHARNI ROAD "{{ $data->exact_location == 'CHARNI ROAD' ? 'selected' : '' }}>CHARNI ROAD</option>
-                                            <option value="GRANT ROAD "{{ $data->exact_location == 'GRANT ROAD' ? 'selected' : '' }}>GRANT ROAD</option>
-                                            <option value="MUMBAI CENTRAL "{{ $data->exact_location == 'MUMBAI CENTRAL' ? 'selected' : '' }}>MUMBAI CENTRAL</option>
-                                            <option value="WORLI "{{ $data->exact_location == 'WORLI' ? 'selected' : '' }}>WORLI</option>
-                                            <option value="LOWER PAREL "{{ $data->exact_location == 'LOWER PAREL' ? 'selected' : '' }}>LOWER PAREL</option>
-                                            <option value="DADAR "{{ $data->exact_location == 'DADAR' ? 'selected' : '' }}>DADAR</option>
-                                            <option value="BANDRA "{{ $data->exact_location == 'BANDRA' ? 'selected' : '' }}>BANDRA</option>
-                                            <option value="SANTACRUZ "{{ $data->exact_location == 'SANTACRUZ' ? 'selected' : '' }}>SANTACRUZ</option>
-                                            <option value="KHAR "{{ $data->exact_location == 'KHAR' ? 'selected' : '' }}>KHAR</option>
-                                            <option value="VILE PARLE "{{ $data->exact_location == 'VILE PARLE' ? 'selected' : '' }}>VILE PARLE</option>
-                                            <option value="ANDHERI "{{ $data->exact_location == 'ANDHERI' ? 'selected' : '' }}>ANDHERI</option>
-                                            <option value="GOREGOAN "{{ $data->exact_location == 'GOREGOAN' ? 'selected' : '' }}>GOREGOAN</option>
-                                            <option value="MALAD "{{ $data->exact_location == 'MALAD' ? 'selected' : '' }}>MALAD</option>
-                                            <option value="KANDIVALI "{{ $data->exact_location == 'KANDIVALI' ? 'selected' : '' }}>KANDIVALI</option>
-                                            <option value="BORIVALI "{{ $data->exact_location == 'BORIVALI' ? 'selected' : '' }}>BORIVALI</option>
-                                            <option value="BHAYANDER "{{ $data->exact_location == 'BHAYANDER' ? 'selected' : '' }}>BHAYANDER</option>
-                                            <option value="SEAWOODS "{{ $data->exact_location == 'SEAWOODS' ? 'selected' : '' }}>SEAWOODS</option>
-                                            <option value="VASHI "{{ $data->exact_location == 'VASHI' ? 'selected' : '' }}>VASHI</option>
-                                            <option value="GHATKOPAR "{{ $data->exact_location == 'GHATKOPAR' ? 'selected' : '' }}>GHATKOPAR</option>
-                                            <option value="THANE "{{ $data->exact_location == 'THANE' ? 'selected' : '' }}>THANE</option>
-                                            <option value="KALYAN "{{ $data->exact_location == 'KALYAN' ? 'selected' : '' }}>KALYAN</option>
+                                            <option value="Churchgate "{{ $data->exact_location == 'Churchgate' ? 'selected' : '' }}>Churchgate</option>
+                                            <option value="Marine Lines "{{ $data->exact_location == 'Marine Lines' ? 'selected' : '' }}>Marine Lines</option>
+                                            <option value="Charni Roads "{{ $data->exact_location == 'Charni Roads' ? 'selected' : '' }}>Charni Roads</option>
+                                            <option value="Grant Roads "{{ $data->exact_location == 'Grant Roads' ? 'selected' : '' }}>Grant Roads</option>
+                                            <option value="Mumbai Central "{{ $data->exact_location == 'Mumbai Central' ? 'selected' : '' }}>Mumbai Central</option>
+                                            <option value="Worli "{{ $data->exact_location == 'Worli' ? 'selected' : '' }}>Worli</option>
+                                            <option value="Lower Parel "{{ $data->exact_location == 'Lower Parel' ? 'selected' : '' }}>Lower Parel</option>
+                                            <option value="Dadar "{{ $data->exact_location == 'Dadar' ? 'selected' : '' }}>Dadar</option>
+                                            <option value="Bandra "{{ $data->exact_location == 'Bandra' ? 'selected' : '' }}>Bandra</option>
+                                            <option value="Santacruz "{{ $data->exact_location == 'Santacruz' ? 'selected' : '' }}>Santacruz</option>
+                                            <option value="Khar "{{ $data->exact_location == 'Khar' ? 'selected' : '' }}>Khar</option>
+                                            <option value="Vile Parle "{{ $data->exact_location == 'Vile Parle' ? 'selected' : '' }}>Vile Parle</option>
+                                            <option value="Andheri "{{ $data->exact_location == 'Andheri' ? 'selected' : '' }}>Andheri</option>
+                                            <option value="Goregaon "{{ $data->exact_location == 'Goregaon' ? 'selected' : '' }}>Goregaon</option>
+                                            <option value="Malad "{{ $data->exact_location == 'Malad' ? 'selected' : '' }}>Malad</option>
+                                            <option value="kandivali "{{ $data->exact_location == 'kandivali' ? 'selected' : '' }}>kandivali</option>
+                                            <option value="Borivali "{{ $data->exact_location == 'Borivali' ? 'selected' : '' }}>Borivali</option>
+                                            <option value="Bhayander "{{ $data->exact_location == 'Bhayander' ? 'selected' : '' }}>Bhayander</option>
+                                            <option value="Seawoods "{{ $data->exact_location == 'Seawoods' ? 'selected' : '' }}>Seawoods</option>
+                                            <option value="Vashi "{{ $data->exact_location == 'Vashi' ? 'selected' : '' }}>Vashi</option>
+                                            <option value="Ghatkopar "{{ $data->exact_location == 'Ghatkopar' ? 'selected' : '' }}>Ghatkopar</option>
+                                            <option value="Thane "{{ $data->exact_location == 'Thane' ? 'selected' : '' }}>Thane</option>
+                                            <option value="Kalyan "{{ $data->exact_location == 'Kalyan' ? 'selected' : '' }}>Kalyan</option>
                                             <option value="Other "{{ $data->exact_location == 'Other' ? 'selected' : '' }}>Other</option>
 
                                         </select>
@@ -292,7 +292,7 @@
 
 
                                 <div class="group-input">
-                                    <label class="mt-4" for="EXACT STORE ADDRESS">EXACT STORE ADDRESS</label>
+                                    <label class="mt-4" for="EXACT STORE ADDRESS">Exact Store Address</label>
                                     <textarea class="summernote" name="exact_address" id="summernote-16">{{ $data->exact_address }}</textarea>
                                 </div>
                             </div>
@@ -325,36 +325,52 @@
                             <div class="inner-block-content">
                                 <div class="row">
 
-
+{{--
                                     <div class="col-12">
                                         <div class="group-input">
                                             <label for="PAGE SECTION">
-                                                PAGE SECTION <span class="text-danger"></span>
+                                                Page Section <span class="text-danger"></span>
                                             </label>
                                             <select id="select-state" placeholder="Select..." name="page_section">
                                                 <option value="">Select a value</option>
                                                 <option value="AMBIENCE "{{ $data->page_section == 'AMBIENCE' ? 'selected' : '' }}>AMBIENCE</option>
-                                                <option value="STAFF OBSERVATION "{{ $data->page_section == 'STAFF OBSERVATION' ? 'selected' : '' }}>STAFF OBSERVATION</option>
-                                                <option value="SALE / MARKETING STRATEGY "{{ $data->page_section == 'SALE / MARKETING STRATEGY' ? 'selected' : '' }}>SALE / MARKETING STRATEGY</option>
-                                                <option value="PRODUCT OBSERVATION "{{ $data->page_section == 'PRODUCT OBSERVATION' ? 'selected' : '' }}>PRODUCT OBSERVATION</option>
-                                                <option value="VM & SPACE MANAGEMENT "{{ $data->page_section == 'VM & SPACE MANAGEMENT' ? 'selected' : '' }}>VM & SPACE MANAGEMENT</option>
-                                                <option value="BRANDING "{{ $data->page_section == 'BRANDING' ? 'selected' : '' }}>BRANDING</option>
-                                                <option value="TRIAL ROOMS "{{ $data->page_section == 'TRIAL ROOMS' ? 'selected' : '' }}>TRIAL ROOMS</option>
+                                                <option value="Staff Observation "{{ $data->page_section == 'Staff Observation' ? 'selected' : '' }}>Staff Observation</option>
+                                                <option value="Sale / Marketing Strategy "{{ $data->page_section == 'Sale / Marketing Strategy' ? 'selected' : '' }}>Sale / Marketing Strategy</option>
+                                                <option value="Product Observation "{{ $data->page_section == 'Product Observation' ? 'selected' : '' }}>Product Observation</option>
+                                                <option value="VM & Space Management "{{ $data->page_section == 'VM & Space Management' ? 'selected' : '' }}>VM & Space Management</option>
+                                                <option value="Branding "{{ $data->page_section == 'Branding' ? 'selected' : '' }}>Branding</option>
+                                                <option value="Trial rooms "{{ $data->page_section == 'Trial rooms' ? 'selected' : '' }}>Trial rooms</option>
 
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
 
                                 <div class="col-lg-12">
                                     <div class="group-input">
-                                        <label for="QA Attachment">PHOTOS (STORE FROM OUTSIDE, RACKS, WINDOW DISPLAY, OVERALL VM)
+                                        <label for="QA Attachment">Photos (Store From Outside, Racks, Window Display, Overall VM)
                                         </label>
                                         <div><small class="text-primary">
                                             </small>
                                         </div>
                                         <div class="file-attachment-field">
-                                            <div class="file-attachment-list" id="QA_Attachments"></div>
+                                            <div class="file-attachment-list" id="QA_Attachments">
+                                                @if ($data->photos)
+                                                @foreach (json_decode($data->photos) as $file)
+                                                    <h6 type="button" class="file-container text-dark"
+                                                        style="background-color: rgb(243, 242, 240);">
+                                                        <b>{{ $file }}</b>
+                                                        <a href="{{ asset('upload/' . $file) }}" target="_blank"><i
+                                                                class="fa fa-eye text-primary"
+                                                                style="font-size:20px; margin-right:-10px;"></i></a>
+                                                        <a type="button" class="remove-file"
+                                                            data-file-name="{{ $file }}"><i
+                                                                class="fa-solid fa-circle-xmark"
+                                                                style="color:red; font-size:20px;"></i></a>
+                                                    </h6>
+                                                @endforeach
+                                            @endif
+                                            </div>
                                             <div class="add-btn">
                                                 <div>Add</div>
                                                 <input type="file" id="QA_Attachments" name="photos[]"
@@ -367,7 +383,7 @@
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="OVERALL STORE LIGHTING">
-                                            OVERALL STORE LIGHTING <span class="text-danger"></span>
+                                            Overall Store Lighting <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="store_lighting">
                                             <option value="">Select a value</option>
@@ -384,7 +400,7 @@
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="OVERALL STORE LIGHTING">
-                                            LIGHTING ON PRODUCTS / BROWSER LIGHTING <span class="text-danger"></span>
+                                            Lighting On Products / Browser Lighting <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="lighting_products">
                                             <option value="">Select a value</option>
@@ -400,7 +416,7 @@
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="OVERALL STORE LIGHTING">
-                                            OVERALL STORE VIBE <span class="text-danger"></span>
+                                            Overall Store Vibe <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="store_vibe">
                                             <option value="">Select a value</option>
@@ -417,7 +433,7 @@
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="OVERALL STORE LIGHTING">
-                                            FRAGRANCE IN STORE <span class="text-danger"></span>
+                                            Fragrance In Store <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="fragrance_in_store">
                                             <option value="">Select a value</option>
@@ -434,7 +450,7 @@
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="OVERALL STORE LIGHTING">
-                                            MUSIC INSIDE STORE? <span class="text-danger"></span>
+                                            Music Inside Store? <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="music_inside_store">
                                             <option value="">Select a value</option>
@@ -451,7 +467,7 @@
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="OVERALL STORE LIGHTING">
-                                            SPACE UTILIZATION <span class="text-danger"></span>
+                                            Space Utilization <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="space_utilization">
                                             <option value="">Select a value</option>
@@ -468,7 +484,7 @@
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="OVERALL STORE LIGHTING">
-                                            STORE LAYOUT <span class="text-danger"></span>
+                                            Store Layout <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="store_layout">
                                             <option value="">Select a value</option>
@@ -484,7 +500,7 @@
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="OVERALL STORE LIGHTING">
-                                            THE STORE IS OF HOW MANY FLOORS? <span class="text-danger"></span>
+                                            The Store Is Of How Many Floors? <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="floors">
                                             <option value="">Select a value</option>
@@ -500,7 +516,7 @@
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="OVERALL STORE LIGHTING">
-                                            AC & VENTILATION <span class="text-danger"></span>
+                                            AC & Ventilation <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="ac">
                                             <option value="">Select a value</option>
@@ -516,7 +532,7 @@
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="OVERALL STORE LIGHTING">
-                                            MANNEQUIN DISPLAY <span class="text-danger"></span>
+                                            Mannequin Display <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="mannequin_display">
                                             <option value="">Select a value</option>
@@ -532,7 +548,7 @@
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="OVERALL STORE LIGHTING">
-                                            SEATING AREA (INSIDE STORE) <span class="text-danger"></span>
+                                            Seating Area (Inside Store) <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="seating_area">
                                             <option value="">Select a value</option>
@@ -548,7 +564,7 @@
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="OVERALL STORE LIGHTING">
-                                            PRODUCT VISIBILITY <span class="text-danger"></span>
+                                            Product Visibility <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="product_visiblity">
                                             <option value="">Select a value</option>
@@ -564,7 +580,7 @@
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="OVERALL STORE LIGHTING">
-                                            STORE SIGNAGE AND GRAPHICS <span class="text-danger"></span>
+                                            Store Signage And Graphics <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="store_signage">
                                             <option value="">Select a value</option>
@@ -581,7 +597,7 @@
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="OVERALL STORE LIGHTING">
-                                            DOES THE STORE HAVE INDEPENDENT WASHROOM ? <span class="text-danger"></span>
+                                            Does The Store Have Independent Washroom ? <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="independent_washroom">
                                             <option value="">Select a value</option>
@@ -595,7 +611,7 @@
                                 </div>
 
                                 <div class="group-input">
-                                    <label class="mt-4" for="ANY REMARKS">ANY REMARKS</label>
+                                    <label class="mt-4" for="ANY REMARKS">Any Remarks</label>
                                     <p class="text-primary">Mention the flooring, curtains used, if any specific wallpaper / artistic objects are used to enhance the store vibe. Describe how the articles are kept on basis of the store (For eg., Left wall has kurtis in colour blocking, right wall has bottoms in another colour blocking, centre has accessories, end has trial rooms, cash counter has upselling items etc etc etc). </p>
                                     <textarea class="summernote" name="any_remarks" id="summernote-16">{{ $data->any_remarks }}</textarea>
                                 </div>
@@ -624,7 +640,7 @@
                 <div id="CCForm3" class="inner-block cctabcontent">
                     <div class="inner-block-content">
                         <div class="row">
-                            <div class="col-12">
+                            {{-- <div class="col-12">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
                                         PAGE SECTION <span class="text-danger"></span>
@@ -641,12 +657,12 @@
 
                                     </select>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        STAFF BEHAVIOR ( INITIAL STAFF BEHAVIOUR) <span class="text-danger"></span>
+                                        Staff Behavior ( Initial Staff Behaviour) <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="staff_behaviour">
                                         <option value="">Select a value</option>
@@ -662,7 +678,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        WELL GROOMED <span class="text-danger"></span>
+                                        Well Groomed <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="well_groomed">
                                         <option value="">Select a value</option>
@@ -678,7 +694,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        STANDARD STAFF UNIFORM <span class="text-danger"></span>
+                                        Standard Staff Uniform <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="standard_staff_uniform">
                                         <option value="">Select a value</option>
@@ -692,12 +708,12 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        TRIAL ROOM ASSISTANCE <span class="text-danger"></span>
+                                        Trial Room Assistance <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="trial_room_assistance">
                                         <option value="">Select a value</option>
-                                        <option value="YES "{{ $data->trial_room_assistance == 'YES' ? 'selected' : '' }}>YES</option>
-                                        <option value="NO "{{ $data->trial_room_assistance == 'NO' ? 'selected' : '' }}>NO</option>
+                                        <option value="YES "{{ $data->trial_room_assistance == 'YES' ? 'selected' : '' }}>Yes</option>
+                                        <option value="NO "{{ $data->trial_room_assistance == 'NO' ? 'selected' : '' }}>No</option>
 
                                     </select>
                                 </div>
@@ -706,14 +722,14 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        NO. OF CUSTOMER AT THE STORE CURRENTLY ? <span class="text-danger"></span>
+                                        No. Of Customer At The Store Currently ? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="number_customer">
                                         <option value="">Select a value</option>
                                         <option value="0-2 "{{ $data->number_customer == '0-2' ? 'selected' : '' }}>0-2</option>
                                         <option value="2-5 "{{ $data->number_customer == '2-5' ? 'selected' : '' }}>2-5</option>
                                         <option value="5-7 "{{ $data->number_customer == '5-7' ? 'selected' : '' }}>5-7</option>
-                                        <option value="ABOVE 7 "{{ $data->number_customer == 'ABOVE 7' ? 'selected' : '' }}>ABOVE 7</option>
+                                        <option value="Above 7 "{{ $data->number_customer == 'Above 7' ? 'selected' : '' }}>Above 7</option>
 
                                     </select>
                                 </div>
@@ -722,13 +738,13 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        IS THE STAFF ABLE TO HANDLE THE CUSTOMER ? <span class="text-danger"></span>
+                                        Is The Staff Able To Handle The Customer ? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="handel_customer">
                                         <option value="">Select a value</option>
-                                        <option value="YES "{{ $data->handel_customer == 'YES' ? 'selected' : '' }}>YES</option>
-                                        <option value="NO "{{ $data->handel_customer == 'NO' ? 'selected' : '' }}>NO</option>
-                                        <option value="NO CUSTOMER SEEN "{{ $data->handel_customer == 'NO CUSTOMER SEEN' ? 'selected' : '' }}>NO CUSTOMER SEEN</option>
+                                        <option value="Yes "{{ $data->handel_customer == 'Yes' ? 'selected' : '' }}>Yes</option>
+                                        <option value="No "{{ $data->handel_customer == 'No' ? 'selected' : '' }}>No</option>
+                                        <option value="No Customer Seen "{{ $data->handel_customer == 'No Customer Seen' ? 'selected' : '' }}>No Customer Seen</option>
 
 
                                     </select>
@@ -738,7 +754,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        KNOWLEDGE OF MERCHANDISE <span class="text-danger"></span>
+                                        Knowledge Of Merchandise <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="knowledge_of_merchandise">
                                         <option value="">Select a value</option>
@@ -755,7 +771,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        AWARENESS OF BRAND / OFFERS / IN GENERAL <span class="text-danger"></span>
+                                        Awareness Of Brand / Offers / In General <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="awareness_of_brand">
                                         <option value="">Select a value</option>
@@ -772,7 +788,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        PROACTIVE <span class="text-danger"></span>
+                                        Proactive <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="proactive">
                                         <option value="">Select a value</option>
@@ -788,7 +804,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        OVERALL CUSTOMER SATISFACTION (STAFF BEHAVIOR TOWARDS CUSTOMER/YOU) <span class="text-danger"></span>
+                                        Overall Customer Satisfaction (Staff Behavior Towards Customer/you) <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="customer_satisfaction">
                                         <option value="">Select a value</option>
@@ -804,7 +820,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        BILLING COUNTER EXPERIENCE <span class="text-danger"></span>
+                                        Billing Counter Experience <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="billing_counter_experience">
                                         <option value="">Select a value</option>
@@ -818,7 +834,7 @@
                             </div>
 
                             <div class="group-input">
-                                <label class="mt-4" for="ANY REMARKS">ANY REMARKS ON STAFF OBSERVATION?</label>
+                                <label class="mt-4" for="ANY REMARKS">Any Remarks On Staff Observation?</label>
                                 <p class="text-primary">Describe the staff uniform and anything that requires to be noted down related to the store staff. </p>
                                 <textarea class="summernote" name="remarks_on_staff_observation" id="summernote-16">{{ $data->remarks_on_staff_observation }}</textarea>
                             </div>
@@ -844,7 +860,7 @@
                     <div class="inner-block-content">
                         <div class="row">
 
-                            <div class="col-12">
+                            {{-- <div class="col-12">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
                                         PAGE SECTION <span class="text-danger"></span>
@@ -861,12 +877,12 @@
 
                                     </select>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        IS THE STORE CURRENTLY RUNNING ANY OFFERS OR DISCOUNTS? <span class="text-danger"></span>
+                                        Is The Store Currently Running Any Offers Or Discounts? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="any_offers">
                                         <option value="">Select a value</option>
@@ -880,17 +896,17 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        CURRENT OFFER IN THE OVERALL STORE? <span class="text-danger"></span>
+                                        Current Offer In The Overall Store? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="current_offer">
                                         <option value="">Select a value</option>
-                                        <option value="UPTO 20% - 30% OFF "{{ $data->current_offer == 'UPTO 20% - 30% OFF' ? 'selected' : '' }}>UPTO 20% - 30% OFF</option>
-                                        <option value="UPTO 50% - 70% OFF "{{ $data->current_offer == 'UPTO 50% - 70% OFF' ? 'selected' : '' }}>UPTO 50% - 70% OFF</option>
-                                        <option value="FLAT 20% - 30% OFF "{{ $data->current_offer == 'FLAT 20% - 30% OFF' ? 'selected' : '' }}>FLAT 20% - 30% OFF</option>
-                                        <option value="FLAT 50% - 70% OFF "{{ $data->current_offer == 'FLAT 50% - 70% OFF' ? 'selected' : '' }}>FLAT 50% - 70% OFF</option>
-                                        <option value="BUY TO GET "{{ $data->current_offer == 'BUY TO GET' ? 'selected' : '' }}>BUY TO GET</option>
-                                        <option value="OTHER "{{ $data->current_offer == 'OTHER' ? 'selected' : '' }}>OTHER</option>
-                                        <option value="NONE "{{ $data->current_offer == 'NONE' ? 'selected' : '' }}>NONE</option>
+                                        <option value="Upto 20% - 30% OFF "{{ $data->current_offer == 'Upto 20% - 30% OFF' ? 'selected' : '' }}>Upto 20% - 30% OFF</option>
+                                        <option value="Upto 50% - 70% OFF "{{ $data->current_offer == 'Upto 50% - 70% OFF' ? 'selected' : '' }}>Upto 50% - 70% OFF</option>
+                                        <option value="Flat 20% - 30% OFF "{{ $data->current_offer == 'Flat 20% - 30% OFF' ? 'selected' : '' }}>Flat 20% - 30% OFF</option>
+                                        <option value="Flat 50% - 70% OFF "{{ $data->current_offer == 'Flat 50% - 70% OFF' ? 'selected' : '' }}>Flat 50% - 70% OFF</option>
+                                        <option value="Buy to Get "{{ $data->current_offer == 'Buy to Get' ? 'selected' : '' }}>Buy to Get</option>
+                                        <option value="Other "{{ $data->current_offer == 'Other' ? 'selected' : '' }}>Other</option>
+                                        <option value="None "{{ $data->current_offer == 'None' ? 'selected' : '' }}>None</option>
 
                                     </select>
                                 </div>
@@ -899,13 +915,13 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        RETURN/ EXCHNAGE POLICY <span class="text-danger"></span>
+                                        Return/Exchange Policy <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="exchange_policy">
                                         <option value="">Select a value</option>
-                                        <option value="ONLY EXCHANGE "{{ $data->exchange_policy == 'ONLY EXCHANGE' ? 'selected' : '' }}>ONLY EXCHANGE</option>
-                                        <option value="EXCHANGE OR RETURN "{{ $data->exchange_policy == 'EXCHANGE OR RETURN' ? 'selected' : '' }}>EXCHANGE OR RETURN</option>
-                                        <option value="NO EXCHANGE NO RETURN "{{ $data->exchange_policy == 'NO EXCHANGE NO RETURN' ? 'selected' : '' }}>NO EXCHANGE NO RETURN</option>
+                                        <option value="Only Exchange "{{ $data->exchange_policy == 'Only Exchange' ? 'selected' : '' }}>Only Exchange</option>
+                                        <option value="Exchange Or Return "{{ $data->exchange_policy == 'Exchange Or Return' ? 'selected' : '' }}>Exchange Or Return</option>
+                                        <option value="No Exchange No Return "{{ $data->exchange_policy == 'No Exchange No Return' ? 'selected' : '' }}>No Exchange No Return</option>
 
                                     </select>
                                 </div>
@@ -914,15 +930,15 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        PERSONAL OCCASION DISCOUNT OFFERED? <span class="text-danger"></span>
+                                        Personal Occasion Discount Offered? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="discount_offer">
                                         <option value="">Select a value</option>
-                                        <option value="BIRTHDAY DISCOUNT "{{ $data->discount_offer == 'BIRTHDAY DISCOUNT' ? 'selected' : '' }}>BIRTHDAY DISCOUNT</option>
-                                        <option value="ANNIVERSARY DISCOUNT "{{ $data->discount_offer == 'ANNIVERSARY DISCOUNT' ? 'selected' : '' }}>ANNIVERSARY DISCOUNT</option>
-                                        <option value="OTHER OCASSION "{{ $data->discount_offer == 'OTHER OCASSION' ? 'selected' : '' }}>OTHER OCASSION</option>
-                                        <option value="PREMIUM MEMBER DISCOUNT "{{ $data->discount_offer == 'PREMIUM MEMBER DISCOUNT' ? 'selected' : '' }}>PREMIUM MEMBER DISCOUNT</option>
-                                        <option value="NONE "{{ $data->discount_offer == 'NONE' ? 'selected' : '' }}>NONE</option>
+                                        <option value="Birthday Discount "{{ $data->discount_offer == 'Birthday Discount' ? 'selected' : '' }}>Birthday Discount</option>
+                                        <option value="Anniversary Discount "{{ $data->discount_offer == 'Anniversary Discount' ? 'selected' : '' }}>Anniversary Discount</option>
+                                        <option value="Other Ocassion "{{ $data->discount_offer == 'Other Ocassion' ? 'selected' : '' }}>Other Ocassion</option>
+                                        <option value="Premium Member Discount "{{ $data->discount_offer == 'Premium Member Discount' ? 'selected' : '' }}>Premium Member Discount</option>
+                                        <option value="None "{{ $data->discount_offer == 'None' ? 'selected' : '' }}>None</option>
 
                                     </select>
                                 </div>
@@ -931,12 +947,12 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        REWARD POINT GIVEN? <span class="text-danger"></span>
+                                        Reward Point Given? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="reward_point_given">
                                         <option value="">Select a value</option>
-                                        <option value="YES "{{ $data->reward_point_given == 'YES' ? 'selected' : '' }}>YES</option>
-                                        <option value="NO "{{ $data->reward_point_given == 'NO' ? 'selected' : '' }}>NO</option>
+                                        <option value="Yes "{{ $data->reward_point_given == 'Yes' ? 'selected' : '' }}>Yes</option>
+                                        <option value="No "{{ $data->reward_point_given == 'No' ? 'selected' : '' }}>No</option>
 
                                     </select>
                                 </div>
@@ -945,12 +961,12 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        USE OF INFLUENCER/ BRAND MARKETING <span class="text-danger"></span>
+                                        Use Of Influencer/ Brand Marketing <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="use_of_influencer">
                                         <option value="">Select a value</option>
-                                        <option value="YES "{{ $data->use_of_influencer == 'YES' ? 'selected' : '' }}>YES</option>
-                                        <option value="NO "{{ $data->use_of_influencer == 'NO' ? 'selected' : '' }}>NO</option>
+                                        <option value="Yes "{{ $data->use_of_influencer == 'Yes' ? 'selected' : '' }}>Yes</option>
+                                        <option value="No "{{ $data->use_of_influencer == 'No' ? 'selected' : '' }}>No</option>
 
                                     </select>
                                 </div>
@@ -959,7 +975,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        AGE GROUP OF CUSTOMERS CURRENTLY SEEN AT THE STORE <span class="text-danger"></span>
+                                        Age Group Of Customers Currently Seen At The Store <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="age_group_of_customer">
                                         <option value="">Select a value</option>
@@ -967,7 +983,7 @@
                                         <option value="25-35 "{{ $data->age_group_of_customer == '25-35' ? 'selected' : '' }}>25-35</option>
                                         <option value="35-45 "{{ $data->age_group_of_customer == '35-45' ? 'selected' : '' }}>35-45</option>
                                         <option value="Above 45 "{{ $data->age_group_of_customer == 'Above 45' ? 'selected' : '' }}>Above 45</option>
-                                        <option value="NO CUSTOMERS SEEN "{{ $data->age_group_of_customer == 'NO CUSTOMERS SEEN' ? 'selected' : '' }}>NO CUSTOMERS SEEN</option>
+                                        <option value="No Customers Seen "{{ $data->age_group_of_customer == 'No Customers Seen' ? 'selected' : '' }}>No Customers Seen</option>
 
                                     </select>
                                 </div>
@@ -976,19 +992,19 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        ALTERATION FACILITY IN STORE <span class="text-danger"></span>
+                                        Alteration Facility In Store <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="alteration_facility_in_store">
                                         <option value="">Select a value</option>
-                                        <option value="AVAILABLE "{{ $data->alteration_facility_in_store == 'AVAILABLE' ? 'selected' : '' }}>AVAILABLE</option>
-                                        <option value="NOT AVAILABLE "{{ $data->alteration_facility_in_store == 'NOT AVAILABLE' ? 'selected' : '' }}>NOT AVAILABLE</option>
+                                        <option value="Available "{{ $data->alteration_facility_in_store == 'Available' ? 'selected' : '' }}>Available</option>
+                                        <option value="Not Available "{{ $data->alteration_facility_in_store == 'Not Available' ? 'selected' : '' }}>Not Available</option>
 
                                     </select>
                                 </div>
                             </div>
 
                             <div class="group-input">
-                                <label class="mt-4" for="ANY REMARKS">ANY REMARKS SALE / MARKETING STRATEGY?</label>
+                                <label class="mt-4" for="ANY REMARKS">Any Remarks Sale / Marketing Strategy?</label>
                                 <p class="text-primary">Mention the offers if any. Also mention reward points rule. Describe if you feel anything is out of the box about marketing and sales strategy observed in this brand. Mention exchange days/deadline. </p>
                                 <textarea class="summernote" name="any_remarks_sale" id="summernote-16">{{ $data->any_remarks_sale }}</textarea>
                             </div>
@@ -1014,7 +1030,7 @@
                     <div class="inner-block-content">
                         <div class="row">
 
-                            <div class="col-12">
+                            {{-- <div class="col-12">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
                                         PAGE SECTION <span class="text-danger"></span>
@@ -1031,18 +1047,18 @@
 
                                     </select>
                                 </div>
-                            </div>
+                            </div> --}}
 
 
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        SUB-BRANDS OFFERED? <span class="text-danger"></span>
+                                        Sub-brands Offered? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="sub_brand_offered">
                                         <option value="">Select a value</option>
-                                        <option value="YES "{{ $data->sub_brand_offered == 'YES' ? 'selected' : '' }}>YES</option>
-                                        <option value="NO "{{ $data->sub_brand_offered == 'NO' ? 'selected' : '' }}>NO</option>
+                                        <option value="Yes "{{ $data->sub_brand_offered == 'Yes' ? 'selected' : '' }}>Yes</option>
+                                        <option value="No "{{ $data->sub_brand_offered == 'No' ? 'selected' : '' }}>No</option>
 
                                     </select>
                                 </div>
@@ -1052,13 +1068,13 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        COLOUR PALETTE OF THE ENTIRE STORE AT FIRST SIGHT <span class="text-danger"></span>
+                                        Colour Palette Of The Entire Store At First Sight <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="colour_palette">
                                         <option value="">Select a value</option>
-                                        <option value="GHT/PASTEL "{{ $data->colour_palette == 'GHT/PASTEL' ? 'selected' : '' }}>LIGHT/PASTEL</option>
-                                        <option value="DARK/DULL "{{ $data->colour_palette == 'DARK/DULL' ? 'selected' : '' }}>DARK/DULL</option>
-                                        <option value="MIX EQUALLY "{{ $data->colour_palette == 'MIX EQUALLY' ? 'selected' : '' }}>MIX EQUALLY</option>
+                                        <option value="Light/Pastel "{{ $data->colour_palette == 'Light/Pastel' ? 'selected' : '' }}>Light/Pastel</option>
+                                        <option value="Dark/Dull "{{ $data->colour_palette == 'Dark/Dull' ? 'selected' : '' }}>Dark/Dull</option>
+                                        <option value="Mix Equally "{{ $data->colour_palette == 'Mix Equally' ? 'selected' : '' }}>Mix Equally</option>
 
                                     </select>
                                 </div>
@@ -1068,7 +1084,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        NUMBER OF COLOURWAYS OFFERED IN MOST STYLES <span class="text-danger"></span>
+                                        Number Of Colourways Offered In Most Styles <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="number_of_colourways">
                                         <option value="">Select a value</option>
@@ -1086,7 +1102,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        SIZE AVAILABILITY <span class="text-danger"></span>
+                                        Size Availability <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="size_availiblity">
                                         <option value="">Select a value</option>
@@ -1119,8 +1135,8 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 2%">Row#</th>
-                                                <th style="width: 16%">CATEGORY</th>
-                                                <th style="width: 16%">PRICE</th>
+                                                <th style="width: 16%">Category</th>
+                                                <th style="width: 16%">Price</th>
                                                 <th style="width: 5%">Action</th>
 
                                             </tr>
@@ -1133,38 +1149,38 @@
                                                     <td>
                                                         <select name="details1[{{ $loop->index }}][category]">
                                                             <option value="">--Select Category--</option>
-                                                            <option value="SINGLE KURTA" {{ isset($datas['category']) && $datas['category'] == 'SINGLE KURTA' ? 'selected' : '' }}>SINGLE KURTA</option>
-                                                            <option value="KURTA SETS" {{ isset($datas['category']) && $datas['category'] == 'KURTA SETS' ? 'selected' : '' }}>KURTA SETS</option>
-                                                            <option value="SHIRTS / TUNICS" {{ isset($datas['category']) && $datas['category'] == 'SHIRTS / TUNICS' ? 'selected' : '' }}>SHIRTS / TUNICS</option>
-                                                            <option value="SHORT DRESSES" {{ isset($datas['category']) && $datas['category'] == 'SHORT DRESSES' ? 'selected' : '' }}>SHORT DRESSES</option>
-                                                            <option value="LONG DRESSES" {{ isset($datas['category']) && $datas['category'] == 'LONG DRESSES' ? 'selected' : '' }}>LONG DRESSES</option>
-                                                            <option value="BOTTOMS" {{ isset($datas['category']) && $datas['category'] == 'BOTTOMS' ? 'selected' : '' }}>BOTTOMS</option>
-                                                            <option value="INDO-WESTERN CO-ORD SET" {{ isset($datas['category']) && $datas['category'] == 'INDO-WESTERN CO-ORD SET' ? 'selected' : '' }}>INDO-WESTERN CO-ORD SET</option>
-                                                            <option value="JUMPSUIT" {{ isset($datas['category']) && $datas['category'] == 'JUMPSUIT' ? 'selected' : '' }}>JUMPSUIT</option>
-                                                            <option value="DUPATTAS" {{ isset($datas['category']) && $datas['category'] == 'DUPATTAS' ? 'selected' : '' }}>DUPATTAS</option>
-                                                            <option value="LEHENGA" {{ isset($datas['category']) && $datas['category'] == 'LEHENGA' ? 'selected' : '' }}>LEHENGA</option>
-                                                            <option value="SAREE" {{ isset($datas['category']) && $datas['category'] == 'SAREE' ? 'selected' : '' }}>SAREE</option>
-                                                            <option value="JACKETS & SHRUGS" {{ isset($datas['category']) && $datas['category'] == 'JACKETS & SHRUGS' ? 'selected' : '' }}>JACKETS & SHRUGS</option>
-                                                            <option value="DRESS MATERIAL" {{ isset($datas['category']) && $datas['category'] == 'DRESS MATERIAL' ? 'selected' : '' }}>DRESS MATERIAL</option>
-                                                            <option value="FOOTWEAR" {{ isset($datas['category']) && $datas['category'] == 'FOOTWEAR' ? 'selected' : '' }}>FOOTWEAR</option>
-                                                            <option value="JEWELLRY" {{ isset($datas['category']) && $datas['category'] == 'JEWELLRY' ? 'selected' : '' }}>JEWELLRY</option>
-                                                            <option value="HANDBAGS" {{ isset($datas['category']) && $datas['category'] == 'HANDBAGS' ? 'selected' : '' }}>HANDBAGS</option>
-                                                            <option value="FRAGRANCES" {{ isset($datas['category']) && $datas['category'] == 'FRAGRANCES' ? 'selected' : '' }}>FRAGRANCES</option>
-                                                            <option value="SHAWL/ STOLE / SCARVES" {{ isset($datas['category']) && $datas['category'] == 'SHAWL/ STOLE / SCARVES' ? 'selected' : '' }}>SHAWL/ STOLE / SCARVES</option>
-                                                            <option value="NIGHT SUITS" {{ isset($datas['category']) && $datas['category'] == 'NIGHT SUITS' ? 'selected' : '' }}>NIGHT SUITS</option>
-                                                            <option value="BELTS & WALLETS" {{ isset($datas['category']) && $datas['category'] == 'BELTS & WALLETS' ? 'selected' : '' }}>BELTS & WALLETS</option>
+                                                            <option value="Single Kurta" {{ isset($datas['category']) && $datas['category'] == 'Single Kurta' ? 'selected' : '' }}>Single Kurta</option>
+                                                            <option value="Kurta Sets" {{ isset($datas['category']) && $datas['category'] == 'Kurta Sets' ? 'selected' : '' }}>Kurta Sets</option>
+                                                            <option value="Shirts / Tunics" {{ isset($datas['category']) && $datas['category'] == 'Shirts / Tunics' ? 'selected' : '' }}>SHIRTS / TUNICS</option>
+                                                            <option value="Short Dresses" {{ isset($datas['category']) && $datas['category'] == 'Short Dresses' ? 'selected' : '' }}>Short Dresses</option>
+                                                            <option value="Long Dresses" {{ isset($datas['category']) && $datas['category'] == 'Long Dresses' ? 'selected' : '' }}>Long Dresses</option>
+                                                            <option value="Bottoms" {{ isset($datas['category']) && $datas['category'] == 'Bottoms' ? 'selected' : '' }}>Bottoms</option>
+                                                            <option value="Indo-western Co-ord Set" {{ isset($datas['category']) && $datas['category'] == 'Indo-western Co-ord Set' ? 'selected' : '' }}>Indo-western Co-ord Set</option>
+                                                            <option value="Jumpsuit" {{ isset($datas['category']) && $datas['category'] == 'Jumpsuit' ? 'selected' : '' }}>Jumpsuit</option>
+                                                            <option value="Dupattas" {{ isset($datas['category']) && $datas['category'] == 'Dupattas' ? 'selected' : '' }}>Dupattas</option>
+                                                            <option value="Lehenga" {{ isset($datas['category']) && $datas['category'] == 'Lehenga' ? 'selected' : '' }}>Lehenga</option>
+                                                            <option value="Saree" {{ isset($datas['category']) && $datas['category'] == 'Saree' ? 'selected' : '' }}>Saree</option>
+                                                            <option value="Jackets & Shrugs" {{ isset($datas['category']) && $datas['category'] == 'Jackets & Shrugs' ? 'selected' : '' }}>Jackets & Shrugs</option>
+                                                            <option value="Dress Material" {{ isset($datas['category']) && $datas['category'] == 'Dress Material' ? 'selected' : '' }}>Dress Material</option>
+                                                            <option value="Footwear" {{ isset($datas['category']) && $datas['category'] == 'Footwear' ? 'selected' : '' }}>Footwear</option>
+                                                            <option value="Jewellry" {{ isset($datas['category']) && $datas['category'] == 'Jewellry' ? 'selected' : '' }}>Jewellry</option>
+                                                            <option value="Handbags" {{ isset($datas['category']) && $datas['category'] == 'Handbags' ? 'selected' : '' }}>Handbags</option>
+                                                            <option value="Fragrances" {{ isset($datas['category']) && $datas['category'] == 'Fragrances' ? 'selected' : '' }}>Fragrances</option>
+                                                            <option value="Shawl/ Stole / Scarves" {{ isset($datas['category']) && $datas['category'] == 'Shawl/ Stole / Scarves' ? 'selected' : '' }}>Shawl/ Stole / Scarves</option>
+                                                            <option value="Night Suits" {{ isset($datas['category']) && $datas['category'] == 'Night Suits' ? 'selected' : '' }}>Night Suits</option>
+                                                            <option value="Belts & Wallets" {{ isset($datas['category']) && $datas['category'] == 'Belts & Wallets' ? 'selected' : '' }}>Belts & Wallets</option>
                                                         </select>
                                                     </td>
                                                     <td>
                                                         <select name="details1[{{ $loop->index }}][price]">
                                                             <option value="">--Select Price--</option>
-                                                            <option value="BELOW 500" {{ isset($datas['price']) && $datas['price'] == 'BELOW 500' ? 'selected' : '' }}>BELOW 500</option>
+                                                            <option value="Below 500" {{ isset($datas['price']) && $datas['price'] == 'Below 500' ? 'selected' : '' }}>Below 500</option>
                                                             <option value="500-2000" {{ isset($datas['price']) && $datas['price'] == '500-2000' ? 'selected' : '' }}>500-2000</option>
                                                             <option value="2100-5000" {{ isset($datas['price']) && $datas['price'] == '2100-5000' ? 'selected' : '' }}>2100-5000</option>
                                                             <option value="5100-7000" {{ isset($datas['price']) && $datas['price'] == '5100-7000' ? 'selected' : '' }}>5100-7000</option>
                                                             <option value="7100-9000" {{ isset($datas['price']) && $datas['price'] == '7100-9000' ? 'selected' : '' }}>7100-9000</option>
                                                             <option value="9100-15000" {{ isset($datas['price']) && $datas['price'] == '9100-15000' ? 'selected' : '' }}>9100-15000</option>
-                                                            <option value="15100 & ABOVE" {{ isset($datas['price']) && $datas['price'] == '15100 & ABOVE' ? 'selected' : '' }}>15100 & ABOVE</option>
+                                                            <option value="15100 & Above" {{ isset($datas['price']) && $datas['price'] == '15100 & Above' ? 'selected' : '' }}>15100 & Above</option>
                                                             <option value="N/A" {{ isset($datas['price']) && $datas['price'] == 'N/A' ? 'selected' : '' }}>N/A</option>
                                                         </select>
                                                     </td>
@@ -1181,14 +1197,14 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        DID YOU FIND ENGAGING PRICED MERCHANDISE AT THE STORE FRONT ?
+                                        Did You Find Engaging Priced Merchandise At The Store Front ?
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="engaging_price">
                                         <option value="">Select a value</option>
-                                        <option value="LOWER PRICED ITEMS WERE DISPLAYED AT THE STORE FRONT "{{ $data->engaging_price == 'LOWER PRICED ITEMS WERE DISPLAYED AT THE STORE FRONT' ? 'selected' : '' }}>LOWER PRICED ITEMS WERE DISPLAYED AT THE STORE FRONT</option>
-                                        <option value="HIGHER PRICED ITEMS WERE DISPLAYED AT THE STORE FRONT "{{ $data->engaging_price == 'HIGHER PRICED ITEMS WERE DISPLAYED AT THE STORE FRONT' ? 'selected' : '' }}>HIGHER PRICED ITEMS WERE DISPLAYED AT THE STORE FRONT</option>
-                                        <option value="MIX PRICE ITEMS WERE DISPLAYED AT THE STORE FRONT "{{ $data->engaging_price == 'MIX PRICE ITEMS WERE DISPLAYED AT THE STORE FRONT' ? 'selected' : '' }}>MIX PRICE ITEMS WERE DISPLAYED AT THE STORE FRONT</option>
-                                        <option value="DISCOUNT / SALE ITEMS WERE DISPLAYED AT THE STORE FRONT "{{ $data->engaging_price == 'DISCOUNT / SALE ITEMS WERE DISPLAYED AT THE STORE FRONT' ? 'selected' : '' }}>DISCOUNT / SALE ITEMS WERE DISPLAYED AT THE STORE FRONT</option>
+                                        <option value="Lower Priced Items Were Displayed At The Store Front "{{ $data->engaging_price == 'Lower Priced Items Were Displayed At The Store Front' ? 'selected' : '' }}>Lower Priced Items Were Displayed At The Store Front</option>
+                                        <option value="Heigher Priced Items Were Displayed At The Store Front "{{ $data->engaging_price == 'Heigher Priced Items Were Displayed At The Store Front' ? 'selected' : '' }}>Heigher Priced Items Were Displayed At The Store Front</option>
+                                        <option value="Mix Priced Items Were Displayed At The Store Front "{{ $data->engaging_price == 'Mix Priced Items Were Displayed At The Store Front' ? 'selected' : '' }}>Mix Priced Items Were Displayed At The Store Front</option>
+                                        <option value="Discount / Sale Priced Items Were Displayed At The Store Front "{{ $data->engaging_price == 'Discount / Sale Priced Items Were Displayed At The Store Front' ? 'selected' : '' }}>Discount / Sale Priced Items Were Displayed At The Store Front</option>
 
                                     </select>
                                 </div>
@@ -1198,17 +1214,17 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        MERCHANDISE AVAILBLE IN THE STORE <span class="text-danger"></span>
+                                        Merchandise Availble In The Store <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="merchadise_available">
                                         <option value="">Select a value</option>
-                                        <option value="APPAREL "{{ $data->merchadise_available == 'APPAREL' ? 'selected' : '' }}>APPAREL</option>
-                                        <option value="HANDBAGS "{{ $data->merchadise_available == 'HANDBAGS' ? 'selected' : '' }}>HANDBAGS</option>
-                                        <option value="FOOTWEAR "{{ $data->merchadise_available == 'FOOTWEAR' ? 'selected' : '' }}>FOOTWEAR</option>
-                                        <option value="COSMETICS & SKINCARE "{{ $data->merchadise_available == 'COSMETICS & SKINCARE' ? 'selected' : '' }}>COSMETICS & SKINCARE</option>
-                                        <option value="HOME DECOR "{{ $data->merchadise_available == 'HOME DECOR' ? 'selected' : '' }}>HOME DECOR</option>
-                                        <option value="ACCESSORIES "{{ $data->merchadise_available == 'ACCESSORIES' ? 'selected' : '' }}>ACCESSORIES</option>
-                                        <option value="OTHERS"{{ $data->merchadise_available == 'OTHERS' ? 'selected' : '' }}>OTHERS</option>
+                                        <option value="Apparel "{{ $data->merchadise_available == 'Apparel' ? 'selected' : '' }}>Apparel</option>
+                                        <option value="Apparel "{{ $data->merchadise_available == 'Apparel' ? 'selected' : '' }}>Apparel</option>
+                                        <option value="Footwear "{{ $data->merchadise_available == 'Footwear' ? 'selected' : '' }}>Footwear</option>
+                                        <option value="Cosmetics & Skincare "{{ $data->merchadise_available == 'Cosmetics & Skincare' ? 'selected' : '' }}>Cosmetics & Skincare</option>
+                                        <option value="Home Decor "{{ $data->merchadise_available == 'Home Decor' ? 'selected' : '' }}>Home Decor</option>
+                                        <option value="Accessories "{{ $data->merchadise_available == 'Accessories' ? 'selected' : '' }}>Accessories</option>
+                                        <option value="Others"{{ $data->merchadise_available == 'Others' ? 'selected' : '' }}>Others</option>
 
                                     </select>
                                 </div>
@@ -1230,8 +1246,8 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 2%">Row#</th>
-                                                <th style="width: 16%">STYLES</th>
-                                                <th style="width: 16%">CATEGORY</th>
+                                                <th style="width: 16%">Styles</th>
+                                                <th style="width: 16%">Category</th>
                                                 <th style="width: 5%">Action</th>
 
                                             </tr>
@@ -1244,29 +1260,29 @@
                                                     <td>
                                                         <select name="details2[{{ $loop->index }}][styles]">
                                                             <option value="">--Select Category--</option>
-                                                            <option value="CASUAL WEAR" {{ isset($names['styles']) && $names['styles'] == 'CASUAL WEAR' ? 'selected' : '' }}>CASUAL WEAR</option>
-                                                            <option value="TRADITIONAL/CONTEMPORARY WEAR" {{ isset($names['styles']) && $names['styles'] == 'TRADITIONAL/CONTEMPORARY WEAR' ? 'selected' : '' }}>TRADITIONAL/CONTEMPORARY WEAR</option>
-                                                            <option value="ETHNIC WEAR" {{ isset($names['styles']) && $names['styles'] == 'ETHNIC WEAR' ? 'selected' : '' }}>ETHNIC WEAR</option>
-                                                            <option value="SHORT DRESSES" {{ isset($names['styles']) && $names['styles'] == 'SHORT DRESSES' ? 'selected' : '' }}>SHORT DRESSES</option>
-                                                            <option value="INDO-WESTERN WEAR" {{ isset($names['styles']) && $names['styles'] == 'INDO-WESTERN WEAR' ? 'selected' : '' }}>INDO-WESTERN WEAR</option>
-                                                            <option value="DESIGNER/OCCASION WEAR" {{ isset($names['styles']) && $names['styles'] == 'DESIGNER/OCCASION WEAR' ? 'selected' : '' }}>DESIGNER/OCCASION WEAR</option>
+                                                            <option value="Casual Wear" {{ isset($names['styles']) && $names['styles'] == 'Casual Wear' ? 'selected' : '' }}>Casual Wear</option>
+                                                            <option value="Traditional/contemporary Wear" {{ isset($names['styles']) && $names['styles'] == 'Traditional/contemporary Wear' ? 'selected' : '' }}>Traditional/contemporary Wear</option>
+                                                            <option value="Ethnic Wear" {{ isset($names['styles']) && $names['styles'] == 'Ethnic Wear' ? 'selected' : '' }}>Ethnic Wear</option>
+                                                            <option value="Short Dresses" {{ isset($names['styles']) && $names['styles'] == 'Short Dresses' ? 'selected' : '' }}>Short Dresses</option>
+                                                            <option value="Indo-western Wear" {{ isset($names['styles']) && $names['styles'] == 'Indo-western Wear' ? 'selected' : '' }}>Indo-western Wear</option>
+                                                            <option value="Designer/Occasion Wear" {{ isset($names['styles']) && $names['styles'] == 'Designer/Occasion Wear' ? 'selected' : '' }}>Designer/Occasion Wear</option>
                                                         </select>
                                                     </td>
                                                     <td>
                                                         <select name="details2[{{ $loop->index }}][category]">
                                                             <option value="">--Select Price--</option>
-                                                            <option value="TOP/TUNICS/SHIRTS" {{ isset($names['category']) && $names['category'] == 'TOP/TUNICS/SHIRTS' ? 'selected' : '' }}>TOP/TUNICS/SHIRTS</option>
-                                                            <option value="SKIRT/LEHENGA" {{ isset($names['category']) && $names['category'] == 'SKIRT/LEHENGA' ? 'selected' : '' }}>SKIRT/LEHENGA</option>
-                                                            <option value="SHIRTS / TUNICS" {{ isset($names['category']) && $names['category'] == 'SHIRTS / TUNICS' ? 'selected' : '' }}>SHIRTS / TUNICS</option>
-                                                            <option value="DRESSES/GOWNS" {{ isset($names['category']) && $names['category'] == 'DRESSES/GOWNS' ? 'selected' : '' }}>DRESSES/GOWNS</option>
-                                                            <option value="PALAZZO/PANTS/SHARARA/LEGGINGS" {{ isset($names['category']) && $names['category'] == 'PALAZZO/PANTS/SHARARA/LEGGINGS' ? 'selected' : '' }}>PALAZZO/PANTS/SHARARA/LEGGINGS</option>
-                                                            <option value="KURTIS/KURTA" {{ isset($names['category']) && $names['category'] == 'KURTIS/KURTA' ? 'selected' : '' }}>KURTIS/KURTA</option>
-                                                            <option value="CO-ORD SETS" {{ isset($names['category']) && $names['category'] == 'CO-ORD SETS' ? 'selected' : '' }}>CO-ORD SETS</option>
-                                                            <option value="SAREE" {{ isset($names['category']) && $names['category'] == 'SAREE' ? 'selected' : '' }}>SAREE</option>
-                                                            <option value="JUMPSUIT" {{ isset($names['category']) && $names['category'] == 'JUMPSUIT' ? 'selected' : '' }}>JUMPSUIT</option>
-                                                            <option value="DUPATTA/SCARF/SHAWL" {{ isset($names['category']) && $names['category'] == 'DUPATTA/SCARF/SHAWL' ? 'selected' : '' }}>DUPATTA/SCARF/SHAWL</option>
-                                                            <option value="DRESS MATERIAL" {{ isset($names['category']) && $names['category'] == 'DRESS MATERIAL' ? 'selected' : '' }}>DRESS MATERIAL</option>
-                                                            <option value="OTHER" {{ isset($names['category']) && $names['category'] == 'OTHER' ? 'selected' : '' }}>OTHER</option>
+                                                            <option value="Top/Tunics/Shirts" {{ isset($names['category']) && $names['category'] == 'Top/Tunics/Shirts' ? 'selected' : '' }}>Top/Tunics/Shirts</option>
+                                                            <option value="Skirt/Lehenga" {{ isset($names['category']) && $names['category'] == 'Skirt/Lehenga' ? 'selected' : '' }}>Skirt/Lehenga</option>
+                                                            <option value="Shirts/Tunics" {{ isset($names['category']) && $names['category'] == 'Shirts/Tunics' ? 'selected' : '' }}>Shirts/Tunics</option>
+                                                            <option value="Dresses/Gowns" {{ isset($names['category']) && $names['category'] == 'Dresses/Gowns' ? 'selected' : '' }}>Dresses/Gowns</option>
+                                                            <option value="Palazzo/Pants/Sharara/Leggings" {{ isset($names['category']) && $names['category'] == 'Palazzo/Pants/Sharara/Leggings' ? 'selected' : '' }}>Palazzo/Pants/Sharara/Leggings</option>
+                                                            <option value="Kurtis/Kurta" {{ isset($names['category']) && $names['category'] == 'Kurtis/Kurta' ? 'selected' : '' }}>Kurtis/Kurta</option>
+                                                            <option value="CO-ORD Sets" {{ isset($names['category']) && $names['category'] == 'CO-ORD Sets' ? 'selected' : '' }}>CO-ORD Sets</option>
+                                                            <option value="Saree" {{ isset($names['category']) && $names['category'] == 'Saree' ? 'selected' : '' }}>Saree</option>
+                                                            <option value="Jumpsuit" {{ isset($names['category']) && $names['category'] == 'Jumpsuit' ? 'selected' : '' }}>Jumpsuit</option>
+                                                            <option value="Dupatta/Scarf/Shawl" {{ isset($names['category']) && $names['category'] == 'Dupatta/Scarf/Shawl' ? 'selected' : '' }}>Dupatta/Scarf/Shawl</option>
+                                                            <option value="Dress Material" {{ isset($names['category']) && $names['category'] == 'Dress Material' ? 'selected' : '' }}>Dress Material</option>
+                                                            <option value="Other" {{ isset($names['category']) && $names['category'] == 'Other' ? 'selected' : '' }}>Other</option>
                                                             <option value="N/A" {{ isset($names['category']) && $names['category'] == 'N/A' ? 'selected' : '' }}>N/A</option>
                                                         </select>
                                                     </td>
@@ -1287,21 +1303,21 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        TYPES OF FABRIC AVAILABLE ? <span class="text-danger"></span>
+                                        Types Of Fabric Available ? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="types_of_fabric">
                                         <option value="">Select a value</option>
-                                        <option value="100% COTTON "{{ $data->types_of_fabric == '100% COTTON' ? 'selected' : '' }}>100% COTTON</option>
-                                        <option value="100% POLYESTER "{{ $data->types_of_fabric == '100% POLYESTER' ? 'selected' : '' }}>100% POLYESTER</option>
-                                        <option value="100% VISCOSE "{{ $data->types_of_fabric == '100% VISCOSE' ? 'selected' : '' }}>100% VISCOSE</option>
-                                        <option value="COTTON POLY BLEND "{{ $data->types_of_fabric == 'COTTON POLY BLEND' ? 'selected' : '' }}>COTTON POLY BLEND</option>
-                                        <option value="100% LINEN "{{ $data->types_of_fabric == '100% LINEN' ? 'selected' : '' }}>100% LINEN</option>
-                                        <option value="VISCOSE BLEND "{{ $data->types_of_fabric == 'VISCOSE BLEND' ? 'selected' : '' }}>VISCOSE BLEND</option>
-                                        <option value="SILK "{{ $data->types_of_fabric == 'SILK' ? 'selected' : '' }}>SILK</option>
-                                        <option value="POLYESTER BLEND "{{ $data->types_of_fabric == 'POLYESTER BLEND' ? 'selected' : '' }}>POLYESTER BLEND</option>
-                                        <option value="CHIFFON / GEORGETTE "{{ $data->types_of_fabric == 'CHIFFON / GEORGETTE' ? 'selected' : '' }}>CHIFFON / GEORGETTE</option>
-                                        <option value="LINEN BLEND "{{ $data->types_of_fabric == 'LINEN BLEND' ? 'selected' : '' }}>LINEN BLEND</option>
-                                        <option value="OTHERS "{{ $data->types_of_fabric == 'OTHERS' ? 'selected' : '' }}>OTHERS</option>
+                                        <option value="100% Cotton "{{ $data->types_of_fabric == '100% Cotton' ? 'selected' : '' }}>100% Cotton</option>
+                                        <option value="100% Polyster "{{ $data->types_of_fabric == '100% Polyster' ? 'selected' : '' }}>100% Polyster</option>
+                                        <option value="100% Viscose "{{ $data->types_of_fabric == '100% Viscose' ? 'selected' : '' }}>100% Viscose</option>
+                                        <option value="Cotton Poly Blend "{{ $data->types_of_fabric == 'Cotton Poly Blend' ? 'selected' : '' }}>Cotton Poly Blend</option>
+                                        <option value="100% Linen "{{ $data->types_of_fabric == '100% Linen' ? 'selected' : '' }}>100% Linen</option>
+                                        <option value="Viscose Blend "{{ $data->types_of_fabric == 'Viscose Blend' ? 'selected' : '' }}>Viscose Blend</option>
+                                        <option value="Silk "{{ $data->types_of_fabric == 'Silk' ? 'selected' : '' }}>Silk</option>
+                                        <option value="Polyster Blend "{{ $data->types_of_fabric == 'Polyster Blend' ? 'selected' : '' }}>Polyster Blend</option>
+                                        <option value="Chiffon / Georgette "{{ $data->types_of_fabric == 'Chiffon / Georgette' ? 'selected' : '' }}>Chiffon / Georgette</option>
+                                        <option value="Linen Blend "{{ $data->types_of_fabric == 'Linen Blend' ? 'selected' : '' }}>Linen Blend</option>
+                                        <option value="Others "{{ $data->types_of_fabric == 'Others' ? 'selected' : '' }}>Others</option>
 
                                     </select>
                                 </div>
@@ -1310,21 +1326,21 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        PRINTS OBSERVED? <span class="text-danger"></span>
+                                        Prints Observed? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="prints_observed">
                                         <option value="">Select a value</option>
-                                        <option value="SMALL FLORAL PRINTS "{{ $data->prints_observed == 'SMALL FLORAL PRINTS' ? 'selected' : '' }}>SMALL FLORAL PRINTS</option>
-                                        <option value="BIG FLORAL PRINTS "{{ $data->prints_observed == 'BIG FLORAL PRINTS' ? 'selected' : '' }}>BIG FLORAL PRINTS</option>
-                                        <option value="GEOMETRIC PRINTS "{{ $data->prints_observed == 'GEOMETRIC PRINTS' ? 'selected' : '' }}>GEOMETRIC PRINTS</option>
-                                        <option value="AZTEC PRINTS "{{ $data->prints_observed == 'AZTEC PRINTS' ? 'selected' : '' }}>AZTEC PRINTS</option>
-                                        <option value="TRADITIONAL PRINTS (PAISLEY / ELEPHANT MOTIFS ETC) "{{ $data->prints_observed == 'TRADITIONAL PRINTS (PAISLEY / ELEPHANT MOTIFS ETC)' ? 'selected' : '' }}>TRADITIONAL PRINTS (PAISLEY / ELEPHANT MOTIFS ETC)</option>
-                                        <option value="PAINTING PRINTS "{{ $data->prints_observed == 'PAINTING PRINTS' ? 'selected' : '' }}>PAINTING PRINTS</option>
-                                        <option value="ANIMAL PRINTS "{{ $data->prints_observed == 'ANIMAL PRINTS' ? 'selected' : '' }}>ANIMAL PRINTS</option>
-                                        <option value="ABSTRACT PRINTS "{{ $data->prints_observed == 'ABSTRACT PRINTS' ? 'selected' : '' }}>ABSTRACT PRINTS</option>
-                                        <option value="ALL OVER PRINT "{{ $data->prints_observed == 'ALL OVER PRINT' ? 'selected' : '' }}>ALL OVER PRINT</option>
-                                        <option value="PLACEMENT PRINT "{{ $data->prints_observed == 'PLACEMENT PRINT' ? 'selected' : '' }}>PLACEMENT PRINT</option>
-                                        <option value="OTHERS "{{ $data->prints_observed == 'OTHERS' ? 'selected' : '' }}>OTHERS</option>
+                                        <option value="Small Floral Prints "{{ $data->prints_observed == 'Small Floral Prints' ? 'selected' : '' }}>Small Floral Prints</option>
+                                        <option value="Big Floral Prints "{{ $data->prints_observed == 'Big Floral Prints' ? 'selected' : '' }}>Big Floral Prints</option>
+                                        <option value="Geometric Prints "{{ $data->prints_observed == 'Geometric Prints' ? 'selected' : '' }}>Geometric Prints</option>
+                                        <option value="Aztec Prints "{{ $data->prints_observed == 'Aztec Prints' ? 'selected' : '' }}>Aztec Prints</option>
+                                        <option value="Traditional Prints (Paisley / Elephant Motifs Etc) "{{ $data->prints_observed == 'Traditional Prints (Paisley / Elephant Motifs Etc)' ? 'selected' : '' }}>Traditional Prints (Paisley / Elephant Motifs Etc)</option>
+                                        <option value="Painting Prints "{{ $data->prints_observed == 'Painting Prints' ? 'selected' : '' }}>Painting Prints</option>
+                                        <option value="Animal Prints "{{ $data->prints_observed == 'Animal Prints' ? 'selected' : '' }}>Animal Prints</option>
+                                        <option value="Abstract Prints "{{ $data->prints_observed == 'Abstract Prints' ? 'selected' : '' }}>Abstract Prints</option>
+                                        <option value="All Over Print "{{ $data->prints_observed == 'All Over Print' ? 'selected' : '' }}>All Over Print</option>
+                                        <option value="Placement Print "{{ $data->prints_observed == 'Placement Print' ? 'selected' : '' }}>Placement Print</option>
+                                        <option value="Others "{{ $data->prints_observed == 'Others' ? 'selected' : '' }}>Others</option>
 
                                     </select>
                                 </div>
@@ -1333,18 +1349,18 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        EMBROIDERIES OBSERVED? <span class="text-danger"></span>
+                                        Embroideries Observed? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="embroideries_observed">
                                         <option value="">Select a value</option>
-                                        <option value="THREAD WORK "{{ $data->embroideries_observed == 'THREAD WORK' ? 'selected' : '' }}>THREAD WORK</option>
-                                        <option value="APPLIQUE "{{ $data->embroideries_observed == 'APPLIQUE' ? 'selected' : '' }}>APPLIQUE</option>
-                                        <option value="BEAD WORK "{{ $data->embroideries_observed == 'BEAD WORK' ? 'selected' : '' }}>BEAD WORK</option>
-                                        <option value="STONE WORK AND ZARDOZI EMBROIDERY "{{ $data->embroideries_observed == 'STONE WORK AND ZARDOZI EMBROIDERY' ? 'selected' : '' }}>STONE WORK AND ZARDOZI EMBROIDERY</option>
-                                        <option value="HOME DECOR "{{ $data->embroideries_observed == 'HOME DECOR' ? 'selected' : '' }}>HOME DECOR</option>
-                                        <option value="ALL OVER EMBROIDERY "{{ $data->embroideries_observed == 'ALL OVER EMBROIDERY' ? 'selected' : '' }}>ALL OVER EMBROIDERY</option>
-                                        <option value="PLACEMENT EMBROIDERY "{{ $data->embroideries_observed == 'PLACEMENT EMBROIDERY' ? 'selected' : '' }}>PLACEMENT EMBROIDERY</option>
-                                        <option value="OTHERS "{{ $data->embroideries_observed == 'OTHERS' ? 'selected' : '' }}>OTHERS</option>
+                                        <option value="Thread Work "{{ $data->embroideries_observed == 'Thread Work' ? 'selected' : '' }}>Thread Work</option>
+                                        <option value="Applique "{{ $data->embroideries_observed == 'Applique' ? 'selected' : '' }}>Applique</option>
+                                        <option value="Bead Work "{{ $data->embroideries_observed == 'Bead Work' ? 'selected' : '' }}>Bead Work</option>
+                                        <option value="Stone Work And Zardozi Embroidery "{{ $data->embroideries_observed == 'Stone Work And Zardozi Embroidery' ? 'selected' : '' }}>Stone Work And Zardozi Embroidery</option>
+                                        <option value="Home Decor "{{ $data->embroideries_observed == 'Home Decor' ? 'selected' : '' }}>Home Decor</option>
+                                        <option value="All Over Embroidery "{{ $data->embroideries_observed == 'All Over Embroidery' ? 'selected' : '' }}>All Over Embroidery</option>
+                                        <option value="Placement Embroidery "{{ $data->embroideries_observed == 'Placement Embroidery' ? 'selected' : '' }}>Placement Embroidery</option>
+                                        <option value="Others "{{ $data->embroideries_observed == 'Others' ? 'selected' : '' }}>Others</option>
 
                                     </select>
                                 </div>
@@ -1353,7 +1369,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        OVERALL QUALITY OF GARMENTS IN THE STORE <span class="text-danger"></span>
+                                        Overall Quality Of Garments In The Store <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="quality_of_garments">
                                         <option value="">Select a value</option>
@@ -1370,7 +1386,7 @@
 
 
                             <div class="group-input">
-                                <label class="mt-4" for="ANY REMARKS">ANY REMARKS ON PRODUCT OBSERVATION?</label>
+                                <label class="mt-4" for="ANY REMARKS">Any Remarks On Product Observation?</label>
                                 <p class="text-primary">Mention any sub brands if offered, and anything worth to be noted in this section. </p>
                                 <textarea class="summernote" name="remarks_on_product_observation" id="summernote-16">{{ $data->remarks_on_product_observation }}</textarea>
                             </div>
@@ -1397,7 +1413,7 @@
                         <div class="row">
 
 
-                            <div class="col-12">
+                            {{-- <div class="col-12">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
                                         PAGE SECTION <span class="text-danger"></span>
@@ -1414,12 +1430,12 @@
 
                                     </select>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        THE ENTRANCE OF THE STORE (DISPLAY OF GARMENTS) <span class="text-danger"></span>
+                                        The Entrance Of The Store (Display Of Garments) <span class="text-danger"></span>
                                     </label>
                                 <p class="text-primary">Here, mention how you feel about the store from outside at the first glance. Keep in mind if the store visually invites you in or not through colour blocking or mannequin display or anything else.</p>
                                     <select id="select-state" placeholder="Select..." name="entrance_of_the_store">
@@ -1437,7 +1453,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        STORY TELLING <span class="text-danger"></span>
+                                        Story Telling <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="story_telling">
                                         <option value="">Select a value</option>
@@ -1454,14 +1470,14 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        STOCK DISPLAY IN THE ENTIRE STORE <span class="text-danger"></span>
+                                        Stock Display In The Entire Store <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="stock_display">
                                         <option value="">Select a value</option>
-                                        <option value="LIMITED SIZES ARE DISPLAYED ON RACKS "{{ $data->stock_display == 'LIMITED SIZES ARE DISPLAYED ON RACKS' ? 'selected' : '' }}>LIMITED SIZES ARE DISPLAYED ON RACKS</option>
-                                        <option value="ALL SIZES ARE DISPLAYED TOGETHER ON THE SAME RACK "{{ $data->stock_display == 'ALL SIZES ARE DISPLAYED TOGETHER ON THE SAME RACK' ? 'selected' : '' }}>ALL SIZES ARE DISPLAYED TOGETHER ON THE SAME RACK</option>
-                                        <option value="ALL SIZES ARE DISPLAYED BUT ON DIFFERENT RACKS "{{ $data->stock_display == 'ALL SIZES ARE DISPLAYED BUT ON DIFFERENT RACKS' ? 'selected' : '' }}>ALL SIZES ARE DISPLAYED BUT ON DIFFERENT RACKS</option>
-                                        <option value="OTHERS "{{ $data->stock_display == 'OTHERS' ? 'selected' : '' }}>OTHERS</option>
+                                        <option value="Limited Sizes Are Displayed On Racks "{{ $data->stock_display == 'Limited Sizes Are Displayed On Racks' ? 'selected' : '' }}>Limited Sizes Are Displayed On Racks</option>
+                                        <option value="All Sizes Are Displayed Together On The Same Rack "{{ $data->stock_display == 'All Sizes Are Displayed Together On The Same Rack' ? 'selected' : '' }}>All Sizes Are Displayed Together On The Same Rack</option>
+                                        <option value="All Sizes Are Displayed But On Different Racks "{{ $data->stock_display == 'All Sizes Are Displayed But On Different Racks' ? 'selected' : '' }}>All Sizes Are Displayed But On Different Racks</option>
+                                        <option value="Others "{{ $data->stock_display == 'Others' ? 'selected' : '' }}>Others</option>
                                     </select>
                                 </div>
                             </div>
@@ -1469,7 +1485,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        SPACING OF CLOTHES ON THE RACK<span class="text-danger"></span>
+                                        Spacing Of Clothes On The Rack<span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="spacing_of_clothes">
                                         <option value="">Select a value</option>
@@ -1487,21 +1503,21 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        HOW MANY NO. OF CUSTOMERS CAN BROWSE AT ONE TIME IN ONE SECTION?<span class="text-danger"></span>
+                                        How Many No. of Customers Can Browse At One Time In One Section?<span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="how_many_no_of_customers">
                                         <option value="">Select a value</option>
                                         <option value="0-2 "{{ $data->how_many_no_of_customers == '0-2' ? 'selected' : '' }}>0-2</option>
                                         <option value="3-4 "{{ $data->how_many_no_of_customers == '3-4' ? 'selected' : '' }}>3-4</option>
                                         <option value="3 "{{ $data->how_many_no_of_customers == '3' ? 'selected' : '' }}>3</option>
-                                        <option value="MORE THAN 4 "{{ $data->how_many_no_of_customers == 'MORE THAN 4' ? 'selected' : '' }}>MORE THAN 4</option>
+                                        <option value="More Than 4 "{{ $data->how_many_no_of_customers == 'More Than 4' ? 'selected' : '' }}>More Than 4</option>
 
                                     </select>
                                 </div>
                             </div>
 
                             <div class="group-input">
-                                <label class="mt-4" for="ANY REMARKS">ANY REMARKS ON VM / SPACE MANAGEMENT</label>
+                                <label class="mt-4" for="ANY REMARKS">Any Remarks On VM / Space Management</label>
                                 <p class="text-primary">Mention the colours/prints/styles displayed at the entrance of the store, describe the alignment of the store (what's kept on the left side of the store, what's on the right side etc). Also mention if you feel the store is well spaced or not, meaning if the space is properly utilized or over utilized or under utilized. Describe anything else that's relevant to this section. </p>
                                 <textarea class="summernote" name="any_remarks_on_vm" id="summernote-16">{{ $data->any_remarks_on_vm }}</textarea>
                             </div>
@@ -1527,7 +1543,7 @@
                     <div class="inner-block-content">
                         <div class="row">
 
-                            <div class="col-12">
+                            {{-- <div class="col-12">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
                                         PAGE SECTION <span class="text-danger"></span>
@@ -1544,17 +1560,17 @@
 
                                     </select>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        SUITABLE BRAND TAGLINE<span class="text-danger"></span>
+                                        Suitable Brand Tagline<span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="brand_tagline">
                                         <option value="">Select a value</option>
-                                        <option value="YES "{{ $data->brand_tagline == 'YES' ? 'selected' : '' }}>YES</option>
-                                        <option value="NO "{{ $data->brand_tagline == 'NO' ? 'selected' : '' }}>NO</option>
+                                        <option value="Yes "{{ $data->brand_tagline == 'Yes' ? 'selected' : '' }}>Yes</option>
+                                        <option value="No "{{ $data->brand_tagline == 'No' ? 'selected' : '' }}>No</option>
                                     </select>
                                 </div>
                             </div>
@@ -1562,19 +1578,19 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        TYPE OF BILL<span class="text-danger"></span>
+                                        Type of Bill<span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="type_of_ball">
                                         <option value="">Select a value</option>
-                                        <option value="DIGITAL ONLY "{{ $data->initiated_by == 'DIGITAL ONLY' ? 'selected' : '' }}>DIGITAL ONLY</option>
-                                        <option value="PAPER PRINTED BILL "{{ $data->initiated_by == 'PAPER PRINTED BILL' ? 'selected' : '' }}>PAPER PRINTED BILL</option>
-                                        <option value="DIGITAL AND PAPER PRINTED BOTH "{{ $data->initiated_by == 'DIGITAL AND PAPER PRINTED BOTH' ? 'selected' : '' }}>DIGITAL AND PAPER PRINTED BOTH</option>
+                                        <option value="Digital Only "{{ $data->initiated_by == 'Digital Only' ? 'selected' : '' }}>Digital Only</option>
+                                        <option value="Paper Printed Bill "{{ $data->initiated_by == 'Paper Printed Bill' ? 'selected' : '' }}>Paper Printed Bill</option>
+                                        <option value="Digital And Paper Printed Both "{{ $data->initiated_by == 'Digital And Paper Printed Both' ? 'selected' : '' }}>Digital And Paper Printed Both</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="group-input">
-                                <label class="mt-4" for="ANY REMARKS">ANY REMARKS ON BRANDING?</label>
+                                <label class="mt-4" for="ANY REMARKS">Any Remarks On Branding?</label>
                                 <p class="text-primary">If you see a tagline then mention it here. Add anything else that you feel is worthy to be noted about Branding here. </p>
                                 <textarea class="summernote" name="any_ramrks_on_the_branding" id="summernote-16">{{ $data->any_ramrks_on_the_branding }}</textarea>
                             </div>
@@ -1601,7 +1617,7 @@
                     <div class="inner-block-content">
                         <div class="row">
 
-                            <div class="col-12">
+                            {{-- <div class="col-12">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
                                         PAGE SECTION <span class="text-danger"></span>
@@ -1618,13 +1634,13 @@
 
                                     </select>
                                 </div>
-                            </div>
+                            </div> --}}
 
 
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        NUMBER OF TRIAL ROOMS? <span class="text-danger"></span>
+                                        Number Of Trial Rooms? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="number_of_trial_rooms_">
                                         <option value="">Select a value</option>
@@ -1632,7 +1648,7 @@
                                             <option value="2 "{{ $data->number_of_trial_rooms_ == '2' ? 'selected' : '' }}>2</option>
                                             <option value="3 "{{ $data->number_of_trial_rooms_ == '3' ? 'selected' : '' }}>3</option>
                                             <option value="4 "{{ $data->number_of_trial_rooms_ == '4' ? 'selected' : '' }}>4</option>
-                                            <option value="MORE THAN 4 "{{ $data->number_of_trial_rooms_ == 'MORE THAN 4' ? 'selected' : '' }}>MORE THAN 4</option>
+                                            <option value="More Than 4 "{{ $data->number_of_trial_rooms_ == 'More Than 4' ? 'selected' : '' }}>More Than 4</option>
 
                                     </select>
                                 </div>
@@ -1642,7 +1658,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        HYGIENE <span class="text-danger"></span>
+                                        Hygiene <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="hygiene_">
                                         <option value="">Select a value</option>
@@ -1659,7 +1675,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        VENTILATION <span class="text-danger"></span>
+                                        Ventilation <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="ventilation_">
                                         <option value="">Select a value</option>
@@ -1678,14 +1694,14 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        QUEUE OUTSIDE THE TRIAL ROOM <span class="text-danger"></span>
+                                        Queue Outside The Trial Room <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="queue_outside_the_trial_room">
                                         <option value="">Select a value</option>
-                                        <option value="Recall "{{ $data->queue_outside_the_trial_room == 'Recall' ? 'selected' : '' }}>NO QUEUE</option>
-                                        <option value="Recall "{{ $data->queue_outside_the_trial_room == 'Recall' ? 'selected' : '' }}>LESS THAN 2</option>
-                                        <option value="Recall "{{ $data->queue_outside_the_trial_room == 'Recall' ? 'selected' : '' }}>2-5 PEOPLE</option>
-                                        <option value="Recall "{{ $data->queue_outside_the_trial_room == 'Recall' ? 'selected' : '' }}>5 AND ABOVE</option>
+                                        <option value="No Queue "{{ $data->queue_outside_the_trial_room == 'No Queue' ? 'selected' : '' }}>No Queue</option>
+                                        <option value="Less Than "{{ $data->queue_outside_the_trial_room == 'Less Than' ? 'selected' : '' }}>Less Than 2</option>
+                                        <option value="people "{{ $data->queue_outside_the_trial_room == 'people' ? 'selected' : '' }}>2-5 people</option>
+                                        <option value="5 and Above "{{ $data->queue_outside_the_trial_room == '5 and Above' ? 'selected' : '' }}>5 and Above</option>
 
                                     </select>
                                 </div>
@@ -1694,15 +1710,15 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        MIRROR SIZE <span class="text-danger"></span>
+                                        Mirror Size <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="mirror_size">
                                         <option value="">Select a value</option>
-                                        <option value="FULL LENGTH - 4 SIDES "{{ $data->mirror_size == 'FULL LENGTH - 4 SIDES' ? 'selected' : '' }}>FULL LENGTH - 4 SIDES</option>
-                                        <option value="FULL LENGTH - 3 SIDES "{{ $data->mirror_size == 'FULL LENGTH - 3 SIDES' ? 'selected' : '' }}>FULL LENGTH - 3 SIDES</option>
-                                        <option value="FULL LENGTH -2 SIDES "{{ $data->mirror_size == 'FULL LENGTH -2 SIDES' ? 'selected' : '' }}>FULL LENGTH -2 SIDES</option>
-                                        <option value="FULL LENGTH - 1 SIDE "{{ $data->mirror_size == 'FULL LENGTH - 1 SIDE' ? 'selected' : '' }}>FULL LENGTH - 1 SIDE</option>
-                                        <option value="HALF MIRROR "{{ $data->mirror_size == 'HALF MIRROR' ? 'selected' : '' }}>HALF MIRROR</option>
+                                        <option value="Full Length - 4 Sides "{{ $data->mirror_size == 'Full Length - 4 Sides' ? 'selected' : '' }}>Full Length - 4 Sides</option>
+                                        <option value="Full Length - 3 Sides "{{ $data->mirror_size == 'Full Length - 3 Sides' ? 'selected' : '' }}>Full Length - 3 Sides</option>
+                                        <option value="Full Length -2 Sides "{{ $data->mirror_size == 'Full Length -2 Sides' ? 'selected' : '' }}>Full Length -2 Sides</option>
+                                        <option value="Full Length - 1 Side "{{ $data->mirror_size == 'Full Length - 1 Side' ? 'selected' : '' }}>Full Length - 1 Side</option>
+                                        <option value="Half Mirror "{{ $data->mirror_size == 'Half Mirror' ? 'selected' : '' }}>Half Mirror</option>
 
                                     </select>
                                 </div>
@@ -1711,7 +1727,7 @@
                              <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        TRIAL ROOM LIGHTING  <span class="text-danger"></span>
+                                        Trial Room Lighting  <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="trial_room_lighting">
                                         <option value="">Select a value</option>
@@ -1728,12 +1744,12 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        IS SEATING INSIDE THE TRAIL ROOM AVAILABLE? <span class="text-danger"></span>
+                                        Is Seating Inside The Trail Room Available? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="trial_room_available">
                                         <option value="">Select a value</option>
-                                        <option value="YES "{{ $data->trial_room_available == 'YES' ? 'selected' : '' }}>YES</option>
-                                        <option value="NO "{{ $data->trial_room_available == 'NO' ? 'selected' : '' }}>NO</option>
+                                        <option value="Yes "{{ $data->trial_room_available == 'Yes' ? 'selected' : '' }}>Yes</option>
+                                        <option value="No "{{ $data->trial_room_available == 'No' ? 'selected' : '' }}>No</option>
 
                                     </select>
                                 </div>
@@ -1742,15 +1758,15 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        SEATING AROUND TRIAL ROOM AREA (FOR COMPANIONS) <span class="text-danger"></span>
+                                        Seating Around Trial Room Area (For Companions) <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="seating_around_trial_room">
                                         <option value="">Select a value</option>
-                                        <option value="NOT AVAILABLE "{{ $data->seating_around_trial_room == 'NOT AVAILABLE' ? 'selected' : '' }}>NOT AVAILABLE</option>
-                                        <option value="1 SEATER "{{ $data->seating_around_trial_room == '1 SEATER' ? 'selected' : '' }}>1 SEATER</option>
-                                        <option value="2 SEATER COUCH "{{ $data->seating_around_trial_room == '2 SEATER COUCH' ? 'selected' : '' }}>2 SEATER COUCH</option>
-                                        <option value="3 SEATER COUCH "{{ $data->seating_around_trial_room == '3 SEATER COUCH' ? 'selected' : '' }}>3 SEATER COUCH</option>
-                                        <option value="MULTIPLE SEATER COUCH "{{ $data->seating_around_trial_room == 'MULTIPLE SEATER COUCH' ? 'selected' : '' }}>MULTIPLE SEATER COUCH</option>
+                                        <option value="Not Available "{{ $data->seating_around_trial_room == 'Not Available' ? 'selected' : '' }}>Not Available</option>
+                                        <option value="1 Seater "{{ $data->seating_around_trial_room == '1 Seater' ? 'selected' : '' }}>1 Seater</option>
+                                        <option value="2 Seater Couch "{{ $data->seating_around_trial_room == '2 Seater Couch' ? 'selected' : '' }}>2 Seater Couch</option>
+                                        <option value="3 Seater Couch "{{ $data->seating_around_trial_room == '3 Seater Couch' ? 'selected' : '' }}>3 Seater Couch</option>
+                                        <option value="Multiple Seater Couch "{{ $data->seating_around_trial_room == 'Multiple Seater Couch' ? 'selected' : '' }}>Multiple Seater Couch</option>
 
                                     </select>
                                 </div>
@@ -1759,19 +1775,19 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        CLOTH HANGER INSIDE THE TRIAL ROOM AVAILABLE? <span class="text-danger"></span>
+                                        Cloth Hanger Inside The Trial Room Available? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="cloth_hanger">
                                         <option value="">Select a value</option>
-                                        <option value="YES "{{ $data->cloth_hanger == 'YES' ? 'selected' : '' }}>YES</option>
-                                        <option value="NO "{{ $data->cloth_hanger == 'NO' ? 'selected' : '' }}>NO</option>
+                                        <option value="Yes "{{ $data->cloth_hanger == 'Yes' ? 'selected' : '' }}>Yes</option>
+                                        <option value="No "{{ $data->cloth_hanger == 'No' ? 'selected' : '' }}>No</option>
 
                                     </select>
                                 </div>
                             </div>
 
                             <div class="group-input">
-                                <label class="mt-4" for="ANY REMARKS">ANY REMARKS  ON THE TRIAL ROOM ?</label>
+                                <label class="mt-4" for="ANY REMARKS">Any Remarks On The Trial Room ?</label>
                                 <p class="text-primary">Mention the cleanliness and space in the trial room. Also if the trial room has any specific decor like planters or wall displays or anything else.</p>
                                 <textarea class="summernote" name="any_remarks_on_the_trail_room" id="summernote-16">{{ $data->any_remarks_on_the_trail_room }}</textarea>
                             </div>
@@ -1779,7 +1795,7 @@
 
 
                         <div class="group-input">
-                            <label class="mt-4" for="ANY REMARKS">ANY REMARKS / COMMENTS ADD ON THE OVERALL STORE?</label>
+                            <label class="mt-4" for="ANY REMARKS">Any Remarks / Comments Add on The Overall Store?</label>
                             {{-- <p class="text-primary">If you see a tagline then mention it here. Add anything else that you feel is worthy to be noted about Branding here. </p> --}}
                             <textarea class="summernote" name="comments_on_hte_overall_store" id="summernote-16">{{ $data->comments_on_hte_overall_store }}</textarea>
                         </div>
@@ -2122,9 +2138,9 @@
                     '"></td>' +
                     '   <td><select type="text" name="details1[' + serialNumber + '][category]">'+
                                         '<option value="">--Select Category--</option>'+
-                                        '<option value="SINGLE KURTA">SINGLE KURTA</option>'+
+                                        '<option value="single Kurta">single Kurta</option>'+
                                         '<option value="KURTA SETS">KURTA SETS</option>'+
-                                        '<option value="SHIRTS / TUNICS">SHIRTS / TUNICS</option>'+
+                                        '<option value="Shirts/Tunics">SHIRTS / TUNICS</option>'+
                                         '<option value="SHORT DRESSES">SHORT DRESSES</option>'+
                                         '<option value="LONG DRESSES">LONG DRESSES</option>'+
                                         '<option value="BOTTOMS">BOTTOMS</option>'+
@@ -2229,6 +2245,24 @@
             var rowCount = tableBody.children('tr').length;
             var newRow = generateTableRow(rowCount + 1);
             tableBody.append(newRow);
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const removeButtons = document.querySelectorAll('.remove-file');
+
+        removeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const fileName = this.getAttribute('data-file-name');
+                const fileContainer = this.parentElement;
+
+                // Hide the file container
+                if (fileContainer) {
+                    fileContainer.style.display = 'none';
+                }
+            });
         });
     });
 </script>

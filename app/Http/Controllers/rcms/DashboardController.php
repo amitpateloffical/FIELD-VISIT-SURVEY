@@ -547,7 +547,7 @@ class DashboardController extends Controller
                 "id" => $data->id,
                 "parent" => $data->parent_record ? $data->parent_record : "-",
                 "record" => $data->record,
-                "division_id" => $data->division_id,
+                "division_id" => $data->division_code,
                 "type" => "Field Visit Survey",
                 "parent_id" => $data->parent_id,
                 "parent_type" => $data->parent_type,
@@ -1026,7 +1026,9 @@ class DashboardController extends Controller
             $audit = "rootAuditReport/" . $data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        }elseif ($type == "Field Visit Survey") {
+        }
+
+        elseif ($type == "Field Visit Survey") {
             $data = FieldVisit::find($id);
             $single = "rootSingleReport/" . $data->id;
             $audit = "rootAuditReport/" . $data->id;
