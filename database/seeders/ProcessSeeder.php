@@ -61,36 +61,12 @@ class ProcessSeeder extends Seeder
         $process->save();
 
         $processNames = [
-            "Extension",
-            "Action Item",
-            "Observation",
-            "Root Cause Analysis",
-            "Risk Assessment",
-            "Management Review",
-            "External Audit",
-            "Internal Audit",
-            "Audit Program",
-            "CAPA",
-            "Change Control",
-            "New Document",
-            "Lab Incident",
-            "Effectiveness Check",
-            "OOS Chemical",
-            "OOT",
-            "OOC",
-            "Deviation",
-            //new added
-            "Market Complaint",
-            "Non Conformance",
-            "Incident",
-            "Failure Investigation",
-            "ERRATA",
-            "OOS Microbiology"
+            "Field Visit"
         ];
 
         // Loop through each process name
         foreach ($processNames as $index => $processName) {
-            for ($divisionId = 1; $divisionId <= 13; $divisionId++) {
+            for ($divisionId = 1; $divisionId <= 1; $divisionId++) {
                 $process = new QMSProcess();
                 $process->division_id = $divisionId;
                 $process->process_name = $processName;

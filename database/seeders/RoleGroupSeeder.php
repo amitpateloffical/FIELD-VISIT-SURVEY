@@ -1946,34 +1946,11 @@ class RoleGroupSeeder extends Seeder
 
 
         $sites = [
-            'Corporate',
-            'Plant'
+            'Corporate'
         ];
 
         $processes = [
-            'Effectiveness Check',
-            'Change Control',
-            'Lab Incident',
-            'CAPA',
-            'Audit Program',
-            'Internal Audit',
-            'External Audit',
-            'Management Review',
-            'Risk Assessment',
-            'Action Item',
-            'Extension',
-            'Observation',
-            'OOS Chemical',
-            'OOT',
-            'OOC',
-            'Deviation',
-            'New Document',
-            'Market Complaint',
-            'Non Conformance',
-            'Incident',
-            'Failure Investigation',
-            'ERRATA',
-            'OOS Microbiology'
+            'Field Visit'
         ];
 
         $roles = [
@@ -2008,32 +1985,7 @@ class RoleGroupSeeder extends Seeder
             }
         }
 
-        $new_divs = [
-            'Corporate' => [
-                'processes' => ['Employee'],
-                'roles' => [
-                    'HR',
-                ]
-            ]
-        ];
-
-        foreach ($new_divs as $division => $data)
-        {
-            foreach ($data['processes'] as $division_processs)
-            {
-                foreach ($data['roles'] as $division_role)
-                {
-                    $group  = new RoleGroup();
-                    $group->id = $start_from_id;
-                    $group->name = "$division-$division_processs- $division_role";
-                    $group->description = "$site-$process- $role";
-                    $group->permission = json_encode(['read' => true, 'create' => true, 'edit' => true, 'delete' => true]);
-                    $group->save();
-
-                    $start_from_id++;
-                }
-            } 
-        }
+        
 
     }
 }

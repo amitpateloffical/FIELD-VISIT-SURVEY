@@ -107,7 +107,7 @@
         }
 
         #rcms_login_block .login-form-block {
-            width: 800px;
+            width: 550px;
     background: #eee;
     border-radius: 20px;
     background-size: cover;
@@ -115,7 +115,7 @@
         }
 
         #rcms_login_block .login-form-block .top-block {
-            padding: 10px 10px 15px;
+            padding: 10px 10px 5px;
             /* border-bottom: 2px solid white; */
             display: flex;
     align-items: center;
@@ -123,11 +123,12 @@
         }
 
         #rcms_login_block .login-form-block .logo {
-            width: 280px;
-            margin: 0 auto 30px;
+            width: 413px;
+            /* gap: 20px; */
+            margin: 10 auto 0px;
+            margin-left: 40px;
             /* margin-top: 151px; */
             display: flex;
-    flex-direction: column;
         }
 
         #rcms_login_block .login-form-block .logo img {
@@ -226,19 +227,23 @@
     ======================================= --}}
     <div id="rcms_login_block" style="background-image: url('{{ asset('user/images/main-bg.jg') }}')">
         <div class="login-form-block" style="background-image: url('{{ asset('user/images/rcms-login-bg2.p') }}')">
-            <div style="display: flex" class="main-block ">
+            <div  class="main-block ">
                 <div class="top-block">
                     <div class="logo" style="display: flex">
-    <img src="{{ asset('user/images/agio-removebg-preview.png') }}" alt="..." style="filter: none; scale: 1; max-width: 100px; margin: auto; margin-bottom: 33px;">
+                        <div>
+                            <img src="{{ asset('user/images/agio-removebg-preview.png') }}" alt="..." class="w-100 h-100" style="filter: none; scale: 0.7;     width: 100px; margin: auto; ">
 
+                        </div>
 
-    <img  src="{{ asset('user/images/vidhyaGxp.png') }}" alt="..." style="filter: none; scale: 2; max-width: 100px; margin: auto">
+                        <div>
+                            <img  src="{{ asset('user/images/vidhyaGxp.png') }}" alt="..." class="w-100 h-100" style="filter: none; scale: 0.6;  margin: auto">
 
+                        </div>
 
                     </div>
 
                 </div>
-                <div style="padding: 24px; margin-top: 34px;" class="">
+                <div style="padding: 2px; margin-top: 3px;" class="">
                     <div class="head">
                         Welcome To Field Visit Survey
                     </div>
