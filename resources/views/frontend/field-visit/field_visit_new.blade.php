@@ -36,15 +36,15 @@
             <!-- Tab links -->
             <div class="cctab">
                 <button class="cctablinks active" onclick="openCity(event, 'CCForm1')">General Information</button>
-                <button class="cctablinks " onclick="openCity(event, 'CCForm2')">AMBIENCE</button>
-                <button class="cctablinks" onclick="openCity(event, 'CCForm3')">STAFF OBSERVATION</button>
+                <button class="cctablinks " onclick="openCity(event, 'CCForm2')">Ambience</button>
+                <button class="cctablinks" onclick="openCity(event, 'CCForm3')">Staff Observation</button>
                 {{-- <button class="cctablinks" onclick="openCity(event, 'CCForm3')">CFT</button> --}}
-                <button class="cctablinks" onclick="openCity(event, 'CCForm4')">SALE / MARKETING STRATEGY</button>
-                <button class="cctablinks" onclick="openCity(event, 'CCForm5')">PRODUCT OBSERVATION </button>
-                <button class="cctablinks" onclick="openCity(event, 'CCForm6')">VM & SPACE MANAGEMENT</button>
-                <button class="cctablinks" onclick="openCity(event, 'CCForm7')">BRANDING</button>
-                <button class="cctablinks" onclick="openCity(event, 'CCForm8')">TRIAL ROOMS</button>
-                <button class="cctablinks" onclick="openCity(event, 'CCForm9')">ACTIVITY LOG</button>
+                <button class="cctablinks" onclick="openCity(event, 'CCForm4')">Sale / Marketing Strategy</button>
+                <button class="cctablinks" onclick="openCity(event, 'CCForm5')">Product Observation </button>
+                <button class="cctablinks" onclick="openCity(event, 'CCForm6')">VM & Space Management</button>
+                <button class="cctablinks" onclick="openCity(event, 'CCForm7')">Branding</button>
+                <button class="cctablinks" onclick="openCity(event, 'CCForm8')">Trial Rooms</button>
+                <button class="cctablinks" onclick="openCity(event, 'CCForm9')">Activity Log</button>
             </div>
 
             <form action="{{ route('field_visit_store') }}" method="POST" enctype="multipart/form-data">
@@ -62,8 +62,8 @@
                                 <div class="col-lg-6">
                                     <div class="group-input">
                                         <label for="RLS Record Number">Record Number</label>
-                                        <input disabled type="text" name="record">
-                                        {{-- value="{{ Helpers::getDivisionName(session()->get('division')) }}/CAPA/{{ date('Y') }}/{{ $record_number }}"> --}}
+                                        <input disabled type="text" name="record"
+                                        value="{{ Helpers::getDivisionName(session()->get('division')) }}/FVS/{{ date('Y') }}/{{ $record_number }}">
                                         {{-- <div class="static">QMS-EMEA/CAPA/{{ date('Y') }}/{{ $record_number }}</div> --}}
                                     </div>
                                 </div>
@@ -133,13 +133,13 @@
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="NAME OF FIELD VISITOR">
-                                            NAME OF FIELD VISITOR<span class="text-danger"></span>
+                                            Name of Field Visitors<span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="field_visitor">
                                             <option value="">Select a value</option>
-                                            <option value="CHAITANYA">CHAITANYA</option>
-                                            <option value="REKHA">REKHA</option>
-                                            <option value="SACHIN">SACHIN</option>
+                                            <option value="Chaitanya">Chaitanya</option>
+                                            <option value="Rekha">Rekha</option>
+                                            <option value="Sachin">Sachin</option>
                                         </select>
                                     </div>
                                 </div>
@@ -147,7 +147,7 @@
                                 <div class="col-12">
                                     <div class="group-input">
                                         <label for="REGION">
-                                            REGION<span class="text-danger"></span>
+                                            Region<span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="region">
                                             <option value="">Select a value</option>
@@ -174,33 +174,33 @@
                                 <div class="col-12">
                                     <div class="group-input">
                                         <label for="EXACT LOCATION">
-                                            EXACT LOCATION<span class="text-danger"></span>
+                                            Exact Location<span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="exact_location">
                                             <option value="">Select a value</option>
-                                            <option value="CHURCHGATE">CHURCHGATE</option>
-                                            <option value="MARINE LINES">MARINE LINES</option>
-                                            <option value="CHARNI ROAD">CHARNI ROAD</option>
-                                            <option value="GRANT ROAD">GRANT ROAD</option>
-                                            <option value="MUMBAI CENTRAL">MUMBAI CENTRAL</option>
-                                            <option value="WORLI">WORLI</option>
-                                            <option value="LOWER PAREL">LOWER PAREL</option>
-                                            <option value="DADAR">DADAR</option>
-                                            <option value="BANDRA">BANDRA</option>
-                                            <option value="SANTACRUZ">SANTACRUZ</option>
-                                            <option value="KHAR">KHAR</option>
-                                            <option value="VILE PARLE">VILE PARLE</option>
-                                            <option value="ANDHERI">ANDHERI</option>
-                                            <option value="GOREGOAN">GOREGOAN</option>
-                                            <option value="MALAD">MALAD</option>
-                                            <option value="KANDIVALI">KANDIVALI</option>
-                                            <option value="BORIVALI">BORIVALI</option>
-                                            <option value="BHAYANDER">BHAYANDER</option>
-                                            <option value="SEAWOODS">SEAWOODS</option>
-                                            <option value="VASHI">VASHI</option>
-                                            <option value="GHATKOPAR">GHATKOPAR</option>
-                                            <option value="THANE">THANE</option>
-                                            <option value="KALYAN">KALYAN</option>
+                                            <option value="Churchgate">Churchgate</option>
+                                            <option value="Marine Lines">Marine Lines</option>
+                                            <option value="Charni Roads">Charni Roads</option>
+                                            <option value="Grant Roads">Grant Roads</option>
+                                            <option value="Mumbai Central">Mumbai Central</option>
+                                            <option value="Worli">Worli</option>
+                                            <option value="Lower Parel">Lower Parel</option>
+                                            <option value="Dadar">Dadar</option>
+                                            <option value="Bandra">Bandra</option>
+                                            <option value="Santacruz">Santacruz</option>
+                                            <option value="Khar">Khar</option>
+                                            <option value="Vile Parle">Vile Parle</option>
+                                            <option value="Andheri">Andheri</option>
+                                            <option value="Goregaon">Goregaon</option>
+                                            <option value="Malad">Malad</option>
+                                            <option value="kandivali">kandivali</option>
+                                            <option value="Borivali">Borivali</option>
+                                            <option value="Bhayander">Bhayander</option>
+                                            <option value="Seawoods">Seawoods</option>
+                                            <option value="Vashi">Vashi</option>
+                                            <option value="Ghatkopar">Ghatkopar</option>
+                                            <option value="Thane">Thane</option>
+                                            <option value="Kalyan">Kalyan</option>
                                             <option value="Other">Other</option>
 
                                         </select>
@@ -209,7 +209,7 @@
 
 
                                 <div class="group-input">
-                                    <label class="mt-4" for="EXACT STORE ADDRESS">EXACT STORE ADDRESS</label>
+                                    <label class="mt-4" for="EXACT STORE ADDRESS">Exact Store Address</label>
                                     <textarea class="summernote" name="exact_address" id="summernote-16"></textarea>
                                 </div>
                             </div>

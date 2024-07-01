@@ -152,8 +152,8 @@
                                 <div class="col-lg-6">
                                     <div class="group-input">
                                         <label for="RLS Record Number">Record Number</label>
-                                        <input disabled type="text" name="record">
-                                        {{-- value="{{ Helpers::getDivisionName(session()->get('division')) }}/CAPA/{{ date('Y') }}/{{ $record_number }}"> --}}
+                                        <input disabled type="text" name="record"
+                                        value="{{ Helpers::getDivisionName(session()->get('division')) }}/FVS/{{ date('Y') }}/{{  str_pad($data->record, 4, '0', STR_PAD_LEFT) }}">
                                         {{-- <div class="static">QMS-EMEA/CAPA/{{ date('Y') }}/{{ $record_number }}</div> --}}
                                     </div>
                                 </div>

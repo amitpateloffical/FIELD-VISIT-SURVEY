@@ -25,7 +25,8 @@ class FieldVisitController extends Controller
         $data = new FieldVisit();
         $data->stage = "1";
         $data->status = "Opened";
-        $data->record = $request->record;
+        $data->type = "Field Visit Survey";
+        $data->record = ((RecordNumber::first()->value('counter')) + 1);
         $data->division_code = $request->division_code;
         $data->initiator = $request->initiator;
         $data->intiation_date = $request->intiation_date;
@@ -111,6 +112,10 @@ class FieldVisitController extends Controller
         $data->comments_on_hte_overall_store = $request->comments_on_hte_overall_store;
         $data->save();
 
+        $record = RecordNumber::first();
+        $record->counter = ((RecordNumber::first()->value('counter')) + 1);
+        $record->update();
+
         //=========================================grid============================================
 
         $fieldvisit_id = $data->id;
@@ -129,7 +134,12 @@ class FieldVisitController extends Controller
 
         //=========================================================================================
 
-        return back();
+        // return back();
+
+
+        toastr()->success("Record is created Successfully");
+        return redirect(url('rcms/qms-dashboard'));
+
     }
 
     public function show($id){
