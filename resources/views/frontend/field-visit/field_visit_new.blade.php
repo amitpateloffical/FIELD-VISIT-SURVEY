@@ -16,7 +16,8 @@
         </div> --}}
         <div class="division-bar">
             <strong>Site Division/Project</strong> :
-            / W FIELD VISIT SURVEY
+            {{ Helpers::getDivisionName(session()->get('division')) }}
+            /  FIELD VISIT SURVEY
         </div>
     </div>
 
