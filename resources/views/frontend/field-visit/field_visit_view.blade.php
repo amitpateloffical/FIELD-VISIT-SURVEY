@@ -16,7 +16,7 @@
         </div> --}}
         <div class="division-bar">
             <strong>Site Division/Project</strong> :
-            / W FIELD VISIT SURVEY
+            / FIELD VISIT SURVEY
         </div>
     </div>
 
@@ -125,15 +125,15 @@
             <!-- Tab links -->
             <div class="cctab">
                 <button class="cctablinks active" onclick="openCity(event, 'CCForm1')">General Information</button>
-                <button class="cctablinks " onclick="openCity(event, 'CCForm2')">AMBIENCE</button>
-                <button class="cctablinks" onclick="openCity(event, 'CCForm3')">STAFF OBSERVATION</button>
+                <button class="cctablinks " onclick="openCity(event, 'CCForm2')">Ambience</button>
+                <button class="cctablinks" onclick="openCity(event, 'CCForm3')">Staff Observation</button>
                 {{-- <button class="cctablinks" onclick="openCity(event, 'CCForm3')">CFT</button> --}}
-                <button class="cctablinks" onclick="openCity(event, 'CCForm4')">SALE / MARKETING STRATEGY</button>
-                <button class="cctablinks" onclick="openCity(event, 'CCForm5')">PRODUCT OBSERVATION </button>
-                <button class="cctablinks" onclick="openCity(event, 'CCForm6')">VM & SPACE MANAGEMENT</button>
-                <button class="cctablinks" onclick="openCity(event, 'CCForm7')">BRANDING</button>
-                <button class="cctablinks" onclick="openCity(event, 'CCForm8')">TRIAL ROOMS</button>
-                <button class="cctablinks" onclick="openCity(event, 'CCForm9')">ACTIVITY LOG</button>
+                <button class="cctablinks" onclick="openCity(event, 'CCForm4')">Sale / Marketing Strategy</button>
+                <button class="cctablinks" onclick="openCity(event, 'CCForm5')">Product Observation </button>
+                <button class="cctablinks" onclick="openCity(event, 'CCForm6')">VM & Space Management</button>
+                <button class="cctablinks" onclick="openCity(event, 'CCForm7')">Branding</button>
+                <button class="cctablinks" onclick="openCity(event, 'CCForm8')">Trial Rooms</button>
+                <button class="cctablinks" onclick="openCity(event, 'CCForm9')">Activity Log</button>
             </div>
 
             <form action="{{ route('field_visit_update',$data->id) }}" method="POST" enctype="multipart/form-data">
@@ -211,10 +211,10 @@
                                         <select id="select-state" placeholder="Select..." name="brand_name">
                                             <option value="">Select a value</option>
                                             <option value="W "{{ $data->brand_name == 'W' ? 'selected' : '' }}>W</option>
-                                            <option value="AURELIA "{{ $data->brand_name == 'AURELIA' ? 'selected' : '' }}>AURELIA</option>
-                                            <option value="JAYPORE "{{ $data->brand_name == 'JAYPORE' ? 'selected' : '' }}>JAYPORE</option>
-                                            <option value="GLOBAL DESI "{{ $data->brand_name == 'GLOBAL DESI' ? 'selected' : '' }}>GLOBAL DESI</option>
-                                            <option value="FAB INDIA "{{ $data->brand_name == 'FAB INDIA' ? 'selected' : '' }}>FAB INDIA</option>
+                                            <option value="Aurelia "{{ $data->brand_name == 'Aurelia' ? 'selected' : '' }}>Aurelia</option>
+                                            <option value="Jaypore "{{ $data->brand_name == 'Jaypore' ? 'selected' : '' }}>Jaypore</option>
+                                            <option value="Global Desi "{{ $data->brand_name == 'Global Desi' ? 'selected' : '' }}>Global Desi</option>
+                                            <option value="FAB India "{{ $data->brand_name == 'FAB India' ? 'selected' : '' }}>FAB India</option>
                                             <option value="BIBA "{{ $data->brand_name == 'BIBA' ? 'selected' : '' }}>BIBA</option>
                                         </select>
                                     </div>

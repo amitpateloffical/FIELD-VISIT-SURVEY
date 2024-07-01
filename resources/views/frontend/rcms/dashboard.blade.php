@@ -266,7 +266,7 @@
 
 
 
-                                                    
+
 
                                                 @elseif ($datas->type == 'Risk-Assesment')
                                                     <a href="{{ route('showRiskManagement', $datas->id) }}" style="color: blue">
@@ -303,6 +303,20 @@
                                                     @if (!empty($datas->parent_id))
                                                         <a
                                                             href="{{ url('rcms/qms-dashboard_new', $datas->id) }}/external_audit">
+                                                            <div class="icon" onclick="showChild()"
+                                                                data-bs-toggle="tooltip" title="Related Records">
+                                                                {{-- <img src="{{ asset('user/images/parent.png') }}"
+                                                                    alt="..." class="w-100 h-100"> --}}
+                                                            </div>
+                                                        </a>
+                                                    @endif
+                                                    @elseif ($datas->type == 'Field Visit Survey')
+                                                    <a href="{{ route('field_visit_show', $datas->id) }}" style="color: blue">
+                                                        {{ str_pad($datas->record, 4, '0', STR_PAD_LEFT) }}
+                                                    </a>
+                                                    @if (!empty($datas->parent_id))
+                                                        <a
+                                                            href="{{ url('rcms/qms-dashboard_new', $datas->id) }}/field_visit_show">
                                                             <div class="icon" onclick="showChild()"
                                                                 data-bs-toggle="tooltip" title="Related Records">
                                                                 {{-- <img src="{{ asset('user/images/parent.png') }}"

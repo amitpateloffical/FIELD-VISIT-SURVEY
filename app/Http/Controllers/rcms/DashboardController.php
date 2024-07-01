@@ -33,6 +33,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\OOS;
 use App\Models\errata;
 use App\Models\MarketComplaint;
+use App\Models\FieldVisit;
 
 
 class DashboardController extends Controller
@@ -57,7 +58,7 @@ class DashboardController extends Controller
 
     public function index(Request $request)
     {
-        
+
         $table = [];
 
         $datas = CC::orderByDesc('id')->get();
@@ -75,12 +76,13 @@ class DashboardController extends Controller
         $datas12 = Observation::orderByDesc('id')->get();
         $datas13 = OOS::orderByDesc('id')->get();
         $datas14 = MarketComplaint::orderByDesc('id')->get();
-    
+
         $deviation = Deviation::orderByDesc('id')->get();
         $ooc = OutOfCalibration::orderByDesc('id')->get();
         $failureInvestigation = FailureInvestigation::orderByDesc('id')->get();
         $datas15 = Ootc::orderByDesc('id')->get();
         $datas16 = errata::orderByDesc('id')->get();
+        $datas17 = FieldVisit::orderByDesc('id')->get();
         foreach ($datas as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
 
@@ -362,7 +364,7 @@ class DashboardController extends Controller
                 "intiation_date" => $data->intiation_date,
                 // "status" => $data->status,
                 "stage" => $data->status,
-                
+
                 "date_open" => $data->create,
                 "date_close" => $data->updated_at,
             ]);
@@ -406,7 +408,7 @@ class DashboardController extends Controller
                 "intiation_date" => $data->intiation_date,
                 // "status" => $data->status,
                 "stage" => $data->status,
-                
+
                 "date_open" => $data->create,
                 "date_close" => $data->updated_at,
             ]);
@@ -538,6 +540,28 @@ class DashboardController extends Controller
                 "date_close" => $data->updated_at,
             ]);
         }
+
+        foreach ($datas17 as $data) {
+            $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
+            array_push($table, [
+                "id" => $data->id,
+                "parent" => $data->parent_record ? $data->parent_record : "-",
+                "record" => $data->record_number,
+                "division_id" => $data->division_id,
+                "type" => "Field Visit Survey",
+                "parent_id" => $data->parent_id,
+                "parent_type" => $data->parent_type,
+                "short_description" => $data->short_description ? $data->short_description : "-",
+                "initiator_id" => $data->initiator_id,
+                "initiated_through" => $data->initiated_by,
+                "intiation_date" => $data->intiation_date,
+                "stage" => $data->status,
+
+                "date_open" => $data->create,
+                "date_close" => $data->updated_at,
+            ]);
+        }
+
         // dd($data);
         $table  = collect($table)->sortBy('record')->reverse()->toArray();
         // return $table;
@@ -764,6 +788,30 @@ class DashboardController extends Controller
                     ]
                 );
             }
+
+            if ($data->parent_type == "Field Visit Survey") {
+                $data2 = FieldVisit::where('id', $data->parent_id)->first();
+                $data2->create = Carbon::parse($data2->created_at)->format('d-M-Y h:i A');
+                array_push(
+                    $table,
+                    [
+                        "id" => $data2->id,
+                        "parent" => $data2->parent_record ? $data2->parent_record : "-",
+                        "record" => $data2->record,
+                        "type" => "Field Visit Survey",
+                        "parent_id" => $data2->parent_id,
+                        "parent_type" => $data2->parent_type,
+                        "division_id" => $data2->division_id,
+                        "short_description" => $data2->short_description ? $data2->short_description : "-",
+                        "initiator_id" => $data->initiator_id,
+                        "intiation_date" => $data2->intiation_date,
+                        "stage" => $data2->status,
+                        "date_open" => $data2->create,
+                        "date_close" => $data2->updated_at,
+                    ]
+                );
+            }
+
             if ($data->parent_type == "Action_item") {
                 $data2 = ActionItem::where('id', $data->parent_id)->first();
                 $data2->create = Carbon::parse($data2->created_at)->format('d-M-Y h:i A');
@@ -978,6 +1026,12 @@ class DashboardController extends Controller
             $audit = "rootAuditReport/" . $data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
+        }elseif ($type == "Field Visit Survey") {
+            $data = FieldVisit::find($id);
+            $single = "rootSingleReport/" . $data->id;
+            $audit = "rootAuditReport/" . $data->id;
+            $division = QMSDivision::find($data->division_id);
+            $division_name = $division->name;
         }
         elseif ($type == "Market demo") {
             $data = MarketComplaint::find($id);
@@ -985,7 +1039,7 @@ class DashboardController extends Controller
             $audit = "MarketComplaintAuditReport/" . $data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-            
+
         }
 
         elseif ($type == "Market Complaint") {
@@ -994,9 +1048,9 @@ class DashboardController extends Controller
             $single = "pdf-report/" . $data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-            
+
         }
-        
+
 
         $type = $type == 'Capa' ? 'CAPA' : $type;
 
