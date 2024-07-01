@@ -8,6 +8,9 @@
         header {
             display: none;
         }
+        .textarea-margin{
+            margin-bottom: 20px;
+        }
     </style>
 
     <div class="form-field-head">
@@ -291,9 +294,9 @@
                                 </div>
 
 
-                                <div class="group-input">
+                                <div class="group-input textarea-margin">
                                     <label class="mt-4" for="EXACT STORE ADDRESS">Exact Store Address</label>
-                                    <textarea class="summernote" name="exact_address" id="summernote-16">{{ $data->exact_address }}</textarea>
+                                    <textarea  class="summernote textarea-margin" name="exact_address" id="summernote-16">{{ $data->exact_address }}</textarea>
                                 </div>
                             </div>
 
@@ -610,7 +613,7 @@
                                     </div>
                                 </div>
 
-                                <div class="group-input">
+                                <div class="group-input textarea-margin">
                                     <label class="mt-4" for="ANY REMARKS">Any Remarks</label>
                                     <p class="text-primary">Mention the flooring, curtains used, if any specific wallpaper / artistic objects are used to enhance the store vibe. Describe how the articles are kept on basis of the store (For eg., Left wall has kurtis in colour blocking, right wall has bottoms in another colour blocking, centre has accessories, end has trial rooms, cash counter has upselling items etc etc etc). </p>
                                     <textarea class="summernote" name="any_remarks" id="summernote-16">{{ $data->any_remarks }}</textarea>
@@ -738,7 +741,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Is The Staff Able To Handle The Customer ? <span class="text-danger"></span>
+                                        Is the Staff Able To Handle The Customer ? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="handel_customer">
                                         <option value="">Select a value</option>
@@ -833,7 +836,7 @@
                                 </div>
                             </div>
 
-                            <div class="group-input">
+                            <div class="group-input textarea-margin">
                                 <label class="mt-4" for="ANY REMARKS">Any Remarks On Staff Observation?</label>
                                 <p class="text-primary">Describe the staff uniform and anything that requires to be noted down related to the store staff. </p>
                                 <textarea class="summernote" name="remarks_on_staff_observation" id="summernote-16">{{ $data->remarks_on_staff_observation }}</textarea>
@@ -882,7 +885,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Is The Store Currently Running Any Offers Or Discounts? <span class="text-danger"></span>
+                                        Is the Store Currently Running Any Offers Or Discounts? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="any_offers">
                                         <option value="">Select a value</option>
@@ -896,7 +899,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Current Offer In The Overall Store? <span class="text-danger"></span>
+                                        Current Offer In the Overall Store? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="current_offer">
                                         <option value="">Select a value</option>
@@ -975,7 +978,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Age Group Of Customers Currently Seen At The Store <span class="text-danger"></span>
+                                        Age Group Of Customers Currently Seen At the Store <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="age_group_of_customer">
                                         <option value="">Select a value</option>
@@ -1003,7 +1006,7 @@
                                 </div>
                             </div>
 
-                            <div class="group-input">
+                            <div class="group-input textarea-margin">
                                 <label class="mt-4" for="ANY REMARKS">Any Remarks Sale / Marketing Strategy?</label>
                                 <p class="text-primary">Mention the offers if any. Also mention reward points rule. Describe if you feel anything is out of the box about marketing and sales strategy observed in this brand. Mention exchange days/deadline. </p>
                                 <textarea class="summernote" name="any_remarks_sale" id="summernote-16">{{ $data->any_remarks_sale }}</textarea>
@@ -1068,7 +1071,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Colour Palette Of The Entire Store At First Sight <span class="text-danger"></span>
+                                        Colour Palette of the Entire Store At First Sight <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="colour_palette">
                                         <option value="">Select a value</option>
@@ -1197,14 +1200,14 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Did You Find Engaging Priced Merchandise At The Store Front ?
+                                        Did You Find Engaging Priced Merchandise At the Store Front ?
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="engaging_price">
                                         <option value="">Select a value</option>
-                                        <option value="Lower Priced Items Were Displayed At The Store Front "{{ $data->engaging_price == 'Lower Priced Items Were Displayed At The Store Front' ? 'selected' : '' }}>Lower Priced Items Were Displayed At The Store Front</option>
-                                        <option value="Heigher Priced Items Were Displayed At The Store Front "{{ $data->engaging_price == 'Heigher Priced Items Were Displayed At The Store Front' ? 'selected' : '' }}>Heigher Priced Items Were Displayed At The Store Front</option>
-                                        <option value="Mix Priced Items Were Displayed At The Store Front "{{ $data->engaging_price == 'Mix Priced Items Were Displayed At The Store Front' ? 'selected' : '' }}>Mix Priced Items Were Displayed At The Store Front</option>
-                                        <option value="Discount / Sale Priced Items Were Displayed At The Store Front "{{ $data->engaging_price == 'Discount / Sale Priced Items Were Displayed At The Store Front' ? 'selected' : '' }}>Discount / Sale Priced Items Were Displayed At The Store Front</option>
+                                        <option value="Lower Priced Items Were Displayed At the Store Front "{{ $data->engaging_price == 'Lower Priced Items Were Displayed At the Store Front' ? 'selected' : '' }}>Lower Priced Items Were Displayed At the Store Front</option>
+                                        <option value="Heigher Priced Items Were Displayed At the Store Front "{{ $data->engaging_price == 'Heigher Priced Items Were Displayed At the Store Front' ? 'selected' : '' }}>Heigher Priced Items Were Displayed At the Store Front</option>
+                                        <option value="Mix Priced Items Were Displayed At the Store Front "{{ $data->engaging_price == 'Mix Priced Items Were Displayed At the Store Front' ? 'selected' : '' }}>Mix Priced Items Were Displayed At the Store Front</option>
+                                        <option value="Discount / Sale Priced Items Were Displayed At the Store Front "{{ $data->engaging_price == 'Discount / Sale Priced Items Were Displayed At the Store Front' ? 'selected' : '' }}>Discount / Sale Priced Items Were Displayed At the Store Front</option>
 
                                     </select>
                                 </div>
@@ -1214,7 +1217,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Merchandise Availble In The Store <span class="text-danger"></span>
+                                        Merchandise Availble In the Store <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="merchadise_available">
                                         <option value="">Select a value</option>
@@ -1369,7 +1372,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Overall Quality Of Garments In The Store <span class="text-danger"></span>
+                                        Overall Quality Of Garments In the Store <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="quality_of_garments">
                                         <option value="">Select a value</option>
@@ -1385,7 +1388,7 @@
                             </div>
 
 
-                            <div class="group-input">
+                            <div class="group-input textarea-margin">
                                 <label class="mt-4" for="ANY REMARKS">Any Remarks On Product Observation?</label>
                                 <p class="text-primary">Mention any sub brands if offered, and anything worth to be noted in this section. </p>
                                 <textarea class="summernote" name="remarks_on_product_observation" id="summernote-16">{{ $data->remarks_on_product_observation }}</textarea>
@@ -1435,7 +1438,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        The Entrance Of The Store (Display Of Garments) <span class="text-danger"></span>
+                                        The Entrance of the Store (Display Of Garments) <span class="text-danger"></span>
                                     </label>
                                 <p class="text-primary">Here, mention how you feel about the store from outside at the first glance. Keep in mind if the store visually invites you in or not through colour blocking or mannequin display or anything else.</p>
                                     <select id="select-state" placeholder="Select..." name="entrance_of_the_store">
@@ -1470,7 +1473,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Stock Display In The Entire Store <span class="text-danger"></span>
+                                        Stock Display In the Entire Store <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="stock_display">
                                         <option value="">Select a value</option>
@@ -1516,7 +1519,7 @@
                                 </div>
                             </div>
 
-                            <div class="group-input">
+                            <div class="group-input textarea-margin">
                                 <label class="mt-4" for="ANY REMARKS">Any Remarks On VM / Space Management</label>
                                 <p class="text-primary">Mention the colours/prints/styles displayed at the entrance of the store, describe the alignment of the store (what's kept on the left side of the store, what's on the right side etc). Also mention if you feel the store is well spaced or not, meaning if the space is properly utilized or over utilized or under utilized. Describe anything else that's relevant to this section. </p>
                                 <textarea class="summernote" name="any_remarks_on_vm" id="summernote-16">{{ $data->any_remarks_on_vm }}</textarea>
@@ -1589,7 +1592,7 @@
                                 </div>
                             </div>
 
-                            <div class="group-input">
+                            <div class="group-input textarea-margin">
                                 <label class="mt-4" for="ANY REMARKS">Any Remarks On Branding?</label>
                                 <p class="text-primary">If you see a tagline then mention it here. Add anything else that you feel is worthy to be noted about Branding here. </p>
                                 <textarea class="summernote" name="any_ramrks_on_the_branding" id="summernote-16">{{ $data->any_ramrks_on_the_branding }}</textarea>
@@ -1781,12 +1784,11 @@
                                         <option value="">Select a value</option>
                                         <option value="Yes "{{ $data->cloth_hanger == 'Yes' ? 'selected' : '' }}>Yes</option>
                                         <option value="No "{{ $data->cloth_hanger == 'No' ? 'selected' : '' }}>No</option>
-
                                     </select>
                                 </div>
                             </div>
 
-                            <div class="group-input">
+                            <div class="group-input textarea-margin">
                                 <label class="mt-4" for="ANY REMARKS">Any Remarks On The Trial Room ?</label>
                                 <p class="text-primary">Mention the cleanliness and space in the trial room. Also if the trial room has any specific decor like planters or wall displays or anything else.</p>
                                 <textarea class="summernote" name="any_remarks_on_the_trail_room" id="summernote-16">{{ $data->any_remarks_on_the_trail_room }}</textarea>
@@ -1813,9 +1815,9 @@
                                     </a> </button>
                             </div>
                         </div>
-                    </div>
-                </div>
-{{--
+                    {{-- </div> --}}
+                {{-- </div> --}}
+
                 <div id="CCForm9" class="inner-block cctabcontent">
                     <div class="inner-block-content">
                         <div class="row">
@@ -1846,7 +1848,7 @@
                             </div>
                         </div>
                     </div>
-                </div> --}}
+                </div> 
 
             </form>
 

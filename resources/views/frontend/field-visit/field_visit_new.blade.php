@@ -870,7 +870,7 @@
                                 </div>
                             </div>
                 
-                            <div class="group-input">
+                            <div class="group-input textarea-margin">
                                 <label class="mt-4" for="Any Remarks Sale / Marketing Strategy?">Any Remarks Sale / Marketing Strategy?</label>
                                 <p class="text-primary">Mention the offers if any. Also mention reward points rule. Describe if you feel anything is out of the box about marketing and sales strategy observed in this brand. Mention exchange days/deadline.</p>
                                 <textarea class="summernote" name="any_remarks_sale" id="summernote-16"></textarea>
