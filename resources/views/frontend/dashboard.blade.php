@@ -17,18 +17,75 @@
                     </div>
                 </div>
 
-
-
                 <div>
 
                         <div class="inner-block calendar-block">
                             <div id='calendar'></div>
                         </div>
+                        <div class="inner-block">
+                           <div class="col-lg-12">
+                         <div id="chart-1" ></div>
+                           </div>
+                       
+                        </div>
 
             </div>
         </div>
     </div>
+<script>
+     var options = {
+          series: [{
+          name: 'Brand Name',
+          data: [44, 55, 57, 56, 61, 58, ]
+        }, {
+          name: 'Revenue',
+          data: [76, 85, 101, 98, 87, 105]
+        }, {
+          name: 'No Of Field Visitors',
+          data: [35, 41, 36, 26, 45, 48,  ]
+        }],
+          chart: {
+          type: 'bar',
+          height: 350
+        },
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            columnWidth: '55%',
+            endingShape: 'rounded'
+          },
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          show: true,
+          width: 2,
+          colors: ['transparent']
+        },
+        xaxis: {
+          categories: ['W', 'Aurelia', 'Jaypore', 'Global Desi', 'FAB India', 'BIBA',],
+        },
+        yaxis: {
+          title: {
+            text: '$ (thousands)'
+          }
+        },
+        fill: {
+          opacity: 1
+        },
+        tooltip: {
+          y: {
+            formatter: function (val) {
+              return "$ " + val + " thousands"
+            }
+          }
+        }
+        };
 
+        var chart = new ApexCharts(document.querySelector("#chart-1"), options);
+        chart.render();
+</script>
     {{-- ======================================
                 SUBSCRIBE MODAL
     ======================================= --}}
