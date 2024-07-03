@@ -658,7 +658,8 @@
                                 Not Applicable
                             @endif
                         </td>
-                    </tr> <tr>
+                    </tr> 
+                    <tr>
                         <th class="w-20">Size Availability</th>
                         <td class="w-30">
                             @if ($data->type_of_error)
@@ -678,6 +679,64 @@
                         </td>
                     </tr>
                     {{-- Did You Find Engaging Priced Merchandise At The Store Front ? --}}
+                    </table>
+
+            <div style="font-weight: 200">Details G-1</div>
+                <div class="border-table">
+                    <table>
+                        <tr class="table_bg">
+                            <th class="w-10" style="width: 50px;">SR no.</th>
+                            <th class="w-45">Category</th>
+                            <th class="w-45">Price</th>
+                        </tr>
+                        @if ($grid_Data && is_array($grid_Data->data))
+                            @foreach ($grid_Data->data as $datas)
+                                <tr>
+                                    <td class="w-20">{{ $loop->index + 1 }}</td>
+                                    <td class="w-20">{{ isset($datas['category']) ? $datas['category'] : '' }}</td>
+                                    <td class="w-20">{{ isset($datas['price']) ? $datas['price'] : '' }}</td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <td>Not Applicable</td>
+                                <td>Not Applicable</td>
+                                <td>Not Applicable</td>
+                            </tr>
+                        @endif
+                    </table>
+                </div>
+            </div>
+
+            <div style="font-weight: 200">Details G-2</div>
+                <div class="border-table">
+                    <table>
+                        <tr class="table_bg">
+                            <th class="w-10" style="width: 50px;">SR no.</th>
+                            <th class="w-45">Styles</th>
+                            <th class="w-45">Category</th>
+                        </tr>
+                        @if ($grid_Data2 && is_array($grid_Data2->data))
+                            @foreach ($grid_Data2->data as $datas)
+                                <tr>
+                                    <td class="w-20">{{ $loop->index + 1 }}</td>
+                                    <td class="w-20">{{ isset($datas['styles']) ? $datas['styles'] : '' }}</td>
+                                    <td class="w-20">{{ isset($datas['category']) ? $datas['category'] : '' }}</td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <td>Not Applicable</td>
+                                <td>Not Applicable</td>
+                                <td>Not Applicable</td>
+                            </tr>
+                        @endif
+                    </table>
+                </div>
+            </div>
+
+        <table>
+
                     <tr>
                         <th class="w-20">Merchandise Availble In The Store</th>
                         <td class="w-30">
@@ -928,44 +987,7 @@
 
                 </table>
 
-                {{-- <div class="block"> --}}
-                {{-- <div class="block-head"> --}}
-                <div style="font-weight: 200">Details</div>
-                {{-- </div> --}}
-                <div class="border-table">
-                    <table>
-                        <tr class="table_bg">
-                            <th class="w-20">SR no.</th>
-                            <th class="w-20">ListOfImpactingDocument</th>
-                            <th class="w-20">Prepared By</th>
-                            <th class="w-20">Checked By</th>
-                            <th class="w-20">Approved By</th>
-                        </tr>
-                        @if ($grid_Data && is_array($grid_Data->data))
-                            @foreach ($grid_Data->data as $grid_Data)
-                                <tr>
-                                    <td class="w-20">{{ $loop->index + 1 }}</td>
-                                    <td class="w-20">{{ isset($grid_Data['ListOfImpactingDocument']) ? $grid_Data['ListOfImpactingDocument'] : '' }}
-                                    </td>
-                                    <td class="w-20">{{ isset($grid_Data['PreparedBy']) ? $grid_Data['PreparedBy'] : '' }}</td>
-                                    <td class="w-20">{{ isset($grid_Data['CheckedBy']) ? $grid_Data['CheckedBy'] : '' }}</td>
-                                    <td class="w-20">{{ isset($grid_Data['ApprovedBy']) ? $grid_Data['ApprovedBy'] : '' }}</td>
-                                </tr>
-                            @endforeach
-                        @else
-                            <tr>
-                                <td>Not Applicable</td>
-                                <td>Not Applicable</td>
-                                <td>Not Applicable</td>
-                                <td>Not Applicable</td>
-                                <td>Not Applicable</td>
-                            </tr>
-                        @endif
-                    </table>
-                </div>
-                {{-- </div> --}}
-            </div>
-
+               
 
 
 

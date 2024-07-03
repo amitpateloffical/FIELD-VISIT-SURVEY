@@ -164,7 +164,8 @@ class FieldVisitController extends Controller
         $data = FieldVisit::find($id);
         $fieldvisit_id = $data->id;
         $grid_Data = FieldVisitGrid::where(['fv_id' => $fieldvisit_id, 'identifier' => 'details1'])->first();
-        $grid_Data2 = FieldVisitGrid::where(['fv_id' => $fieldvisit_id, 'identifier' => 'details2'])->first();
+        // dd(json_decode($grid_Data->data, true));
+        $grid_Data2 = FieldVisitGrid::where(['fv_id' => $fieldvisit_id, 'identifier' => 'details2'])->first() ;
          return view('frontend.field-visit.field_visit_view',compact('data','grid_Data','grid_Data2'));
     }
 
@@ -173,6 +174,7 @@ class FieldVisitController extends Controller
 
         $data = FieldVisit::find($id);
 // dd($data);
+        $data->save_count++;
         $data->date = $request->date;
         $data->time = $request->time;
         $data->brand_name = $request->brand_name;
@@ -491,7 +493,7 @@ class FieldVisitController extends Controller
             if ($data->stage == 1) {
 
                 $data->stage = "0";
-                $data->status = "Opened";
+                $data->status = "Closed-Cancelled";
                 $data->close_cancel_by = Auth::user()->name;
                 $data->close_cancel_on = Carbon::now()->format('d-M-Y');
                 $data->close_cancel_comment = $request->comment;
@@ -544,15 +546,13 @@ class FieldVisitController extends Controller
     {
         $data = FieldVisit::find($id);
         $grid_Data = FieldVisitGrid::where(['fv_id' => $id, 'identifier' => 'details1'])->first();
+        $grid_Data2 = FieldVisitGrid::where(['fv_id' => $id, 'identifier' => 'details2'])->first();
         if (!empty($data)) {
-            $data->data = FieldVisitGrid::where('fv_id', $id)->where('identifier', "details1")->first();
-            // $data->Instruments_Details = ErrataGrid::where('e_id', $id)->where('type', "Instruments_Details")->first();
-            // $data->Material_Details = Erratagrid::where('e_id', $id)->where('type', "Material_Details")->first();
-            // dd($data->all());
+            // $data->data = FieldVisitGrid::where('fv_id', $id)->where('identifier', "details1")->first();
             $data->originator = User::where('id', $data->initiator_id)->value('name');
             $pdf = App::make('dompdf.wrapper');
             $time = Carbon::now();
-            $pdf = PDF::loadview('frontend.field-visit.field_visit_single_report', compact('data', 'grid_Data'))
+            $pdf = PDF::loadview('frontend.field-visit.field_visit_single_report', compact('data', 'grid_Data','grid_Data2'))
                 ->setOptions([
                     'defaultFont' => 'sans-serif',
                     'isHtml5ParserEnabled' => true,
@@ -569,5 +569,38 @@ class FieldVisitController extends Controller
             return $pdf->stream('errata' . $id . '.pdf');
         }
     }
+
+    public function registrationsLast7Days($id)
+    {
+        $res = Helpers::getDefaultResponse();
+        $save_data=FieldVisit::table('table_names')->where('id',$id)->first('save_count');
+        try {
+
+            $data = [];
+
+            for ($i = 7; $i >= 0; $i--)
+            {
+                $weekly_data = [];
+                $week = Carbon::now()->subMonths($i);
+
+                $bar_chart = FieldVisit::where('Stage', '3')
+                                    ->whereDate('created_at', '>=', $week->startOfWeek())
+                                    ->whereDate('created_at', '<=', $week->endOfWeek())
+                                    ->get('save_data');
+                                    
+                $weekly_data['week'] = $week->format('M');
+
+                array_push($data, $weekly_data);
+
+            }
+            $res['body'] = $data;
+        }
+        catch (\Exception $e) {
+            $res['status'] = 'error';
+            $res['message'] = $e->getMessage();
+
+    }
+    return response()->json($res);
+}
 
 }

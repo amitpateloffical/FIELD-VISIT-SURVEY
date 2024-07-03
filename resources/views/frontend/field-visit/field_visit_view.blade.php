@@ -52,6 +52,9 @@
             border-radius: 0px 20px 20px 0px;
 
         }
+        .hide-input {
+    display: none;
+}
     </style>
 
     {{-- ! ========================================= --}}
@@ -190,7 +193,9 @@
                                     <div class="group-input">
                                         <label for="Date">Date</label>
                                         <input type="text" value="{{ date('d-M-Y') }}" name="date">
-                                        <input type="hidden" value="{{ date('Y-m-d') }}" name="date">
+                                        <!-- <input type="date" name="date"  min="{{ \Carbon\Carbon::now()->format('Y-m-d') }}" class="hide-input"
+                                        oninput="handleDateInput(this, 'due_date')"  /> -->
+
                                     </div>
                                 </div>
 
@@ -503,7 +508,7 @@
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="OVERALL STORE LIGHTING">
-                                            The Store Is Of How Many Floors? <span class="text-danger"></span>
+                                            The Store Is of How Many Floors? <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="floors">
                                             <option value="">Select a value</option>
@@ -583,7 +588,7 @@
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="OVERALL STORE LIGHTING">
-                                            Store Signage And Graphics <span class="text-danger"></span>
+                                            Store Signage and Graphics <span class="text-danger"></span>
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="store_signage">
                                             <option value="">Select a value</option>
@@ -725,7 +730,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        No. Of Customer At The Store Currently ? <span class="text-danger"></span>
+                                        No. of Customer At the Store Currently ? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="number_customer">
                                         <option value="">Select a value</option>
@@ -741,7 +746,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Is the Staff Able To Handle The Customer ? <span class="text-danger"></span>
+                                        Is the Staff Able to Handle The Customer ? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="handel_customer">
                                         <option value="">Select a value</option>
@@ -757,7 +762,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Knowledge Of Merchandise <span class="text-danger"></span>
+                                        Knowledge of Merchandise <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="knowledge_of_merchandise">
                                         <option value="">Select a value</option>
@@ -774,7 +779,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Awareness Of Brand / Offers / In General <span class="text-danger"></span>
+                                        Awareness of Brand / Offers / In General <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="awareness_of_brand">
                                         <option value="">Select a value</option>
@@ -837,7 +842,7 @@
                             </div>
 
                             <div class="group-input textarea-margin">
-                                <label class="mt-4" for="ANY REMARKS">Any Remarks On Staff Observation?</label>
+                                <label class="mt-4" for="ANY REMARKS">Any Remarks on Staff Observation?</label>
                                 <p class="text-primary">Describe the staff uniform and anything that requires to be noted down related to the store staff. </p>
                                 <textarea class="summernote" name="remarks_on_staff_observation" id="summernote-16">{{ $data->remarks_on_staff_observation }}</textarea>
                             </div>
@@ -964,7 +969,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Use Of Influencer/ Brand Marketing <span class="text-danger"></span>
+                                        Use of Influencer/ Brand Marketing <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="use_of_influencer">
                                         <option value="">Select a value</option>
@@ -978,7 +983,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Age Group Of Customers Currently Seen At the Store <span class="text-danger"></span>
+                                        Age Group of Customers Currently Seen At the Store <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="age_group_of_customer">
                                         <option value="">Select a value</option>
@@ -1087,7 +1092,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Number Of Colourways Offered In Most Styles <span class="text-danger"></span>
+                                        Number of Colourways Offered In Most Styles <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="number_of_colourways">
                                         <option value="">Select a value</option>
@@ -1126,7 +1131,7 @@
 
                             <div class="group-input">
                                 <label for="audit-agenda-grid">
-                                    Details
+                                    Details G-1
                                     <button type="button" name="details" id="Details1-add">+</button>
                                     <span class="text-primary" data-bs-toggle="modal"
                                         data-bs-target="#observation-field-instruction-modal"
@@ -1237,7 +1242,7 @@
 
                             <div class="group-input">
                                 <label for="audit-agenda-grid">
-                                    Details
+                                    Details G-2
                                     <button type="button" name="details" id="Details2-add">+</button>
                                     <span class="text-primary" data-bs-toggle="modal"
                                         data-bs-target="#observation-field-instruction-modal"
@@ -1262,7 +1267,7 @@
                                                     <td><input disabled type="text" name="details2[{{ $loop->index }}][row]" value="1"></td>
                                                     <td>
                                                         <select name="details2[{{ $loop->index }}][styles]">
-                                                            <option value="">--Select Category--</option>
+                                                            <option value="">--Select Styles--</option>
                                                             <option value="Casual Wear" {{ isset($names['styles']) && $names['styles'] == 'Casual Wear' ? 'selected' : '' }}>Casual Wear</option>
                                                             <option value="Traditional/contemporary Wear" {{ isset($names['styles']) && $names['styles'] == 'Traditional/contemporary Wear' ? 'selected' : '' }}>Traditional/contemporary Wear</option>
                                                             <option value="Ethnic Wear" {{ isset($names['styles']) && $names['styles'] == 'Ethnic Wear' ? 'selected' : '' }}>Ethnic Wear</option>
@@ -1273,7 +1278,7 @@
                                                     </td>
                                                     <td>
                                                         <select name="details2[{{ $loop->index }}][category]">
-                                                            <option value="">--Select Price--</option>
+                                                            <option value="">--Select category--</option>
                                                             <option value="Top/Tunics/Shirts" {{ isset($names['category']) && $names['category'] == 'Top/Tunics/Shirts' ? 'selected' : '' }}>Top/Tunics/Shirts</option>
                                                             <option value="Skirt/Lehenga" {{ isset($names['category']) && $names['category'] == 'Skirt/Lehenga' ? 'selected' : '' }}>Skirt/Lehenga</option>
                                                             <option value="Shirts/Tunics" {{ isset($names['category']) && $names['category'] == 'Shirts/Tunics' ? 'selected' : '' }}>Shirts/Tunics</option>
@@ -1306,7 +1311,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Types Of Fabric Available ? <span class="text-danger"></span>
+                                        Types of Fabric Available ? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="types_of_fabric">
                                         <option value="">Select a value</option>
@@ -1359,7 +1364,7 @@
                                         <option value="Thread Work "{{ $data->embroideries_observed == 'Thread Work' ? 'selected' : '' }}>Thread Work</option>
                                         <option value="Applique "{{ $data->embroideries_observed == 'Applique' ? 'selected' : '' }}>Applique</option>
                                         <option value="Bead Work "{{ $data->embroideries_observed == 'Bead Work' ? 'selected' : '' }}>Bead Work</option>
-                                        <option value="Stone Work And Zardozi Embroidery "{{ $data->embroideries_observed == 'Stone Work And Zardozi Embroidery' ? 'selected' : '' }}>Stone Work And Zardozi Embroidery</option>
+                                        <option value="Stone Work and Zardozi Embroidery "{{ $data->embroideries_observed == 'Stone Work and Zardozi Embroidery' ? 'selected' : '' }}>Stone Work and Zardozi Embroidery</option>
                                         <option value="Home Decor "{{ $data->embroideries_observed == 'Home Decor' ? 'selected' : '' }}>Home Decor</option>
                                         <option value="All Over Embroidery "{{ $data->embroideries_observed == 'All Over Embroidery' ? 'selected' : '' }}>All Over Embroidery</option>
                                         <option value="Placement Embroidery "{{ $data->embroideries_observed == 'Placement Embroidery' ? 'selected' : '' }}>Placement Embroidery</option>
@@ -1372,7 +1377,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Overall Quality Of Garments In the Store <span class="text-danger"></span>
+                                        Overall Quality of Garments In the Store <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="quality_of_garments">
                                         <option value="">Select a value</option>
@@ -1438,7 +1443,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        The Entrance of the Store (Display Of Garments) <span class="text-danger"></span>
+                                        The Entrance of the Store (Display of Garments) <span class="text-danger"></span>
                                     </label>
                                 <p class="text-primary">Here, mention how you feel about the store from outside at the first glance. Keep in mind if the store visually invites you in or not through colour blocking or mannequin display or anything else.</p>
                                     <select id="select-state" placeholder="Select..." name="entrance_of_the_store">
@@ -1478,7 +1483,7 @@
                                     <select id="select-state" placeholder="Select..." name="stock_display">
                                         <option value="">Select a value</option>
                                         <option value="Limited Sizes Are Displayed On Racks "{{ $data->stock_display == 'Limited Sizes Are Displayed On Racks' ? 'selected' : '' }}>Limited Sizes Are Displayed On Racks</option>
-                                        <option value="All Sizes Are Displayed Together On The Same Rack "{{ $data->stock_display == 'All Sizes Are Displayed Together On The Same Rack' ? 'selected' : '' }}>All Sizes Are Displayed Together On The Same Rack</option>
+                                        <option value="All Sizes Are Displayed Together On the Same Rack "{{ $data->stock_display == 'All Sizes Are Displayed Together On the Same Rack' ? 'selected' : '' }}>All Sizes Are Displayed Together On The Same Rack</option>
                                         <option value="All Sizes Are Displayed But On Different Racks "{{ $data->stock_display == 'All Sizes Are Displayed But On Different Racks' ? 'selected' : '' }}>All Sizes Are Displayed But On Different Racks</option>
                                         <option value="Others "{{ $data->stock_display == 'Others' ? 'selected' : '' }}>Others</option>
                                     </select>
@@ -1488,7 +1493,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Spacing Of Clothes On The Rack<span class="text-danger"></span>
+                                        Spacing of Clothes On The Rack<span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="spacing_of_clothes">
                                         <option value="">Select a value</option>
@@ -1587,7 +1592,7 @@
                                         <option value="">Select a value</option>
                                         <option value="Digital Only "{{ $data->initiated_by == 'Digital Only' ? 'selected' : '' }}>Digital Only</option>
                                         <option value="Paper Printed Bill "{{ $data->initiated_by == 'Paper Printed Bill' ? 'selected' : '' }}>Paper Printed Bill</option>
-                                        <option value="Digital And Paper Printed Both "{{ $data->initiated_by == 'Digital And Paper Printed Both' ? 'selected' : '' }}>Digital And Paper Printed Both</option>
+                                        <option value="Digital and Paper Printed Both "{{ $data->initiated_by == 'Digital and Paper Printed Both' ? 'selected' : '' }}>Digital and Paper Printed Both</option>
                                     </select>
                                 </div>
                             </div>
@@ -1643,7 +1648,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Number Of Trial Rooms? <span class="text-danger"></span>
+                                        Number of Trial Rooms? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="number_of_trial_rooms_">
                                         <option value="">Select a value</option>
@@ -1697,7 +1702,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Queue Outside The Trial Room <span class="text-danger"></span>
+                                        Queue Outside the Trial Room <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="queue_outside_the_trial_room">
                                         <option value="">Select a value</option>
@@ -1747,7 +1752,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Is Seating Inside The Trail Room Available? <span class="text-danger"></span>
+                                        Is Seating Inside the Trail Room Available? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="trial_room_available">
                                         <option value="">Select a value</option>
@@ -1778,7 +1783,7 @@
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="PAGE SECTION">
-                                        Cloth Hanger Inside The Trial Room Available? <span class="text-danger"></span>
+                                        Cloth Hanger Inside the Trial Room Available? <span class="text-danger"></span>
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="cloth_hanger">
                                         <option value="">Select a value</option>
@@ -1824,16 +1829,81 @@
 
                             <div class="col-lg-4">
                                 <div class="group-input">
-                                    <label for="Cancel BY">Survey By</label>
-                                    <div class="static"></div>
+                                    <label for="Cancel BY">Submit By</label>
+                                    <div class="static">{{ $data->submit_by }}</div>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="group-input">
-                                    <label for="Cancel BY">Survey On</label>
-                                    <div class="static"></div>
+                                    <label for="Cancel BY">Submit On</label>
+                                    <div class="static">{{ $data->submit_on }}</div>
                                 </div>
                             </div>
+                            <div class="col-lg-4">
+                                <div class="group-input">
+                                    <label for="Cancel BY">Comment</label>
+                                    <div class="static">{{ $data->submit_comment }}</div>
+                                </div>
+                            </div>
+                            <!-- <div> -->
+                            <div class="col-lg-4">
+                                <div class="group-input">
+                                    <label for="Cancel BY">Review Completed By</label>
+                                    <div class="static">{{ $data->pending_review_by }}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="group-input">
+                                    <label for="Cancel BY">Review Completed On</label>
+                                    <div class="static">{{ $data->pending_review_on }}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="group-input">
+                                    <label for="Cancel BY">Comment</label>
+                                    <div class="static">{{ $data->pending_review_comment }}</div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="group-input">
+                                    <label for="Cancel BY">More Info Required By</label>
+                                    <div class="static">{{ $data->review_completed_more_info_by }}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="group-input">
+                                    <label for="Cancel BY">More Info Required On</label>
+                                    <div class="static">{{ $data->review_completed_more_info_on }}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="group-input">
+                                    <label for="Cancel BY">Comment</label>
+                                    <div class="static">{{ $data->review_completed_more_info_comment }}</div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4">
+                                <div class="group-input">
+                                    <label for="Cancel BY">Cancel By</label>
+                                    <div class="static">{{ $data->close_cancel_by }}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="group-input">
+                                    <label for="Cancel BY">Cancel On</label>
+                                    <div class="static">{{ $data->close_cancel_on }}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="group-input">
+                                    <label for="Cancel BY">Comment</label>
+                                    <div class="static">{{ $data->close_cancel_comment }}</div>
+                                </div>
+                            </div>
+                            </div>
+                          
 
 
                             <div class="button-block">
