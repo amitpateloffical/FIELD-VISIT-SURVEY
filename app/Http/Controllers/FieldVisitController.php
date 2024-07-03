@@ -29,6 +29,7 @@ class FieldVisitController extends Controller
         $data->stage = "1";
         $data->status = "Opened";
         // $data->type = "Field Visit Survey";
+        $data->save_data = 1;
         $data->record = ((RecordNumber::first()->value('counter')) + 1);
         $data->division_code = $request->division_code;
         $data->initiator = $request->initiator;
@@ -174,7 +175,7 @@ class FieldVisitController extends Controller
 
         $data = FieldVisit::find($id);
 // dd($data);
-$data->save_data++;
+        $data->save_data++;
         $data->date = $request->date;
         $data->time = $request->time;
         $data->brand_name = $request->brand_name;
