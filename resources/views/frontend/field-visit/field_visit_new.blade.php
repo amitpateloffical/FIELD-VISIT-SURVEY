@@ -976,10 +976,10 @@
                 
                             <div class="group-input">
                                 <label for="audit-agenda-grid">
-                                    Details
+                                    Details G-1
                                     <button type="button" name="details" id="Details1-add">+</button>
                                     <span class="text-primary" data-bs-toggle="modal" data-bs-target="#observation-field-instruction-modal" style="font-size: 0.8rem; font-weight: 400; cursor: pointer;">
-                                        Launch Deviation
+                                        <!-- Launch Deviation -->
                                     </span>
                                 </label>
                                 <div class="table-responsive">
@@ -1070,10 +1070,10 @@
                 
                             <div class="group-input">
                                 <label for="audit-agenda-grid">
-                                    Details
+                                    Details G-2
                                     <button type="button" name="details2" id="Details2-add">+</button>
                                     <span class="text-primary" data-bs-toggle="modal" data-bs-target="#observation-field-instruction-modal" style="font-size: 0.8rem; font-weight: 400; cursor: pointer;">
-                                        Launch Deviation
+                                        <!-- Launch Deviation -->
                                     </span>
                                 </label>
                                 <div class="table-responsive">

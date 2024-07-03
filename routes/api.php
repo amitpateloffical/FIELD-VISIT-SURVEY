@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\HelperController;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\FieldVisitController;
 use App\Http\Controllers\UserLoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,5 +31,8 @@ Route::get('capaStatus', [ApiController::class, 'capaStatus']);
 Route::post('/filter-records', [DocumentController::class, 'filterRecord'])->name('record.filter');
 
 Route::post('upload-files', [HelperController::class, 'upload_file'])->name('api.upload.file');
+
+Route::get('/charts/documents-by-brand-visitor', [FieldVisitController::class, 'brandVisitorData'])->name('api.documents-by-brand-visitor');
+Route::get('/charts/documents-by-user', [FieldVisitController::class, 'userData'])->name('api.documents-by-user');
 
 

@@ -547,6 +547,7 @@ class FieldVisitController extends Controller
     {
         $data = FieldVisit::find($id);
         $grid_Data = FieldVisitGrid::where(['fv_id' => $id, 'identifier' => 'details1'])->first();
+        $grid_Data2 = FieldVisitGrid::where(['fv_id' => $id, 'identifier' => 'details2'])->first();
         if (!empty($data)) {
             $data->data = FieldVisitGrid::where('fv_id', $id)->where('identifier', "details1")->first();
             // $data->Instruments_Details = ErrataGrid::where('e_id', $id)->where('type', "Instruments_Details")->first();
@@ -555,7 +556,7 @@ class FieldVisitController extends Controller
             $data->originator = User::where('id', $data->initiator_id)->value('name');
             $pdf = App::make('dompdf.wrapper');
             $time = Carbon::now();
-            $pdf = PDF::loadview('frontend.field-visit.field_visit_single_report', compact('data', 'grid_Data'))
+            $pdf = PDF::loadview('frontend.field-visit.field_visit_single_report', compact('data', 'grid_Data','grid_Data2'))
                 ->setOptions([
                     'defaultFont' => 'sans-serif',
                     'isHtml5ParserEnabled' => true,
@@ -574,8 +575,62 @@ class FieldVisitController extends Controller
     }
 
     public function userCount() {
-        $counts = DB::table('field_visits')->pluck('save_data')->toArray();
-        return response()->json(['data' => $counts]);
+        $data = DB::table('field_visits')->pluck('save_data')->toArray();
+
+        return response()->json(['data' => $data]);
     }
+
+    // public function fetchData(Request $request){
+    //     $data = FieldVisit::select('brand_name', 'field_visitor')->get();
+
+    // return response()->json($data);
+    // }
+
+    public function brandVisitorData()
+    {
+        $res = Helpers::getDefaultResponse();
+
+        try {
+
+            $data = [];
+
+            for ($i = 5; $i >= 0; $i--)
+            {
+                $brandData = [];
+                $month = Carbon::now()->subMonths($i);
+                
+
+                // foreach ($brandName as $brandName)
+                // {
+                    $brandNames = FieldVisit::where('brand_name', '!=', null)
+                                    ->whereDate('created_at', '>=', $month->startOfMonth())
+                                    ->whereDate('created_at', '<=', $month->endOfMonth())
+                                    ->get()->count();
+
+                    $visitor = FieldVisit::where('field_visitor', '!=', null)
+                                    ->whereDate('created_at', '>=', $month->startOfMonth())
+                                    ->whereDate('created_at', '<=', $month->endOfMonth())
+                                    ->get()->count();
+
+                                    $brandData['month'] = $month->format('M');
+                                    $brandData['brandName'] = $brandNames;
+                                    $brandData['visitor'] = $visitor;
+                    
+                                    array_push($data, $brandData);
+                // }
+                
+            }
+
+
+            $res['body'] = $data;
+
+        } catch (\Exception $e) {
+            $res['status'] = 'error';
+            $res['message'] = $e->getMessage();
+        }
+        return response()->json($res);
+    }
+
+
 
 }

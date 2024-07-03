@@ -19,21 +19,57 @@
 
                 <div>
 
-                    <div class="inner-block calendar-block">
+                    <!-- <div class="inner-block calendar-block">
                         <div id='calendar'></div>
-                    </div>
-                    <div class="inner-block">
-                        <div class="col-lg-12">
-                            <div id="chart-1"></div>
+                    </div> -->
+                    <div class="col-lg-12">
+                        <div class="card border-0" >
+                            <div class="card-body">
+                                <h5 class="card-title">Users and Visitors</h5>
+
+                                <div class="card-text d-flex justify-content-center d-flex justify-content-center align-items-center h-100"
+                                    id="chart-1">
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
 
                     </div>
+
+                    
+
+                    <div class="col-lg-12">
+                        <div class="card border-0" >
+                            <div class="card-body">
+                                <h5 class="card-title">Brand and Visitors</h5>
+
+                                <div class="card-text d-flex justify-content-center d-flex justify-content-center align-items-center h-100"
+                                    id="brandVisitorChart">
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- <div class="inner-block">
+                        <div class="col-lg-12">
+                            <div id=""></div>
+                        </div>
+                    </div> -->
 
                 </div>
             </div>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        </div> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
         <script>
             $(document).ready(function() {
                 // Fetch user counts via AJAX
@@ -51,9 +87,20 @@
 
                 // Function to update chart with fetched data
                 function updateChart(userCounts) {
+
+
+                    var users = []; // Initialize an empty array for users
+                        let n=users.length;
+                        for (var i = 1; i <= n; i++) {
+                            users.push('user' + i);
+                            // console.log(users);
+                        }
+
+                        // console.log(users);
+
                     var options = {
                         series: [{
-                            name: 'Number of Users', // Update series name
+                            name: 'Total Survey', // Update series name
                             data: userCounts
                         }],
                         chart: {
@@ -63,7 +110,7 @@
                         plotOptions: {
                             bar: {
                                 horizontal: false,
-                                columnWidth: '55%',
+                                columnWidth: '35%',
                                 endingShape: 'rounded'
                             }
                         },
@@ -79,7 +126,7 @@
                             title: {
                                 text: 'Total Visitors' // Update y-axis title
                             },
-                            categories: ['W', 'Aurelia', 'Jaypore', 'Global Desi', 'FAB India', 'BIBA'],
+                            categories: ['user1','user2','user3','user4'],
                         },
                         yaxis: {
                             title: {
@@ -92,7 +139,7 @@
                         tooltip: {
                             y: {
                                 formatter: function(val) {
-                                    return val + " users"; // Update tooltip format
+                                    return val + " Survey"; // Update tooltip format
                                 }
                             }
                         }
@@ -102,59 +149,52 @@
                     chart.render();
                 }
             });
-        </script>
+
+           </script>
         {{-- <script>
      var options = {
           series: [{
           name: 'Brand Name',
-          data: [44, 55, 57, 56, 61, 58, ]
+          data: [44, 55, 41, 67, 22, 43, 21, 49]
         }, {
-          name: 'Revenue',
-          data: [76, 85, 101, 98, 87, 105]
+          name: 'No. of Visitors',
+          data: [13, 23, 20, 8, 13, 27, 33, 12]
         }, {
-          name: 'No Of Field Visitors',
-          data: [35, 41, 36, 26, 45, 48,  ]
+          name: 'PRODUCT C',
+          data: [11, 17, 15, 15, 21, 14, 15, 13]
         }],
           chart: {
           type: 'bar',
-          height: 350
+          height: 350,
+          stacked: true,
+          stackType: '100%'
         },
-        plotOptions: {
-          bar: {
-            horizontal: false,
-            columnWidth: '55%',
-            endingShape: 'rounded'
-          },
-        },
-        dataLabels: {
-          enabled: false
-        },
-        stroke: {
-          show: true,
-          width: 2,
-          colors: ['transparent']
-        },
-        xaxis: {
-          categories: ['W', 'Aurelia', 'Jaypore', 'Global Desi', 'FAB India', 'BIBA',],
-        },
-        yaxis: {
-          title: {
-            text: '$ (thousands)'
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            legend: {
+              position: 'bottom',
+              offsetX: -10,
+              offsetY: 0
+            }
           }
+        }],
+        xaxis: {
+          categories: ['2011 Q1', '2011 Q2', '2011 Q3', '2011 Q4', '2012 Q1', '2012 Q2',
+            '2012 Q3', '2012 Q4'
+          ],
         },
         fill: {
           opacity: 1
         },
-        tooltip: {
-          y: {
-            formatter: function (val) {
-              return "$ " + val + " thousands"
-            }
-          }
-        }
+        legend: {
+          position: 'right',
+          offsetX: 0,
+          offsetY: 50
+        },
         };
 
-        var chart = new ApexCharts(document.querySelector("#chart-1"), options);
+        var chart = new ApexCharts(document.querySelector("#chart-2"), options);
         chart.render();
 </script> --}}
         {{-- ======================================
@@ -816,6 +856,104 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.32/moment-timezone-with-data.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"
+    integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+        <script>
+            function renderuserChart(brandData, visitorData, months) {
+                var options = {
+                    series: [{
+                            name: 'Brands',
+                            data: brandData
+                        },
+                        {
+                            name: 'Visitors',
+                            data: visitorData
+                        },
+                    ],
+                    chart: {
+                        type: 'bar',
+                        height: 350
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: '55%',
+                            endingShape: 'rounded'
+                        },
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    stroke: {
+                        show: true,
+                        width: 2,
+                        colors: ['transparent']
+                    },
+                    xaxis: {
+                        categories: months,
+                    },
+                    yaxis: {
+                        title: {
+                            text: '# of Deviations'
+                        }
+                    },
+                    fill: {
+                        opacity: 1,
+                        colors: ['#008FFB', '#00E396']
+                    },
+                    tooltip: {
+                        y: {
+                            formatter: function(val) {
+                                return val + " "
+                            }
+                        }
+                    }
+                };
+
+                var brandVisitorChart = new ApexCharts(document.querySelector("#brandVisitorChart"), options);
+                brandVisitorChart.render();
+            }
+
+            async function prepareBrandVisitorChart() {
+                $('#brandVisitorChart > .spinner-border').show();
+
+                try {
+                    const url = "{{ route('api.documents-by-brand-visitor') }}"
+                    const res = await axios.get(url);
+
+                    console.log('brand chart', res.data)
+
+
+                    if (res.data.status == 'ok') {
+                        let bodyData = res.data.body;
+                        let visitor = []
+                        let brandName = []
+                        let labels = []
+
+                        for (const key in bodyData) {
+                            labels.push(bodyData[key].month)
+                            visitor.push(bodyData[key].visitor)
+                            brandName.push(bodyData[key].brandName)
+                        }
+
+                        renderuserChart(brandName, visitor, labels)
+                    }
+
+                } catch (err) {
+                    console.log('Error in visitors chart', err.message);
+                }
+
+                $('#brandVisitorChart > .spinner-border').hide();
+            }
+
+            prepareBrandVisitorChart()
+        </script>
         <script>
             setInterval(updateTime, 1000);
         </script>

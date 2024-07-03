@@ -254,7 +254,7 @@
                                             <option value="Western Suburbs (B)- Ville Parle To Andheri "{{ $data->region == 'Western Suburbs (B)- Ville Parle To Andheri' ? 'selected' : '' }}>Western Suburbs (B)- Ville Parle To Andheri</option>
                                             <option value="Western Suburbs (C) - Jogeshwari To Goregoan "{{ $data->region == 'Western Suburbs (C) - Jogeshwari To Goregoan' ? 'selected' : '' }}>Western Suburbs (C) - Jogeshwari To Goregoan</option>
                                             <option value="Western Suburbs (D) - Malad To Borivali "{{ $data->region == 'Western Suburbs (D) - Malad To Borivali' ? 'selected' : '' }}>Western Suburbs (D) - Malad To Borivali</option>
-                                            <option value="NORTH MUMBAI - BEYOND BORIVALI UP TO VIRAR "{{ $data->region == 'NORTH MUMBAI - BEYOND BORIVALI UP TO VIRAR' ? 'selected' : '' }}>NORTH MUMBAI - BEYOND BORIVALI UP TO VIRAR</option>
+                                            <option value="North Mumbai - Beyond Borivali up to Virar "{{ $data->region == 'North Mumbai - Beyond Borivali up to Virar' ? 'selected' : '' }}>North Mumbai - Beyond Borivali up to Virar</option>
                                             <option value="Eastern Suburbs - Central Mumbai "{{ $data->region == 'Eastern Suburbs - Central Mumbai' ? 'selected' : '' }}>Eastern Suburbs - Central Mumbai</option>
                                             <option value="Harbour Suburbs - Navi Mumbai "{{ $data->region == 'Harbour Suburbs - Navi Mumbai' ? 'selected' : '' }}>Harbour Suburbs - Navi Mumbai
                                             </option>
@@ -2211,35 +2211,35 @@
                     '   <td><select type="text" name="details1[' + serialNumber + '][category]">'+
                                         '<option value="">--Select Category--</option>'+
                                         '<option value="single Kurta">single Kurta</option>'+
-                                        '<option value="KURTA SETS">KURTA SETS</option>'+
-                                        '<option value="Shirts/Tunics">SHIRTS / TUNICS</option>'+
-                                        '<option value="SHORT DRESSES">SHORT DRESSES</option>'+
-                                        '<option value="LONG DRESSES">LONG DRESSES</option>'+
-                                        '<option value="BOTTOMS">BOTTOMS</option>'+
-                                        '<option value="INDO-WESTERN CO-ORD SET">INDO-WESTERN CO-ORD SET</option>'+
-                                        '<option value="JUMPSUIT">JUMPSUIT</option>'+
-                                        '<option value="DUPATTAS">DUPATTAS</option>'+
-                                        '<option value="LEHENGA">LEHENGA</option>'+
-                                        '<option value="SAREE">SAREE</option>'+
-                                        '<option value="JACKETS & SHRUGS">JACKETS & SHRUGS</option>'+
-                                        '<option value="DRESS MATERIAL">DRESS MATERIAL</option>'+
-                                        '<option value="FOOTWEAR">FOOTWEAR</option>'+
-                                        '<option value="JEWELLRY">JEWELLRY</option>'+
-                                        '<option value="HANDBAGS">HANDBAGS</option>'+
-                                        '<option value="FRAGRANCES">FRAGRANCES</option>'+
-                                        '<option value="SHAWL/ STOLE / SCARVES">SHAWL/ STOLE / SCARVES</option>'+
-                                        '<option value="NIGHT SUITS">NIGHT SUITS</option>'+
-                                        '<option value="BELTS & WALLETS">BELTS & WALLETS</option>'+
+                                        '<option value="Kurta Sets">KURTA SETS</option>'+
+                                        '<option value="Shirts/Tunics">Shirts/Tunics</option>'+
+                                        '<option value="Short Dresses">Short Dresses</option>'+
+                                        '<option value="Long Dresses">Long Dresses</option>'+
+                                        '<option value="Bottoms">Bottoms</option>'+
+                                        '<option value="Indo-Western CO-ORD Set">Indo-Western CO-ORD Set</option>'+
+                                        '<option value="Jupsuit">Jupsuit</option>'+
+                                        '<option value="Dupattas">Dupattas</option>'+
+                                        '<option value="Lehenga">Lehenga</option>'+
+                                        '<option value="Saree">Saree</option>'+
+                                        '<option value="Jackets & Shrugs">Jackets & Shrugs</option>'+
+                                        '<option value="Dress Material">Dress Material</option>'+
+                                        '<option value="Footwear">Footwear</option>'+
+                                        '<option value="Jewellary">Jewellary</option>'+
+                                        '<option value="Handbags">Handbags</option>'+
+                                        '<option value="Fragrance">Fragrance</option>'+
+                                        '<option value="Shawl/Stole/Scarves">Shawl/Stole/Scarves</option>'+
+                                        '<option value="Night Suits">Night Suits</option>'+
+                                        '<option value="Belt & Wallets">Belt & Wallets</option>'+
                                         '</select></td>' +
                                         '<td><select type="text" name="details1[' + serialNumber + '][price]">'+
                                                 '<option value="">--Select Price--</option>'+
-                                                '<option value="BELOW 500">BELOW 500</option>'+
+                                                '<option value="Below 500">Below 500</option>'+
                                                 '<option value="500-2000">500-2000</option>'+
                                                 '<option value="2100-5000">2100-5000</option>'+
                                                 '<option value="5100-7000">5100-7000</option>'+
                                                 '<option value="7100-9000">7100-9000</option>'+
                                                 '<option value="9100-15000">9100-15000</option>'+
-                                                '<option value="15100 & ABOVE">15100 & ABOVE</option>'+
+                                                '<option value="15100 & Above">15100 & Above</option>'+
                                                 '<option value="N/A">N/A</option>'+
                                             '</select></td>' +
                                         '<td><button type="text" class="removeRowBtn" >Remove</button></td>' +
@@ -2273,29 +2273,29 @@
                     '"></td>' +
                     '   <td><select type="text" name="details2[' + serialNumber + '][category]">'+
                                         '<option value="">--Select Category--</option>'+
-                                        '<option value="CASUAL WEAR">CASUAL WEAR</option>'+
-                                        '<option value="TRADITIONAL/CONTEMPORARY WEAR">TRADITIONAL/CONTEMPORARY WEAR</option>'+
-                                        '<option value="ETHNIC WEAR">ETHNIC WEAR</option>'+
-                                        '<option value="WESTERN WEAR">WESTERN WEAR</option>'+
-                                        '<option value="INDO-WESTERN WEAR">INDO-WESTERN WEAR</option>'+
-                                        '<option value="BOTTOMS">BOTTOMS</option>'+
-                                        '<option value="INDO-WESTERN CO-ORD SET">INDO-WESTERN CO-ORD SET</option>'+
-                                        '<option value="DESIGNER/OCCASION WEAR">DESIGNER/OCCASION WEAR</option>'+
+                                        '<option value="Casual Wear">Casual Wear</option>'+
+                                        '<option value="Traditional/Contemporary Wear">Traditional/Contemporary Wear</option>'+
+                                        '<option value="Ethnic Wear">Ethnic Wear</option>'+
+                                        '<option value="Western Wear">Western Wear</option>'+
+                                        '<option value="Indo-Western Wear">Indo-Western Wear</option>'+
+                                        '<option value="Bottoms">Bottoms</option>'+
+                                        '<option value="Indo_Western CO-ORD Set">Indo_Western CO-ORD Set</option>'+
+                                        '<option value="Desginer/Occasion wear">Desginer/Occasion wear</option>'+
                                         '</select></td>' +
                                         '<td><select type="text" name="details2[' + serialNumber + '][price]">'+
                                                 '<option value="">--Select Price--</option>'+
-                                                '<option value="TOP/TUNICS/SHIRTS">TOP/TUNICS/SHIRTS</option>'+
-                                                '<option value="SKIRT/LEHENGA">SKIRT/LEHENGA</option>'+
-                                                '<option value="SHIRTS / TUNICS">SHIRTS / TUNICS</option>'+
-                                                '<option value="DRESSES/GOWNS">DRESSES/GOWNS</option>'+
-                                                '<option value="PALAZZO/PANTS/SHARARA/LEGGINGS">PALAZZO/PANTS/SHARARA/LEGGINGS</option>'+
-                                                '<option value="KURTIS/KURTA">KURTIS/KURTA</option>'+
-                                                '<option value="CO-ORD SETS">CO-ORD SETS</option>'+
-                                                '<option value="SAREE">SAREE</option>'+
-                                                '<option value="JUMPSUIT">JUMPSUIT</option>'+
-                                                '<option value="DUPATTA/SCARF/SHAWL">DUPATTA/SCARF/SHAWL</option>'+
-                                                '<option value="DRESS MATERIAL">DRESS MATERIAL</option>'+
-                                                '<option value="OTHER">OTHER</option>'+
+                                                '<option value="Top/Tunics/Shirts">Top/Tunics/Shirts</option>'+
+                                                '<option value="Skirt/Lehenga">Skirt/Lehenga</option>'+
+                                                '<option value="Shirts/Tunics">Shirts/Tunics</option>'+
+                                                '<option value="Dresses/Gowns">Dresses/Gowns</option>'+
+                                                '<option value="Palazzo/Pants/Sharara/Lesggings">Palazzo/Pants/Sharara/Lesggings</option>'+
+                                                '<option value="Kurtis/Kurta">Kurtis/Kurta</option>'+
+                                                '<option value="CO-ORD Sets">CO-ORD Sets</option>'+
+                                                '<option value="Saree">Saree</option>'+
+                                                '<option value="Jumpsuit">Jumpsuit</option>'+
+                                                '<option value="Dupatta/Scarf/Shawl">Dupatta/Scarf/Shawl</option>'+
+                                                '<option value="Dress Material">Dress Material</option>'+
+                                                '<option value="Other">Other</option>'+
                                                 '<option value="N/A">N/A</option>'+
 
                                             '</select></td>' +
