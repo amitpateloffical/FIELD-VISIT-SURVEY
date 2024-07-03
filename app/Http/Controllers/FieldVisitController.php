@@ -10,6 +10,7 @@ use Helpers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use PDF;
 class FieldVisitController extends Controller
@@ -28,6 +29,7 @@ class FieldVisitController extends Controller
         $data->stage = "1";
         $data->status = "Opened";
         // $data->type = "Field Visit Survey";
+        $data->save_data = 1;
         $data->record = ((RecordNumber::first()->value('counter')) + 1);
         $data->division_code = $request->division_code;
         $data->initiator = $request->initiator;
@@ -164,8 +166,7 @@ class FieldVisitController extends Controller
         $data = FieldVisit::find($id);
         $fieldvisit_id = $data->id;
         $grid_Data = FieldVisitGrid::where(['fv_id' => $fieldvisit_id, 'identifier' => 'details1'])->first();
-        // dd(json_decode($grid_Data->data, true));
-        $grid_Data2 = FieldVisitGrid::where(['fv_id' => $fieldvisit_id, 'identifier' => 'details2'])->first() ;
+        $grid_Data2 = FieldVisitGrid::where(['fv_id' => $fieldvisit_id, 'identifier' => 'details2'])->first();
          return view('frontend.field-visit.field_visit_view',compact('data','grid_Data','grid_Data2'));
     }
 
@@ -174,6 +175,7 @@ class FieldVisitController extends Controller
 
         $data = FieldVisit::find($id);
 // dd($data);
+        $data->save_data++;
         $data->date = $request->date;
         $data->time = $request->time;
         $data->brand_name = $request->brand_name;
@@ -492,7 +494,7 @@ class FieldVisitController extends Controller
             if ($data->stage == 1) {
 
                 $data->stage = "0";
-                $data->status = "Closed-Cancelled";
+                $data->status = "Opened";
                 $data->close_cancel_by = Auth::user()->name;
                 $data->close_cancel_on = Carbon::now()->format('d-M-Y');
                 $data->close_cancel_comment = $request->comment;
@@ -545,13 +547,15 @@ class FieldVisitController extends Controller
     {
         $data = FieldVisit::find($id);
         $grid_Data = FieldVisitGrid::where(['fv_id' => $id, 'identifier' => 'details1'])->first();
-        $grid_Data2 = FieldVisitGrid::where(['fv_id' => $id, 'identifier' => 'details2'])->first();
         if (!empty($data)) {
-            // $data->data = FieldVisitGrid::where('fv_id', $id)->where('identifier', "details1")->first();
+            $data->data = FieldVisitGrid::where('fv_id', $id)->where('identifier', "details1")->first();
+            // $data->Instruments_Details = ErrataGrid::where('e_id', $id)->where('type', "Instruments_Details")->first();
+            // $data->Material_Details = Erratagrid::where('e_id', $id)->where('type', "Material_Details")->first();
+            // dd($data->all());
             $data->originator = User::where('id', $data->initiator_id)->value('name');
             $pdf = App::make('dompdf.wrapper');
             $time = Carbon::now();
-            $pdf = PDF::loadview('frontend.field-visit.field_visit_single_report', compact('data', 'grid_Data','grid_Data2'))
+            $pdf = PDF::loadview('frontend.field-visit.field_visit_single_report', compact('data', 'grid_Data'))
                 ->setOptions([
                     'defaultFont' => 'sans-serif',
                     'isHtml5ParserEnabled' => true,
@@ -567,6 +571,11 @@ class FieldVisitController extends Controller
             $canvas->page_text($width / 4, $height / 2, $data->status, null, 25, [0, 0, 0], 2, 6, -20);
             return $pdf->stream('errata' . $id . '.pdf');
         }
+    }
+
+    public function userCount() {
+        $counts = DB::table('field_visits')->pluck('save_data')->toArray();
+        return response()->json(['data' => $counts]);
     }
 
 }
