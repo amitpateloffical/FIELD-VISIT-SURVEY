@@ -111,7 +111,7 @@
                                         {{-- <input type="hidden" value="{{ date('Y-m-d') }}" name="intiation_date"> --}}
                                     </div>
                                 </div>
-
+{{-- to ask --}}
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="Brand Name">
@@ -120,11 +120,11 @@
                                         <select id="select-state" placeholder="Select..." name="brand_name">
                                             <option value="">Select a value</option>
                                             <option value="W">W</option>
-                                            <option value="AURELIA">AURELIA</option>
-                                            <option value="JAYPORE">JAYPORE</option>
-                                            <option value="GLOBAL DESI">GLOBAL DESI</option>
-                                            <option value="FAB INDIA">FAB INDIA</option>
-                                            <option value="BIBA">BIBA</option>
+                                            <option value="Aurelia">Aurelia</option>
+                                            <option value="Jaypore">Jaypore</option>
+                                            <option value="Global Desi">Global Desi</option>
+                                            <option value="FAB India">FAB India</option>
+                                            <option value="Biba">Biba</option>
                                         </select>
                                     </div>
                                 </div>
@@ -150,21 +150,21 @@
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="region">
                                             <option value="">Select a value</option>
-                                            <option value="EXTENSION OF SOUTH MUMBAI - PRABHADEVI TO MAHIM">EXTENSION OF
-                                                SOUTH MUMBAI - PRABHADEVI TO MAHIM</option>
-                                            <option value="WESTERN SUBURBS (A) - BANDRA TO SANTACRUZ">WESTERN SUBURBS (A) -
-                                                BANDRA TO SANTACRUZ</option>
-                                            <option value="WESTERN SUBURBS (B)- VILLE PARLE TO ANDHERI">WESTERN SUBURBS
-                                                (B)- VILLE PARLE TO ANDHERI</option>
-                                            <option value="WESTERN SUBURBS (C) - JOGESHWARI TO GOREGOAN">WESTERN SUBURBS
-                                                (C) - JOGESHWARI TO GOREGOAN</option>
-                                            <option value="WESTERN SUBURBS (D) - MALAD TO BORIVALI">WESTERN SUBURBS (D) -
-                                                MALAD TO BORIVALI</option>
-                                            <option value="NORTH MUMBAI - BEYOND BORIVALI UP TO VIRAR">NORTH MUMBAI -
-                                                BEYOND BORIVALI UP TO VIRAR</option>
-                                            <option value="EASTERN SUBURBS - CENTRAL MUMBAI">EASTERN SUBURBS - CENTRAL
-                                                MUMBAI</option>
-                                            <option value="HARBOUR SUBURBS - NAVI MUMBAI">HARBOUR SUBURBS - NAVI MUMBAI
+                                            <option value="Extension Of South Mumbai - Prabhadevi to Mahim">Extension Of
+                                                South Mumbai - Prabhadevi to Mahim</option>
+                                            <option value="Western Suburbs (A) - Bandra to Santacruz">Western Suburbs (A) -
+                                                Bandra to Santacruz</option>
+                                            <option value="Western Suburbs (B)- Ville Parle to ANDHERI">Western Suburbs
+                                                (B)- Ville Parle to Andheri</option>
+                                            <option value="Western Suburbs (C) - Jogeshwari to Goregoan">Western Suburbs
+                                                (C) - Jogeshwari to Goregoan</option>
+                                            <option value="Western Suburbs (D) - Malad to Borivali">Western Suburbs (D) -
+                                                Malad to Borivali</option>
+                                            <option value="North Mumbai - Beyond Borivali up to Virar">North Mumbai -
+                                                Beyond Borivali up to Virar</option>
+                                            <option value="Eastern Suburbs - Central Mumbai">Eastern Suburbs - Central
+                                                Mumbai</option>
+                                            <option value="Harbour Suburbs - Navi Mumbai">Harbour Suburbs - Navi Mumbai
                                             </option>
                                         </select>
                                     </div>
@@ -241,7 +241,7 @@
                     <div id="CCForm2" class="inner-block cctabcontent">
                         <div class="inner-block-content">
                             <div class="row">
-                    
+
                                 {{-- <div class="col-12">
                                     <div class="group-input">
                                         <label for="PAGE SECTION">
@@ -259,7 +259,7 @@
                                         </select>
                                     </div>
                                 </div> --}}
-                    
+
                                 <div class="col-lg-12">
                                     <div class="group-input">
                                         <label for="QA Attachment">Photos (Store From Outside, Racks, Window Display, Overall VM)
@@ -275,7 +275,7 @@
                                         </div>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="Overall Store Lighting">
@@ -291,7 +291,7 @@
                                         </select>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="Lighting On Products / Browser Lighting">
@@ -307,7 +307,7 @@
                                         </select>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="Overall Store Vibe">
@@ -323,7 +323,7 @@
                                         </select>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="Fragrance In Store">
@@ -339,7 +339,7 @@
                                         </select>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="Music Inside Store?">
@@ -355,7 +355,7 @@
                                         </select>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="Space Utilization">
@@ -371,7 +371,7 @@
                                         </select>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="Store Layout">
@@ -387,7 +387,7 @@
                                         </select>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="The Store Is Of How Many Floors?">
@@ -403,7 +403,7 @@
                                         </select>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="AC & Ventilation">
@@ -419,7 +419,7 @@
                                         </select>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="Mannequin Display">
@@ -435,7 +435,7 @@
                                         </select>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="Seating Area (Inside Store)">
@@ -451,7 +451,7 @@
                                         </select>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-6 ">
                                     <div class="group-input">
                                         <label for="Product Visibility">
@@ -467,7 +467,7 @@
                                         </select>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="Store Signage And Graphics">
@@ -483,7 +483,7 @@
                                         </select>
                                     </div>
                                 </div>
-                    
+
                                 <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="Does The Store Have Independent Washroom?">
@@ -499,14 +499,14 @@
                                         </select>
                                     </div>
                                 </div>
-                    
+
                                 <div  class="group-input textarea-margin">
                                     <label class="mt-4" for="Any Remarks">Any Remarks</label>
                                     <p class="text-primary">Mention the flooring, curtains used, if any specific wallpaper / artistic objects are used to enhance the store vibe. Describe how the articles are kept on basis of the store (For eg., Left wall has kurtis in colour blocking, right wall has bottoms in another colour blocking, centre has accessories, end has trial rooms, cash counter has upselling items etc etc etc). </p>
                                     <textarea class="summernote" name="any_remarks" id="summernote-16"></textarea>
                                 </div>
                             </div>
-                    
+
                             <div class="button-block">
                                 <button type="submit" class="saveButton">Save</button>
                                 <button type="button" class="backButton" onclick="previousStep()">Back</button>
@@ -516,7 +516,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                         </div>
 
 
@@ -545,7 +545,7 @@
                                     </select>
                                 </div>
                             </div> --}}
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Staff Behavior (Initial Staff Behaviour)">
@@ -561,7 +561,7 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Well Groomed">
@@ -577,7 +577,7 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Standard Staff Uniform">
@@ -590,7 +590,7 @@
                                     </select>
                                 </div>
                             </div>
-                
+{{-- 23 --}}
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Trial Room Assistance">
@@ -598,12 +598,12 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="trial_room_assistance">
                                         <option value="">Select a value</option>
-                                        <option value="YES">Yes</option>
-                                        <option value="NO">No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="No. Of Customer At The Store Currently?">
@@ -614,11 +614,11 @@
                                         <option value="0-2">0-2</option>
                                         <option value="2-5">2-5</option>
                                         <option value="5-7">5-7</option>
-                                        <option value="ABOVE 7">Above 7</option>
+                                        <option value="Above 7">Above 7</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Is The Staff Able To Handle The Customer?">
@@ -626,13 +626,13 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="handel_customer">
                                         <option value="">Select a value</option>
-                                        <option value="YES">Yes</option>
-                                        <option value="NO">No</option>
-                                        <option value="NO CUSTOMER SEEN">No Customer Seen</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                        <option value="No Customer Seen">No Customer Seen</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Knowledge Of Merchandise">
@@ -648,7 +648,7 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Awareness Of Brand / Offers / In General">
@@ -664,7 +664,7 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Proactive">
@@ -680,7 +680,7 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Overall Customer Satisfaction (Staff Behavior Towards Customer/You)">
@@ -696,7 +696,7 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Billing Counter Experience">
@@ -712,14 +712,14 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="group-input textarea-margin">
                                 <label class="mt-4" for="Any Remarks On Staff Observation?">Any Remarks On Staff Observation?</label>
                                 <p class="text-primary">Describe the staff uniform and anything that requires to be noted down related to the store staff.</p>
                                 <textarea class="summernote" name="remarks_on_staff_observation" id="summernote-16"></textarea>
                             </div>
                         </div>
-                
+
                         <div class="button-block">
                             <button type="submit" class="saveButton">Save</button>
                             <button type="button" class="backButton" onclick="previousStep()">Back</button>
@@ -728,14 +728,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 {{-- </div> --}}
                 <!-- -----------Tab-4------------ -->
 
                 <div id="CCForm4" class="inner-block cctabcontent">
                     <div class="inner-block-content">
                         <div class="row">
-                
+
                             {{-- <div class="col-12">
                                 <div class="group-input">
                                     <label for="Page Section">
@@ -753,7 +753,7 @@
                                     </select>
                                 </div>
                             </div> --}}
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Is The Store Currently Running Any Offers Or Discounts?">
@@ -766,7 +766,7 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Current Offer In The Overall Store?">
@@ -774,17 +774,17 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="current_offer">
                                         <option value="">Select a value</option>
-                                        <option value="UPTO 20% - 30% OFF">Upto 20% - 30% Off</option>
-                                        <option value="UPTO 50% - 70% OFF">Upto 50% - 70% Off</option>
-                                        <option value="FLAT 20% - 30% OFF">Flat 20% - 30% Off</option>
-                                        <option value="FLAT 50% - 70% OFF">Flat 50% - 70% Off</option>
-                                        <option value="BUY TO GET">Buy To Get</option>
-                                        <option value="OTHER">Other</option>
-                                        <option value="NONE">None</option>
+                                        <option value="Upto 20% - 30% Off">Upto 20% - 30% Off</option>
+                                        <option value="Upto 50% - 70% Off">Upto 50% - 70% Off</option>
+                                        <option value="Flat 20% - 30% Off">Flat 20% - 30% Off</option>
+                                        <option value="Flat 50% - 70% Off">Flat 50% - 70% Off</option>
+                                        <option value="Buy To Get">Buy To Get</option>
+                                        <option value="Other">Other</option>
+                                        <option value="None">None</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Return/ Exchange Policy">
@@ -792,13 +792,13 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="exchange_policy">
                                         <option value="">Select a value</option>
-                                        <option value="ONLY EXCHANGE">Only Exchange</option>
-                                        <option value="EXCHANGE OR RETURN">Exchange Or Return</option>
-                                        <option value="NO EXCHANGE NO RETURN">No Exchange No Return</option>
+                                        <option value="Only Exchange">Only Exchange</option>
+                                        <option value="Exchange Or Return">Exchange Or Return</option>
+                                        <option value="No Exchange No Return">No Exchange No Return</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Personal Occasion Discount Offered?">
@@ -806,15 +806,15 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="discount_offer">
                                         <option value="">Select a value</option>
-                                        <option value="BIRTHDAY DISCOUNT">Birthday Discount</option>
-                                        <option value="ANNIVERSARY DISCOUNT">Anniversary Discount</option>
-                                        <option value="OTHER OCCASION">Other Occasion</option>
-                                        <option value="PREMIUM MEMBER DISCOUNT">Premium Member Discount</option>
-                                        <option value="NONE">None</option>
+                                        <option value="Birthday Discount">Birthday Discount</option>
+                                        <option value="Anniversary Discount">Anniversary Discount</option>
+                                        <option value="Other Occasion">Other Occasion</option>
+                                        <option value="Premium Member Discount">Premium Member Discount</option>
+                                        <option value="None">None</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Reward Point Given?">
@@ -827,7 +827,7 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Use Of Influencer/ Brand Marketing">
@@ -840,7 +840,7 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Age Group Of Customers Currently Seen At The Store">
@@ -852,11 +852,11 @@
                                         <option value="25-35">25-35</option>
                                         <option value="35-45">35-45</option>
                                         <option value="Above 45">Above 45</option>
-                                        <option value="NO CUSTOMERS SEEN">No Customers Seen</option>
+                                        <option value="No Customers Seen">No Customers Seen</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Alteration Facility In Store">
@@ -864,19 +864,19 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="alteration_facility_in_store">
                                         <option value="">Select a value</option>
-                                        <option value="AVAILABLE">Available</option>
-                                        <option value="NOT AVAILABLE">Not Available</option>
+                                        <option value="Available">Available</option>
+                                        <option value="Not Available">Not Available</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="group-input textarea-margin">
                                 <label class="mt-4" for="Any Remarks Sale / Marketing Strategy?">Any Remarks Sale / Marketing Strategy?</label>
                                 <p class="text-primary">Mention the offers if any. Also mention reward points rule. Describe if you feel anything is out of the box about marketing and sales strategy observed in this brand. Mention exchange days/deadline.</p>
                                 <textarea class="summernote" name="any_remarks_sale" id="summernote-16"></textarea>
                             </div>
                         </div>
-                
+
                         <div class="button-block">
                             <button type="submit" class="saveButton">Save</button>
                             <button type="button" class="backButton" onclick="previousStep()">Back</button>
@@ -885,13 +885,13 @@
                         </div>
                     </div>
                 </div>
-                
+
 
                 <!-- -----------Tab-5------------ -->
                 <div id="CCForm5" class="inner-block cctabcontent">
                     <div class="inner-block-content">
                         <div class="row">
-                
+
                             {{-- <div class="col-12">
                                 <div class="group-input">
                                     <label for="Page Section">
@@ -909,7 +909,7 @@
                                     </select>
                                 </div>
                             </div> --}}
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Sub-Brands Offered?">
@@ -922,7 +922,7 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Colour Palette Of The Entire Store At First Sight">
@@ -930,13 +930,13 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="colour_palette">
                                         <option value="">Select a value</option>
-                                        <option value="LIGHT/PASTEL">Light/Pastel</option>
-                                        <option value="DARK/DULL">Dark/Dull</option>
-                                        <option value="MIX EQUALLY">Mix Equally</option>
+                                        <option value="Light/Pastel">Light/Pastel</option>
+                                        <option value="Dark/Dull">Dark/Dull</option>
+                                        <option value="Mix Equally">Mix Equally</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Number Of Colourways Offered In Most Styles">
@@ -952,7 +952,7 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Size Availability">
@@ -973,17 +973,17 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="group-input">
                                 <label for="audit-agenda-grid">
                                     Details
-                                    <button type="button" name="details" id="Details1-add">+</button>
+                                    <button type="button" name="Details1-table" id="Details1-add">+</button>
                                     <span class="text-primary" data-bs-toggle="modal" data-bs-target="#observation-field-instruction-modal" style="font-size: 0.8rem; font-weight: 400; cursor: pointer;">
                                         Launch Deviation
                                     </span>
                                 </label>
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="Details1-table">
+                                    <table class="table table-bordered" id="Details1-add">
                                         <thead>
                                             <tr>
                                                 <th style="width: 2%">Row#</th>
@@ -993,48 +993,49 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <td><input disabled type="text" name="details1[0][row]" value="1"></td>
-                                            <td><select type="text" name="details1[0][category]">
-                                                <option value="">--Select Category--</option>
-                                                <option value="SINGLE KURTA">Single Kurta</option>
-                                                <option value="KURTA SETS">Kurta Sets</option>
-                                                <option value="SHIRTS / TUNICS">Shirts / Tunics</option>
-                                                <option value="SHORT DRESSES">Short Dresses</option>
-                                                <option value="LONG DRESSES">Long Dresses</option>
-                                                <option value="BOTTOMS">Bottoms</option>
-                                                <option value="INDO-WESTERN CO-ORD SET">Indo-Western Co-Ord Set</option>
-                                                <option value="JUMPSUIT">Jumpsuit</option>
-                                                <option value="DUPATTAS">Dupattas</option>
-                                                <option value="LEHENGA">Lehenga</option>
-                                                <option value="SAREE">Saree</option>
-                                                <option value="JACKETS & SHRUGS">Jackets & Shrugs</option>
-                                                <option value="DRESS MATERIAL">Dress Material</option>
-                                                <option value="FOOTWEAR">Footwear</option>
-                                                <option value="JEWELLRY">Jewellry</option>
-                                                <option value="HANDBAGS">Handbags</option>
-                                                <option value="FRAGRANCES">Fragrances</option>
-                                                <option value="SHAWL/ STOLE / SCARVES">Shawl/ Stole / Scarves</option>
-                                                <option value="NIGHT SUITS">Night Suits</option>
-                                                <option value="BELTS & WALLETS">Belts & Wallets</option>
-                                            </select></td>
-                                            <td><select type="text" name="details1[0][price]">
+                                            <tr>
+                                                <td><input disabled type="text" value="1"></td>
+                                                <td><select type="text" name="details1[0][category]">
+                                                    <option value="">--Select Category--</option>
+                                                    <option value="Single Kurta">Single Kurta</option>
+                                                    <option value="Kurta Sets">Kurta Sets</option>
+                                                    <option value="Shirts / Tunics">Shirts / Tunics</option>
+                                                    <option value="Short Dresses">Short Dresses</option>
+                                                    <option value="Long Dresses">Long Dresses</option>
+                                                    <option value="Bottoms">Bottoms</option>
+                                                    <option value="Indo-Western Co-Ord Set">Indo-Western Co-Ord Set</option>
+                                                    <option value="Jumpsuit">Jumpsuit</option>
+                                                    <option value="Dupattas">Dupattas</option>
+                                                    <option value="Lehenga">Lehenga</option>
+                                                    <option value="Saree">Saree</option>
+                                                    <option value="Jackets & Shrugs">Jackets & Shrugs</option>
+                                                    <option value="Dress Material">Dress Material</option>
+                                                    <option value="Footwear">Footwear</option>
+                                                    <option value="Jewellery">Jewellery</option>
+                                                    <option value="Handbags">Handbags</option>
+                                                    <option value="Fragrances">Fragrances</option>
+                                                    <option value="Shawl/ Stole / Scarves">Shawl/ Stole / Scarves</option>
+                                                    <option value="Night Suits">Night Suits</option>
+                                                    <option value="Belts & Wallets">Belts & Wallets</option>
+                                                </select></td>
+                                                <td><select type="text" name="details1[0][price]">
                                                     <option value="">--Select Price--</option>
-                                                    <option value="BELOW 500">Below 500</option>
+                                                    <option value="Below 500">Below 500</option>
                                                     <option value="500-2000">500-2000</option>
                                                     <option value="2100-5000">2100-5000</option>
                                                     <option value="5100-7000">5100-7000</option>
                                                     <option value="7100-9000">7100-9000</option>
                                                     <option value="9100-15000">9100-15000</option>
-                                                    <option value="15100 & ABOVE">15100 & Above</option>
+                                                    <option value="15100 & Above">15100 & Above</option>
                                                     <option value="N/A">N/A</option>
-                                                </select>
-                                            </td>
-                                            <td><button type="text" class="removeRowBtn">Remove</button></td>
+                                                </select></td>
+                                                <td><button type="button" class="removeRowBtn">Remove</button></td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Did You Find Engaging Priced Merchandise At The Store Front?">
@@ -1042,14 +1043,14 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="engaging_price">
                                         <option value="">Select a value</option>
-                                        <option value="LOWER PRICED ITEMS WERE DISPLAYED AT THE STORE FRONT">Lower Priced Items Were Displayed At The Store Front</option>
-                                        <option value="HIGHER PRICED ITEMS WERE DISPLAYED AT THE STORE FRONT">Higher Priced Items Were Displayed At The Store Front</option>
-                                        <option value="MIX PRICE ITEMS WERE DISPLAYED AT THE STORE FRONT">Mix Price Items Were Displayed At The Store Front</option>
-                                        <option value="DISCOUNT / SALE ITEMS WERE DISPLAYED AT THE STORE FRONT">Discount / Sale Items Were Displayed At The Store Front</option>
+                                        <option value="Lower Priced Items Were Displayed At The Store Front">Lower Priced Items Were Displayed At The Store Front</option>
+                                        <option value="Higher Priced Items Were Displayed At The Store Front">Higher Priced Items Were Displayed At The Store Front</option>
+                                        <option value="Mix Price Items Were Displayed At The Store Front">Mix Price Items Were Displayed At The Store Front</option>
+                                        <option value="Discount / Sale Items Were Displayed At The Store Front">Discount / Sale Items Were Displayed At The Store Front</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Merchandise Available In The Store">
@@ -1057,17 +1058,17 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="merchadise_available">
                                         <option value="">Select a value</option>
-                                        <option value="APPAREL">Apparel</option>
-                                        <option value="HANDBAGS">Handbags</option>
-                                        <option value="FOOTWEAR">Footwear</option>
-                                        <option value="COSMETICS & SKINCARE">Cosmetics & Skincare</option>
-                                        <option value="HOME DECOR">Home Decor</option>
-                                        <option value="ACCESSORIES">Accessories</option>
-                                        <option value="OTHERS">Others</option>
+                                        <option value="Apparel">Apparel</option>
+                                        <option value="Handbags">Handbags</option>
+                                        <option value="Footwear">Footwear</option>
+                                        <option value="Cosmetics & Skincare">Cosmetics & Skincare</option>
+                                        <option value="Home Decor">Home Decor</option>
+                                        <option value="Accessories">Accessories</option>
+                                        <option value="Others">Others</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="group-input">
                                 <label for="audit-agenda-grid">
                                     Details
@@ -1090,27 +1091,27 @@
                                             <td><input disabled type="text" name="details2[0][row]" value="1"></td>
                                             <td><select type="text" name="details2[0][styles]">
                                                 <option value="">--Select Category--</option>
-                                                <option value="CASUAL WEAR">Casual Wear</option>
-                                                <option value="TRADITIONAL/CONTEMPORARY WEAR">Traditional/Contemporary Wear</option>
-                                                <option value="ETHNIC WEAR">Ethnic Wear</option>
-                                                <option value="WESTERN WEAR">Western Wear</option>
-                                                <option value="INDO-WESTERN WEAR">Indo-Western Wear</option>
-                                                <option value="DESIGNER/OCCASION WEAR">Designer/Occasion Wear</option>
+                                                <option value="Casual Wear">Casual Wear</option>
+                                                <option value="Traditional/Contemporary Wear">Traditional/Contemporary Wear</option>
+                                                <option value="Ethnic Wear">Ethnic Wear</option>
+                                                <option value="Western Wear">Western Wear</option>
+                                                <option value="Indo-Western Wear">Indo-Western Wear</option>
+                                                <option value="Designer/Occasion Wear">Designer/Occasion Wear</option>
                                             </select></td>
                                             <td><select type="text" name="details2[0][category]">
                                                     <option value="">--Select Price--</option>
-                                                    <option value="TOP/TUNICS/SHIRTS">Top/Tunics/Shirts</option>
-                                                    <option value="SKIRT/LEHENGA">Skirt/Lehenga</option>
-                                                    <option value="SHIRTS / TUNICS">Shirts / Tunics</option>
-                                                    <option value="DRESSES/GOWNS">Dresses/Gowns</option>
-                                                    <option value="PALAZZO/PANTS/SHARARA/LEGGINGS">Palazzo/Pants/Sharara/Leggings</option>
-                                                    <option value="KURTIS/KURTA">Kurtis/Kurta</option>
-                                                    <option value="CO-ORD SETS">Co-Ord Sets</option>
-                                                    <option value="SAREE">Saree</option>
-                                                    <option value="JUMPSUIT">Jumpsuit</option>
-                                                    <option value="DUPATTA/SCARF/SHAWL">Dupatta/Scarf/Shawl</option>
-                                                    <option value="DRESS MATERIAL">Dress Material</option>
-                                                    <option value="OTHER">Other</option>
+                                                    <option value="Top/Tunics/Shirts">Top/Tunics/Shirts</option>
+                                                    <option value="Skirt/Lehenga">Skirt/Lehenga</option>
+                                                    <option value="Shirts / Tunics">Shirts / Tunics</option>
+                                                    <option value="Dresses/Gowns">Dresses/Gowns</option>
+                                                    <option value="Palazzo/Pants/Sharara/Leggings">Palazzo/Pants/Sharara/Leggings</option>
+                                                    <option value="Kurtis/Kurta">Kurtis/Kurta</option>
+                                                    <option value="Co-Ord Sets">Co-Ord Sets</option>
+                                                    <option value="Saree">Saree</option>
+                                                    <option value="Jumpsuit">Jumpsuit</option>
+                                                    <option value="Dupatta/Scarf/Shawl">Dupatta/Scarf/Shawl</option>
+                                                    <option value="Dress Material">Dress Material</option>
+                                                    <option value="Other">Other</option>
                                                     <option value="N/A">N/A</option>
                                                 </select>
                                             </td>
@@ -1119,7 +1120,7 @@
                                     </table>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Types Of Fabric Available?">
@@ -1127,21 +1128,21 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="types_of_fabric">
                                         <option value="">Select a value</option>
-                                        <option value="100% COTTON">100% Cotton</option>
-                                        <option value="100% POLYESTER">100% Polyester</option>
-                                        <option value="100% VISCOSE">100% Viscose</option>
-                                        <option value="COTTON POLY BLEND">Cotton Poly Blend</option>
-                                        <option value="100% LINEN">100% Linen</option>
-                                        <option value="VISCOSE BLEND">Viscose Blend</option>
-                                        <option value="SILK">Silk</option>
-                                        <option value="POLYESTER BLEND">Polyester Blend</option>
-                                        <option value="CHIFFON / GEORGETTE">Chiffon / Georgette</option>
-                                        <option value="LINEN BLEND">Linen Blend</option>
-                                        <option value="OTHERS">Others</option>
+                                        <option value="100% Cotton">100% Cotton</option>
+                                        <option value="100% Polyester">100% Polyester</option>
+                                        <option value="100% Viscose">100% Viscose</option>
+                                        <option value="Cotton Poly Blend">Cotton Poly Blend</option>
+                                        <option value="100% Linen">100% Linen</option>
+                                        <option value="Viscose Blend">Viscose Blend</option>
+                                        <option value="Silk">Silk</option>
+                                        <option value="Polyester Blend">Polyester Blend</option>
+                                        <option value="Chiffon / Georgette">Chiffon / Georgette</option>
+                                        <option value="Linen Blend">Linen Blend</option>
+                                        <option value="Others">Others</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Prints Observed?">
@@ -1149,21 +1150,21 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="prints_observed">
                                         <option value="">Select a value</option>
-                                        <option value="SMALL FLORAL PRINTS">Small Floral Prints</option>
-                                        <option value="BIG FLORAL PRINTS">Big Floral Prints</option>
-                                        <option value="GEOMETRIC PRINTS">Geometric Prints</option>
-                                        <option value="AZTEC PRINTS">Aztec Prints</option>
-                                        <option value="TRADITIONAL PRINTS (PAISLEY / ELEPHANT MOTIFS ETC)">Traditional Prints (Paisley / Elephant Motifs Etc)</option>
-                                        <option value="PAINTING PRINTS">Painting Prints</option>
-                                        <option value="ANIMAL PRINTS">Animal Prints</option>
-                                        <option value="ABSTRACT PRINTS">Abstract Prints</option>
-                                        <option value="ALL OVER PRINT">All Over Print</option>
-                                        <option value="PLACEMENT PRINT">Placement Print</option>
-                                        <option value="OTHERS">Others</option>
+                                        <option value="Small Floral Prints">Small Floral Prints</option>
+                                        <option value="Big Floral Prints">Big Floral Prints</option>
+                                        <option value="Geometric Prints">Geometric Prints</option>
+                                        <option value="Aztec Prints">Aztec Prints</option>
+                                        <option value="Traditional Prints (Paisley / Elephant Motifs Etc)">Traditional Prints (Paisley / Elephant Motifs Etc)</option>
+                                        <option value="Painting Prints">Painting Prints</option>
+                                        <option value="Animal Prints">Animal Prints</option>
+                                        <option value="Abstract Prints">Abstract Prints</option>
+                                        <option value="All Over Print">All Over Print</option>
+                                        <option value="Placement Print">Placement Print</option>
+                                        <option value="Others">Others</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Embroideries Observed?">
@@ -1171,18 +1172,18 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="embroideries_observed">
                                         <option value="">Select a value</option>
-                                        <option value="THREAD WORK">Thread Work</option>
-                                        <option value="APPLIQUE">Applique</option>
-                                        <option value="BEAD WORK">Bead Work</option>
-                                        <option value="STONE WORK AND ZARDOZI EMBROIDERY">Stone Work And Zardozi Embroidery</option>
-                                        <option value="HOME DECOR">Home Decor</option>
-                                        <option value="ALL OVER EMBROIDERY">All Over Embroidery</option>
-                                        <option value="PLACEMENT EMBROIDERY">Placement Embroidery</option>
-                                        <option value="OTHERS">Others</option>
+                                        <option value="Thread Work">Thread Work</option>
+                                        <option value="Applique">Applique</option>
+                                        <option value="Bead WORK">Bead WORK</option>
+                                        <option value="Stone Work And Zardozi Embroidery">Stone Work And Zardozi Embroidery</option>
+                                        <option value="Home Decor">Home Decor</option>
+                                        <option value="All Over Embroidery">All Over Embroidery</option>
+                                        <option value="Placement Embroidery">Placement Embroidery</option>
+                                        <option value="Others">Others</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Overall Quality Of Garments In The Store">
@@ -1198,14 +1199,14 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="group-input textarea-margin">
                                 <label class="mt-4" for="Any Remarks On Product Observation?">Any Remarks On Product Observation?</label>
                                 <p class="text-primary">Mention any sub brands if offered, and anything worth to be noted in this section.</p>
                                 <textarea class="summernote" name="remarks_on_product_observation" id="summernote-16"></textarea>
                             </div>
                         </div>
-                
+
                         <div class="button-block">
                             <button type="submit" class="saveButton">Save</button>
                             <button type="button" class="backButton" onclick="previousStep()">Back</button>
@@ -1214,14 +1215,14 @@
                         </div>
                     </div>
                 </div>
-                
+
 
 
 
                 <div id="CCForm6" class="inner-block cctabcontent">
                     <div class="inner-block-content">
                         <div class="row">
-                
+
                             {{-- <div class="col-12">
                                 <div class="group-input">
                                     <label for="Page Section">
@@ -1239,7 +1240,7 @@
                                     </select>
                                 </div>
                             </div> --}}
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="The Entrance Of The Store (Display Of Garments)">
@@ -1271,7 +1272,7 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Stock Display In The Entire Store">
@@ -1279,14 +1280,14 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="stock_display">
                                         <option value="">Select a value</option>
-                                        <option value="LIMITED SIZES ARE DISPLAYED ON RACKS">Limited Sizes Are Displayed On Racks</option>
-                                        <option value="ALL SIZES ARE DISPLAYED TOGETHER ON THE SAME RACK">All Sizes Are Displayed Together On The Same Rack</option>
-                                        <option value="ALL SIZES ARE DISPLAYED BUT ON DIFFERENT RACKS">All Sizes Are Displayed But On Different Racks</option>
-                                        <option value="OTHERS">Others</option>
+                                        <option value="Limited Sizes Are Displayed On Racks">Limited Sizes Are Displayed On Racks</option>
+                                        <option value="All Sizes Are Displayed Together On The Same Rack">All Sizes Are Displayed Together On The Same Rack</option>
+                                        <option value="All Sizes Are Displayed But On Different Racks">All Sizes Are Displayed But On Different Racks</option>
+                                        <option value="Others">Others</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Spacing Of Clothes On The Rack">
@@ -1302,7 +1303,7 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="How Many No. Of Customers Can Browse At One Time In One Section?">
@@ -1313,18 +1314,18 @@
                                         <option value="0-2">0-2</option>
                                         <option value="3-4">3-4</option>
                                         <option value="3">3</option>
-                                        <option value="MORE THAN 4">More Than 4</option>
+                                        <option value="More Than 4">More Than 4</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="group-input textarea-margin">
                                 <label class="mt-4" for="Any Remarks On VM / Space Management">Any Remarks On VM / Space Management</label>
                                 <p class="text-primary">Mention the colours/prints/styles displayed at the entrance of the store, describe the alignment of the store (what's kept on the left side of the store, what's on the right side etc). Also mention if you feel the store is well spaced or not, meaning if the space is properly utilized or over utilized or under utilized. Describe anything else that's relevant to this section.</p>
                                 <textarea class="summernote" name="any_remarks_on_vm" id="summernote-16"></textarea>
                             </div>
                         </div>
-                
+
                         <div class="button-block">
                             <button type="submit" class="saveButton">Save</button>
                             <button type="button" class="backButton" onclick="previousStep()">Back</button>
@@ -1333,11 +1334,11 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div id="CCForm7" class="inner-block cctabcontent">
                     <div class="inner-block-content">
                         <div class="row">
-                
+
                             {{-- <div class="col-12">
                                 <div class="group-input">
                                     <label for="Page Section">
@@ -1355,7 +1356,7 @@
                                     </select>
                                 </div>
                             </div> --}}
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Suitable Brand Tagline">
@@ -1363,12 +1364,12 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="brand_tagline">
                                         <option value="">Select a value</option>
-                                        <option value="YES">Yes</option>
-                                        <option value="NO">No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Type Of Bill">
@@ -1376,20 +1377,20 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="type_of_ball">
                                         <option value="">Select a value</option>
-                                        <option value="DIGITAL ONLY">Digital Only</option>
-                                        <option value="PAPER PRINTED BILL">Paper Printed Bill</option>
-                                        <option value="DIGITAL AND PAPER PRINTED BOTH">Digital And Paper Printed Both</option>
+                                        <option value="Digital Only">Digital Only</option>
+                                        <option value="Paper Printed Bill">Paper Printed Bill</option>
+                                        <option value="Digital And Paper Printed Both">Digital And Paper Printed Both</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="group-input textarea-margin">
                                 <label class="mt-4" for="Any Remarks On Branding?">Any Remarks On Branding?</label>
                                 <p class="text-primary">If you see a tagline then mention it here. Add anything else that you feel is worthy to be noted about branding here.</p>
                                 <textarea class="summernote" name="any_ramrks_on_the_branding" id="summernote-16"></textarea>
                             </div>
                         </div>
-                
+
                         <div class="button-block">
                             <button type="submit" class="saveButton">Save</button>
                             <button type="button" class="backButton" onclick="previousStep()">Back</button>
@@ -1398,14 +1399,14 @@
                         </div>
                     </div>
                 </div>
-                
+
 
 
 
                 <div id="CCForm8" class="inner-block cctabcontent">
                     <div class="inner-block-content">
                         <div class="row">
-                
+
                             {{-- <div class="col-12">
                                 <div class="group-input">
                                     <label for="Page Section">
@@ -1423,7 +1424,7 @@
                                     </select>
                                 </div>
                             </div> --}}
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Number Of Trial Rooms?">
@@ -1435,10 +1436,10 @@
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                         <option value="4">4</option>
-                                        <option value="MORE THAN 4">More Than 4</option>
+                                        <option value="More Than 4">More Than 4</option>
                                     </select>
                                 </div>
-                            </div>        
+                            </div>
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Hygiene">
@@ -1454,7 +1455,7 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Ventilation">
@@ -1470,7 +1471,7 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Queue Outside The Trial Room">
@@ -1478,14 +1479,14 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="queue_outside_the_trial_room">
                                         <option value="">Select a value</option>
-                                        <option value="NO QUEUE">No Queue</option>
-                                        <option value="LESS THAN 2">Less Than 2</option>
-                                        <option value="2-5 PEOPLE">2-5 People</option>
-                                        <option value="5 AND ABOVE">5 And Above</option>
+                                        <option value="No Queue">No Queue</option>
+                                        <option value="Less Than 2">Less Than 2</option>
+                                        <option value="2-5 People">2-5 People</option>
+                                        <option value="5 And Above">5 And Above</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Mirror Size">
@@ -1493,15 +1494,15 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="mirror_size">
                                         <option value="">Select a value</option>
-                                        <option value="FULL LENGTH - 4 SIDES">Full Length - 4 Sides</option>
-                                        <option value="FULL LENGTH - 3 SIDES">Full Length - 3 Sides</option>
-                                        <option value="FULL LENGTH -2 SIDES">Full Length -2 Sides</option>
-                                        <option value="FULL LENGTH - 1 SIDE">Full Length - 1 Side</option>
-                                        <option value="HALF MIRROR">Half Mirror</option>
+                                        <option value="Full Length - 4 Sides">Full Length - 4 Sides</option>
+                                        <option value="Full Length - 3 Sides">Full Length - 3 Sides</option>
+                                        <option value="Full Length -2 Sides">Full Length -2 Sides</option>
+                                        <option value="Full Length - 1 Side">Full Length - 1 Side</option>
+                                        <option value="Half Mirror">Half Mirror</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Trial Room Lighting">
@@ -1517,7 +1518,7 @@
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Is Seating Inside The Trial Room Available?">
@@ -1525,12 +1526,12 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="trial_room_available">
                                         <option value="">Select a value</option>
-                                        <option value="YES">Yes</option>
-                                        <option value="NO">No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Seating Around Trial Room Area (For Companions)">
@@ -1538,15 +1539,15 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="seating_around_trial_room">
                                         <option value="">Select a value</option>
-                                        <option value="NOT AVAILABLE">Not Available</option>
-                                        <option value="1 SEATER">1 Seater</option>
-                                        <option value="2 SEATER COUCH">2 Seater Couch</option>
-                                        <option value="3 SEATER COUCH">3 Seater Couch</option>
-                                        <option value="MULTIPLE SEATER COUCH">Multiple Seater Couch</option>
+                                        <option value="Not Available">Not Available</option>
+                                        <option value="1 Seater">1 Seater</option>
+                                        <option value="2 Seater Couch">2 Seater Couch</option>
+                                        <option value="3 Seater Couch">3 Seater Couch</option>
+                                        <option value="Multiple Seater Couch">Multiple Seater Couch</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="col-md-6">
                                 <div class="group-input">
                                     <label for="Cloth Hanger Inside The Trial Room Available?">
@@ -1554,24 +1555,24 @@
                                     </label>
                                     <select id="select-state" placeholder="Select..." name="cloth_hanger">
                                         <option value="">Select a value</option>
-                                        <option value="YES">Yes</option>
-                                        <option value="NO">No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
                                     </select>
                                 </div>
                             </div>
-                
+
                             <div class="group-input">
                                 <label class="mt-4" for="Any Remarks On The Trial Room?">Any Remarks On The Trial Room?</label>
                                 <p class="text-primary">Mention the cleanliness and space in the trial room. Also if the trial room has any specific decor like planters or wall displays or anything else.</p>
                                 <textarea class="summernote" name="any_remarks_on_the_trial_room" id="summernote-16"></textarea>
                             </div>
                         </div>
-                
+
                         <div class="group-input textarea-margin">
                             <label class="mt-4" for="Any Remarks / Comments Add On The Overall Store?">Any Remarks / Comments Add On The Overall Store?</label>
                             <textarea class="summernote" name="comments_on_the_overall_store" id="summernote-16"></textarea>
                         </div>
-                
+
                         <div class="button-block">
                             <button type="submit" class="saveButton">Save</button>
                             <button type="button" class="backButton" onclick="previousStep()">Back</button>
@@ -1580,7 +1581,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                     {{-- </div> --}}
                 {{-- </div> --}}
 
@@ -1600,8 +1601,6 @@
                                     <div class="static"></div>
                                 </div>
                             </div>
-
-
                             <div class="button-block">
                                 <button type="submit" class="saveButton">Save</button>
                                 <button type="button" class="backButton" onclick="previousStep()">Back</button>
@@ -1613,10 +1612,8 @@
                             </div>
                         </div>
                     </div>
-                </div> 
-
+                </div>
             </form>
-
         </div>
     </div>
 
@@ -1703,72 +1700,73 @@
         }
     </script>
 
+
     <script>
 
         $(document).ready(function() {
+		var index = 1;
+
             $('#Details1-add').click(function(e) {
 
-                e.preventDefault();
 
-                function generateTableRow(serialNumber) {
-                    var html = '<tr>' +
+			 e.preventDefault();
+
+
+                function generateTableRow(serialNumber,index) {
+                    var html =
+			'<tr>' +
                         '<td><input disabled type="text" name="serial[]" value="' + serialNumber +
                         '"></td>' +
-                        '   <td><select type="text" name="details1[' + serialNumber + '][category]">'+
-                                            '<option value="">--Select Category--</option>'+
-                                            '<option value="SINGLE KURTA">SINGLE KURTA</option>'+
-                                            '<option value="KURTA SETS">KURTA SETS</option>'+
-                                            '<option value="SHIRTS / TUNICS">SHIRTS / TUNICS</option>'+
-                                            '<option value="SHORT DRESSES">SHORT DRESSES</option>'+
-                                            '<option value="LONG DRESSES">LONG DRESSES</option>'+
-                                            '<option value="BOTTOMS">BOTTOMS</option>'+
-                                            '<option value="INDO-WESTERN CO-ORD SET">INDO-WESTERN CO-ORD SET</option>'+
-                                            '<option value="JUMPSUIT">JUMPSUIT</option>'+
-                                            '<option value="DUPATTAS">DUPATTAS</option>'+
-                                            '<option value="LEHENGA">LEHENGA</option>'+
-                                            '<option value="SAREE">SAREE</option>'+
-                                            '<option value="JACKETS & SHRUGS">JACKETS & SHRUGS</option>'+
-                                            '<option value="DRESS MATERIAL">DRESS MATERIAL</option>'+
-                                            '<option value="FOOTWEAR">FOOTWEAR</option>'+
-                                            '<option value="JEWELLRY">JEWELLRY</option>'+
-                                            '<option value="HANDBAGS">HANDBAGS</option>'+
-                                            '<option value="FRAGRANCES">FRAGRANCES</option>'+
-                                            '<option value="SHAWL/ STOLE / SCARVES">SHAWL/ STOLE / SCARVES</option>'+
-                                            '<option value="NIGHT SUITS">NIGHT SUITS</option>'+
-                                            '<option value="BELTS & WALLETS">BELTS & WALLETS</option>'+
-                                            '</select></td>' +
+                        '<td><select type="text" name="details1[' + serialNumber + ']['+ index +'][category]">'+
+                            '<option value="">--Select Category--</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Single Kurta]">Single Kurta</option>'+
+
+
+                                                '<option value="details1[0][category]['+ index +'][Kurta Sets]">Kurta Sets</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Shirts / Tunics]">Shirts / Tunics</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Short Dresses]">Short Dresses</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Long Dresses]">Long Dresses</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Bottoms]">Bottoms</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Indo-Western Co-Ord Set]">Indo-Western Co-Ord Set</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Jumpsuit]">Jumpsuit</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Dupattas]">Dupattas</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Lehenga]">Lehenga</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Saree]">Saree</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Jackets & Shrugs]">Jackets & Shrugs</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Dress Material]">Dress Material</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Footwear]">Footwear</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Jewellery]">Jewellery</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Handbags]">Handbags</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Fragrances]">Fragrances</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Shawl/ Stole / Scarves]">Shawl/ Stole / Scarves</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Night Suits]">Night Suits</option>'+
+                                                '<option value="details1[0][category]['+ index +'][Belts & Wallets]">Belts & Wallets</option>'+
+                                           '</select></td>' +
                                             '<td><select type="text" name="details1[' + serialNumber + '][price]">'+
-                                                    '<option value="">--Select Price--</option>'+
-                                                    '<option value="BELOW 500">BELOW 500</option>'+
-                                                    '<option value="500-2000">500-2000</option>'+
-                                                    '<option value="2100-5000">2100-5000</option>'+
-                                                    '<option value="5100-7000">5100-7000</option>'+
-                                                    '<option value="7100-9000">7100-9000</option>'+
-                                                    '<option value="9100-15000">9100-15000</option>'+
-                                                    '<option value="15100 & ABOVE">15100 & ABOVE</option>'+
-                                                    '<option value="N/A">N/A</option>'+
+                                                '<option value="">--Select Price--</option>'+
+                                                    '<option value="details1[0][price]['+ index +'][Below 500]">Below 500</option>'+
+                                                    '<option value="details1[0][price]['+ index +'][500-2000]">500-2000</option>'+
+                                                    '<option value="details1[0][price]['+ index +'][2100-5000]">2100-5000</option>'+
+                                                    '<option value="details1[0][price]['+ index +'][5100-7000]">5100-7000</option>'+
+                                                    '<option value="details1[0][price]['+ index +'][7100-9000]">7100-9000</option>'+
+                                                    '<option value="details1[0][price]['+ index +'][9100-15000]">9100-15000</option>'+
+                                                    '<option value="details1[0][price]['+ index +'][15100 & Above]">15100 & Above</option>'+
+                                                    '<option value="details1[0][price]['+ index +'][N/A]">N/A</option>'+
                                                 '</select></td>' +
                                             '<td><button type="text" class="removeRowBtn" >Remove</button></td>' +
                         '</tr>';
 
-                    // for (var i = 0; i < users.length; i++) {
-                    //     html += '<option value="' + users[i].id + '">' + users[i].name + '</option>';
-                    // }
-
-                    // html += '</select></td>' +
-
-
                     return html;
                 }
 
-                var tableBody = $('#Details1-table tbody');
+                var tableBody = $('#Details1-add tbody');
                 var rowCount = tableBody.children('tr').length;
-                var newRow = generateTableRow(rowCount + 1);
+                var newRow = generateTableRow(rowCount + 1,index);
                 tableBody.append(newRow);
+		        index++;
             });
         });
     </script>
-
 
 <script>
     $(document).ready(function() {
@@ -1779,44 +1777,37 @@
                     '<td><input disabled type="text" name="serial[]" value="' + serialNumber +
                     '"></td>' +
                     '   <td><select type="text" name="details2[' + serialNumber + '][category]">'+
-                                        '<option value="">--Select Category--</option>'+
-                                        '<option value="CASUAL WEAR">CASUAL WEAR</option>'+
-                                        '<option value="TRADITIONAL/CONTEMPORARY WEAR">TRADITIONAL/CONTEMPORARY WEAR</option>'+
-                                        '<option value="ETHNIC WEAR">ETHNIC WEAR</option>'+
-                                        '<option value="WESTERN WEAR">WESTERN WEAR</option>'+
-                                        '<option value="INDO-WESTERN WEAR">INDO-WESTERN WEAR</option>'+
-                                        '<option value="BOTTOMS">BOTTOMS</option>'+
-                                        '<option value="INDO-WESTERN CO-ORD SET">INDO-WESTERN CO-ORD SET</option>'+
-                                        '<option value="DESIGNER/OCCASION WEAR">DESIGNER/OCCASION WEAR</option>'+
+                        '<option value="">--Select Category--</option>'+
+                                                '<option value="Casual Wear">Casual Wear</option>'+
+                                                '<option value="Traditional/Contemporary Wear">Traditional/Contemporary Wear</option>'+
+                                                '<option value="Ethnic Wear">Ethnic Wear</option>'+
+                                                '<option value="Western Wear">Western Wear</option>'+
+                                                '<option value="Indo-Western Wear">Indo-Western Wear</option>'+
+                                                '<option value="Designer/Occasion Wear">Designer/Occasion Wear</option>'+
                                         '</select></td>' +
                                         '<td><select type="text" name="details2[' + serialNumber + '][price]">'+
-                                                '<option value="">--Select Price--</option>'+
-                                                '<option value="TOP/TUNICS/SHIRTS">TOP/TUNICS/SHIRTS</option>'+
-                                                '<option value="SKIRT/LEHENGA">SKIRT/LEHENGA</option>'+
-                                                '<option value="SHIRTS / TUNICS">SHIRTS / TUNICS</option>'+
-                                                '<option value="DRESSES/GOWNS">DRESSES/GOWNS</option>'+
-                                                '<option value="PALAZZO/PANTS/SHARARA/LEGGINGS">PALAZZO/PANTS/SHARARA/LEGGINGS</option>'+
-                                                '<option value="KURTIS/KURTA">KURTIS/KURTA</option>'+
-                                                '<option value="CO-ORD SETS">CO-ORD SETS</option>'+
-                                                '<option value="SAREE">SAREE</option>'+
-                                                '<option value="JUMPSUIT">JUMPSUIT</option>'+
-                                                '<option value="DUPATTA/SCARF/SHAWL">DUPATTA/SCARF/SHAWL</option>'+
-                                                '<option value="DRESS MATERIAL">DRESS MATERIAL</option>'+
-                                                '<option value="OTHER">OTHER</option>'+
-                                                '<option value="N/A">N/A</option>'+
-
+                                            '<option value="">--Select Price--</option>'+
+                                                    '<option value="Top/Tunics/Shirts">Top/Tunics/Shirts</option>'+
+                                                    '<option value="Skirt/Lehenga">Skirt/Lehenga</option>'+
+                                                    '<option value="Shirts / Tunics">Shirts / Tunics</option>'+
+                                                    '<option value="Dresses/Gowns">Dresses/Gowns</option>'+
+                                                    '<option value="Palazzo/Pants/Sharara/Leggings">Palazzo/Pants/Sharara/Leggings</option>'+
+                                                    '<option value="Kurtis/Kurta">Kurtis/Kurta</option>'+
+                                                    '<option value="Co-Ord Sets">Co-Ord Sets</option>'+
+                                                    '<option value="Saree">Saree</option>'+
+                                                    '<option value="Jumpsuit">Jumpsuit</option>'+
+                                                    '<option value="Dupatta/Scarf/Shawl">Dupatta/Scarf/Shawl</option>'+
+                                                    '<option value="Dress Material">Dress Material</option>'+
+                                                    '<option value="Other">Other</option>'+
+                                                    '<option value="N/A">N/A</option>'+
                                             '</select></td>' +
                                         '<td><button type="text" class="removeRowBtn" >Remove</button></td>' +
-                    '</tr>';
+                                    '</tr>';
 
                 // for (var i = 0; i < users.length; i++) {
                 //     html += '<option value="' + users[i].id + '">' + users[i].name + '</option>';
                 // }
-
                 // html += '</select></td>' +
-
-                '</tr>';
-
                 return html;
             }
 
