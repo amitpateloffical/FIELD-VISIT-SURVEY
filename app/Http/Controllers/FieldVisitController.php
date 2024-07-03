@@ -10,6 +10,7 @@ use Helpers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use PDF;
 class FieldVisitController extends Controller
@@ -173,6 +174,7 @@ class FieldVisitController extends Controller
 
         $data = FieldVisit::find($id);
 // dd($data);
+$data->save_data++;
         $data->date = $request->date;
         $data->time = $request->time;
         $data->brand_name = $request->brand_name;
@@ -568,6 +570,11 @@ class FieldVisitController extends Controller
             $canvas->page_text($width / 4, $height / 2, $data->status, null, 25, [0, 0, 0], 2, 6, -20);
             return $pdf->stream('errata' . $id . '.pdf');
         }
+    }
+
+    public function userCount() {
+        $counts = DB::table('field_visits')->pluck('save_data')->toArray();
+        return response()->json(['data' => $counts]);
     }
 
 }
