@@ -174,7 +174,6 @@ class FieldVisitController extends Controller
 
         $data = FieldVisit::find($id);
 // dd($data);
-        $data->save_count++;
         $data->date = $request->date;
         $data->time = $request->time;
         $data->brand_name = $request->brand_name;
@@ -569,38 +568,5 @@ class FieldVisitController extends Controller
             return $pdf->stream('errata' . $id . '.pdf');
         }
     }
-
-    public function registrationsLast7Days($id)
-    {
-        $res = Helpers::getDefaultResponse();
-        $save_data=FieldVisit::table('table_names')->where('id',$id)->first('save_count');
-        try {
-
-            $data = [];
-
-            for ($i = 7; $i >= 0; $i--)
-            {
-                $weekly_data = [];
-                $week = Carbon::now()->subMonths($i);
-
-                $bar_chart = FieldVisit::where('Stage', '3')
-                                    ->whereDate('created_at', '>=', $week->startOfWeek())
-                                    ->whereDate('created_at', '<=', $week->endOfWeek())
-                                    ->get('save_data');
-                                    
-                $weekly_data['week'] = $week->format('M');
-
-                array_push($data, $weekly_data);
-
-            }
-            $res['body'] = $data;
-        }
-        catch (\Exception $e) {
-            $res['status'] = 'error';
-            $res['message'] = $e->getMessage();
-
-    }
-    return response()->json($res);
-}
 
 }
