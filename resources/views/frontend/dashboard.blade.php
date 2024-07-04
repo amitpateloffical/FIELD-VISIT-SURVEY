@@ -29,7 +29,7 @@
 
                                 <div class="card-text d-flex justify-content-center d-flex justify-content-center align-items-center h-100"
                                     id="chart-1">
-                                    <div class="spinner-border" role="status">
+                                    <div class="spinner-boder" role="status">
                                         <span class="visually-hidden">Loading...</span>
                                     </div>
                                 </div>
@@ -126,7 +126,7 @@
                             title: {
                                 text: 'Total Visitors' // Update y-axis title
                             },
-                            categories: ['user1','user2','user3','user4'],
+                            categories: ['User 1','User 2','User 3','User 4','User 5','User 6'],
                         },
                         yaxis: {
                             title: {
@@ -900,7 +900,7 @@
                     },
                     yaxis: {
                         title: {
-                            text: '# of Deviations'
+                            text: '#  of Field Visit'
                         }
                     },
                     fill: {
