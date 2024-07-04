@@ -66,8 +66,9 @@ button:hover {
     font-size: 0.9rem;
     border: none;
     outline: none;
-    color: #fff;
+    color: #f0f0f0;
     background: #111;
+    /* background: #fff; */
     cursor: pointer;
     position: relative;
     z-index: 0;
@@ -79,8 +80,8 @@ button:hover {
 }
 
 .button_theme1:hover {
-    color: white;
-    background: #111;
+    color: rgb(245, 239, 239);
+    background: #fffdfd;
 }
 
 .button_theme1:before {
@@ -118,7 +119,7 @@ button:hover {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #111;
+    background: #050505;
     left: 0;
     top: 0;
     border-radius: 10px;
@@ -200,8 +201,9 @@ button:hover {
 ===============================================*/
 
 header .header-top {
-    background: #4274da;
-    padding: 5px;
+    /* background: #4274da; */
+    background: #002366;
+    padding: 3px;
 }
 
 header .header-middle .middle-head {
@@ -338,7 +340,8 @@ header .header-middle .middle-head .icon-grid .icon-drop:hover .icon-block {
 }
 
 header .header-bottom {
-    background: gainsboro;
+    /* background: gainsboro; */
+    background: #002366;
     padding: 8px 0px;
 }
 
@@ -356,7 +359,7 @@ header .header-bottom .bottom-links div {
 }
 
 header .header-bottom .bottom-links a {
-    color: black;
+    color: #ffff;
     width: 100%;
     display: grid;
     place-items: center;
@@ -366,7 +369,7 @@ header .header-bottom .bottom-links a {
 }
 
 header .header-bottom .bottom-links a:hover {
-    color: #4274da;
+    color: #c2c3c4;
     text-decoration: none;
 }
 
@@ -522,7 +525,7 @@ header .header-bottom.bottom-pr-links {
 
 #dashboard {
     padding: 20px 0px;
-    background: #4274da;
+    /* background: #4274da; */
     min-height: calc(100vh - 150px);
 }
 
@@ -4160,7 +4163,8 @@ section#pdf-page .watermark {
         CHNAGE CONTROL DATA FIELDS
 ===============================================*/
 .form-field-head {
-    background: #4274da;
+    /* background: #4274da; */
+    background: #002366;
     padding: 15px 20px;
 }
 
@@ -4203,7 +4207,8 @@ section#pdf-page .watermark {
 /*! ============================================= */
 #change-control-fields {
     /* padding: 20px 0px; */
-    background: #4274da;
+    /* background: #4274da; */
+    background: #002366;
     min-height: calc(100vh - 150px);
 }
 

@@ -188,7 +188,9 @@
             padding: 10px;
             /* background: linear-gradient(180deg, rgba(255, 255, 255, .15) 0%, rgba(255, 255, 255, 0) 100%), #bec0c2; */
             /* color: black; */
-            background-image: linear-gradient(120deg, #1a3f7a 0%, #57bdec 100%);
+            /* background-image: linear-gradient(120deg, #1a3f7a 0%, #57bdec 100%); */
+            background-image: linear-gradient(120deg, #002366 0%, #002466c5 100%);
+
             /* linear-gradient(120deg, #ea8900 0%, #ff9c4594 100%) */
     color: white;
             margin-left: auto;

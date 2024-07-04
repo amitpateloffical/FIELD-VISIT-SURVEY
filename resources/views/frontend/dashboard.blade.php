@@ -13,16 +13,8 @@
             <div class="dashboard-container">
 
                 <div class="row">
-                    <div class="col-lg-9">
-                    </div>
-                </div>
-
-                <div>
-
-                    <!-- <div class="inner-block calendar-block">
-                        <div id='calendar'></div>
-                    </div> -->
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
+                       <div class="inner-block">
                         <div class="card border-0" >
                             <div class="card-body">
                                 <h5 class="card-title">Users and Visitors</h5>
@@ -35,13 +27,10 @@
                                 </div>
                             </div>
                         </div>
+                       </div>
                     </div>
-
-                    </div>
-
-                    
-
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
+                      <div class="inner-block">
                         <div class="card border-0" >
                             <div class="card-body">
                                 <h5 class="card-title">Brand and Visitors</h5>
@@ -54,7 +43,22 @@
                                 </div>
                             </div>
                         </div>
+                      </div>
                     </div>
+                </div>
+
+               
+
+                    <!-- <div class="inner-block calendar-block">
+                        <div id='calendar'></div>
+                    </div> -->
+                    
+
+                  
+
+                    
+
+                    
 
 
                     <!-- <div class="inner-block">
@@ -105,10 +109,12 @@
                         }],
                         chart: {
                             type: 'bar',
-                            height: 350
+                            height: 300
                         },
                         plotOptions: {
                             bar: {
+                                borderRadius: 6,
+                            borderRadiusApplication: 'end',
                                 horizontal: false,
                                 columnWidth: '35%',
                                 endingShape: 'rounded'
@@ -878,10 +884,12 @@
                     ],
                     chart: {
                         type: 'bar',
-                        height: 350
+                        height: 300
                     },
                     plotOptions: {
                         bar: {
+                            borderRadius: 6,
+                            borderRadiusApplication: 'end',
                             horizontal: false,
                             columnWidth: '55%',
                             endingShape: 'rounded'
@@ -1167,7 +1175,8 @@
                 },
                 plotOptions: {
                     bar: {
-                        borderRadius: 4,
+                        borderRadius: 6,
+                        borderRadiusApplication: 'end',
                         horizontal: true,
                     }
                 },

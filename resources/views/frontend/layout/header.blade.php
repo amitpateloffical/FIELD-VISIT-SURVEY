@@ -65,7 +65,7 @@
         <div class="container-fluid header-top">
             <div class="container">
                 <div class="text-center text-light">
-                    <small>Agio</small>
+                    {{-- <small>Agio</small> --}}
                 </div>
             </div>
         </div>
@@ -123,16 +123,16 @@
                                 <!-- <div class="image">
                                     @if (Auth::user())
                                         @if (Helpers::checkRoles(3))
-<img src="{{ asset('user/images/amit_guru.jpg') }}" alt="..."
-                                                class="w-100 h-100">
-@else
-<img src="{{ asset('user/images/login.jpg') }}" alt="..."
-                                                class="w-100 h-100">
-@endif
-@else
-<img src="{{ asset('user/images/amit_guru.jpg') }}" alt="..."
-                                            class="w-100 h-100">
-                                    @endif
+                                <img src="{{ asset('user/images/amit_guru.jpg') }}" alt="..."
+                                                                                class="w-100 h-100">
+                                @else
+                                <img src="{{ asset('user/images/login.jpg') }}" alt="..."
+                                                                                class="w-100 h-100">
+                                @endif
+                                @else
+                                <img src="{{ asset('user/images/amit_guru.jpg') }}" alt="..."
+                                                                            class="w-100 h-100">
+                                                                    @endif
 
                                 </div> -->
                                 <!-- <div data-bs-toggle="modal" data-bs-target="#setting-modal">Settings</div> -->
@@ -155,27 +155,27 @@
                         <a href="#"><i class="fa-solid fa-braille"></i></a>
                     </div>
                     <div>
-                        <a href="/dashboard">DMS Dashboard</a>
+                        <a href="/dashboard"> Dashboard</a>
                     </div>
-                    <div>
+                    {{-- <div>
                         <a href="/TMS">TMS Dashboard</a>
-                    </div>
-                    <div><a href="/rcms/qms-dashboard">QMS-Dashboard</a></div>
+                    </div> --}}
+                    <div><a href="/rcms/qms-dashboard">FVS-Dashboard</a></div>
                     @if (Auth::user())
-                        @if (Helpers::checkRoles(3) || Helpers::checkRoles(1) || Helpers::checkRoles(2))
+                        {{-- @if (Helpers::checkRoles(3) || Helpers::checkRoles(1) || Helpers::checkRoles(2))
                             <div>
                                 <a href="/mydms">My DMS</a>
                             </div>
-                        @endif
-                        @if (Helpers::checkRoles(3))
+                        @endif --}}
+                        {{-- @if (Helpers::checkRoles(3))
                             <div>
                                 <a href="{{ route('documents.index') }}">Documents</a>
                             </div>
-                        @endif
+                        @endif --}}
                         @if (Helpers::checkRoles(1) || Helpers::checkRoles(2) || Helpers::checkRoles(4))
-                            <div>
+                            {{-- <div>
                                 <a href="{{ url('mytaskdata') }}">My Tasks</a>
-                            </div>
+                            </div> --}}
                         @endif
                         {{-- @if (Helpers::checkRoles(4) || Helpers::checkRoles(5) || Helpers::checkRoles(3))
                             <div>
