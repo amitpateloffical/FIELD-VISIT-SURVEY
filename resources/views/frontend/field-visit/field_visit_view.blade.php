@@ -328,7 +328,10 @@
                             <div class="inner-block-content">
                                 <div class="row">
 
+
+
 {{--
+
                                     <div class="col-12">
                                         <div class="group-input">
                                             <label for="PAGE SECTION">
@@ -632,7 +635,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+
 
 
 
@@ -1127,7 +1130,7 @@
                             <div class="group-input">
                                 <label for="audit-agenda-grid">
                                     Details
-                                    <button type="button" name="details" id="Details1-add">+</button>
+                                    <button type="button" name="Details1-table" id="Details1-add">+</button>
                                     <span class="text-primary" data-bs-toggle="modal"
                                         data-bs-target="#observation-field-instruction-modal"
                                         style="font-size: 0.8rem; font-weight: 400; cursor: pointer;">
@@ -1148,7 +1151,7 @@
                                             @if ($grid_Data && is_array($grid_Data->data))
                                             @foreach ($grid_Data->data as $datas)
                                                 <tr>
-                                                    <td><input disabled type="text" name="details1[{{ $loop->index }}][row]" value="1"></td>
+                                                    <td><input disabled type="text" name="details1[{{ $loop->index }}][row]" value="{{$loop->index+1}}"></td>
                                                     <td>
                                                         <select name="details1[{{ $loop->index }}][category]">
                                                             <option value="">--Select Category--</option>
@@ -1237,8 +1240,8 @@
 
                             <div class="group-input">
                                 <label for="audit-agenda-grid">
-                                    Details
-                                    <button type="button" name="details" id="Details2-add">+</button>
+                                    Details 2
+                                    <button type="button"  id="Details2-add">+</button>
                                     <span class="text-primary" data-bs-toggle="modal"
                                         data-bs-target="#observation-field-instruction-modal"
                                         style="font-size: 0.8rem; font-weight: 400; cursor: pointer;">
@@ -1259,10 +1262,10 @@
                                             @if ($grid_Data2 && is_array($grid_Data2->data))
                                             @foreach ($grid_Data2->data as $names)
                                                 <tr>
-                                                    <td><input disabled type="text" name="details2[{{ $loop->index }}][row]" value="1"></td>
+                                                    <td><input disabled type="text" name="details2[{{ $loop->index }}][row]" value="{{$loop->index+1}}"></td>
                                                     <td>
                                                         <select name="details2[{{ $loop->index }}][styles]">
-                                                            <option value="">--Select Category--</option>
+                                                            <option value="">--Select Styles--</option>
                                                             <option value="Casual Wear" {{ isset($names['styles']) && $names['styles'] == 'Casual Wear' ? 'selected' : '' }}>Casual Wear</option>
                                                             <option value="Traditional/contemporary Wear" {{ isset($names['styles']) && $names['styles'] == 'Traditional/contemporary Wear' ? 'selected' : '' }}>Traditional/contemporary Wear</option>
                                                             <option value="Ethnic Wear" {{ isset($names['styles']) && $names['styles'] == 'Ethnic Wear' ? 'selected' : '' }}>Ethnic Wear</option>
@@ -1273,7 +1276,7 @@
                                                     </td>
                                                     <td>
                                                         <select name="details2[{{ $loop->index }}][category]">
-                                                            <option value="">--Select Price--</option>
+                                                            <option value="">--Select Category--</option>
                                                             <option value="Top/Tunics/Shirts" {{ isset($names['category']) && $names['category'] == 'Top/Tunics/Shirts' ? 'selected' : '' }}>Top/Tunics/Shirts</option>
                                                             <option value="Skirt/Lehenga" {{ isset($names['category']) && $names['category'] == 'Skirt/Lehenga' ? 'selected' : '' }}>Skirt/Lehenga</option>
                                                             <option value="Shirts/Tunics" {{ isset($names['category']) && $names['category'] == 'Shirts/Tunics' ? 'selected' : '' }}>Shirts/Tunics</option>
@@ -1848,7 +1851,7 @@
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
 
             </form>
 
@@ -2116,72 +2119,118 @@
         });
     </script>
 
-<script>
+{{-- <script>
+
     $(document).ready(function() {
+    var index = 1;
+
         $('#Details1-add').click(function(e) {
-            e.preventDefault();
-
-            function generateOptions(users) {
-                    var options = '<option value="">Select a value</option>';
-                    users.forEach(function(user) {
-                        options += '<option value="' + user.id + '">' + user.name + '</option>';
-                    });
-                    return options;
-                }
-
-
-            function generateTableRow(serialNumber) {
-
-                var options = generateOptions(users);
-
-                var html = '';
-                html += '<tr>' +
-                    '<td><input disabled type="text" name="serial[]" value="' + serialNumber +
+         e.preventDefault();
+            function generateTableRow(serialNumber,index) {
+                var html =
+        '<tr>' +
+                    '<td><input disabled type="text" name="details1['+ index +'][row]" value="' + serialNumber +
                     '"></td>' +
-                    '   <td><select type="text" name="details1[' + serialNumber + '][category]">'+
-                                        '<option value="">--Select Category--</option>'+
-                                        '<option value="single Kurta">single Kurta</option>'+
-                                        '<option value="KURTA SETS">KURTA SETS</option>'+
-                                        '<option value="Shirts/Tunics">SHIRTS / TUNICS</option>'+
-                                        '<option value="SHORT DRESSES">SHORT DRESSES</option>'+
-                                        '<option value="LONG DRESSES">LONG DRESSES</option>'+
-                                        '<option value="BOTTOMS">BOTTOMS</option>'+
-                                        '<option value="INDO-WESTERN CO-ORD SET">INDO-WESTERN CO-ORD SET</option>'+
-                                        '<option value="JUMPSUIT">JUMPSUIT</option>'+
-                                        '<option value="DUPATTAS">DUPATTAS</option>'+
-                                        '<option value="LEHENGA">LEHENGA</option>'+
-                                        '<option value="SAREE">SAREE</option>'+
-                                        '<option value="JACKETS & SHRUGS">JACKETS & SHRUGS</option>'+
-                                        '<option value="DRESS MATERIAL">DRESS MATERIAL</option>'+
-                                        '<option value="FOOTWEAR">FOOTWEAR</option>'+
-                                        '<option value="JEWELLRY">JEWELLRY</option>'+
-                                        '<option value="HANDBAGS">HANDBAGS</option>'+
-                                        '<option value="FRAGRANCES">FRAGRANCES</option>'+
-                                        '<option value="SHAWL/ STOLE / SCARVES">SHAWL/ STOLE / SCARVES</option>'+
-                                        '<option value="NIGHT SUITS">NIGHT SUITS</option>'+
-                                        '<option value="BELTS & WALLETS">BELTS & WALLETS</option>'+
-                                        '</select></td>' +
-                                        '<td><select type="text" name="details1[' + serialNumber + '][price]">'+
-                                                '<option value="">--Select Price--</option>'+
-                                                '<option value="BELOW 500">BELOW 500</option>'+
+                    '<td><select name="details1['+ index +'][category]">'+
+                        '<option value="">--Select Category--</option>'+
+                                            '<option value="Single Kurta">Single Kurta</option>'+
+                                            '<option value="Kurta Sets">Kurta Sets</option>'+
+                                            '<option value="Shirts / Tunics">Shirts / Tunics</option>'+
+                                            '<option value="Short Dresses">Short Dresses</option>'+
+                                            '<option value="Long Dresses">Long Dresses</option>'+
+                                            '<option value="Bottoms">Bottoms</option>'+
+                                            '<option value="Indo-Western Co-Ord Set">Indo-Western Co-Ord Set</option>'+
+                                            '<option value="Jumpsuit">Jumpsuit</option>'+
+                                            '<option value="Dupattas">Dupattas</option>'+
+                                            '<option value="Lehenga">Lehenga</option>'+
+                                            '<option value="Saree">Saree</option>'+
+                                            '<option value="Jackets & Shrugs">Jackets & Shrugs</option>'+
+                                            '<option value="Dress Material">Dress Material</option>'+
+                                            '<option value="Footwear">Footwear</option>'+
+                                            '<option value="Jewellery">Jewellery</option>'+
+                                            '<option value="Handbags">Handbags</option>'+
+                                            '<option value="Fragrances">Fragrances</option>'+
+                                            '<option value="Shawl/ Stole / Scarves">Shawl/ Stole / Scarves</option>'+
+                                            '<option value="Night Suits">Night Suits</option>'+
+                                            '<option value="Belts & Wallets">Belts & Wallets</option>'+
+                                       '</select></td>' +
+                                        '<td><select type="text" name="details1[' + index + '][price]">'+
+                                            '<option value="">--Select Price--</option>'+
+                                                '<option value="Below 500">Below 500</option>'+
                                                 '<option value="500-2000">500-2000</option>'+
                                                 '<option value="2100-5000">2100-5000</option>'+
                                                 '<option value="5100-7000">5100-7000</option>'+
                                                 '<option value="7100-9000">7100-9000</option>'+
                                                 '<option value="9100-15000">9100-15000</option>'+
-                                                '<option value="15100 & ABOVE">15100 & ABOVE</option>'+
+                                                '<option value="15100 & Above">15100 & Above</option>'+
                                                 '<option value="N/A">N/A</option>'+
                                             '</select></td>' +
                                         '<td><button type="text" class="removeRowBtn" >Remove</button></td>' +
                     '</tr>';
 
+                return html;
+            }
+
+            var tableBody = $('#Details1-table tbody');
+            var rowCount = tableBody.children('tr').length;
+            var newRow = generateTableRow(rowCount + 1,index);
+            tableBody.append(newRow);
+            index++;
+        });
+    });
+</script>
+
+ --}}
+
+<script>
+    $(document).ready(function() {
+        $('#Details1-add').click(function(e) {
+            function generateTableRow(serialNumber) {
+                var html = '';
+                html += '<tr>' +
+                    '<td><input disabled type="text" name="serial[]" value="' + serialNumber +
+                    '"></td>' +
+                    '<td><select name="details1['+ serialNumber +'][category]">'+
+                        '<option value="">--Select Category--</option>'+
+                                            '<option value="Single Kurta">Single Kurta</option>'+
+                                            '<option value="Kurta Sets">Kurta Sets</option>'+
+                                            '<option value="Shirts / Tunics">Shirts / Tunics</option>'+
+                                            '<option value="Short Dresses">Short Dresses</option>'+
+                                            '<option value="Long Dresses">Long Dresses</option>'+
+                                            '<option value="Bottoms">Bottoms</option>'+
+                                            '<option value="Indo-Western Co-Ord Set">Indo-Western Co-Ord Set</option>'+
+                                            '<option value="Jumpsuit">Jumpsuit</option>'+
+                                            '<option value="Dupattas">Dupattas</option>'+
+                                            '<option value="Lehenga">Lehenga</option>'+
+                                            '<option value="Saree">Saree</option>'+
+                                            '<option value="Jackets & Shrugs">Jackets & Shrugs</option>'+
+                                            '<option value="Dress Material">Dress Material</option>'+
+                                            '<option value="Footwear">Footwear</option>'+
+                                            '<option value="Jewellery">Jewellery</option>'+
+                                            '<option value="Handbags">Handbags</option>'+
+                                            '<option value="Fragrances">Fragrances</option>'+
+                                            '<option value="Shawl/ Stole / Scarves">Shawl/ Stole / Scarves</option>'+
+                                            '<option value="Night Suits">Night Suits</option>'+
+                                            '<option value="Belts & Wallets">Belts & Wallets</option>'+
+                                       '</select></td>' +
+                                        '<td><select type="text" name="details1[' + serialNumber + '][price]">'+
+                                            '<option value="">--Select Price--</option>'+
+                                                '<option value="Below 500">Below 500</option>'+
+                                                '<option value="500-2000">500-2000</option>'+
+                                                '<option value="2100-5000">2100-5000</option>'+
+                                                '<option value="5100-7000">5100-7000</option>'+
+                                                '<option value="7100-9000">7100-9000</option>'+
+                                                '<option value="9100-15000">9100-15000</option>'+
+                                                '<option value="15100 & Above">15100 & Above</option>'+
+                                                '<option value="N/A">N/A</option>'+
+                                            '</select></td>' +
+                                        '<td><button type="text" class="removeRowBtn" >Remove</button></td>' +
+                                    '</tr>';
+
                 // for (var i = 0; i < users.length; i++) {
                 //     html += '<option value="' + users[i].id + '">' + users[i].name + '</option>';
                 // }
-
                 // html += '</select></td>' +
-
-
                 return html;
             }
 
@@ -2201,45 +2250,38 @@
                 html += '<tr>' +
                     '<td><input disabled type="text" name="serial[]" value="' + serialNumber +
                     '"></td>' +
-                    '   <td><select type="text" name="details2[' + serialNumber + '][category]">'+
-                                        '<option value="">--Select Category--</option>'+
-                                        '<option value="CASUAL WEAR">CASUAL WEAR</option>'+
-                                        '<option value="TRADITIONAL/CONTEMPORARY WEAR">TRADITIONAL/CONTEMPORARY WEAR</option>'+
-                                        '<option value="ETHNIC WEAR">ETHNIC WEAR</option>'+
-                                        '<option value="WESTERN WEAR">WESTERN WEAR</option>'+
-                                        '<option value="INDO-WESTERN WEAR">INDO-WESTERN WEAR</option>'+
-                                        '<option value="BOTTOMS">BOTTOMS</option>'+
-                                        '<option value="INDO-WESTERN CO-ORD SET">INDO-WESTERN CO-ORD SET</option>'+
-                                        '<option value="DESIGNER/OCCASION WEAR">DESIGNER/OCCASION WEAR</option>'+
+                    '   <td><select type="text" name="details2[' + serialNumber + '][styles]">'+
+                        '<option value="">--Select Styles--</option>'+
+                                                '<option value="Casual Wear">Casual Wear</option>'+
+                                                '<option value="Traditional/Contemporary Wear">Traditional/Contemporary Wear</option>'+
+                                                '<option value="Ethnic Wear">Ethnic Wear</option>'+
+                                                '<option value="Western Wear">Western Wear</option>'+
+                                                '<option value="Indo-Western Wear">Indo-Western Wear</option>'+
+                                                '<option value="Designer/Occasion Wear">Designer/Occasion Wear</option>'+
                                         '</select></td>' +
-                                        '<td><select type="text" name="details2[' + serialNumber + '][price]">'+
-                                                '<option value="">--Select Price--</option>'+
-                                                '<option value="TOP/TUNICS/SHIRTS">TOP/TUNICS/SHIRTS</option>'+
-                                                '<option value="SKIRT/LEHENGA">SKIRT/LEHENGA</option>'+
-                                                '<option value="SHIRTS / TUNICS">SHIRTS / TUNICS</option>'+
-                                                '<option value="DRESSES/GOWNS">DRESSES/GOWNS</option>'+
-                                                '<option value="PALAZZO/PANTS/SHARARA/LEGGINGS">PALAZZO/PANTS/SHARARA/LEGGINGS</option>'+
-                                                '<option value="KURTIS/KURTA">KURTIS/KURTA</option>'+
-                                                '<option value="CO-ORD SETS">CO-ORD SETS</option>'+
-                                                '<option value="SAREE">SAREE</option>'+
-                                                '<option value="JUMPSUIT">JUMPSUIT</option>'+
-                                                '<option value="DUPATTA/SCARF/SHAWL">DUPATTA/SCARF/SHAWL</option>'+
-                                                '<option value="DRESS MATERIAL">DRESS MATERIAL</option>'+
-                                                '<option value="OTHER">OTHER</option>'+
-                                                '<option value="N/A">N/A</option>'+
-
+                                        '<td><select type="text" name="details2[' + serialNumber + '][category]">'+
+                                            '<option value="">--Select Category--</option>'+
+                                                    '<option value="Top/Tunics/Shirts">Top/Tunics/Shirts</option>'+
+                                                    '<option value="Skirt/Lehenga">Skirt/Lehenga</option>'+
+                                                    '<option value="Shirts / Tunics">Shirts / Tunics</option>'+
+                                                    '<option value="Dresses/Gowns">Dresses/Gowns</option>'+
+                                                    '<option value="Palazzo/Pants/Sharara/Leggings">Palazzo/Pants/Sharara/Leggings</option>'+
+                                                    '<option value="Kurtis/Kurta">Kurtis/Kurta</option>'+
+                                                    '<option value="Co-Ord Sets">Co-Ord Sets</option>'+
+                                                    '<option value="Saree">Saree</option>'+
+                                                    '<option value="Jumpsuit">Jumpsuit</option>'+
+                                                    '<option value="Dupatta/Scarf/Shawl">Dupatta/Scarf/Shawl</option>'+
+                                                    '<option value="Dress Material">Dress Material</option>'+
+                                                    '<option value="Other">Other</option>'+
+                                                    '<option value="N/A">N/A</option>'+
                                             '</select></td>' +
                                         '<td><button type="text" class="removeRowBtn" >Remove</button></td>' +
-                    '</tr>';
+                                    '</tr>';
 
                 // for (var i = 0; i < users.length; i++) {
                 //     html += '<option value="' + users[i].id + '">' + users[i].name + '</option>';
                 // }
-
                 // html += '</select></td>' +
-
-                '</tr>';
-
                 return html;
             }
 
@@ -2250,6 +2292,7 @@
         });
     });
 </script>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
