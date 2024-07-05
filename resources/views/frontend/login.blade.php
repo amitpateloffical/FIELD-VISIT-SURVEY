@@ -213,6 +213,12 @@
     margin-left: 100px;
 }
     }
+@media screen and (min-width: 1200px) {
+        #rcms_login_block .login-form-block .logo img {
+    filter: brightness(0) invert(1);
+    margin-left: 100px;
+}
+    }
     @media screen and (max-width: 768px) {
         #rcms_login_block .login-form-block {
             width: 90%;
