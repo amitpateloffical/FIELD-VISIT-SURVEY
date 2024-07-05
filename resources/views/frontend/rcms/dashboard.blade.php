@@ -108,14 +108,14 @@
             querySelect.options.add(new Option('Pending Change Implementation', '5'));
             querySelect.options.add(new Option('Close - Done', '6'));
         }
-            // else if (scopeValue === 'OOS Cemical') {
-            //     querySelect.options.add(new Option('Opened', '1'));
-            //     querySelect.options.add(new Option('Under HOD Review', '2'));
-            //     querySelect.options.add(new Option('Pending QA Review', '3'));
-            //     querySelect.options.add(new Option('CFT Review', '4'));
-            //     querySelect.options.add(new Option('Pending Change Implementation', '5'));
-            //     querySelect.options.add(new Option('Close - Done', '6'));
-            // }
+        // else if (scopeValue === 'OOS Cemical') {
+        //     querySelect.options.add(new Option('Opened', '1'));
+        //     querySelect.options.add(new Option('Under HOD Review', '2'));
+        //     querySelect.options.add(new Option('Pending QA Review', '3'));
+        //     querySelect.options.add(new Option('CFT Review', '4'));
+        //     querySelect.options.add(new Option('Pending Change Implementation', '5'));
+        //     querySelect.options.add(new Option('Close - Done', '6'));
+        // }
 
 
         // Add more conditions based on other scope values
@@ -123,12 +123,12 @@
     }
 </script>
 <style>
-    #short_width{
+    #short_width {
         display: inline-block;
-    width: 520px !important;
-    white-space: nowrap;
-    overflow: hidden !important;
-    text-overflow: ellipsis;
+        width: 520px !important;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
     }
 
 
@@ -198,7 +198,7 @@ header .header_rcms_middle .middle-head .icon-grid {
                                     <option value="">Initial Deviation Category= Minor</option>
                                     <option value="">Initial Deviation Category= Major</option>
                                     <option value="">Initial Deviation Category= Critical</option>
-                                     <option value="">Post Categorization Of Deviation= Minor</option>
+                                    <option value="">Post Categorization Of Deviation= Minor</option>
                                     <option value="">Post Categorization Of Deviation= Major</option>
                                     <option value="">Post Categorization Of Deviation= Critical</option>
                                 </select>
@@ -261,7 +261,8 @@ header .header_rcms_middle .middle-head .icon-grid {
                                                     </a>
                                                     {{-- -----------------------by pankaj-------------------- --}}
                                                 @elseif ($datas->type == 'Internal-Audit')
-                                                    <a href="{{ route('showInternalAudit', $datas->id) }}" style="color: blue">
+                                                    <a href="{{ route('showInternalAudit', $datas->id) }}"
+                                                        style="color: blue">
                                                         {{ str_pad($datas->record, 4, '0', STR_PAD_LEFT) }}
                                                     </a>
                                                     @if (!empty($datas->parent_id))
@@ -274,11 +275,11 @@ header .header_rcms_middle .middle-head .icon-grid {
                                                             </div>
                                                         </a>
                                                     @endif
-                                                                {{-- market complaint --}}
-
-                                                    @elseif ($datas->type == 'Market Complaint')
-                                                    <a href="{{ route('marketcomplaint.marketcomplaint_view', $datas->id) }}">
-                                                        {{ str_pad($datas->record, 4, '0', STR_PAD_LEFT) }}{{ $datas->id}}
+                                                    {{-- market complaint --}}
+                                                @elseif ($datas->type == 'Market Complaint')
+                                                    <a
+                                                        href="{{ route('marketcomplaint.marketcomplaint_view', $datas->id) }}">
+                                                        {{ str_pad($datas->record, 4, '0', STR_PAD_LEFT) }}{{ $datas->id }}
                                                     </a>
                                                     @if (!empty($datas->parent_id))
                                                         <a
@@ -290,13 +291,9 @@ header .header_rcms_middle .middle-head .icon-grid {
                                                             </div>
                                                         </a>
                                                     @endif
-
-
-
-
-
                                                 @elseif ($datas->type == 'Risk-Assesment')
-                                                    <a href="{{ route('showRiskManagement', $datas->id) }}" style="color: blue">
+                                                    <a href="{{ route('showRiskManagement', $datas->id) }}"
+                                                        style="color: blue">
                                                         {{ str_pad($datas->record, 4, '0', STR_PAD_LEFT) }}
                                                     </a>
                                                     @if (!empty($datas->parent_id))
@@ -310,7 +307,8 @@ header .header_rcms_middle .middle-head .icon-grid {
                                                         </a>
                                                     @endif
                                                 @elseif ($datas->type == 'Lab-Incident')
-                                                    <a href="{{ route('ShowLabIncident', $datas->id) }}" style="color: blue">
+                                                    <a href="{{ route('ShowLabIncident', $datas->id) }}"
+                                                        style="color: blue">
                                                         {{ str_pad($datas->record, 4, '0', STR_PAD_LEFT) }}
                                                     </a>
                                                     @if (!empty($datas->parent_id))
@@ -324,7 +322,8 @@ header .header_rcms_middle .middle-head .icon-grid {
                                                         </a>
                                                     @endif
                                                 @elseif ($datas->type == 'External-Audit')
-                                                    <a href="{{ route('showExternalAudit', $datas->id) }}" style="color: blue">
+                                                    <a href="{{ route('showExternalAudit', $datas->id) }}"
+                                                        style="color: blue">
                                                         {{ str_pad($datas->record, 4, '0', STR_PAD_LEFT) }}
                                                     </a>
                                                     @if (!empty($datas->parent_id))
@@ -337,8 +336,9 @@ header .header_rcms_middle .middle-head .icon-grid {
                                                             </div>
                                                         </a>
                                                     @endif
-                                                    @elseif ($datas->type == 'Field Visit Survey')
-                                                    <a href="{{ route('field_visit_show', $datas->id) }}" style="color: blue">
+                                                @elseif ($datas->type == 'Field Visit Survey')
+                                                    <a href="{{ route('field_visit_show', $datas->id) }}"
+                                                        style="color: blue">
                                                         {{ str_pad($datas->record, 4, '0', STR_PAD_LEFT) }}
                                                     </a>
                                                     @if (!empty($datas->parent_id))
@@ -352,7 +352,8 @@ header .header_rcms_middle .middle-head .icon-grid {
                                                         </a>
                                                     @endif
                                                 @elseif ($datas->type == 'Audit-Program')
-                                                    <a href="{{ route('ShowAuditProgram', $datas->id) }}" style="color: blue">
+                                                    <a href="{{ route('ShowAuditProgram', $datas->id) }}"
+                                                        style="color: blue">
                                                         {{ str_pad($datas->record, 4, '0', STR_PAD_LEFT) }}
                                                     </a>
                                                     @if (!empty($datas->parent_id))
@@ -366,7 +367,8 @@ header .header_rcms_middle .middle-head .icon-grid {
                                                         </a>
                                                     @endif
                                                 @elseif ($datas->type == 'Observation')
-                                                    <a href="{{ route('showobservation', $datas->id) }}" style="color: blue">
+                                                    <a href="{{ route('showobservation', $datas->id) }}"
+                                                        style="color: blue">
                                                         {{ str_pad($datas->record, 4, '0', STR_PAD_LEFT) }}
                                                     </a>
                                                     @if (!empty($datas->parent_id))
@@ -381,7 +383,8 @@ header .header_rcms_middle .middle-head .icon-grid {
                                                     @endif
                                                     {{-- ----------------------------------------------- --}}
                                                 @elseif($datas->type == 'Action-Item')
-                                                    <a href="{{ route('actionItem.show', $datas->id) }}" style="color: blue">
+                                                    <a href="{{ route('actionItem.show', $datas->id) }}"
+                                                        style="color: blue">
                                                         {{ str_pad($datas->record, 4, '0', STR_PAD_LEFT) }}
                                                     </a>
                                                     @if (!empty($datas->parent_id))
@@ -395,7 +398,8 @@ header .header_rcms_middle .middle-head .icon-grid {
                                                         </a>
                                                     @endif
                                                 @elseif($datas->type == 'Extension')
-                                                    <a href="{{ url('extension_newshow', $datas->id) }}" style="color: blue" style="color: blue">
+                                                    <a href="{{ url('extension_newshow', $datas->id) }}"
+                                                        style="color: blue" style="color: blue">
                                                         {{ str_pad($datas->record, 4, '0', STR_PAD_LEFT) }}
                                                     </a>
                                                     @if (!empty($datas->parent_id))
@@ -407,7 +411,8 @@ header .header_rcms_middle .middle-head .icon-grid {
                                                         </a>
                                                     @endif
                                                 @elseif($datas->type == 'Effectiveness-Check')
-                                                    <a href="{{ route('effectiveness.show', $datas->id) }}" style="color: blue">
+                                                    <a href="{{ route('effectiveness.show', $datas->id) }}"
+                                                        style="color: blue">
                                                         {{ str_pad($datas->record, 4, '0', STR_PAD_LEFT) }}
                                                     </a>
                                                     @if (!empty($datas->parent_id))
@@ -433,7 +438,7 @@ header .header_rcms_middle .middle-head .icon-grid {
                                                             </div>
                                                         </a>
                                                     @endif
-                                                    @elseif($datas->type == 'OOS Chemical')
+                                                @elseif($datas->type == 'OOS Chemical')
                                                     <a href="{{ route('oos.oos_view', $datas->id) }}">
                                                         {{ str_pad($datas->record, 4, '0', STR_PAD_LEFT) }}{{ $datas->id }}
                                                     </a>
@@ -447,7 +452,7 @@ header .header_rcms_middle .middle-head .icon-grid {
                                                             </div>
                                                         </a>
                                                     @endif
-                                                    @elseif($datas->type == 'errata')
+                                                @elseif($datas->type == 'errata')
                                                     <a href="{{ route('errata.show', $datas->id) }}">
                                                         {{ str_pad($datas->record, 4, '0', STR_PAD_LEFT) }}{{ $datas->id }}
                                                     </a>
@@ -475,7 +480,7 @@ header .header_rcms_middle .middle-head .icon-grid {
                                                             </div>
                                                         </a>
                                                     @endif
-                                                    @elseif($datas->type == 'Deviation')
+                                                @elseif($datas->type == 'Deviation')
                                                     <a href="{{ route('devshow', $datas->id) }}" style="color: blue">
                                                         {{ str_pad($datas->record, 4, '0', STR_PAD_LEFT) }}
                                                     </a>
@@ -503,7 +508,7 @@ header .header_rcms_middle .middle-head .icon-grid {
                                                             </div>
                                                         </a>
                                                     @endif
-                                                    @elseif($datas->type == 'OOT')
+                                                @elseif($datas->type == 'OOT')
                                                     <a href="{{ route('rcms/oot_view', $datas->id) }}">
                                                         {{ str_pad($datas->record, 4, '0', STR_PAD_LEFT) }}
                                                     </a>
@@ -520,13 +525,13 @@ header .header_rcms_middle .middle-head .icon-grid {
                                                 @endif
                                             </td>
                                             @if ($datas->parent_id != null)
-                                                        <td>
-                                                            {{ str_pad($datas->parent_id, 4, '0', STR_PAD_LEFT) }}
-                                                        </td>
-                                                    @else
-                                                        <td>
-                                                            -
-                                                        </td>
+                                                <td>
+                                                    {{ str_pad($datas->parent_id, 4, '0', STR_PAD_LEFT) }}
+                                                </td>
+                                            @else
+                                                <td>
+                                                    -
+                                                </td>
                                             @endif
                                             <td class="viewdetails" data-id="{{ $datas->id }}"
                                                 data-type="{{ $datas->type }}" data-bs-toggle="modal"
@@ -571,7 +576,7 @@ header .header_rcms_middle .middle-head .icon-grid {
                                                 data-type="{{ $datas->type }}" data-bs-toggle="modal"
                                                 data-bs-target="#record-modal">
                                                 @if (property_exists($datas, 'due_date'))
-                                                    {{ $datas->type !== 'Extension' ? Helpers::getDueDate($datas->due_date, false) : ''  }}
+                                                    {{ $datas->type !== 'Extension' ? Helpers::getDueDate($datas->due_date, false) : '' }}
                                                 @endif
                                             </td>
                                             <td class="viewdetails" data-id="{{ $datas->id }}"

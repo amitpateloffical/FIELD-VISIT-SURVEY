@@ -14,9 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('field_visits', function (Blueprint $table) {
-            //
-            $table->longText('any_remarks_on_vm')->nullable();
-            $table->longText('any_ramrks_on_the_branding')->nullable();
+            $table->string('type')->nullable();
 
         });
     }

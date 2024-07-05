@@ -4,37 +4,36 @@ namespace App\Http\Controllers\rcms;
 
 use App\Http\Controllers\Controller;
 use App\Models\ActionItem;
-use App\Models\Capa;
-use App\Models\CC;
-use App\Models\EffectivenessCheck;
-use App\Models\Extension;
-use App\Models\InternalAudit;
-use App\Models\ManagementReview;
-use App\Models\OutOfCalibration;
-use App\Models\RiskManagement;
-use App\Models\LabIncident;
 use App\Models\Auditee;
 use App\Models\AuditProgram;
-use App\Models\{Division,Deviation, extension_new};
-use App\Models\RootCauseAnalysis;
-use App\Models\Observation;
-use App\Models\QMSDivision;
+use App\Models\Capa;
+use App\Models\CC;
+use App\Models\Deviation;
+use App\Models\EffectivenessCheck;
+use App\Models\errata;
+use App\Models\Extension;
+use App\Models\extension_new;
 use App\Models\FailureInvestigation;
+use App\Models\FieldVisit;
+use App\Models\InternalAudit;
+use App\Models\LabIncident;
+use App\Models\ManagementReview;
+use App\Models\MarketComplaint;
+use App\Models\Observation;
+use App\Models\OOS;
 use App\Models\Ootc;
-use Helpers;
+use App\Models\OutOfCalibration;
+use App\Models\QMSDivision;
+use App\Models\RiskManagement;
+use App\Models\RootCauseAnalysis;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Collection;
-
+use Helpers;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
-use App\Models\OOS;
-use App\Models\errata;
-use App\Models\MarketComplaint;
-use App\Models\FieldVisit;
-
 
 class DashboardController extends Controller
 {
@@ -48,9 +47,7 @@ class DashboardController extends Controller
     //             $datas->actionItem = ActionItem::where('cc_id',$datas->id)->get();
     //             $datas->extension = Extension::where('cc_id',$datas->id)->get();
 
-
     //         }
-
 
     //         return view('frontend.rcms.dashboard',compact('data'));
     //     }
@@ -87,22 +84,22 @@ class DashboardController extends Controller
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
 
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->cc_id ? $data->cc_id : "-",
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "due_date" => $data->due_date,
-                "type" => "Change-Control",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "division_id" => $data->division_id,
-                "short_description" => $data->short_description ? $data->short_description : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_through,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->cc_id ? $data->cc_id : '-',
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'due_date' => $data->due_date,
+                'type' => 'Change-Control',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'division_id' => $data->division_id,
+                'short_description' => $data->short_description ? $data->short_description : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_through,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
 
@@ -110,263 +107,263 @@ class DashboardController extends Controller
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
 
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->cc_id ? $data->cc_id : "-",
-                "record" => $data->record,
-                "type" => "Action-Item",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "division_id" => $data->division_id,
-                "short_description" => $data->short_description ? $data->short_description : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_through,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->cc_id ? $data->cc_id : '-',
+                'record' => $data->record,
+                'type' => 'Action-Item',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'division_id' => $data->division_id,
+                'short_description' => $data->short_description ? $data->short_description : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_through,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
         foreach ($datas2 as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
             // dd($data);
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->cc_id ? $data->cc_id : "-",
-                "record" => $data->record_number,
-                "type" => "Extension",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "division_id" => $data->site_location_code,
-                "short_description" => $data->short_description ? $data->short_description : "-",
-                "initiator_id" => $data->initiator,
-                "initiated_through" => $data->initiated_through,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
-                "date_open" => $data->create,
-                "due_date" => $data->due_date,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->cc_id ? $data->cc_id : '-',
+                'record' => $data->record_number,
+                'type' => 'Extension',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'division_id' => $data->site_location_code,
+                'short_description' => $data->short_description ? $data->short_description : '-',
+                'initiator_id' => $data->initiator,
+                'initiated_through' => $data->initiated_through,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
+                'date_open' => $data->create,
+                'due_date' => $data->due_date,
+                'date_close' => $data->updated_at,
             ]);
         }
         foreach ($datas3 as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
 
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "type" => "Effectiveness-Check",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "division_id" => $data->division_id,
-                "short_description" => $data->short_description ? $data->short_description : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_through,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'type' => 'Effectiveness-Check',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'division_id' => $data->division_id,
+                'short_description' => $data->short_description ? $data->short_description : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_through,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
         foreach ($datas4 as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
 
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "type" => "Internal-Audit",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "division_id" => $data->division_id,
-                "short_description" => $data->short_description ? $data->short_description : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_through,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'type' => 'Internal-Audit',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'division_id' => $data->division_id,
+                'short_description' => $data->short_description ? $data->short_description : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_through,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
         foreach ($datas5 as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
-            $revised_date = Extension::where('parent_id', $data->id)->where('parent_type', "Capa")->value('revised_date');
+            $revised_date = Extension::where('parent_id', $data->id)->where('parent_type', 'Capa')->value('revised_date');
 
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "type" => "Capa",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "division_id" => $data->division_id,
-                "short_description" => $data->short_description ? $data->short_description : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_through,
-                "intiation_date" => $revised_date ? $revised_date : $data->intiation_date,
-                "stage" => $data->status,
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'type' => 'Capa',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'division_id' => $data->division_id,
+                'short_description' => $data->short_description ? $data->short_description : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_through,
+                'intiation_date' => $revised_date ? $revised_date : $data->intiation_date,
+                'stage' => $data->status,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
         foreach ($datas6 as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
 
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "type" => "Risk-Assesment",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "division_id" => $data->division_id,
-                "short_description" => $data->short_description ? $data->short_description : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_through,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'type' => 'Risk-Assesment',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'division_id' => $data->division_id,
+                'short_description' => $data->short_description ? $data->short_description : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_through,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
         foreach ($datas7 as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
 
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "type" => "Management-Review",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "division_id" => $data->division_id,
-                "short_description" => $data->short_description ? $data->short_description : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_through,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'type' => 'Management-Review',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'division_id' => $data->division_id,
+                'short_description' => $data->short_description ? $data->short_description : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_through,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
         foreach ($datas8 as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "type" => "Lab-Incident",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "division_id" => $data->division_id,
-                "short_description" => $data->short_desc ? $data->short_desc : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_through,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'type' => 'Lab-Incident',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'division_id' => $data->division_id,
+                'short_description' => $data->short_desc ? $data->short_desc : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_through,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
         foreach ($datas9 as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
 
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "type" => "External-Audit",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "division_id" => $data->division_id,
-                "short_description" => $data->short_description ? $data->short_description : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_through,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'type' => 'External-Audit',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'division_id' => $data->division_id,
+                'short_description' => $data->short_description ? $data->short_description : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_through,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
         foreach ($datas10 as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
 
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "type" => "Audit-Program",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "division_id" => $data->division_id,
-                "short_description" => $data->short_description ? $data->short_description : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_through,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'type' => 'Audit-Program',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'division_id' => $data->division_id,
+                'short_description' => $data->short_description ? $data->short_description : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_through,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
         foreach ($datas11 as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
 
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "division_id" => $data->division_id,
-                "type" => "Root-Cause-Analysis",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "short_description" => $data->short_description ? $data->short_description : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_through,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'division_id' => $data->division_id,
+                'type' => 'Root-Cause-Analysis',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'short_description' => $data->short_description ? $data->short_description : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_through,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
         foreach ($datas12 as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
 
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "division_id" => $data->division_id,
-                "type" => "Observation",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "short_description" => $data->short_description ? $data->short_description : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_through,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'division_id' => $data->division_id,
+                'type' => 'Observation',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'short_description' => $data->short_description ? $data->short_description : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_through,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
         // datas13
         foreach ($datas13 as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "division_id" => $data->division_id,
-                "type" => "OOS Chemical",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "short_description" => $data->description_gi ? $data->description_gi : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_through_gi,
-                "intiation_date" => $data->intiation_date,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'division_id' => $data->division_id,
+                'type' => 'OOS Chemical',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'short_description' => $data->description_gi ? $data->description_gi : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_through_gi,
+                'intiation_date' => $data->intiation_date,
                 // "status" => $data->status,
-                "stage" => $data->status,
+                'stage' => $data->status,
 
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
 
@@ -374,65 +371,64 @@ class DashboardController extends Controller
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
 
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "division_id" => $data->division_id,
-                "type" => "Deviation",
-                "parent_id" => $data->parent_id,
-                "parent" => $data->parent_record? $data->parent_record : "-",
-                "parent_type" => $data->parent_type,
-                "short_description" => $data->short_description ? $data->short_description : "-",
-                "initiator_id" => $data->initiator_id,
-                "due_date" => $data->due_date,
-                "stage" => $data->status,
-                "initiated_through" => $data->initiated_through,
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'division_id' => $data->division_id,
+                'type' => 'Deviation',
+                'parent_id' => $data->parent_id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'parent_type' => $data->parent_type,
+                'short_description' => $data->short_description ? $data->short_description : '-',
+                'initiator_id' => $data->initiator_id,
+                'due_date' => $data->due_date,
+                'stage' => $data->status,
+                'initiated_through' => $data->initiated_through,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
         foreach ($ooc as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
 
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "type" => "OOC",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "division_id" => $data->division_id,
-                "short_description" => $data->description_ooc ? $data->description_ooc : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_through_gi,
-                "intiation_date" => $data->intiation_date,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'type' => 'OOC',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'division_id' => $data->division_id,
+                'short_description' => $data->description_ooc ? $data->description_ooc : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_through_gi,
+                'intiation_date' => $data->intiation_date,
                 // "status" => $data->status,
-                "stage" => $data->status,
+                'stage' => $data->status,
 
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
-
 
         foreach ($deviation as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
 
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "division_id" => $data->division_id,
-                "type" => "Deviation",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "short_description" => $data->description_gi ? $data->description_gi : "-",
-                "initiator_id" => $data->initiator_id,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
-                "initiated_through" => $data->initiated_through,
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'division_id' => $data->division_id,
+                'type' => 'Deviation',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'short_description' => $data->description_gi ? $data->description_gi : '-',
+                'initiator_id' => $data->initiator_id,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
+                'initiated_through' => $data->initiated_through,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
 
@@ -440,41 +436,41 @@ class DashboardController extends Controller
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
 
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "division_id" => $data->division_id,
-                "type" => "Market Complaint",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "short_description" => $data->description_gi ? $data->description_gi : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_through_gi,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
-                "initiated_through" => $data->initiated_through,
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'division_id' => $data->division_id,
+                'type' => 'Market Complaint',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'short_description' => $data->description_gi ? $data->description_gi : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_through_gi,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
+                'initiated_through' => $data->initiated_through,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
         foreach ($ooc as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
 
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "type" => "OOC",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "division_id" => $data->division_id,
-                "short_description" => $data->description_ooc ? $data->description_ooc : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_through,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'type' => 'OOC',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'division_id' => $data->division_id,
+                'short_description' => $data->description_ooc ? $data->description_ooc : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_through,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
 
@@ -483,87 +479,87 @@ class DashboardController extends Controller
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
 
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->cc_id ? $data->cc_id : "-",
-                "record" => $data->record,
-                "type" => "Failure Investigation",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "division_id" => $data->division_id,
-                "short_description" => $data->short_description ? $data->short_description : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_through,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->cc_id ? $data->cc_id : '-',
+                'record' => $data->record,
+                'type' => 'Failure Investigation',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'division_id' => $data->division_id,
+                'short_description' => $data->short_description ? $data->short_description : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_through,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
 
         foreach ($datas15 as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record_number,
-                "division_id" => $data->division_id,
-                "type" => "OOT",
-                "parent_id" => $data->parent_id,
-                "parent" => $data->parent_record? $data->parent_record : "-",
-                "parent_type" => $data->parent_type,
-                "short_description" => $data->short_description ? $data->short_description : "-",
-                "initiator_id" => $data->initiator_id,
-                "due_date" => $data->due_date,
-                "stage" => $data->status,
-                "date_open" => $data->create,
-                "initiated_through" => $data->initiated_through? $data->initiated_through : "-",
-                "date_close" => $data->updated_at,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record_number,
+                'division_id' => $data->division_id,
+                'type' => 'OOT',
+                'parent_id' => $data->parent_id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'parent_type' => $data->parent_type,
+                'short_description' => $data->short_description ? $data->short_description : '-',
+                'initiator_id' => $data->initiator_id,
+                'due_date' => $data->due_date,
+                'stage' => $data->status,
+                'date_open' => $data->create,
+                'initiated_through' => $data->initiated_through ? $data->initiated_through : '-',
+                'date_close' => $data->updated_at,
             ]);
         }
         foreach ($datas16 as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record_number,
-                "division_id" => $data->division_id,
-                "type" => "errata",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "short_description" => $data->short_description ? $data->short_description : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_by,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record_number,
+                'division_id' => $data->division_id,
+                'type' => 'errata',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'short_description' => $data->short_description ? $data->short_description : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_by,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
 
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
 
         foreach ($datas17 as $data) {
             $data->create = Carbon::parse($data->created_at)->format('d-M-Y h:i A');
             array_push($table, [
-                "id" => $data->id,
-                "parent" => $data->parent_record ? $data->parent_record : "-",
-                "record" => $data->record,
-                "division_id" => $data->division_code,
-                "type" => "Field Visit Survey",
-                "parent_id" => $data->parent_id,
-                "parent_type" => $data->parent_type,
-                "short_description" => $data->short_description ? $data->short_description : "-",
-                "initiator_id" => $data->initiator_id,
-                "initiated_through" => $data->initiated_by,
-                "intiation_date" => $data->intiation_date,
-                "stage" => $data->status,
+                'id' => $data->id,
+                'parent' => $data->parent_record ? $data->parent_record : '-',
+                'record' => $data->record,
+                'division_id' => $data->division_code,
+                'type' => 'Field Visit Survey',
+                'parent_id' => $data->parent_id,
+                'parent_type' => $data->parent_type,
+                'short_description' => $data->short_description ? $data->short_description : '-',
+                'initiator_id' => $data->initiator_id,
+                'initiated_through' => $data->initiated_by,
+                'intiation_date' => $data->intiation_date,
+                'stage' => $data->status,
 
-                "date_open" => $data->create,
-                "date_close" => $data->updated_at,
+                'date_open' => $data->create,
+                'date_close' => $data->updated_at,
             ]);
         }
 
         // dd($data);
-        $table  = collect($table)->sortBy('record')->reverse()->toArray();
+        $table = collect($table)->sortBy('record')->reverse()->toArray();
         // return $table;
         // $paginatedData = json_encode($table);
 
@@ -582,31 +578,31 @@ class DashboardController extends Controller
             $datas2 = Extension::where('cc_id', $id)->orderByDesc('id')->get();
             foreach ($datas1 as $data) {
                 array_push($table, [
-                    "id" => $data->id,
-                    "parent" => $data->cc_id ? $data->cc_id : "-",
-                    "record" => $data->record,
-                    "type" => "Action-Item",
-                    "short_description" => $data->short_description ? $data->short_description : "-",
-                    "initiator_id" => $data->initiator_id,
-                    "intiation_date" => $data->intiation_date,
-                    "stage" => $data->status,
-                    "date_open" => $data->created_at,
-                    "date_close" => $data->updated_at,
+                    'id' => $data->id,
+                    'parent' => $data->cc_id ? $data->cc_id : '-',
+                    'record' => $data->record,
+                    'type' => 'Action-Item',
+                    'short_description' => $data->short_description ? $data->short_description : '-',
+                    'initiator_id' => $data->initiator_id,
+                    'intiation_date' => $data->intiation_date,
+                    'stage' => $data->status,
+                    'date_open' => $data->created_at,
+                    'date_close' => $data->updated_at,
                 ]);
             }
 
             foreach ($datas2 as $data) {
                 array_push($table, [
-                    "id" => $data->id,
-                    "parent" => $data->cc_id ? $data->cc_id : "-",
-                    "record" => $data->record,
-                    "type" => "Extension",
-                    "short_description" => $data->short_description ? $data->short_description : "-",
-                    "initiator_id" => $data->initiator_id,
-                    "intiation_date" => $data->intiation_date,
-                    "stage" => $data->status,
-                    "date_open" => $data->created_at,
-                    "date_close" => $data->updated_at,
+                    'id' => $data->id,
+                    'parent' => $data->cc_id ? $data->cc_id : '-',
+                    'record' => $data->record,
+                    'type' => 'Extension',
+                    'short_description' => $data->short_description ? $data->short_description : '-',
+                    'initiator_id' => $data->initiator_id,
+                    'intiation_date' => $data->intiation_date,
+                    'stage' => $data->status,
+                    'date_open' => $data->created_at,
+                    'date_close' => $data->updated_at,
                 ]);
             }
         } else {
@@ -617,46 +613,46 @@ class DashboardController extends Controller
                 $datas2 = Extension::where('cc_id', $ab->cc_id)->orderByDesc('id')->get();
                 foreach ($data as $datas) {
                     array_push($table, [
-                        "id" => $data->id,
-                        "parent" => $data->cc_id ? $data->cc_id : "-",
-                        "record" => $data->record,
-                        "type" => "Change-Control",
-                        "short_description" => $data->short_description ? $data->short_description : "-",
-                        "initiator_id" => $data->initiator_id,
-                        "intiation_date" => $data->intiation_date,
-                        "stage" => $data->status,
-                        "date_open" => $data->created_at,
-                        "date_close" => $data->updated_at,
+                        'id' => $data->id,
+                        'parent' => $data->cc_id ? $data->cc_id : '-',
+                        'record' => $data->record,
+                        'type' => 'Change-Control',
+                        'short_description' => $data->short_description ? $data->short_description : '-',
+                        'initiator_id' => $data->initiator_id,
+                        'intiation_date' => $data->intiation_date,
+                        'stage' => $data->status,
+                        'date_open' => $data->created_at,
+                        'date_close' => $data->updated_at,
                     ]);
                 }
 
                 foreach ($datas1 as $data) {
                     array_push($table, [
-                        "id" => $data->id,
-                        "parent" => $data->cc_id ? $data->cc_id : "-",
-                        "record" => $data->record,
-                        "type" => "Action-Item",
-                        "short_description" => $data->short_description ? $data->short_description : "-",
-                        "initiator_id" => $data->initiator_id,
-                        "intiation_date" => $data->intiation_date,
-                        "stage" => $data->status,
-                        "date_open" => $data->created_at,
-                        "date_close" => $data->updated_at,
+                        'id' => $data->id,
+                        'parent' => $data->cc_id ? $data->cc_id : '-',
+                        'record' => $data->record,
+                        'type' => 'Action-Item',
+                        'short_description' => $data->short_description ? $data->short_description : '-',
+                        'initiator_id' => $data->initiator_id,
+                        'intiation_date' => $data->intiation_date,
+                        'stage' => $data->status,
+                        'date_open' => $data->created_at,
+                        'date_close' => $data->updated_at,
                     ]);
                 }
 
                 foreach ($datas2 as $data) {
                     array_push($table, [
-                        "id" => $data->id,
-                        "parent" => $data->cc_id ? $data->cc_id : "-",
-                        "record" => $data->record,
-                        "type" => "Extension",
-                        "short_description" => $data->short_description ? $data->short_description : "-",
-                        "initiator_id" => $data->initiator_id,
-                        "intiation_date" => $data->intiation_date,
-                        "stage" => $data->status,
-                        "date_open" => $data->created_at,
-                        "date_close" => $data->updated_at,
+                        'id' => $data->id,
+                        'parent' => $data->cc_id ? $data->cc_id : '-',
+                        'record' => $data->record,
+                        'type' => 'Extension',
+                        'short_description' => $data->short_description ? $data->short_description : '-',
+                        'initiator_id' => $data->initiator_id,
+                        'intiation_date' => $data->intiation_date,
+                        'stage' => $data->status,
+                        'date_open' => $data->created_at,
+                        'date_close' => $data->updated_at,
                     ]);
                 }
             } elseif ($process == 3) {
@@ -666,237 +662,239 @@ class DashboardController extends Controller
                 $datas2 = Extension::where('cc_id', $ab->cc_id)->orderByDesc('id')->get();
                 foreach ($data as $datas) {
                     array_push($table, [
-                        "id" => $data->id,
-                        "parent"            => $data->cc_id ? $data->cc_id : "-",
-                        "record"            => $data->record,
-                        "type"              => "Change-Control",
-                        "short_description" => $data->short_description ? $data->short_description : "-",
-                        "initiator_id"      => $data->initiator_id,
-                        "intiation_date"    => $data->intiation_date,
-                        "stage"             => $data->status,
-                        "date_open"         => $data->created_at,
-                        "date_close"        => $data->updated_at,
+                        'id' => $data->id,
+                        'parent' => $data->cc_id ? $data->cc_id : '-',
+                        'record' => $data->record,
+                        'type' => 'Change-Control',
+                        'short_description' => $data->short_description ? $data->short_description : '-',
+                        'initiator_id' => $data->initiator_id,
+                        'intiation_date' => $data->intiation_date,
+                        'stage' => $data->status,
+                        'date_open' => $data->created_at,
+                        'date_close' => $data->updated_at,
                     ]);
                 }
 
                 foreach ($datas1 as $data) {
                     array_push($table, [
-                        "id" => $data->id,
-                        "parent"            => $data->cc_id ? $data->cc_id : "-",
-                        "record"            => $data->record,
-                        "type"              => "Action-Item",
-                        "short_description" => $data->short_description ? $data->short_description : "-",
-                        "initiator_id"      => $data->initiator_id,
-                        "intiation_date"    => $data->intiation_date,
-                        "stage"             => $data->status,
-                        "date_open"         => $data->created_at,
-                        "date_close"        => $data->updated_at,
+                        'id' => $data->id,
+                        'parent' => $data->cc_id ? $data->cc_id : '-',
+                        'record' => $data->record,
+                        'type' => 'Action-Item',
+                        'short_description' => $data->short_description ? $data->short_description : '-',
+                        'initiator_id' => $data->initiator_id,
+                        'intiation_date' => $data->intiation_date,
+                        'stage' => $data->status,
+                        'date_open' => $data->created_at,
+                        'date_close' => $data->updated_at,
                     ]);
                 }
 
                 foreach ($datas2 as $data) {
                     array_push($table, [
-                        "id" => $data->id,
-                        "parent"            => $data->cc_id ? $data->cc_id : "-",
-                        "record"            => $data->record,
-                        "type"              => "Extension",
-                        "short_description" => $data->short_description ? $data->short_description : "-",
-                        "initiator_id"      => $data->initiator_id,
-                        "intiation_date"    => $data->intiation_date,
-                        "stage"             => $data->status,
-                        "date_open"         => $data->created_at,
-                        "date_close"        => $data->updated_at,
+                        'id' => $data->id,
+                        'parent' => $data->cc_id ? $data->cc_id : '-',
+                        'record' => $data->record,
+                        'type' => 'Extension',
+                        'short_description' => $data->short_description ? $data->short_description : '-',
+                        'initiator_id' => $data->initiator_id,
+                        'intiation_date' => $data->intiation_date,
+                        'stage' => $data->status,
+                        'date_open' => $data->created_at,
+                        'date_close' => $data->updated_at,
                     ]);
                 }
             }
         }
         $table = collect($table)->sortBy('date_open')->reverse()->toArray();
         $datag = json_encode($table);
+
         return view('frontend.rcms.dashboard', compact('datag'));
     }
+
     public function dashboard_child_new($id, $process)
     {
         $table = [];
 
-        if ($process == "extension") {
+        if ($process == 'extension') {
 
             $data = Extension::where('id', $id)->orderByDesc('id')->first();
 
-            if ($data->parent_type == "Capa") {
+            if ($data->parent_type == 'Capa') {
                 $data2 = Capa::where('id', $data->parent_id)->first();
                 $data2->create = Carbon::parse($data2->created_at)->format('d-M-Y h:i A');
                 array_push(
                     $table,
                     [
-                        "id" => $data2->id,
-                        "parent" => $data2->parent_record ? $data2->parent_record : "-",
-                        "record" => $data2->record,
-                        "type" => "Capa",
-                        "parent_id" => $data2->parent_id,
-                        "parent_type" => $data2->parent_type,
-                        "division_id" => $data2->division_id,
-                        "short_description" => $data2->short_description ? $data2->short_description : "-",
-                        "initiator_id" => $data->initiator_id,
-                        "intiation_date" => $data2->intiation_date,
-                        "stage" => $data2->status,
-                        "date_open" => $data2->create,
-                        "date_close" => $data2->updated_at,
+                        'id' => $data2->id,
+                        'parent' => $data2->parent_record ? $data2->parent_record : '-',
+                        'record' => $data2->record,
+                        'type' => 'Capa',
+                        'parent_id' => $data2->parent_id,
+                        'parent_type' => $data2->parent_type,
+                        'division_id' => $data2->division_id,
+                        'short_description' => $data2->short_description ? $data2->short_description : '-',
+                        'initiator_id' => $data->initiator_id,
+                        'intiation_date' => $data2->intiation_date,
+                        'stage' => $data2->status,
+                        'date_open' => $data2->create,
+                        'date_close' => $data2->updated_at,
                     ]
                 );
             }
-            if ($data->parent_type == "Internal_audit") {
+            if ($data->parent_type == 'Internal_audit') {
                 $data2 = InternalAudit::where('id', $data->parent_id)->first();
                 $data2->create = Carbon::parse($data2->created_at)->format('d-M-Y h:i A');
                 array_push(
                     $table,
                     [
-                        "id" => $data2->id,
-                        "parent" => $data2->parent_record ? $data2->parent_record : "-",
-                        "record" => $data2->record,
-                        "type" => "Internal-Audit",
-                        "parent_id" => $data2->parent_id,
-                        "parent_type" => $data2->parent_type,
-                        "division_id" => $data2->division_id,
-                        "short_description" => $data2->short_description ? $data2->short_description : "-",
-                        "initiator_id" => $data->initiator_id,
-                        "intiation_date" => $data2->intiation_date,
-                        "stage" => $data2->status,
-                        "date_open" => $data2->create,
-                        "date_close" => $data2->updated_at,
+                        'id' => $data2->id,
+                        'parent' => $data2->parent_record ? $data2->parent_record : '-',
+                        'record' => $data2->record,
+                        'type' => 'Internal-Audit',
+                        'parent_id' => $data2->parent_id,
+                        'parent_type' => $data2->parent_type,
+                        'division_id' => $data2->division_id,
+                        'short_description' => $data2->short_description ? $data2->short_description : '-',
+                        'initiator_id' => $data->initiator_id,
+                        'intiation_date' => $data2->intiation_date,
+                        'stage' => $data2->status,
+                        'date_open' => $data2->create,
+                        'date_close' => $data2->updated_at,
                     ]
                 );
             }
-            if ($data->parent_type == "External_audit") {
+            if ($data->parent_type == 'External_audit') {
                 $data2 = Auditee::where('id', $data->parent_id)->first();
                 $data2->create = Carbon::parse($data2->created_at)->format('d-M-Y h:i A');
                 array_push(
                     $table,
                     [
-                        "id" => $data2->id,
-                        "parent" => $data2->parent_record ? $data2->parent_record : "-",
-                        "record" => $data2->record,
-                        "type" => "External-Audit",
-                        "parent_id" => $data2->parent_id,
-                        "parent_type" => $data2->parent_type,
-                        "division_id" => $data2->division_id,
-                        "short_description" => $data2->short_description ? $data2->short_description : "-",
-                        "initiator_id" => $data->initiator_id,
-                        "intiation_date" => $data2->intiation_date,
-                        "stage" => $data2->status,
-                        "date_open" => $data2->create,
-                        "date_close" => $data2->updated_at,
+                        'id' => $data2->id,
+                        'parent' => $data2->parent_record ? $data2->parent_record : '-',
+                        'record' => $data2->record,
+                        'type' => 'External-Audit',
+                        'parent_id' => $data2->parent_id,
+                        'parent_type' => $data2->parent_type,
+                        'division_id' => $data2->division_id,
+                        'short_description' => $data2->short_description ? $data2->short_description : '-',
+                        'initiator_id' => $data->initiator_id,
+                        'intiation_date' => $data2->intiation_date,
+                        'stage' => $data2->status,
+                        'date_open' => $data2->create,
+                        'date_close' => $data2->updated_at,
                     ]
                 );
             }
 
-            if ($data->parent_type == "Field Visit Survey") {
+            if ($data->parent_type == 'Field Visit Survey') {
                 $data2 = FieldVisit::where('id', $data->parent_id)->first();
                 $data2->create = Carbon::parse($data2->created_at)->format('d-M-Y h:i A');
                 array_push(
                     $table,
                     [
-                        "id" => $data2->id,
-                        "parent" => $data2->parent_record ? $data2->parent_record : "-",
-                        "record" => $data2->record,
-                        "type" => "Field Visit Survey",
-                        "parent_id" => $data2->parent_id,
-                        "parent_type" => $data2->parent_type,
-                        "division_id" => $data2->division_id,
-                        "short_description" => $data2->short_description ? $data2->short_description : "-",
-                        "initiator_id" => $data->initiator_id,
-                        "intiation_date" => $data2->intiation_date,
-                        "stage" => $data2->status,
-                        "date_open" => $data2->create,
-                        "date_close" => $data2->updated_at,
+                        'id' => $data2->id,
+                        'parent' => $data2->parent_record ? $data2->parent_record : '-',
+                        'record' => $data2->record,
+                        'type' => 'Field Visit Survey',
+                        'parent_id' => $data2->parent_id,
+                        'parent_type' => $data2->parent_type,
+                        'division_id' => $data2->division_id,
+                        'short_description' => $data2->short_description ? $data2->short_description : '-',
+                        'initiator_id' => $data->initiator_id,
+                        'intiation_date' => $data2->intiation_date,
+                        'stage' => $data2->status,
+                        'date_open' => $data2->create,
+                        'date_close' => $data2->updated_at,
                     ]
                 );
             }
 
-            if ($data->parent_type == "Action_item") {
+            if ($data->parent_type == 'Action_item') {
                 $data2 = ActionItem::where('id', $data->parent_id)->first();
                 $data2->create = Carbon::parse($data2->created_at)->format('d-M-Y h:i A');
                 array_push(
                     $table,
                     [
-                        "id" => $data2->id,
-                        "parent" => $data2->parent_record ? $data2->parent_record : "-",
-                        "record" => $data2->record,
-                        "type" => "Action-Item",
-                        "parent_id" => $data2->parent_id,
-                        "parent_type" => $data2->parent_type,
-                        "division_id" => $data2->division_id,
-                        "short_description" => $data2->short_description ? $data2->short_description : "-",
-                        "initiator_id" => $data->initiator_id,
-                        "intiation_date" => $data2->intiation_date,
-                        "stage" => $data2->status,
-                        "date_open" => $data2->create,
-                        "date_close" => $data2->updated_at,
+                        'id' => $data2->id,
+                        'parent' => $data2->parent_record ? $data2->parent_record : '-',
+                        'record' => $data2->record,
+                        'type' => 'Action-Item',
+                        'parent_id' => $data2->parent_id,
+                        'parent_type' => $data2->parent_type,
+                        'division_id' => $data2->division_id,
+                        'short_description' => $data2->short_description ? $data2->short_description : '-',
+                        'initiator_id' => $data->initiator_id,
+                        'intiation_date' => $data2->intiation_date,
+                        'stage' => $data2->status,
+                        'date_open' => $data2->create,
+                        'date_close' => $data2->updated_at,
                     ]
                 );
             }
-            if ($data->parent_type == "Audit_program") {
+            if ($data->parent_type == 'Audit_program') {
                 $data2 = AuditProgram::where('id', $data->parent_id)->first();
                 $data2->create = Carbon::parse($data2->created_at)->format('d-M-Y h:i A');
                 array_push(
                     $table,
                     [
-                        "id" => $data2->id,
-                        "parent" => $data2->parent_record ? $data2->parent_record : "-",
-                        "record" => $data2->record,
-                        "type" => "Audit-Program",
-                        "parent_id" => $data2->parent_id,
-                        "parent_type" => $data2->parent_type,
-                        "division_id" => $data2->division_id,
-                        "short_description" => $data2->short_description ? $data2->short_description : "-",
-                        "initiator_id" => $data->initiator_id,
-                        "intiation_date" => $data2->intiation_date,
-                        "stage" => $data2->status,
-                        "date_open" => $data2->create,
-                        "date_close" => $data2->updated_at,
+                        'id' => $data2->id,
+                        'parent' => $data2->parent_record ? $data2->parent_record : '-',
+                        'record' => $data2->record,
+                        'type' => 'Audit-Program',
+                        'parent_id' => $data2->parent_id,
+                        'parent_type' => $data2->parent_type,
+                        'division_id' => $data2->division_id,
+                        'short_description' => $data2->short_description ? $data2->short_description : '-',
+                        'initiator_id' => $data->initiator_id,
+                        'intiation_date' => $data2->intiation_date,
+                        'stage' => $data2->status,
+                        'date_open' => $data2->create,
+                        'date_close' => $data2->updated_at,
                     ]
                 );
             }
-            if ($data->parent_type == "Observation") {
+            if ($data->parent_type == 'Observation') {
                 $data2 = Observation::where('id', $data->parent_id)->first();
                 $data2->create = Carbon::parse($data2->created_at)->format('d-M-Y h:i A');
                 array_push(
                     $table,
                     [
-                        "id" => $data2->id,
-                        "parent" => $data2->parent_record ? $data2->parent_record : "-",
-                        "record" => $data2->record,
-                        "type" => "Observation",
-                        "parent_id" => $data2->parent_id,
-                        "parent_type" => $data2->parent_type,
-                        "division_id" => $data2->division_id,
-                        "short_description" => $data2->short_description ? $data2->short_description : "-",
-                        "initiator_id" => $data->initiator_id,
-                        "intiation_date" => $data2->intiation_date,
-                        "stage" => $data2->status,
-                        "date_open" => $data2->create,
-                        "date_close" => $data2->updated_at,
+                        'id' => $data2->id,
+                        'parent' => $data2->parent_record ? $data2->parent_record : '-',
+                        'record' => $data2->record,
+                        'type' => 'Observation',
+                        'parent_id' => $data2->parent_id,
+                        'parent_type' => $data2->parent_type,
+                        'division_id' => $data2->division_id,
+                        'short_description' => $data2->short_description ? $data2->short_description : '-',
+                        'initiator_id' => $data->initiator_id,
+                        'intiation_date' => $data2->intiation_date,
+                        'stage' => $data2->status,
+                        'date_open' => $data2->create,
+                        'date_close' => $data2->updated_at,
                     ]
                 );
             }
-            if ($data->parent_type == "Change_control") {
+            if ($data->parent_type == 'Change_control') {
                 $data2 = CC::where('id', $data->parent_id)->first();
                 $data2->create = Carbon::parse($data2->created_at)->format('d-M-Y h:i A');
                 array_push(
                     $table,
                     [
-                        "id" => $data2->id,
-                        "parent" => $data2->parent_record ? $data2->parent_record : "-",
-                        "record" => $data2->record,
-                        "type" => "Change-Control",
-                        "parent_id" => $data2->parent_id,
-                        "parent_type" => $data2->parent_type,
-                        "division_id" => $data2->division_id,
-                        "short_description" => $data2->short_description ? $data2->short_description : "-",
-                        "initiator_id" => $data->initiator_id,
-                        "intiation_date" => $data2->intiation_date,
-                        "stage" => $data2->status,
-                        "date_open" => $data2->create,
-                        "date_close" => $data2->updated_at,
+                        'id' => $data2->id,
+                        'parent' => $data2->parent_record ? $data2->parent_record : '-',
+                        'record' => $data2->record,
+                        'type' => 'Change-Control',
+                        'parent_id' => $data2->parent_id,
+                        'parent_type' => $data2->parent_type,
+                        'division_id' => $data2->division_id,
+                        'short_description' => $data2->short_description ? $data2->short_description : '-',
+                        'initiator_id' => $data->initiator_id,
+                        'intiation_date' => $data2->intiation_date,
+                        'stage' => $data2->status,
+                        'date_open' => $data2->create,
+                        'date_close' => $data2->updated_at,
                     ]
                 );
             }
@@ -904,10 +902,8 @@ class DashboardController extends Controller
             return redirect(url('rcms/qms-dashboard'));
         }
 
-        $table  = collect($table)->sortBy('record')->reverse()->toArray();
+        $table = collect($table)->sortBy('record')->reverse()->toArray();
         $datag = $this->paginate($table);
-
-
 
         // return redirect(url('rcms/qms-dashboard'));
         return view('frontend.rcms.dashboard', compact('datag'));
@@ -916,156 +912,150 @@ class DashboardController extends Controller
     public function ccView($id, $type)
     {
 
-        $division_name = "NA";
+        $division_name = 'NA';
 
-        if ($type == "Change-Control") {
+        if ($type == 'Change-Control') {
             $data = CC::find($id);
-            $single = "change_control_single_pdf/" . $data->id;
-            $audit = "audit/" . $data->id;
+            $single = 'change_control_single_pdf/'.$data->id;
+            $audit = 'audit/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        } elseif ($type == "OOT") {
+        } elseif ($type == 'OOT') {
             $data = Ootc::find($id);
-            $single = "ootcSingleReport/" . $data->id;
-            $audit = "audit_pdf/".$data->id;
+            $single = 'ootcSingleReport/'.$data->id;
+            $audit = 'audit_pdf/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        } elseif ($type == "errata") {
+        } elseif ($type == 'errata') {
             $data = errata::find($id);
-            $single = "errata_single_pdf/" . $data->id;
-            $audit = "errata_audit/" . $data->id;
+            $single = 'errata_single_pdf/'.$data->id;
+            $audit = 'errata_audit/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        } elseif ($type == "Capa") {
+        } elseif ($type == 'Capa') {
             $data = Capa::find($id);
-            $single = "capaSingleReport/" . $data->id;
-            $audit = "capaAuditReport/" . $data->id;
+            $single = 'capaSingleReport/'.$data->id;
+            $audit = 'capaAuditReport/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        } elseif ($type == "Lab-Incident") {
+        } elseif ($type == 'Lab-Incident') {
             $data = LabIncident::find($id);
-            $single = "LabIncidentSingleReport/" . $data->id;
-            $audit = "LabIncidentAuditReport/" . $data->id;
+            $single = 'LabIncidentSingleReport/'.$data->id;
+            $audit = 'LabIncidentAuditReport/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        } elseif ($type == "Deviation") {
+        } elseif ($type == 'Deviation') {
             $data = Deviation::find($id);
-            $single = "deviationSingleReport/" . $data->id;
-            $audit = "DeviationAuditTrialPdf/" . $data->id;
+            $single = 'deviationSingleReport/'.$data->id;
+            $audit = 'DeviationAuditTrialPdf/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        } elseif ($type == "Internal-Audit") {
+        } elseif ($type == 'Internal-Audit') {
             $data = InternalAudit::find($id);
-            $single = "internalSingleReport/" . $data->id;
-            $audit = "internalauditReport/" . $data->id;
+            $single = 'internalSingleReport/'.$data->id;
+            $audit = 'internalauditReport/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        } elseif ($type == "Risk-Assesment") {
+        } elseif ($type == 'Risk-Assesment') {
             $data = RiskManagement::find($id);
-            $single = "riskSingleReport/" . $data->id;
-            $audit = "riskAuditReport/" . $data->id;
+            $single = 'riskSingleReport/'.$data->id;
+            $audit = 'riskAuditReport/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        } elseif ($type == "Lab-Incident") {
+        } elseif ($type == 'Lab-Incident') {
             $data = LabIncident::find($id);
-            $single = "LabIncidentSingleReport/" . $data->id;
-            $audit = "LabIncidentAuditReport/" . $data->id;
+            $single = 'LabIncidentSingleReport/'.$data->id;
+            $audit = 'LabIncidentAuditReport/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        } elseif ($type == "External-Audit") {
+        } elseif ($type == 'External-Audit') {
             $data = Auditee::find($id);
-            $single = "ExternalAuditSingleReport/" . $data->id;
-            $audit = "ExternalAuditTrialReport/" . $data->id;
+            $single = 'ExternalAuditSingleReport/'.$data->id;
+            $audit = 'ExternalAuditTrialReport/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        } elseif ($type == "Audit-Program") {
+        } elseif ($type == 'Audit-Program') {
             $data = AuditProgram::find($id);
-            $single = "auditProgramSingleReport/" . $data->id;
-            $audit = "auditProgramAuditReport/" . $data->id;
+            $single = 'auditProgramSingleReport/'.$data->id;
+            $audit = 'auditProgramAuditReport/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        } elseif ($type == "Action-Item") {
+        } elseif ($type == 'Action-Item') {
             $data = ActionItem::find($id);
-            $single = "actionitemSingleReport/"  . $data->id;
-            $audit = "actionitemAuditReport/" . $data->id;
+            $single = 'actionitemSingleReport/'.$data->id;
+            $audit = 'actionitemAuditReport/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        } elseif ($type == "Extension") {
+        } elseif ($type == 'Extension') {
             $data = Extension::find($id);
-            $single = "extensionSingleReport/" .$data->id;
-            $audit = "extensionAuditReport/" .$data->id;
+            $single = 'extensionSingleReport/'.$data->id;
+            $audit = 'extensionAuditReport/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        } elseif ($type == "Observation") {
+        } elseif ($type == 'Observation') {
             $data = Observation::find($id);
-            $single = "#";
-            $audit = "ObservationAuditTrialShow/" .$data->id;
+            $single = '#';
+            $audit = 'ObservationAuditTrialShow/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        } elseif ($type == "Effectiveness-Check") {
+        } elseif ($type == 'Effectiveness-Check') {
             $data = EffectivenessCheck::find($id);
-            $single = "effectiveSingleReport/" .$data->id;
-            $audit = "effectiveAuditReport/" .$data->id;
+            $single = 'effectiveSingleReport/'.$data->id;
+            $audit = 'effectiveAuditReport/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        } elseif ($type == "Management-Review") {
+        } elseif ($type == 'Management-Review') {
             $data = ManagementReview::find($id);
-            $single = "managementReview/" . $data->id;
-            $audit = "managementReviewReport/" . $data->id;
+            $single = 'managementReview/'.$data->id;
+            $audit = 'managementReviewReport/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        }elseif ($type == "OOS Chemical") {
+        } elseif ($type == 'OOS Chemical') {
             $data = OOS::find($id);
-            $single = "oos/single_report/" . $data->id;
-            $audit = "oos/audit_report/" . $data->id;
+            $single = 'oos/single_report/'.$data->id;
+            $audit = 'oos/audit_report/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        } elseif ($type == "Root-Cause-Analysis") {
+        } elseif ($type == 'Root-Cause-Analysis') {
             $data = RootCauseAnalysis::find($id);
-            $single = "rootSingleReport/" . $data->id;
-            $audit = "rootAuditReport/" . $data->id;
+            $single = 'rootSingleReport/'.$data->id;
+            $audit = 'rootAuditReport/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
-        }
-
-        elseif ($type == "Field Visit Survey") {
+        } elseif ($type == 'Field Visit Survey') {
             $data = FieldVisit::find($id);
             $single = "field_visit_singleReport/" . $data->id;
             $audit = "rootAuditReport/" . $data->id;
             $division = QMSDivision::find($data->division_code);
             $division_name = $division->name;
-        }
-        elseif ($type == "Market demo") {
+        } elseif ($type == 'Market demo') {
             $data = MarketComplaint::find($id);
-            $single = "marketComplaintSingleReport/" . $data->id;
-            $audit = "MarketComplaintAuditReport/" . $data->id;
+            $single = 'marketComplaintSingleReport/'.$data->id;
+            $audit = 'MarketComplaintAuditReport/'.$data->id;
+            $division = QMSDivision::find($data->division_id);
+            $division_name = $division->name;
+
+        } elseif ($type == 'Market Complaint') {
+            $data = MarketComplaint::find($id);
+            $audit = 'marketcomplaint/marketauditTrailPdf/'.$data->id;
+            $single = 'pdf-report/'.$data->id;
             $division = QMSDivision::find($data->division_id);
             $division_name = $division->name;
 
         }
-
-        elseif ($type == "Market Complaint") {
-            $data = MarketComplaint::find($id);
-            $audit = "marketcomplaint/marketauditTrailPdf/" . $data->id;
-            $single = "pdf-report/" . $data->id;
-            $division = QMSDivision::find($data->division_id);
-            $division_name = $division->name;
-
-        }
-
 
         $type = $type == 'Capa' ? 'CAPA' : $type;
 
         $html = '';
         $html = '<div class="block">
         <div class="record_no">
-            Record No. ' . str_pad($data->record, 4, '0', STR_PAD_LEFT) .
+            Record No. '.str_pad($data->record, 4, '0', STR_PAD_LEFT).
             '</div>
         <div class="division">
-        ' . $division_name . '/ ' . $type . '
+        '.$division_name.'/ '.$type.'
         </div>
-        <div class="status">' .
-            $data->status . '
+        <div class="status">'.
+            $data->status.'
         </div>
             </div>
             <div class="block">
@@ -1080,8 +1070,8 @@ class DashboardController extends Controller
                             <div><i class="fa-solid fa-angle-down"></i></div>
                         </div>
                         <div class="drop-list">
-                            <a target="__blank" href="' . $audit . '" class="inner-item">Audit Trail</a>
-                            <a target="__blank" href="' . $single . '" class="inner-item">' . $type . ' Single Report</a>
+                            <a target="__blank" href="'.$audit.'" class="inner-item">Audit Trail</a>
+                            <a target="__blank" href="'.$single.'" class="inner-item">'.$type.' Single Report</a>
                         </div>
                     </div>
                 </div>
@@ -1097,6 +1087,7 @@ class DashboardController extends Controller
     {
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
         $items = $items instanceof Collection ? $items : Collection::make($items);
+
         return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
 }
