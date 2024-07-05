@@ -522,3 +522,4 @@ Route::post('field_visit_cancel/{id}', [FieldVisitController::class, 'closecance
 Route::get('field_visit_singleReport/{id}',[FieldVisitController::class, 'singleReports'])->name('field_visit_singleReport');
 Route::get('/user_count',[FieldVisitController::class, 'userCount'])->name('user_count');
 Route::get('/fetch_data',[FieldVisitController::class, 'fetchData'])->name('fetch.data');
+Route::get('charts/documents-by-pie', [FieldVisitController::class, 'pieData'])->name('api.documents-by-pie');
