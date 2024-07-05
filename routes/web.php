@@ -2,48 +2,46 @@
 
 <?php
 
-use App\Http\Controllers\ActionItemController;
 use App\Http\Controllers\Ajax\AjaxController;
-use App\Http\Controllers\OpenStageController;
-use App\Http\Controllers\rcms\InternalauditController;
-use App\Http\Controllers\rcms\RootCauseController;
-use App\Http\Controllers\TMSController;
-use App\Http\Controllers\RiskManagementController;
-use App\Http\Controllers\ChangeControlController;
-use App\Http\Controllers\DocumentController;
-use App\Http\Controllers\DocumentDetailsController;
-use App\Http\Controllers\rcms\DesktopController;
-use App\Http\Controllers\UserLoginController;
-use App\Http\Controllers\MytaskController;
 use App\Http\Controllers\CabinateController;
-use App\Http\Controllers\rcms\{CCController,DeviationController};
-use App\Http\Controllers\rcms\EffectivenessCheckController;
-use App\Http\Controllers\rcms\ObservationController;
+use App\Http\Controllers\ChangeControlController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DocumentContentController;
+use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\DocumentDetailsController;
 use App\Http\Controllers\ErrataController;
 use App\Http\Controllers\ExtensionNewController;
+use App\Http\Controllers\FieldVisitController;
 use App\Http\Controllers\ImportController;
+use App\Http\Controllers\MytaskController;
 use App\Http\Controllers\OOSMicroController;
+use App\Http\Controllers\OpenStageController;
 use App\Http\Controllers\rcms\AuditeeController;
-use App\Http\Controllers\rcms\CapaController;
-use App\Http\Controllers\rcms\LabIncidentController;
 use App\Http\Controllers\rcms\AuditProgramController;
+use App\Http\Controllers\rcms\CapaController;
+use App\Http\Controllers\rcms\CCController;
+use App\Http\Controllers\rcms\DesktopController;
+use App\Http\Controllers\rcms\DeviationController;
+use App\Http\Controllers\rcms\EffectivenessCheckController;
 use App\Http\Controllers\rcms\ExtensionController;
+use App\Http\Controllers\rcms\InternalauditController;
+use App\Http\Controllers\rcms\LabIncidentController;
 use App\Http\Controllers\rcms\ManagementReviewController;
+use App\Http\Controllers\rcms\ObservationController;
 use App\Http\Controllers\rcms\OOCController;
 use App\Http\Controllers\rcms\OOSController;
 use App\Http\Controllers\rcms\RcmsDashboardController;
+use App\Http\Controllers\rcms\RootCauseController;
+use App\Http\Controllers\RiskManagementController;
 use App\Http\Controllers\tms\EmployeeController;
 use App\Http\Controllers\tms\QuestionBankController;
 use App\Http\Controllers\tms\QuestionController;
 use App\Http\Controllers\tms\QuizeController;
 use App\Http\Controllers\tms\TrainerController;
-use App\Http\Controllers\FieldVisitController;
-use App\Http\Controllers\rcms\OOTController;
+use App\Http\Controllers\TMSController;
+use App\Http\Controllers\UserLoginController;
 use App\Imports\DocumentsImport;
 use Illuminate\Support\Facades\Route;
-
 use Maatwebsite\Excel\Facades\Excel;
 
 /*
@@ -172,7 +170,6 @@ Route::post('manage/Qa/{id}', [ManagementReviewController::class, 'manage_qa_mor
 Route::get('ManagementReviewAuditTrial/{id}', [ManagementReviewController::class, 'ManagementReviewAuditTrial']);
 Route::get('ManagementReviewAuditDetails/{id}', [ManagementReviewController::class, 'ManagementReviewAuditDetails']);
 
-
 /********************************************* Deviation Starts *******************************************/
 
 Route::post('deviation_child/{id}', [DeviationController::class, 'deviation_child_1'])->name('deviation_child_1');
@@ -197,10 +194,7 @@ Route::get('riskAuditTrial/{id}', [RiskManagementController::class, 'riskAuditTr
 Route::get('auditDetailsrisk/{id}', [RiskManagementController::class, 'auditDetailsrisk'])->name('showriskAuditDetails');
 Route::post('child/{id}', [RiskManagementController::class, 'child'])->name('riskAssesmentChild');
 
-
-
 // ======================================================
-
 
 // ====================================root cause analysis=======================
 Route::get('root-cause-analysis', [RootCauseController::class, 'rootcause']);
@@ -212,8 +206,6 @@ Route::post('root/cancel/{id}', [RootCauseController::class, 'root_Cancel'])->na
 Route::post('root/reject/{id}', [RootCauseController::class, 'root_reject'])->name('root_reject');
 Route::get('rootAuditTrial/{id}', [RootCauseController::class, 'rootAuditTrial']);
 Route::get('auditDetailsRoot/{id}', [RootCauseController::class, 'auditDetailsroot'])->name('showrootAuditDetails');
-
-
 
 // ====================================InternalauditController=======================
 Route::post('internalauditreject/{id}', [InternalauditController::class, 'RejectStateChange']);
@@ -242,11 +234,6 @@ Route::post('StageChangeLabIncident/{id}', [LabIncidentController::class, 'LabIn
 Route::post('LabIncidentCancel/{id}', [LabIncidentController::class, 'LabIncidentCancelStage']);
 
 Route::get('audit-program', [AuditProgramController::class, 'auditprogram']);
-
-
-
-
-
 
 Route::get('data-fields', function () {
     return view('frontend.data-fields');
@@ -305,13 +292,12 @@ Route::view('reviewer-panel', 'frontend.change-control.reviewer-panel');
 Route::view('change-control-form', 'frontend.change-control.data-fields');
 
 //Route::view('new-change-control', 'frontend.change-control.new-change-control');
-Route::get("new-change-control", [CCController::class, "changecontrol"]);
+Route::get('new-change-control', [CCController::class, 'changecontrol']);
 
 Route::view('audit-pdf', 'frontend.documents.audit-pdf');
 
 Route::view('employee_new', 'frontend.TMS.Employee.employee_new')->name('employee_new');
 Route::view('trainer_qualification', 'frontend.TMS.Trainer_qualification.trainer_qualification')->name('trainer_qualification');
-
 
 //! ============================================
 //!                    RCMS
@@ -334,12 +320,9 @@ Route::view('Supplier-Dashboard-Report', 'frontend.rcms.Supplier-Dashboard');
 
 Route::view('QMSDashboardFormat', 'frontend.rcms.QMSDashboardFormat');
 
-
-
 //! ============================================
 //!                    FORMS
 //! ============================================
-
 
 Route::view('deviation', 'frontend.forms.deviation');
 
@@ -353,7 +336,6 @@ Route::view('out-of-specification', 'frontend.forms.out-of-specification');
 
 // Route::view('risk-management', 'frontend.forms.risk-management');
 
-
 Route::view('action-item', 'frontend.forms.action-item');
 
 // Route::view('effectiveness-check', 'frontend.forms.effectiveness-check');
@@ -365,7 +347,6 @@ Route::view('vendor-entity', 'frontend.forms.vendor-entity');
 
 // Route::view('auditee', 'frontend.forms.auditee');
 Route::get('auditee', [AuditeeController::class, 'external_audit']);
-
 
 Route::get('meeting', [ManagementReviewController::class, 'meeting']);
 
@@ -419,8 +400,6 @@ Route::view('help-desk-incident', 'frontend.forms.help-desk-incident');
 
 Route::view('review-management-report', 'frontend.review-management.review-management-report');
 
-
-
 //  ===================== OOS OOT OOC Form Route====================================
 Route::view('OOT_form', 'frontend.OOT.OOT_form');
 Route::get('out_of_calibration', [OOCController::class, 'index'])->name('ooc.index');
@@ -428,18 +407,15 @@ Route::get('OOC/view', [OOCController::class, 'edit'])->name('ooc.edit');
 Route::post('ooccreate', [OOCController::class, 'create'])->name('oocCreate');
 Route::get('out_of_calibration_ooc', [OOCController::class, 'ooc']);
 
-
 // Route::get('oos_form', [OOSController::class, 'index'])->name('oos.index');
 // Route::get('oos_micro', [OOSMicroController::class, 'index'])->name('oos_micro.index');
 Route::get('oos_micro', [OOSMicroController::class, 'index'])->name('oos_micro.index');
 
 // Route::view('market_complaint_new', 'frontend.market_complaint.market_complaint_new')->name('market_complaint_new');
 
-
 // ====================OOS/OOT======================================
 Route::view('oos_oot_form', 'frontend.forms.OOS\OOT.oos_oot');
 // ====================OOS/OOT======================================
-
 
 // =================LOGS=========================================
 
@@ -459,19 +435,13 @@ Route::view('internal_audit_log', 'frontend.forms.Logs.Internal_audit_Log');
 
 // =================LOGS=========================================
 
-
-
-
 // ====================OOS/OOT======================================
 Route::view('oos_oot_form', 'frontend.forms.OOS\OOT.oos_oot');
 // ====================OOS/OOT======================================
 
-
-
 /**
  * AJAX ROUTES
  */
-
 Route::get('/sop/users/{id?}', [AjaxController::class, 'getSopTrainingUsers'])->name('sop_training_users');
 
 // ========================Errata==================================
@@ -496,7 +466,6 @@ Route::post('/errata/cancel/{id}', [ErrataController::class, 'erratacancelstage'
 
 // ----------------------Stages----------------------------------------
 
-
 // extensionchild========================
 // Route::view('extension_new', 'frontend.extension.extension_new');
 // Route::view('extension_view', 'frontend.extension.extension_view');
@@ -506,8 +475,6 @@ Route::get('extension_newshow/{id}', [ExtensionNewController::class, 'show']);
 
 Route::put('extension_new/{id}', [ExtensionNewController::class, 'update'])->name('extension_new.update');
 Route::post('extension_send_stage/{id}', [ExtensionNewController::class, 'sendstage'])->name('extension_send_stage');
-
-
 
 //=====================================================================
 //======================field-visit===================
@@ -523,3 +490,8 @@ Route::get('field_visit_singleReport/{id}',[FieldVisitController::class, 'single
 Route::get('/user_count',[FieldVisitController::class, 'userCount'])->name('user_count');
 Route::get('/fetch_data',[FieldVisitController::class, 'fetchData'])->name('fetch.data');
 Route::get('charts/documents-by-pie', [FieldVisitController::class, 'pieData'])->name('api.documents-by-pie');
+Route::get('field_visit_singleReport/{id}', [FieldVisitController::class, 'singleReports'])->name('field_visit_singleReport');
+Route::get('field_visit_auditTrail/{id}', [FieldVisitController::class, 'FieldVisitAuditTrial'])->name('field_visit_auditTrail');
+
+Route::get('/user_count', [FieldVisitController::class, 'userCount'])->name('user_count');
+Route::get('/fetch_data', [FieldVisitController::class, 'fetchData'])->name('fetch.data');
