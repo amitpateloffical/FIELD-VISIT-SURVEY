@@ -35,7 +35,7 @@ class FieldVisitController extends Controller
         $data = new FieldVisit();
         $data->stage = '1';
         $data->status = 'Opened';
-        // $data->type = "Field Visit Survey";
+        $data->type = "Field Visit Survey";
         $data->save_data = 1;
         $data->record = ((RecordNumber::first()->value('counter')) + 1);
         $data->division_code = $request->division_code;
