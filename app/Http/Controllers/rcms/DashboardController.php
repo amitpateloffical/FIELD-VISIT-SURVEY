@@ -1030,9 +1030,9 @@ class DashboardController extends Controller
 
         elseif ($type == "Field Visit Survey") {
             $data = FieldVisit::find($id);
-            $single = "rootSingleReport/" . $data->id;
+            $single = "field_visit_singleReport/" . $data->id;
             $audit = "rootAuditReport/" . $data->id;
-            $division = QMSDivision::find($data->division_id);
+            $division = QMSDivision::find($data->division_code);
             $division_name = $division->name;
         }
         elseif ($type == "Market demo") {
