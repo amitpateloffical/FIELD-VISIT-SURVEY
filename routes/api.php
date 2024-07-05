@@ -33,6 +33,7 @@ Route::post('/filter-records', [DocumentController::class, 'filterRecord'])->nam
 Route::post('upload-files', [HelperController::class, 'upload_file'])->name('api.upload.file');
 
 Route::get('/charts/documents-by-brand-visitor', [FieldVisitController::class, 'brandVisitorData'])->name('api.documents-by-brand-visitor');
-Route::get('/charts/documents-by-user', [FieldVisitController::class, 'userData'])->name('api.documents-by-user');
+Route::get('/charts/documents-by-brand-visitor-pie', [FieldVisitController::class, 'brandPieVisitorData'])->name('api.documents-by-brand-visitor-pie');
+
 
 

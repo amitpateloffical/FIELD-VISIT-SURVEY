@@ -633,4 +633,54 @@ class FieldVisitController extends Controller
 
 
 
+    public function brandPieVisitorData()
+    {
+        $res = Helpers::getDefaultResponse();
+
+        try {
+
+            $data = [];
+
+            for ($i = 5; $i >= 0; $i--)
+            {
+                $brandData = [];
+                $month = Carbon::now()->subMonths($i);
+                
+
+                // foreach ($brandName as $brandName)
+                // {
+                    $brandNames = FieldVisit::where('brand_name', '!=', null)
+                                    ->whereDate('created_at', '>=', $month->startOfMonth())
+                                    ->whereDate('created_at', '<=', $month->endOfMonth())
+                                    ->get()->count();
+
+                    $visitor = FieldVisit::where('field_visitor', '!=', null)
+                                    ->whereDate('created_at', '>=', $month->startOfMonth())
+                                    ->whereDate('created_at', '<=', $month->endOfMonth())
+                                    ->get()->count();
+
+                                    $brandData['month'] = $month->format('M');
+                                    $brandData['brandName'] = $brandNames;
+                                    $brandData['visitor'] = $visitor;
+                    
+                                    array_push($data, $brandData);
+                // }
+                
+            }
+
+
+            $res['body'] = $data;
+
+        } catch (\Exception $e) {
+            $res['status'] = 'error';
+            $res['message'] = $e->getMessage();
+        }
+        return response()->json($res);
+    }
+
+
+
+
+
+
 }
