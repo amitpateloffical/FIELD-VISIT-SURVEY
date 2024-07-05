@@ -4,6 +4,14 @@
         #create-record-button {
             display: block;
         }
+        .main-div{
+            display: flex;
+            justify-content: space-around;
+        }
+        .document{
+            cursor: pointer;
+            color: blue;
+        }
     </style>
     {{-- ======================================
                     DASHBOARD
@@ -17,8 +25,16 @@
                        <div class="inner-block">
                         <div class="card border-0" >
                             <div class="card-body">
+                               <div class="main-div">
+                               <div>
                                 <h5 class="card-title">Users and Visitors</h5>
 
+                                </div>
+                                    <div>
+                                <a class="document" onclick="downloadBarChartData()">Download XLSX</a>
+                                </div>
+
+                               </div>
                                 <div class="card-text d-flex justify-content-center d-flex justify-content-center align-items-center h-100"
                                     id="chart-1">
                                     <div class="spinner-boder" role="status">
@@ -33,7 +49,14 @@
                       <div class="inner-block">
                         <div class="card border-0" >
                             <div class="card-body">
+                               <div class="main-div">
+                               <div>
                                 <h5 class="card-title">Brand and Visitors</h5>
+                                </div>
+
+                                <div><a class="document" onclick="downloadXlsx()">Download XLSX</a></div>
+                               </div>
+
 
                                 <div class="card-text d-flex justify-content-center d-flex justify-content-center align-items-center h-100"
                                     id="brandVisitorChart">
@@ -52,7 +75,15 @@
                        <div class="inner-block">
                         <div class="card border-0" >
                             <div class="card-body">
+                                <div class="main-div">
+                                <div>
                                 <h5 class="card-title">Survey Data</h5>
+                                </div>
+
+                                <div>
+                                <a class="document" onclick="downloadPieChartData()">Download XLSX</a>
+                                </div>
+                                </div>
 
                                 <div class="card-text d-flex justify-content-center d-flex justify-content-center align-items-center h-100"
                                     id="pieDataChart">
@@ -103,6 +134,45 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
         <script>
+
+function downloadBarChartData() {
+        $.ajax({
+            url: '/user_count', // Replace with your Laravel route
+            method: 'GET',
+            success: function(response) {
+                var userCounts = response.data; // Assuming response is JSON with 'data' field
+
+                var users = [];
+                let n = userCounts.length;
+                for (var i = 1; i <= n; i++) {
+                    users.push('user' + i);
+                }
+
+                let data = [["User", "Total Survey"]];
+
+                for (let i = 0; i < n; i++) {
+                    data.push([users[i], userCounts[i]]);
+                }
+
+                // Create a new workbook
+                let workbook = XLSX.utils.book_new();
+
+                // Convert data to a worksheet
+                let worksheet = XLSX.utils.aoa_to_sheet(data);
+
+                // Append worksheet to workbook
+                XLSX.utils.book_append_sheet(workbook, worksheet, "BarChartData");
+
+                // Write workbook and trigger download
+                XLSX.writeFile(workbook, 'BarChartData.xlsx');
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        });
+    }
+
+
             $(document).ready(function() {
                 // Fetch user counts via AJAX
                 $.ajax({
@@ -117,23 +187,21 @@
                     }
                 });
 
-                // Function to update chart with fetched data
                 function updateChart(userCounts) {
 
 
 
-                    var users = []; // Initialize an empty array for users
+                    var users = []; 
                         let n=userCounts.length;
                         for (var i = 1; i <= n; i++) {
                             users.push('user' + i);
                             // console.log(users);
                         }
 
-                        // console.log(users);
 
                     var options = {
                         series: [{
-                            name: 'Total Survey', // Update series name
+                            name: 'Total Survey',
                             data: userCounts
                         }],
                         chart: {
@@ -159,13 +227,13 @@
                         },
                         xaxis: {
                             title: {
-                                text: 'Visitors' // Update y-axis title
+                                text: 'Visitors' 
                             },
                             categories: users,
                         },
                         yaxis: {
                             title: {
-                                text: 'Number of Visits' // Update y-axis title
+                                text: 'Number of Visits' 
                             }
                         },
                         fill: {
@@ -896,6 +964,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"
     integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
 
 
   
@@ -905,7 +974,42 @@
 
 
 
-        <script>
+<script>
+
+
+    function downloadXlsx() {
+        const url = "{{ route('api.documents-by-brand-visitor') }}";
+
+        axios.get(url)
+            .then(response => {
+                if (response.data.status == 'ok') {
+                    let bodyData = response.data.body;
+                    let data = [];
+
+                    data.push(["Month", "Brand", "Visitor"]);
+
+                    bodyData.forEach(item => {
+                        data.push([item.month, item.brandName, item.visitor]);
+                    });
+
+                    // Create a new workbook
+                    let workbook = XLSX.utils.book_new();
+
+                    // Convert data to a worksheet
+                    let worksheet = XLSX.utils.aoa_to_sheet(data);
+
+                    // Append worksheet to workbook
+                    XLSX.utils.book_append_sheet(workbook, worksheet, "Data");
+
+                    // Write workbook and trigger download
+                    XLSX.writeFile(workbook, 'BrandVisitorData.xlsx');
+                }
+            })
+            .catch(err => {
+                console.log('Error in downloading data', err.message);
+            });
+    }
+
             function renderuserChart(brandData, visitorData, months) {
                 var options = {
                     series: [{
@@ -1003,6 +1107,46 @@
                 
 <script>
 
+function downloadPieChartData() {
+        const url = "{{ route('api.documents-by-brand-visitor-pie') }}";
+
+        axios.get(url)
+            .then(response => {
+                if (response.data.status == 'ok') {
+                    let bodyData = response.data.body;
+                    let totalVisitor = 0;
+                    let totalBrandName = 0;
+
+                    bodyData.forEach(data => {
+                        totalVisitor += parseInt(data.visitor, 10);
+                        totalBrandName += parseInt(data.brandName, 10);
+                    });
+
+                    let data = [
+                        ["Category", "Total"],
+                        ["No. of Visitors", totalVisitor],
+                        ["Brand", totalBrandName]
+                    ];
+
+                    // Create a new workbook
+                    let workbook = XLSX.utils.book_new();
+
+                    // Convert data to a worksheet
+                    let worksheet = XLSX.utils.aoa_to_sheet(data);
+
+                    // Append worksheet to workbook
+                    XLSX.utils.book_append_sheet(workbook, worksheet, "PieChartData");
+
+                    // Write workbook and trigger download
+                    XLSX.writeFile(workbook, 'PieChartData.xlsx');
+                }
+            })
+            .catch(err => {
+                console.log('Error in downloading pie chart data', err.message);
+            });
+    }
+
+
 function renderUserChart(data1, data2,) {
     let a = data1;
     let b = data2;
@@ -1012,7 +1156,7 @@ function renderUserChart(data1, data2,) {
             width: 380,
             type: 'pie',
         },
-        labels: ['No. of Visitors','Brand'],
+        labels: ['No. of Visitors','Brands'],
         colors: ['#91B7FF', '#002366'],
         responsive: [{
             breakpoint: 480,
