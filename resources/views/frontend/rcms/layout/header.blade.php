@@ -79,6 +79,13 @@
             right: 0;
             font-size: 1.2rem;
         }
+
+        @media screen and (max-width: 480px) {
+    header .header_rcms_middle .middle-head .icon-grid {
+        /* margin-left: -21px; */
+        margin-right: 25px;
+    }
+}
     </style>
 </head>
 

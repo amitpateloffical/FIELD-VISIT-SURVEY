@@ -50,6 +50,17 @@
                 display: none;
             }
         }
+        @media screen and (max-width: 480px) {
+    header .header_rcms_middle .middle-head .icon-grid {
+        /* margin-left: -21px; */
+        margin-right: 25px;
+    }
+    header .header-middle .middle-head .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+}
     </style>
 
 
