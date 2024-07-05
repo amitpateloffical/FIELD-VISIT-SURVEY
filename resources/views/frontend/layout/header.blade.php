@@ -44,6 +44,12 @@
             display: none;
             margin-left: auto;
         }
+
+        @media screen and (max-width: 480px) {
+            .search-bar{
+                display: none;
+            }
+        }
     </style>
 
 
