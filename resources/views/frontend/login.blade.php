@@ -9,210 +9,288 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
-    <style>
-        * {
-            font-family: 'Noto Sans', serif;
-        }
-        /* 120deg, #87b2f8 0%, #a1c4fd 100%); middle */
-        /* 120deg, #2c73e6d1 0%, #2d72d899 100%); bottom */
-        body {
-           background-image:linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-            margin: 0;
-            padding: 0;
-            width: 100vw;
-            height: 100vh;
-        }
+   
+</head>
+<style>
+    * {
+        font-family: 'Noto Sans', serif;
+    }
 
-        img {
-            width: 100%;
-            height: 100%;
-        }
+    body {
+        background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+    }
 
-        a {
-            text-decoration: none;
-        }
+    img {
+        width: 100%;
+        height: 100%;
+    }
 
-        ::placeholder {
-            color: white;
-        }
+    a {
+        text-decoration: none;
+    }
 
-        .w-100 {
-            width: 100%;
-        }
+    ::placeholder {
+        color: white;
+    }
 
-        .h-100 {
-            height: 100%;
-        }
+    .w-100 {
+        width: 100%;
+    }
 
-        #preloader {
-            backdrop-filter: blur(20px);
-            z-index: 20;
-            width: 100%;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    .h-100 {
+        height: 100%;
+    }
 
-        #preloader .loader {
-            width: 150px;
-            height: 150px;
-            background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-            border-radius: 50%;
-            position: relative;
-            box-shadow: 0 0 30px 4px rgba(0, 0, 0, 0.5) inset,
-                0 5px 12px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
-        }
+    #preloader {
+        backdrop-filter: blur(20px);
+        z-index: 20;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-        #preloader .loader:before,
-        #preloader .loader:after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 45%;
-            top: -40%;
-            background-color: #fff;
-            animation: wave 5s linear infinite;
-        }
+    #preloader .loader {
+        width: 150px;
+        height: 150px;
+        background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+        border-radius: 50%;
+        position: relative;
+        box-shadow: 0 0 30px 4px rgba(0, 0, 0, 0.5) inset, 0 5px 12px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+    }
 
-        #preloader .loader:before {
-            border-radius: 30%;
-            background: rgba(255, 255, 255, 0.4);
-            animation: wave 5s linear infinite;
-        }
+    #preloader .loader:before,
+    #preloader .loader:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 45%;
+        top: -40%;
+        background-color: #fff;
+        animation: wave 5s linear infinite;
+    }
 
-        @keyframes wave {
-            0% {
-                transform: rotate(0);
-            }
+    #preloader .loader:before {
+        border-radius: 30%;
+        background: rgba(255, 255, 255, 0.4);
+        animation: wave 5s linear infinite;
+    }
 
-            100% {
-                transform: rotate(360deg);
-            }
+    @keyframes wave {
+        0% {
+            transform: rotate(0);
         }
 
-        #rcms_login_block {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-size: cover;
-            background-position: center;
+        100% {
+            transform: rotate(360deg);
         }
+    }
 
+    #rcms_login_block {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        background-position: center;
+    }
+
+    #rcms_login_block .login-form-block {
+        width: 90%;
+        max-width: 550px;
+        background: #eee;
+        border-radius: 20px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    #rcms_login_block .login-form-block .top-block {
+        padding: 10px 10px 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #rcms_login_block .login-form-block .logo {
+        width: 100%;
+        margin: 10 auto 0px;
+        display: flex;
+        justify-content: center;
+    }
+
+    #rcms_login_block .login-form-block .logo img {
+        filter: brightness(0) invert(1);
+        /* margin-left: 100px; */
+    }
+
+    #rcms_login_block .login-form-block .head {
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-align: center;
+        color: rgb(43, 41, 41);
+        letter-spacing: 2px;
+    }
+
+    #rcms_login_block .login-form-block form {
+        padding: 20px;
+    }
+
+    #rcms_login_block .group-input {
+        margin-bottom: 20px;
+        display: grid;
+        grid-template-columns: 70px 1fr;
+        align-items: center;
+        background: white;
+        border: 2px solid rgba(0, 0, 0, 0.5);
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    #rcms_login_block label {
+        font-size: 1.2rem;
+        margin-bottom: 3px;
+        color: #494545;
+        display: block;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    #rcms_login_block input {
+        border: 0;
+        outline: none;
+        background: white;
+        color: black;
+    }
+
+    #rcms_login_block select {
+        border: 0;
+        outline: none;
+        color: rgb(40, 38, 38);
+    }
+
+    #rcms_login_block input[type="submit"] {
+        display: block;
+        text-align: center;
+        width: 100%;
+        padding: 10px;
+        background-image: linear-gradient(120deg, #002366 0%, #002466c5 100%);
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: all 0.3s linear;
+        cursor: pointer;
+    }
+
+    #rcms_login_block input[type="submit"]:hover {
+        letter-spacing: 2px;
+    }
+
+    .black-placeholder::placeholder {
+        color: black;
+        opacity: 1;
+    }
+
+    .main-block {
+        box-shadow: 0px 0px 5px 2px #1b1b1f47;
+        border-radius: 16px;
+    }
+    @media screen and (max-width: 1300px) {
+        #rcms_login_block .login-form-block .logo img {
+    filter: brightness(0) invert(1);
+    margin-left: 100px;
+}
+    }
+    @media screen and (max-width: 768px) {
         #rcms_login_block .login-form-block {
-            width: 550px;
-    background: #eee;
-    border-radius: 20px;
-    background-size: cover;
-    background-position: center;
+            width: 90%;
+            padding: 20px;
         }
-
+        
         #rcms_login_block .login-form-block .top-block {
-            padding: 10px 10px 5px;
-            /* border-bottom: 2px solid white; */
-            display: flex;
-    align-items: center;
-    justify-content: center;
+            flex-direction: column;
         }
 
         #rcms_login_block .login-form-block .logo {
-            width: 413px;
-            /* gap: 20px; */
-            margin: 10 auto 0px;
-            margin-left: 40px;
-            /* margin-top: 151px; */
-            display: flex;
-        }
-
-        #rcms_login_block .login-form-block .logo img {
-            filter: brightness(0) invert(1);
+            flex-direction: column;
+            align-items: center;
         }
 
         #rcms_login_block .login-form-block .head {
-            font-size: 1.6rem;
-            font-weight: bold;
-            /* text-transform: uppercase; */
-            text-align: center;
-            color: rgb(43, 41, 41);
-            letter-spacing: 2px
-        }
-
-        #rcms_login_block .login-form-block form {
-            padding: 30px;
+            font-size: 1.4rem;
         }
 
         #rcms_login_block .group-input {
-            margin-bottom: 20px;
-    display: grid;
-    grid-template-columns: 70px 1fr;
-    align-items: center;
-    background: white;
-    border: 2px solid rgba(0, 0, 0, 0.5);
-    padding: 5px;
-    border-radius: 5px;
+            grid-template-columns: 1fr;
+            text-align: center;
         }
 
         #rcms_login_block label {
-            font-size: 1.2rem;
-            margin-bottom: 3px;
-            color: #494545;
-            display: block;
-            font-weight: bold;
-            text-align: center;
+            text-align: left;
+            margin-bottom: 10px;
         }
+    }
 
-        #rcms_login_block input{
-            border: 0;
-            outline: none;
-            background: white;
-    color: black;
-        }
-        #rcms_login_block select {
-            border: 0;
-            outline: none;
-            /* background: #162e67; */
-            color: rgb(40, 38, 38);
-        }
-        /* 120deg, #ea8900 0%, #ff9c4594 100%) orange color */
-        #rcms_login_block input[type="submit"] {
-            display: block;
-            text-align: center;
-            width: 100%;
+    @media screen and (max-width: 480px) {
+        #rcms_login_block .login-form-block {
+            width: 95%;
             padding: 10px;
-            /* background: linear-gradient(180deg, rgba(255, 255, 255, .15) 0%, rgba(255, 255, 255, 0) 100%), #bec0c2; */
-            /* color: black; */
-            background-image: linear-gradient(120deg, #1a3f7a 0%, #57bdec 100%);
-            /* linear-gradient(120deg, #ea8900 0%, #ff9c4594 100%) */
-    color: white;
-            margin-left: auto;
-            text-transform: uppercase;
-            font-weight: bold;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: all 0.3s linear;
-            cursor: pointer;
         }
-        #rcms_login_block input[type="submit"]:hover {
-           letter-spacing: 2px;
-        }
-        .black-placeholder::placeholder {
-        color: black;
-        opacity: 1; /* Necessary to ensure the color is not translucent */
-    }
-    .main-block {
-        box-shadow: 0px 0px 5px 2px #1b1b1f47;
-    border-radius: 16px
-    }
-    </style>
-</head>
 
+        #rcms_login_block .login-form-block .head {
+            font-size: 1.2rem;
+        }
+        @media screen and (max-width: 480px) {
+    #rcms_login_block .login-form-block {
+        width: 87%;
+        padding: 4px;
+    }
+    #rcms_login_block select{
+        width: 222px;
+    }
+    #rcms_login_block .login-form-block .logo img {
+    filter: brightness(0) invert(1);
+    margin-left: 1px;
+}
+}
+        #rcms_login_block .group-input {
+            grid-template-columns: 1fr;
+            padding: 10px;
+        }
+        @media screen and (max-width: 480px) {
+    #rcms_login_block .group-input {
+        grid-template-columns: 1fr 10fr;
+        padding: 10px;
+    }
+}
+        #rcms_login_block label {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        #rcms_login_block input {
+            padding: 10px;
+            font-size: 1rem;
+        }
+
+        #rcms_login_block input[type="submit"] {
+            padding: 8px;
+            font-size: 0.9rem;
+        }
+    }
+</style>
 <body>
 
     {{-- ======================================
@@ -231,12 +309,12 @@
                 <div class="top-block">
                     <div class="logo" style="display: flex">
                         <div>
-                            <img src="{{ asset('user/images/agio-removebg-preview.png') }}" alt="..." class="w-100 h-100" style="filter: none; scale: 0.7;     width: 100px; margin: auto; ">
+                            <img src="{{ asset('user/images/agio-removebg-preview.png') }}" alt="..." class="w-100 h-100" style="filter: none; scale: 0.6;     width: 100px;  ">
 
                         </div>
 
                         <div>
-                            <img  src="{{ asset('user/images/vidhyaGxp.png') }}" alt="..." class="w-100 h-100" style="filter: none; scale: 0.6;  margin: auto">
+                            <img  src="{{ asset('user/images/vidhyaGxp.png') }}" alt="..." class="w-100 h-100" style="filter: none; scale: 0.4;  margin: auto">
 
                         </div>
 

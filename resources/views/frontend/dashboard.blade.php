@@ -13,16 +13,8 @@
             <div class="dashboard-container">
 
                 <div class="row">
-                    <div class="col-lg-9">
-                    </div>
-                </div>
-
-                <div>
-
-                    <!-- <div class="inner-block calendar-block">
-                        <div id='calendar'></div>
-                    </div> -->
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
+                       <div class="inner-block">
                         <div class="card border-0" >
                             <div class="card-body">
                                 <h5 class="card-title">Users and Visitors</h5>
@@ -35,13 +27,10 @@
                                 </div>
                             </div>
                         </div>
+                       </div>
                     </div>
-
-                    </div>
-
-                    
-
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
+                      <div class="inner-block">
                         <div class="card border-0" >
                             <div class="card-body">
                                 <h5 class="card-title">Brand and Visitors</h5>
@@ -54,7 +43,50 @@
                                 </div>
                             </div>
                         </div>
+                      </div>
                     </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                       <div class="inner-block">
+                        <div class="card border-0" >
+                            <div class="card-body">
+                                <h5 class="card-title">Survey Data</h5>
+
+                                <div class="card-text d-flex justify-content-center d-flex justify-content-center align-items-center h-100"
+                                    id="pieDataChart">
+                                    <div class="spinner-boder" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       </div>
+                    </div>
+                  
+                </div>
+
+
+
+
+
+
+
+
+
+               
+
+                    <!-- <div class="inner-block calendar-block">
+                        <div id='calendar'></div>
+                    </div> -->
+                    
+
+                  
+
+                    
+
+                    
 
 
                     <!-- <div class="inner-block">
@@ -89,8 +121,9 @@
                 function updateChart(userCounts) {
 
 
+
                     var users = []; // Initialize an empty array for users
-                        let n=users.length;
+                        let n=userCounts.length;
                         for (var i = 1; i <= n; i++) {
                             users.push('user' + i);
                             // console.log(users);
@@ -105,10 +138,12 @@
                         }],
                         chart: {
                             type: 'bar',
-                            height: 350
+                            height: 300
                         },
                         plotOptions: {
                             bar: {
+                                borderRadius: 6,
+                            borderRadiusApplication: 'end',
                                 horizontal: false,
                                 columnWidth: '35%',
                                 endingShape: 'rounded'
@@ -124,9 +159,9 @@
                         },
                         xaxis: {
                             title: {
-                                text: 'Total Visitors' // Update y-axis title
+                                text: 'Visitors' // Update y-axis title
                             },
-                            categories: ['User 1','User 2','User 3','User 4','User 5','User 6'],
+                            categories: users,
                         },
                         yaxis: {
                             title: {
@@ -863,6 +898,12 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
+  
+
+
+
+
+
 
         <script>
             function renderuserChart(brandData, visitorData, months) {
@@ -878,10 +919,12 @@
                     ],
                     chart: {
                         type: 'bar',
-                        height: 350
+                        height: 300
                     },
                     plotOptions: {
                         bar: {
+                            borderRadius: 6,
+                            borderRadiusApplication: 'end',
                             horizontal: false,
                             columnWidth: '55%',
                             endingShape: 'rounded'
@@ -954,6 +997,78 @@
 
             prepareBrandVisitorChart()
         </script>
+
+
+
+                
+<script>
+
+function renderUserChart(data1, data2,) {
+    let a = data1;
+    let b = data2;
+    var options = {
+        series: [a,b],
+        chart: {
+            width: 380,
+            type: 'pie',
+        },
+        labels: ['No. of Visitors','Brand'],
+        colors: ['#91B7FF', '#002366'],
+        responsive: [{
+            breakpoint: 480,
+            options: {
+                chart: {
+                    width: 200
+                },
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }]
+    };
+
+    var pieDataChart = new ApexCharts(document.querySelector("#pieDataChart"), options);
+    pieDataChart.render();
+}
+
+
+async function prepareBrandVisitorChart() {
+    $('#pieDataChart > .spinner-border').show();
+
+    try {
+        const url = "{{ route('api.documents-by-brand-visitor-pie') }}";
+        const res = await axios.get(url);
+        console.log("dsaddsadasdasdasdaad");
+
+        if (res.data.status == 'ok') {
+            let bodyData = res.data.body;
+            let totalVisitor = 0;
+            let totalBrandName = 0;
+
+            bodyData.forEach(data => {
+                totalVisitor += parseInt(data.visitor, 10);
+                totalBrandName += parseInt(data.brandName, 10);
+            });
+
+            console.log('Total visitor:', totalVisitor);
+            console.log('Total brand name:', totalBrandName);
+
+            // Use totalVisitor and totalBrandName as needed
+            renderUserChart(totalVisitor, totalBrandName);
+
+        }
+
+    } catch (err) {
+        console.log('Error in visitors chart', err.message);
+    }
+
+    $('#pieDataChart > .spinner-border').hide();
+}
+
+prepareBrandVisitorChart();
+
+</script> 
+
         <script>
             setInterval(updateTime, 1000);
         </script>
@@ -1167,7 +1282,8 @@
                 },
                 plotOptions: {
                     bar: {
-                        borderRadius: 4,
+                        borderRadius: 6,
+                        borderRadiusApplication: 'end',
                         horizontal: true,
                     }
                 },

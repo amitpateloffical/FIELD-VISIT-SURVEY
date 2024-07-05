@@ -130,6 +130,33 @@
         overflow: hidden !important;
         text-overflow: ellipsis;
     }
+
+
+    @media (min-width: 400px){
+
+    }
+    @media screen and (max-width: 768px) {
+
+    }
+    @media screen and (max-width: 480px) {
+        .left-block{
+    display: none;
+}
+header .header_rcms_bottom .bottom-head form input {
+    width: 150px;
+    
+}
+header .header_rcms_middle .middle-head .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0px !important;
+}
+header .header_rcms_middle .middle-head .icon-grid {
+    margin-left: -9px ;
+    
+    
+}
+    }
 </style>
 @section('rcms_container')
     <div id="rcms-dashboard">
