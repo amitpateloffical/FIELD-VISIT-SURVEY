@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::table('field_visits', function (Blueprint $table) {
             //
-            $table->text('any_remarks_on_vm')->nullable();
-            $table->text('any_ramrks_on_the_branding')->nullable();
+            $table->longText('any_remarks_on_vm')->nullable();
+            $table->longText('any_ramrks_on_the_branding')->nullable();
 
         });
     }

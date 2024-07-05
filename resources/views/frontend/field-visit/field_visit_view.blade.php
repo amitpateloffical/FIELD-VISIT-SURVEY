@@ -188,11 +188,23 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6">
+                                {{-- <div class="col-lg-6">
                                     <div class="group-input">
                                         <label for="Date Due">Date of Initiation</label>
                                         <input disabled type="text" value="{{ date('d-M-Y') }}" name="intiation_date">
                                         <input type="hidden" value="{{ date('Y-m-d') }}" name="intiation_date">
+                                    </div>
+                                </div> --}}
+                                <div class="col-lg-6">
+                                    <div class="group-input">
+                                        <label for="Date Opened">Date of Initiation</label>
+                                        @if (isset($data) && $data->intiation_date)
+                                            <input disabled type="text"
+                                                value="{{ \Carbon\Carbon::parse($data->intiation_date)->format('d-M-Y') }}"
+                                                name="intiation_date_display">
+                                        @else
+                                            <input disabled type="text" value="" name="intiation_date_display">
+                                        @endif
                                     </div>
                                 </div>
 
@@ -282,7 +294,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <div class="group-input">
                                         <label for="search">
                                             Assigned To <span class="text-danger"></span>
@@ -300,7 +312,7 @@
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="col-12">
                                     <div class="group-input">
@@ -310,28 +322,28 @@
                                         <select id="select-state" placeholder="Select..." name="region">
                                             <option value="">Select a value</option>
                                             <option
-                                                value="Extension Of South Mumbai - Prabhadevi To Mahim "{{ $data->region == 'Extension Of South Mumbai - Prabhadevi To Mahim' ? 'selected' : '' }}>
-                                                Extension Of South Mumbai - Prabhadevi To Mahim</option>
+                                                value="Extension Of South Mumbai - Prabhadevi to Mahim"{{ $data->region == 'Extension Of South Mumbai - Prabhadevi to Mahim' ? 'selected' : '' }}>
+                                                Extension Of South Mumbai - Prabhadevi to Mahim</option>
                                             <option
-                                                value="Western Suburbs (A) -bandra To Santacruz "{{ $data->region == 'Western Suburbs (A) -bandra To Santacruz' ? 'selected' : '' }}>
-                                                Western Suburbs (A) -bandra To Santacruz</option>
+                                                value="Western Suburbs (A) - Bandra to Santacruz"{{ $data->region == 'Western Suburbs (A) - Bandra to Santacruz' ? 'selected' : '' }}>
+                                                Western Suburbs (A) - Bandra to Santacruz</option>
                                             <option
-                                                value="Western Suburbs (B)- Ville Parle To Andheri "{{ $data->region == 'Western Suburbs (B)- Ville Parle To Andheri' ? 'selected' : '' }}>
-                                                Western Suburbs (B)- Ville Parle To Andheri</option>
+                                                value="Western Suburbs (B)- Ville Parle to Andheri"{{ $data->region == 'Western Suburbs (B)- Ville Parle to Andheri' ? 'selected' : '' }}>
+                                                Western Suburbs (B)- Ville Parle to Andheri</option>
                                             <option
-                                                value="Western Suburbs (C) - Jogeshwari To Goregoan "{{ $data->region == 'Western Suburbs (C) - Jogeshwari To Goregoan' ? 'selected' : '' }}>
-                                                Western Suburbs (C) - Jogeshwari To Goregoan</option>
+                                                value="Western Suburbs (C) - Jogeshwari to Goregoan"{{ $data->region == 'Western Suburbs (C) - Jogeshwari to Goregoan' ? 'selected' : '' }}>
+                                                Western Suburbs (C) - Jogeshwari to Goregoan</option>
                                             <option
-                                                value="Western Suburbs (D) - Malad To Borivali "{{ $data->region == 'Western Suburbs (D) - Malad To Borivali' ? 'selected' : '' }}>
-                                                Western Suburbs (D) - Malad To Borivali</option>
+                                                value="Western Suburbs (D) - Malad to Borivali"{{ $data->region == 'Western Suburbs (D) - Malad to Borivali' ? 'selected' : '' }}>
+                                                Western Suburbs (D) - Malad to Borivali</option>
                                             <option
-                                                value="North Mumbai - Beyond Borivali up to Virar "{{ $data->region == 'North Mumbai - Beyond Borivali up to Virar' ? 'selected' : '' }}>
+                                                value="North Mumbai - Beyond Borivali up to Virar"{{ $data->region == 'North Mumbai - Beyond Borivali up to Virar' ? 'selected' : '' }}>
                                                 North Mumbai - Beyond Borivali up to Virar</option>
                                             <option
-                                                value="Eastern Suburbs - Central Mumbai "{{ $data->region == 'Eastern Suburbs - Central Mumbai' ? 'selected' : '' }}>
+                                                value="Eastern Suburbs - Central Mumbai"{{ $data->region == 'Eastern Suburbs - Central Mumbai' ? 'selected' : '' }}>
                                                 Eastern Suburbs - Central Mumbai</option>
                                             <option
-                                                value="Harbour Suburbs - Navi Mumbai "{{ $data->region == 'Harbour Suburbs - Navi Mumbai' ? 'selected' : '' }}>
+                                                value="Harbour Suburbs - Navi Mumbai"{{ $data->region == 'Harbour Suburbs - Navi Mumbai' ? 'selected' : '' }}>
                                                 Harbour Suburbs - Navi Mumbai
                                             </option>
                                         </select>
@@ -2503,23 +2515,23 @@
                         </div>
                         <div class="group-input">
                             <label for="username">Username <span class="text-danger">*</span></label>
-                            <input type="text" name="username" required>
+                            <input class="more-info" type="text" name="username" required>
                         </div>
                         <div class="group-input">
                             <label for="password">Password <span class="text-danger">*</span></label>
-                            <input type="password" name="password" required>
+                            <input class="more-info" type="password" name="password" required>
                         </div>
                         <div class="group-input">
                             <label for="comment">Comment <span class="text-danger">*</span></label>
-                            <input type="comment" name="comment" required>
+                            <input class="more-info" type="comment" name="comment" required>
                         </div>
                     </div>
 
                     <!-- Modal footer -->
                     <!-- <div class="modal-footer">
-                                                                                <button type="submit" data-bs-dismiss="modal">Submit</button>
-                                                                                <button>Close</button>
-                                                                            </div> -->
+                                                                                        <button type="submit" data-bs-dismiss="modal">Submit</button>
+                                                                                        <button>Close</button>
+                                                                                    </div> -->
                     <div class="modal-footer">
                         <button type="submit">
                             Submit
@@ -2565,9 +2577,9 @@
 
                     <!-- Modal footer -->
                     <!-- <div class="modal-footer">
-                                                                                <button type="submit" data-bs-dismiss="modal">Submit</button>
-                                                                                <button>Close</button>
-                                                                            </div> -->
+                                                                                        <button type="submit" data-bs-dismiss="modal">Submit</button>
+                                                                                        <button>Close</button>
+                                                                                    </div> -->
                     <div class="modal-footer">
                         <button type="submit">Submit</button>
                         <button type="button" data-bs-dismiss="modal">Close</button>
@@ -2587,6 +2599,12 @@
 
         #step-form>div:nth-child(1) {
             display: block;
+        }
+
+        .more-info {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
         }
     </style>
 

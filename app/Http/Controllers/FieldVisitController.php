@@ -162,7 +162,7 @@ class FieldVisitController extends Controller
             $history->fieldvisit_id = $data->id;
             $history->activity_type = 'Time';
             $history->previous = 'Null';
-            $history->current = $data->time;
+            $history->current = $request->time;
             $history->comment = 'Not Applicable';
             $history->user_id = Auth::user()->id;
             $history->user_name = Auth::user()->name;
@@ -1339,7 +1339,19 @@ class FieldVisitController extends Controller
         $data->exact_location = $request->exact_location;
         $data->exact_address = $request->exact_address;
         $data->page_section = $request->page_section;
-        $data->photos = $request->photos;
+        // $data->photos = $request->photos;
+        if (! empty($request->photos)) {
+            $files = [];
+            if ($request->hasFile('photos')) {
+                foreach ($request->file('photos') as $file) {
+                    $name = $request->name.'photos'.uniqid().'.'.$file->getClientOriginalExtension();
+                    $file->move(public_path('upload/'), $name);
+                    $files[] = $name;
+                }
+            }
+            $data->photos = json_encode($files);
+        }
+
         $data->any_remarks_on_vm = $request->any_remarks_on_vm;
         $data->any_ramrks_on_the_branding = $request->any_ramrks_on_the_branding;
         $data->store_lighting = $request->store_lighting;
@@ -1443,7 +1455,7 @@ class FieldVisitController extends Controller
             $history->fieldvisit_id = $id;
             $history->activity_type = 'Time';
             $history->previous = $lastDocument->time;
-            $history->current = $data->time;
+            $history->current = $request->time;
             $history->comment = $request->time_comment;
             $history->user_id = Auth::user()->id;
             $history->user_name = Auth::user()->name;
@@ -2974,43 +2986,45 @@ class FieldVisitController extends Controller
                     $data->submit_on = Carbon::now()->format('d-M-Y');
                     $data->submit_comment = $request->comment;
 
-                    // $history = new dataAuditTrail();
-                    // $history->data_id = $id;
-                    // $history->activity_type = 'Activity Log';
-                    // $history->previous = "";
-                    // $history->action='Submit';
-                    // $history->current = $data->submit_by;
-                    // $history->comment = $request->comment;
-                    // $history->user_id = Auth::user()->id;
-                    // $history->user_name = Auth::user()->name;
-                    // $history->user_role = RoleGroup::where('id', Auth::user()->role)->value('name');
-                    // $history->origin_state = $lastDocument->status;
-                    // $history->change_to =   "HOD Review";
-                    // $history->change_from = $lastDocument->status;
-                    // $history->stage = 'Plan Proposed';
-                    // $history->save();
+                    $history = new FieldVisitAuditTrial();
+                    $history->FieldVisit_id = $id;
+                    $history->activity_type = 'Activity Log';
+                    $history->action = 'Submit';
+                    $history->previous = $lastDocument->submit_by;
+                    $history->current = $data->submit_by;
+                    $history->comment = $request->comment;
+                    $history->user_id = Auth::user()->id;
+                    $history->user_name = Auth::user()->name;
+                    $history->user_role = RoleGroup::where('id', Auth::user()->role)->value('name');
+                    $history->origin_state = $lastDocument->status;
+                    $history->stage = 'Submit';
+                    $history->change_to = 'Pending Review';
+                    $history->change_from = $lastDocument->status;
+                    $history->action_name = 'Not Applicable';
 
-                    // $list = Helpers::getHodUserList();
-                    // foreach ($list as $u) {
-                    //     if ($u->q_m_s_divisions_id == $data->division_id) {
-                    //         $email = Helpers::getInitiatorEmail($u->user_id);
-                    //         if ($email !== null) {
+                    $history->save();
 
-                    //             try {
-                    //                 Mail::send(
-                    //                     'mail.view-mail',
-                    //                     ['data' => $data],
-                    //                     function ($message) use ($email) {
-                    //                         $message->to($email)
-                    //                             ->subject("Activity Performed By " . Auth::user()->name);
-                    //                     }
-                    //                 );
-                    //             } catch (\Exception $e) {
-                    //                 //log error
-                    //             }
-                    //         }
-                    //     }
-                    // }
+                    $list = Helpers::getHodUserList();
+                    foreach ($list as $u) {
+                        if ($u->q_m_s_divisions_id == $data->division_id) {
+                            $email = Helpers::getInitiatorEmail($u->user_id);
+                            if ($email !== null) {
+
+                                try {
+                                    Mail::send(
+                                        'mail.view-mail',
+                                        ['data' => $data],
+                                        function ($message) use ($email) {
+                                            $message->to($email)
+                                                ->subject('Activity Performed By '.Auth::user()->name);
+                                        }
+                                    );
+                                } catch (\Exception $e) {
+                                    //log error
+                                }
+                            }
+                        }
+                    }
 
                     // $list = Helpers::getHeadoperationsUserList();
                     // foreach ($list as $u) {
@@ -3023,7 +3037,7 @@ class FieldVisitController extends Controller
                     //                 ['data' => $data],
                     //                 function ($message) use ($email) {
                     //                     $message->to($email)
-                    //                         ->subject("Activity Performed By " . Auth::user()->name);
+                    //                         ->subject('Activity Performed By '.Auth::user()->name);
                     //                 }
                     //             );
                     //         }
@@ -3041,43 +3055,45 @@ class FieldVisitController extends Controller
                     $data->pending_review_on = Carbon::now()->format('d-M-Y');
                     $data->pending_review_comment = $request->comment;
 
-                    // $history = new dataAuditTrail();
-                    // $history->data_id = $id;
-                    // $history->activity_type = 'Activity Log';
-                    // $history->previous = "";
-                    // $history->current = $data->HOD_Review_Complete_By;
-                    // $history->comment = $request->comment;
-                    // $history->action= 'HOD Review Complete';
-                    // $history->user_id = Auth::user()->id;
-                    // $history->user_name = Auth::user()->name;
-                    // $history->user_role = RoleGroup::where('id', Auth::user()->role)->value('name');
-                    // $history->origin_state = $lastDocument->status;
-                    // $history->change_to =   "QA Initial Review";
-                    // $history->change_from = $lastDocument->status;
-                    // $history->stage = 'Plan Approved';
-                    // $history->save();
+                    $history = new FieldVisitAuditTrial();
+                    $history->FieldVisit_id = $id;
+                    $history->activity_type = 'Activity Log';
+                    $history->action = 'HOD Review Complete';
+                    $history->previous = $lastDocument->pending_review_by;
+                    $history->current = $data->pending_review_by;
+                    $history->comment = $request->comment;
+                    $history->user_id = Auth::user()->id;
+                    $history->user_name = Auth::user()->name;
+                    $history->user_role = RoleGroup::where('id', Auth::user()->role)->value('name');
+                    $history->origin_state = $lastDocument->status;
+                    $history->stage = 'Close Done';
+                    $history->change_to = 'Closed - Done';
+                    $history->change_from = $lastDocument->status;
+                    $history->action_name = 'Not Applicable';
+
+                    $history->save();
 
                     // dd($history->action);
-                    // $list = Helpers::getQAUserList();
-                    // foreach ($list as $u) {
-                    //     if ($u->q_m_s_divisions_id == $data->division_id) {
-                    //         $email = Helpers::getInitiatorEmail($u->user_id);
-                    //         if ($email !== null) {
-                    //             try {
-                    //                 Mail::send(
-                    //                     'mail.view-mail',
-                    //                     ['data' => $data],
-                    //                     function ($message) use ($email) {
-                    //                         $message->to($email)
-                    //                             ->subject("Activity Performed By " . Auth::user()->name);
-                    //                     }
-                    //                 );
-                    //             } catch (\Exception $e) {
-                    //                 //log error
-                    //             }
-                    //         }
-                    //     }
-                    // }
+                    $list = Helpers::getQAUserList();
+                    foreach ($list as $u) {
+                        if ($u->q_m_s_divisions_id == $data->division_id) {
+                            $email = Helpers::getInitiatorEmail($u->user_id);
+                            if ($email !== null) {
+                                try {
+                                    Mail::send(
+                                        'mail.view-mail',
+                                        ['data' => $data],
+                                        function ($message) use ($email) {
+                                            $message->to($email)
+                                                ->subject('Activity Performed By '.Auth::user()->name);
+                                        }
+                                    );
+                                } catch (\Exception $e) {
+                                    //log error
+                                }
+                            }
+                        }
+                    }
 
                     $data->update();
                     toastr()->success('Document Sent');
@@ -3116,34 +3132,43 @@ class FieldVisitController extends Controller
                 $data->review_completed_more_info_comment = $request->comment;
 
                 $data->update();
-                // $history = new dataHistory();
-                // $history->type = "data";
-                // $history->doc_id = $id;
-                // $history->user_id = Auth::user()->id;
-                // $history->user_name = Auth::user()->name;
-                // $history->stage_id = $data->stage;
-                // $history->status = "Opened";
-                // foreach ($list as $u) {
-                //     if ($u->q_m_s_divisions_id == $data->division_id) {
-                //         $email = Helpers::getInitiatorEmail($u->user_id);
-                //         if ($email !== null) {
+                $history = new FieldVisitAuditTrial();
+                $history->FieldVisit_id = $id;
+                $history->activity_type = 'Activity Log';
+                $history->action = 'More Info Required';
+                $history->previous = $lastDocument->review_completed_more_info_by;
+                $history->current = $data->review_completed_more_info_by;
+                $history->comment = $request->comment;
+                $history->user_id = Auth::user()->id;
+                $history->user_name = Auth::user()->name;
+                $history->user_role = RoleGroup::where('id', Auth::user()->role)->value('name');
+                $history->origin_state = $lastDocument->status;
+                $history->stage = 'More Info Required';
+                $history->change_to = 'Opened';
+                $history->change_from = $lastDocument->status;
+                $history->action_name = 'Not Applicable';
 
-                //             try {
-                //                 Mail::send(
-                //                     'mail.view-mail',
-                //                     ['data' => $data],
-                //                     function ($message) use ($email) {
-                //                         $message->to($email)
-                //                             ->subject("Activity Performed By " . Auth::user()->name);
-                //                     }
-                //                 );
-                //             } catch (\Exception $e) {
-                //                 //log error
-                //             }
-                //         }
-                //     }
-                // }
-                // $history->save();
+                foreach ($list as $u) {
+                    if ($u->q_m_s_divisions_id == $data->division_id) {
+                        $email = Helpers::getInitiatorEmail($u->user_id);
+                        if ($email !== null) {
+
+                            try {
+                                Mail::send(
+                                    'mail.view-mail',
+                                    ['data' => $data],
+                                    function ($message) use ($email) {
+                                        $message->to($email)
+                                            ->subject('Activity Performed By '.Auth::user()->name);
+                                    }
+                                );
+                            } catch (\Exception $e) {
+                                //log error
+                            }
+                        }
+                    }
+                }
+                $history->save();
 
                 toastr()->success('Document Sent');
 
@@ -3169,40 +3194,49 @@ class FieldVisitController extends Controller
             if ($data->stage == 1) {
 
                 $data->stage = '0';
-                $data->status = 'Opened';
+                $data->status = 'Cancel';
                 $data->close_cancel_by = Auth::user()->name;
                 $data->close_cancel_on = Carbon::now()->format('d-M-Y');
                 $data->close_cancel_comment = $request->comment;
 
                 $data->update();
-                // $history = new dataHistory();
-                // $history->type = "data";
-                // $history->doc_id = $id;
-                // $history->user_id = Auth::user()->id;
-                // $history->user_name = Auth::user()->name;
-                // $history->stage_id = $data->stage;
-                // $history->status = "Opened";
-                // foreach ($list as $u) {
-                //     if ($u->q_m_s_divisions_id == $data->division_id) {
-                //         $email = Helpers::getInitiatorEmail($u->user_id);
-                //         if ($email !== null) {
+                $history = new FieldVisitAuditTrial();
+                $history->FieldVisit_id = $id;
+                $history->activity_type = 'Activity Log';
+                $history->action = 'Cancel';
+                $history->previous = $lastDocument->close_cancel_by;
+                $history->current = $data->close_cancel_by;
+                $history->comment = $request->comment;
+                $history->user_id = Auth::user()->id;
+                $history->user_name = Auth::user()->name;
+                $history->user_role = RoleGroup::where('id', Auth::user()->role)->value('name');
+                $history->origin_state = $lastDocument->status;
+                $history->stage = 'Cancel';
+                $history->change_to = 'Closed-Cancelled';
+                $history->change_from = $lastDocument->status;
+                $history->action_name = 'Not Applicable';
 
-                //             try {
-                //                 Mail::send(
-                //                     'mail.view-mail',
-                //                     ['data' => $data],
-                //                     function ($message) use ($email) {
-                //                         $message->to($email)
-                //                             ->subject("Activity Performed By " . Auth::user()->name);
-                //                     }
-                //                 );
-                //             } catch (\Exception $e) {
-                //                 //log error
-                //             }
-                //         }
-                //     }
-                // }
-                // $history->save();
+                foreach ($list as $u) {
+                    if ($u->q_m_s_divisions_id == $data->division_id) {
+                        $email = Helpers::getInitiatorEmail($u->user_id);
+                        if ($email !== null) {
+
+                            try {
+                                Mail::send(
+                                    'mail.view-mail',
+                                    ['data' => $data],
+                                    function ($message) use ($email) {
+                                        $message->to($email)
+                                            ->subject('Activity Performed By '.Auth::user()->name);
+                                    }
+                                );
+                            } catch (\Exception $e) {
+                                //log error
+                            }
+                        }
+                    }
+                }
+                $history->save();
 
                 toastr()->success('Document Sent');
 

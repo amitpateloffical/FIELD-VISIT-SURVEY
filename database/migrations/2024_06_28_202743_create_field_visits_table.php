@@ -22,12 +22,12 @@ return new class extends Migration
             $table->integer('save_data')->nullable();
             // $table->text('type')->nullable();
             $table->text('date')->nullable();
-            $table->text('time')->nullable();
+            $table->time('time')->nullable();
             $table->text('brand_name')->nullable();
             $table->text('field_visitor')->nullable();
             $table->text('region')->nullable();
             $table->text('exact_location')->nullable();
-            $table->text('exact_address')->nullable();
+            $table->longText('exact_address')->nullable();
             $table->text('page_section')->nullable();
             $table->text('photos')->nullable();
             $table->text('store_lighting')->nullable();
@@ -44,7 +44,7 @@ return new class extends Migration
             $table->text('product_visiblity')->nullable();
             $table->text('store_signage')->nullable();
             $table->text('independent_washroom')->nullable();
-            $table->text('any_remarks')->nullable();
+            $table->longText('any_remarks')->nullable();
             $table->text('page_section1')->nullable();
             $table->text('staff_behaviour')->nullable();
             $table->text('well_groomed')->nullable();
@@ -57,7 +57,7 @@ return new class extends Migration
             $table->text('proactive')->nullable();
             $table->text('customer_satisfaction')->nullable();
             $table->text('billing_counter_experience')->nullable();
-            $table->text('remarks_on_staff_observation')->nullable();
+            $table->longText('remarks_on_staff_observation')->nullable();
             $table->text('page_sacetion_2')->nullable();
             $table->text('any_offers')->nullable();
             $table->text('current_offer')->nullable();
@@ -67,7 +67,7 @@ return new class extends Migration
             $table->text('use_of_influencer')->nullable();
             $table->text('age_group_of_customer')->nullable();
             $table->text('alteration_facility_in_store')->nullable();
-            $table->text('any_remarks_sale')->nullable();
+            $table->longText('any_remarks_sale')->nullable();
             $table->text('page_section_3')->nullable();
             $table->text('sub_brand_offered')->nullable();
             $table->text('colour_palette')->nullable();
@@ -79,7 +79,7 @@ return new class extends Migration
             $table->text('prints_observed')->nullable();
             $table->text('embroideries_observed')->nullable();
             $table->text('quality_of_garments')->nullable();
-            $table->text('remarks_on_product_observation')->nullable();
+            $table->longText('remarks_on_product_observation')->nullable();
             $table->text('page_section_4')->nullable();
             $table->text('entrance_of_the_store')->nullable();
             $table->text('story_telling')->nullable();
@@ -99,8 +99,8 @@ return new class extends Migration
             $table->text('trial_room_available')->nullable();
             $table->text('seating_around_trial_room')->nullable();
             $table->text('cloth_hanger')->nullable();
-            $table->text('any_remarks_on_the_trail_room')->nullable();
-            $table->text('comments_on_hte_overall_store')->nullable();
+            $table->longText('any_remarks_on_the_trail_room')->nullable();
+            $table->longText('comments_on_hte_overall_store')->nullable();
             $table->timestamps();
         });
     }

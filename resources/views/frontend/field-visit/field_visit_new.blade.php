@@ -89,11 +89,27 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6">
+                                {{-- <div class="col-lg-6">
                                     <div class="group-input">
                                         <label for="Date Due">Date of Initiation</label>
                                         <input disabled type="text" value="{{ date('d-M-Y') }}" name="intiation_date">
                                         <input type="hidden" value="{{ date('Y-m-d') }}" name="intiation_date">
+                                    </div>
+                                </div> --}}
+                                <div class="col-lg-6">
+                                    <div class="group-input">
+                                        <label for="Date Opened">Date of Initiation</label>
+                                        @if (isset($data) && $data->intiation_date)
+                                            <input disabled type="text"
+                                                value="{{ \Carbon\Carbon::parse($data->intiation_date)->format('d-M-Y') }}"
+                                                name="intiation_date_display">
+                                            <input type="hidden" value="{{ $data->intiation_date }}"
+                                                name="intiation_date">
+                                        @else
+                                            <input disabled type="text" value="{{ date('d-M-Y') }}"
+                                                name="intiation_date_display">
+                                            <input type="hidden" value="{{ date('Y-m-d') }}" name="intiation_date">
+                                        @endif
                                     </div>
                                 </div>
 
@@ -176,22 +192,22 @@
                                         </label>
                                         <select id="select-state" placeholder="Select..." name="region">
                                             <option value="">Select a value</option>
-                                            <option value="Extension Of South Mumbai - Prabhadevi to Mahim">Extension Of
-                                                South Mumbai - Prabhadevi to Mahim</option>
-                                            <option value="Western Suburbs (A) - Bandra to Santacruz">Western Suburbs (A) -
-                                                Bandra to Santacruz</option>
-                                            <option value="Western Suburbs (B)- Ville Parle to ANDHERI">Western Suburbs
-                                                (B)- Ville Parle to Andheri</option>
-                                            <option value="Western Suburbs (C) - Jogeshwari to Goregoan">Western Suburbs
-                                                (C) - Jogeshwari to Goregoan</option>
-                                            <option value="Western Suburbs (D) - Malad to Borivali">Western Suburbs (D) -
-                                                Malad to Borivali</option>
-                                            <option value="North Mumbai - Beyond Borivali up to Virar">North Mumbai -
-                                                Beyond Borivali up to Virar</option>
-                                            <option value="Eastern Suburbs - Central Mumbai">Eastern Suburbs - Central
-                                                Mumbai</option>
-                                            <option value="Harbour Suburbs - Navi Mumbai">Harbour Suburbs - Navi Mumbai
-                                            </option>
+                                            <option value="Extension Of South Mumbai - Prabhadevi to Mahim">
+                                                Extension Of South Mumbai - Prabhadevi to Mahim</option>
+                                            <option value="Western Suburbs (A) - Bandra to Santacruz">
+                                                Western Suburbs (A) - Bandra to Santacruz</option>
+                                            <option value="Western Suburbs (B)- Ville Parle to Andheri">
+                                                Western Suburbs (B)- Ville Parle to Andheri</option>
+                                            <option value="Western Suburbs (C) - Jogeshwari to Goregoan">
+                                                Western Suburbs (C) - Jogeshwari to Goregoan</option>
+                                            <option value="Western Suburbs (D) - Malad to Borivali">
+                                                Western Suburbs (D) - Malad to Borivali</option>
+                                            <option value="North Mumbai - Beyond Borivali up to Virar">
+                                                North Mumbai - Beyond Borivali up to Virar</option>
+                                            <option value="Eastern Suburbs - Central Mumbai">
+                                                Eastern Suburbs - Central Mumbai</option>
+                                            <option value="Harbour Suburbs - Navi Mumbai">
+                                                Harbour Suburbs - Navi Mumbai</option>
                                         </select>
                                     </div>
                                 </div>
